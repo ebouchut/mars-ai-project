@@ -7,7 +7,7 @@ This project is a co-creation between [La Plateforme](https://laplateforme.io) (
 
 ## Overview
 
-marsAI celebrates human creativity at the intersection of filmmaking and artificial intelligence. 
+*marsAI* celebrates human creativity at the intersection of filmmaking and artificial intelligence. 
 The festival theme for this inaugural edition is **Imaginez des futurs souhaitables** (Imagine Desirable Futures).
 The platform serves as the digital hub for film submissions, public viewing of finalist works, jury evaluation, and festival administration.
 
@@ -62,8 +62,8 @@ The entire interface is available in *French* and *English* via i18n (internatio
 - Architecture:  
     - MVC Pattern
 - Dev Tooling:
-    - `npm` version 11.7+
-    - `git` (ideally the latest version)
+    - [`npm`](https://en.wikipedia.org/wiki/Npm) version 11.7+
+    - [`git`](https://en.wikipedia.org/wiki/Git) (ideally the latest version)
 
 ### Additional Requirements
 
@@ -75,22 +75,21 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 ## Installation
 
-- Clone the project  
+- **Clone** the project  
   ```shell
   git clone https://github.com/ebouchut/mars-ai-project.git
   cd mars-ai-project
   ```
-- Install backend dependencies  
+- Install **backend** dependencies  
   ```shell
   cd server
   npm install
   ```
-### Install frontend dependencies
-
-```shell
-cd ../client
-npm install
-```
+- Install **frontend** dependencies
+  ```shell
+  cd ../client
+  npm install
+  ```
 
 ## Configuration
 
@@ -124,16 +123,17 @@ npm install
 ## License
 
 This project is developed for educational purposes as part of the CDPI program at [La Plateforme_](https://laplateforme.io) in partnership with [Mobile Film Festival](https://www.mobilefilmfestival.com).
-TODO: Choose a license
+
+We still need to [choose a license](https://github.com/ebouchut/mars-ai-project/issues/20) for the repository.
 
 ## Authors
 
 We are a team of five:
 
 - Eva DAUMAS:  [GitHub](https://github.com/eva-daumas)
-- Salah BELHASSAN: | [GitHub](https://github.com/salah-eddine)
-- Alex BACHIR: | [GitHub](https://github.com/alex-bachir)
-- Benjamin ASTIER: | [GitHub](https://github.com/Septieme7)
--  Eric BOUCHUT: [LinkedIn](https://linkedin.com/in/ebouchut) | [GitHub](https://github.com/ebouchut)
+- Salah BELHASSAN: [GitHub](https://github.com/salah-eddine)
+- Alex BACHIR: [LinkedIn](https://www.linkedin.com/in/alex-bachir-108ba5339/) | [GitHub](https://github.com/alex-bachir)
+- Benjamin ASTIER: [GitHub](https://github.com/Septieme7)
+- Eric BOUCHUT: [LinkedIn](https://linkedin.com/in/ebouchut) | [GitHub](https://github.com/ebouchut)
 
 ## Acknowledgments
