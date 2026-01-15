@@ -113,6 +113,18 @@ The entire interface is available in *French* and *English* via i18n (internatio
 This section describes how the database is structured.
 The *marsAI* platform uses a relational database to manage users, films, ratings, and partners.
 
+### Database Naming Conventions
+
+Here are the naming conventions for the name of our database tables:
+
+- all lowercase
+- plural
+- use underscore for multi words names: `social_networks`
+- less than 64 characters (because of a MySQL constraint)
+
+Do not use an underscore as the first character.
+
+
 ### Database ERD Diagram
 
 The below Entity Relationships Diagram (ERD) is preliminary draft showing the entities and their relationships.  
