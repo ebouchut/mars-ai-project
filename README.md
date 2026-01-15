@@ -130,6 +130,7 @@ Do not use an underscore as the first character.
 The below Entity Relationships Diagram (ERD) is preliminary draft showing the entities and their relationships.  
 Wi will update it along the way.
 
+
 ```mermaid
 ---
 title: marsAI Project - Entity Relationship Diagram (ERD)
@@ -137,6 +138,31 @@ config:
     layout: elk
 ---
 erDiagram
+    filmmakers {
+        id            INT           PK
+        name          VARCHAR(100)  UK
+        email         VARCHAR(80)   UK
+        password      VARCHAR(100)
+        first_name    VARCHAR(60)
+        last_name     VARCHAR(255)
+        bio           TEXT
+        school        VARCHAR(60)
+        photo         VARCHAR(255)
+    }
+    social_networks {
+        id            INT           PK
+        filmmaker_id  INT           FK
+        name          VARCHAR(100)
+        url           VARCHAR(255)  UK
+    }
+    works {
+        id            INT           PK
+        filmmaker_id  INT           FK
+        date          DATE
+        name          VARCHAR(100)  UK "part 1 of compound Unique Key"
+        url           VARCHAR(255)  UK "part 2 of compound Unique Key"
+        description   TEXT
+    }
     partners {
         id            INT           PK
         name          VARCHAR(100)  UK
@@ -144,10 +170,15 @@ erDiagram
         url           VARCHAR(255) "*"
         logo          VARCHAR(255) "*"
     }
+
+    filmmakers |o ..o{ social_networks : "is present on"
+    filmmakers |o ..o{ works           : "has previous works"
 ```
 
 
-The `*` in the above ERD diagram denotes a required field.
+Where:
+- `*` denotes a required field
+
 
 ## API Documentation
 
