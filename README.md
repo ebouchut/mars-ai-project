@@ -108,6 +108,34 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 ## Project Structure
 
+## Database Schema
+
+This section describes how the database is structured.
+The *marsAI* platform uses a relational database to manage users, films, ratings, and partners.
+
+### Database ERD Diagram
+
+The below Entity Relationships Diagram (ERD) is preliminary draft showing the entities and their relationships.  
+Wi will update it along the way.
+
+```mermaid
+---
+title: marsAI Project - Entity Relationship Diagram (ERD)
+config:
+    layout: elk
+---
+erDiagram
+    partners {
+        id            INT           PK
+        name          VARCHAR(100)  UK
+        description   VARCHAR(255)
+        url           VARCHAR(255) "*"
+        logo          VARCHAR(255) "*"
+    }
+```
+
+
+The `*` in the above ERD diagram denotes a required field.
 
 ## API Documentation
 
