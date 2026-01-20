@@ -155,6 +155,18 @@ erDiagram
       VARCHAR(255)   poster_url
       TEXT           description
     }
+    nominations {
+      INT             id           PK
+
+      INT             partner_id   FK
+      INT             film_id      FK
+    }
+    awards {
+      INT             id           PK
+      INT             partner_id   FK
+      VARCHAR(30)     name         UK
+      TEXT            description
+    }
     filmmakers {
         INT           id            PK
         VARCHAR(80)   email         UK
@@ -172,15 +184,21 @@ erDiagram
         VARCHAR(80)   email         UK
         VARCHAR(255)  password_hash     "NOT NULL"
         VARCHAR(60)   first_name        "NOT NULL"
-        VARCHAR(255)  last_name          "NOT NULL"
+        VARCHAR(255)  last_name         "NOT NULL"
         TEXT          bio
         VARCHAR(255)  photo
-        TIMESTAMP     created_at
-        TIMESTAMP     updated_at
+        TIMESTAMP     created_at       "NOT NULL"
+        TIMESTAMP     updated_at       "NOT NULL"
+    }
+    filmmaker_social_networks {
+        INT           id                 PK
+        INT           filmmaker_id       FK
+        INT           social_network_id  FK
+
+        VARCHAR(255)  profile_url           "NOT NULL"
     }
     social_networks {
         INT           id            PK
-        INT           filmmaker_id  FK
         VARCHAR(100)  name
         VARCHAR(255)  url           UK
     }
@@ -197,20 +215,21 @@ erDiagram
         VARCHAR(100) first_name         "NOT NULL"
         VARCHAR(255) last_name          "NOT NULL"
         VARCHAR(100) email          UK
+        VARCHAR(255) password_hash      "NOT NULL"
         TEXT         bio
-        TIMESTAMP    created_at
-        TIMESTAMP    updated_at
+        TIMESTAMP     created_at        "NOT NULL"
+        TIMESTAMP     updated_at        "NOT NULL"
     }
     votes {
         INT           id            PK
 
-        INT           jury_id       FK
-        INT           film_id       FK
+        INT           jury_id       FK "Unique constraint part 1/2"
+        INT           film_id       FK "Unique constraint part 2/2"
 
         INT           score            "NOT NULL"
         TEXT          comment          "NOT NULL"
-        TIMESTAMP     created_at
-        TIMESTAMP     updated_at
+        TIMESTAMP     created_at       "NOT NULL"
+        TIMESTAMP     updated_at       "NOT NULL"
     }
     partners {
         INT           id            PK
@@ -219,37 +238,48 @@ erDiagram
         VARCHAR(255)  url              "NOT NULL"
         VARCHAR(255)  logo             "NOT NULL"
         INT           order            "display order"
-        TIMESTAMP     created_at
-        TIMESTAMP     updated_at
+        TIMESTAMP     created_at       "NOT NULL"
+        TIMESTAMP     updated_at       "NOT NULL"
     }
-    ai_tools {
+    film_production_tools {
+        INT           id                  PK
+        INT           film_id             FK
+        INT           production_tool_id  FK
+    }
+    production_tools {
         INT           id            PK
         VARCHAR(100)  name          UK
         TEXT          description
         VARCHAR(255)  url
-        TIMESTAMP     created_at
-        TIMESTAMP     updated_at
     }
-    awards {
-      INT             id           PK
-      INT             partner_id   FK "composite FK (1/2)"
-      INT             film_id      FK "composite FK    (2/2)"
-      VARCHAR(30)     name         UK
+    admins {
+        INT           id            PK
+        VARCHAR(100)  name          UK
+        VARCHAR(255) password_hash      "NOT NULL"
+
+        TIMESTAMP     created_at       "NOT NULL"
+        TIMESTAMP     updated_at       "NOT NULL"
     }
 
-    filmmakers o|..o{ social_networks : "is present on"
-    filmmakers o|..o{ works           : "has previous works"
-    
+    filmmakers                 o|..o{ filmmaker_social_networks : "has a profile on"
+    filmmaker_social_networks  o|..o{ social_networks            : "used by"
+
+    filmmakers o|..o{ works           : "created"
+
     jury       ||..o{ votes           : "scores a film"
-    votes      o{..|| films           : "scored by a jury" 
-    
+    votes      o{..|| films           : "scored by a jury"
+
     selectors  o|..o{ screenings      : "screens a film"
     screenings o{..o| films           : "screened by"
-    
-    films      o{..}o awards           : "is sponsored by"
-    awards     o{..}o partners         : "sponsors"
-```
 
+    films       o{..}o nominations    : "is nominated"
+    nominations o{..}o awards         : "for"
+
+    partners    o|..}o awards         : "sponsors"
+
+    films          o{..}o film_production_tools   : "built with"
+    film_production_tools o{..}o production_tools : "used in"
+```
 
 
 
