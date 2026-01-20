@@ -244,9 +244,8 @@ erDiagram
         TIMESTAMP     updated_at       "NOT NULL"
     }
     film_production_tools {
-        INT           id                  PK
-        INT           film_id             FK
-        INT           production_tool_id  FK
+        INT           film_id             PK,FK
+        INT           production_tool_id  PK,FK
     }
     production_tools {
         INT           id            PK
@@ -283,11 +282,17 @@ erDiagram
     film_production_tools o{..}o production_tools : "used in"
 ```
 
-Where the the source uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) to express cardinality:
+This diagram uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) for the cardinality of relationships, where:
 
-- `o|` denotes `0..1`
+- `o|` denotes `0..1` (zero or one)
 - `||` denotes Exactly one
-- `o{` denotes `0..n`
+- `o{` denotes `0..n` (zero or more)
+
+If you want to create an Entity Relationship Diagram (ERD) like this one, then take a look at [Mermaid.js](https://mermaid.js.org/intro/). With this syntax embedded in a Markdown file, GitHub issue, you can easily create many types of diagrams such as sequence/flow/class/state diagrams to only name a few.
+
+GitHub among many other [tools, IDEs and platforms support Mermaid diagrams](https://mermaid.js.org/ecosystem/integrations-community.html#community-integrations).
+
+To give Mermaid diagrams a whirl, you can use the [free online visual editor](https://mermaid.live/) to build your first diagram, share it with others and even export it to various formats.
 
 
 ## API Documentation
