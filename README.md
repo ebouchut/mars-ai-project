@@ -143,7 +143,7 @@ We will update this draft along the way.
 
 ```mermaid
 ---
-title: marsAI Project - Entity Relationship Diagram (ERD) v2
+title: marsAI Project - Entity Relationship Diagram (ERD)
 config:
     layout: elk
 ---
@@ -158,8 +158,10 @@ erDiagram
     nominations {
       INT             id           PK
 
-      INT             partner_id   FK
-      INT             film_id      FK
+      INT             partner_id   FK "UK part 1/2"
+      INT             film_id      FK "UK part 2/2"
+
+      ENUM            status          "('pending' (default), 'nominated', 'winner', 'runner_up')"
     }
     awards {
       INT             id           PK
@@ -174,7 +176,7 @@ erDiagram
         VARCHAR(60)   first_name        "NOT NULL"
         VARCHAR(255)  last_name          "NOT NULL"
         TEXT          bio
-        VARCHAR(100)   school
+        VARCHAR(100)  school
         VARCHAR(255)  photo
         TIMESTAMP     created_at
         TIMESTAMP     updated_at
@@ -212,11 +214,11 @@ erDiagram
     }
     jury {
         INT           id            PK
-        VARCHAR(100) first_name         "NOT NULL"
-        VARCHAR(255) last_name          "NOT NULL"
-        VARCHAR(100) email          UK
-        VARCHAR(255) password_hash      "NOT NULL"
-        TEXT         bio
+        VARCHAR(100)  first_name         "NOT NULL"
+        VARCHAR(255)  last_name          "NOT NULL"
+        VARCHAR(100)  email          UK
+        VARCHAR(255)  password_hash      "NOT NULL"
+        TEXT          bio
         TIMESTAMP     created_at        "NOT NULL"
         TIMESTAMP     updated_at        "NOT NULL"
     }
@@ -277,11 +279,15 @@ erDiagram
 
     partners    o|..}o awards         : "sponsors"
 
-    films          o{..}o film_production_tools   : "built with"
+    films                 o{..}o film_production_tools   : "built with"
     film_production_tools o{..}o production_tools : "used in"
 ```
 
+Where the the source uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) to express cardinality:
 
+- `o|` denotes `0..1`
+- `||` denotes Exactly one
+- `o{` denotes `0..n`
 
 
 ## API Documentation
