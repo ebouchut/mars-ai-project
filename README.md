@@ -89,12 +89,12 @@ The entire interface is available in *French* and *English* via i18n (internatio
   ```
 - Install **backend** dependencies  
   ```shell
-  cd server
+  cd backend
   npm install
   ```
 - Install **frontend** dependencies
   ```shell
-  cd ../client
+  cd ../frontend
   npm install
   ```
 
