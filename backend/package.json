@@ -17,7 +17,6 @@
     "express": "^5.2.1",
     "joi": "^18.0.2",
     "mysql2": "^3.16.1",
-    "node": "^25.4.0",
     "prisma": "^7.3.0"
   },
   "devDependencies": {
