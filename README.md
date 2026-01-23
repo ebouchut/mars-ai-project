@@ -168,6 +168,7 @@ erDiagram
       INT             partner_id   FK
       VARCHAR(30)     name         UK
       TEXT            description
+      DECIMAL(10)     amount           "DECIMAL(10,2)"
     }
     filmmakers {
         INT           id            PK
