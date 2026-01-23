@@ -136,9 +136,8 @@ Do not use an underscore as the first character.
 
 ### Database ERD Diagram
 
-The below Entity Relationships Diagram (ERD) is very early preliminary draft showing the entities and their relationships.  
-We will update this draft along the way.
-
+The Entity Relationships Diagram (ERD) is a draft.  
+We will update it along the way.
 
 
 ```mermaid
@@ -154,14 +153,15 @@ erDiagram
       VARCHAR(255)   video_url     UK
       VARCHAR(255)   poster_url
       TEXT           description
+      ENUM            status
     }
     nominations {
       INT             id           PK
 
-      INT             partner_id   FK "UK part 1/2"
-      INT             film_id      FK "UK part 2/2"
+      INT             film_id      FK "Composite UK part 1/2"
+      INT             award_id     FK "Composite UK part 2/2"
 
-      ENUM            status          "('pending' (default), 'nominated', 'winner', 'runner_up')"
+      ENUM            status          "pending, nominated, winner, runner_up"
     }
     awards {
       INT             id           PK
@@ -174,7 +174,7 @@ erDiagram
         VARCHAR(80)   email         UK
         VARCHAR(255)  password_hash     "NOT NULL"
         VARCHAR(60)   first_name        "NOT NULL"
-        VARCHAR(255)  last_name          "NOT NULL"
+        VARCHAR(255)  last_name         "NOT NULL"
         TEXT          bio
         VARCHAR(100)  school
         VARCHAR(255)  photo
@@ -219,8 +219,8 @@ erDiagram
         VARCHAR(100)  email          UK
         VARCHAR(255)  password_hash      "NOT NULL"
         TEXT          bio
-        TIMESTAMP     created_at        "NOT NULL"
-        TIMESTAMP     updated_at        "NOT NULL"
+        TIMESTAMP     created_at         "NOT NULL"
+        TIMESTAMP     updated_at         "NOT NULL"
     }
     votes {
         INT           id            PK
@@ -253,6 +253,25 @@ erDiagram
         TEXT          description
         VARCHAR(255)  url
     }
+    newsletters {
+        INT           id                 PK
+        VARCHAR(100)  name               UK
+        TIMESTAMP     last_published_at     
+    }
+    newsletter_subscriptions {
+        INT           id                 PK
+        INT           newsletter_id      FK
+        VARCHAR(255)  email              UK
+        ENUM          status                 "NOT NULL, (pending, subscribed, unsubscribed)"
+        INT           external_id            "subscriber id  on the Email Service Provider (ESP)"
+
+        TIMESTAMP     subscribed_at          "NOT NULL (local subscription date)"
+        TIMESTAMP     esp_synced_at          "When email was last synced/registered to Email Service Provider (ESP)"
+        TIMESTAMP     esp_updated_at         "ESP’s **own** last update"
+
+        TIMESTAMP     created_at
+        TIMESTAMP     updated_at
+    }
     admins {
         INT           id            PK
         VARCHAR(100)  name          UK
@@ -280,6 +299,8 @@ erDiagram
 
     films                 o{..}o film_production_tools   : "built with"
     film_production_tools o{..}o production_tools : "used in"
+
+    newsletters o|..o{ newsletter_subscriptions : has subscribers
 ```
 
 This diagram uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) for the cardinality of relationships, where:
