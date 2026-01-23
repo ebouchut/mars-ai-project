@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "dependencies": {
     "dotenv": "^17.2.3",
