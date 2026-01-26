@@ -193,12 +193,20 @@ erDiagram
         TIMESTAMP     created_at       "NOT NULL"
         TIMESTAMP     updated_at       "NOT NULL"
     }
+    screenings {
+        INT           id            PK
+        
+        INT           selector_id   FK
+        INT           film_id       FK
+        
+        ENUM          status        "selected, rejected, pending_consensus"
+    }
     filmmaker_social_networks {
         INT           id                 PK
-        INT           filmmaker_id       FK
-        INT           social_network_id  FK
+        INT           filmmaker_id       FK, UK "Composite unique key part 1/3"
+        INT           social_network_id  FK, UK "Composite unique key part 2/3"
 
-        VARCHAR(255)  profile_url           "NOT NULL"
+        VARCHAR(255)  profile_url        UK     "Composite unique key part 3/3"       
     }
     social_networks {
         INT           id            PK
@@ -263,15 +271,24 @@ erDiagram
         INT           id                 PK
         INT           newsletter_id      FK
         VARCHAR(255)  email              UK
-        ENUM          status                 "NOT NULL, (pending, subscribed, unsubscribed)"
-        INT           external_id            "subscriber id  on the Email Service Provider (ESP)"
-
+        ENUM          status                 "NOT NULL, (pending, subscribed, unsubscribed, error)"
         TIMESTAMP     subscribed_at          "NOT NULL (local subscription date)"
+        
+        INT           esp_subscriber_id      "Subscriber id  on the Email Service Provider (ESP)"
         TIMESTAMP     esp_synced_at          "When email was last synced/registered to Email Service Provider (ESP)"
         TIMESTAMP     esp_updated_at         "ESP’s **own** last update"
 
         TIMESTAMP     created_at
         TIMESTAMP     updated_at
+    }
+    jury_invitations {
+      INT           id             PK
+      VARCHAR(100)  email          UK
+      VARCHAR(255)  token          "NOT NULL"
+      
+      TIMESTAMP     created_at     "NOT NULL, DEFAULT NOW()"
+      TIMESTAMP     expires_at     "NOT NULL, DEFAULT NOW() + 7 days"
+      TIMESTAMP     accepted_at    "NULL"
     }
     admins {
         INT           id            PK
@@ -301,7 +318,7 @@ erDiagram
     films                 o{..}o film_production_tools   : "built with"
     film_production_tools o{..}o production_tools : "used in"
 
-    newsletters o|..o{ newsletter_subscriptions : has subscribers
+    newsletters o|..o{ newsletter_subscriptions : "registers"
 ```
 
 This diagram uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) for the cardinality of relationships, where:
