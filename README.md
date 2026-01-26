@@ -235,8 +235,9 @@ erDiagram
     votes {
         INT           id            PK
 
-        INT           jury_id       FK "Unique constraint part 1/2"
-        INT           film_id       FK "Unique constraint part 2/2"
+        INT           jury_id       FK "Unique constraint part 1/3"
+        INT           film_id       FK "Unique constraint part 2/3"
+        INT           award_id      FK "Unique constraint part 2/3"
 
         INT           score            "NOT NULL"
         TEXT          comment          "NOT NULL"
@@ -293,7 +294,9 @@ erDiagram
     }
     admins {
         INT           id            PK
-        VARCHAR(100)  name          UK
+        VARCHAR(255)  email         UK
+        VARCHAR(100)  first_name        "NOT NULL"
+        VARCHAR(255)  last_name         "NOT NULL"
         VARCHAR(255) password_hash      "NOT NULL"
 
         TIMESTAMP     created_at       "NOT NULL"
@@ -305,8 +308,9 @@ erDiagram
 
     filmmakers o|..o{ works           : "created"
 
-    jury       ||..o{ votes           : "scores a film"
-    votes      o{..|| films           : "scored by a jury"
+    jury       |{..o{ votes           : "cast a vote"
+    votes      o{..|| films           : "scores"
+    votes      o{..|| awards          : "for"
 
     selectors  o|..o{ screenings      : "screens a film"
     screenings o{..o| films           : "screened by"
