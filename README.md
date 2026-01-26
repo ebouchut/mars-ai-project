@@ -153,7 +153,7 @@ erDiagram
       VARCHAR(255)   video_url     UK
       VARCHAR(255)   poster_url
       TEXT           description
-      ENUM            status
+      ENUM           status            "NOT NULL"
     }
     nominations {
       INT             id           PK
@@ -169,6 +169,7 @@ erDiagram
       VARCHAR(30)     name         UK
       TEXT            description
       DECIMAL(10)     amount           "DECIMAL(10,2)"
+      ENUM            amount_currency
     }
     filmmakers {
         INT           id            PK
