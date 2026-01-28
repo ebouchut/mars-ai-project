@@ -117,14 +117,89 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 ## Project Structure
 
+The project uses a **feature-based folder structure**.
+
+```
+backend/
+├── prisma/
+│   ├── schema.prisma               Database schema
+│   ├── migrations/                 Database :migrations
+│   └── seed.js                     
+│
+├── src/
+│   ├── features/
+│   │   │
+│   │   +── vote/
+│   │       ├── vote.routes.js      Define routes to map URLs to controllers
+│   │       ├── vote.controller.js  Handle HTTP request/response
+│   │       ├── vote.validation.js  Validate input with Joi schemas
+│   │       └── vote.service.js     Handle the Business logic operations
+│   │
+│   ├── common/
+│   │   ├── middlewares/
+│   │   │   ├── auth.middleware.js
+│   │   │   ├── error.middleware.js
+│   │   │   ├── role.middleware.js
+│   │   │   ├── upload.middleware.js
+│   │   │   └── validate.middleware.js
+│   │   │
+│   │   └── utils/
+│   │       ├── api-error.js
+│   │       ├── async-handler.js
+│   │       ├── hash.js
+│   │       └── token.js
+│   │
+│   ├── integrations/
+│   │   ├── youtube/
+│   │   │   └── youtube.service.js
+│   │   │
+│   │   └── email/
+│   │       ├── email.service.js
+│   │       └── templates/
+│   │
+│   ├── config/
+│   │   ├── prisma.js
+│   │   ├── environment.js
+│   │   └── constants.js
+│   │
+│   ├── loaders/
+│   │   ├── express.js
+│   │   ├── routes.js
+│   │   └── i18n.js
+│   │
+│   └── app.js
+│
+├── tests/
+├── .env.example
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+The table below explains what are the folders:  
+
+| Folder          | Purpose                                                                                |
+|-----------------|----------------------------------------------------------------------------------------|
+| `features/`     | Business domain modules, each self-contained (routes, controller, validation, service) |
+| `common/`       | Shared utilities, middlewares, and validators                                          |
+| `integrations/` | External service connections (YouTube API, Email Service Provider)                     |
+| `config/`       | Environment and application configuration                                              |
+| `loaders/`      | Application bootstrapping and initialization                                           |
+| `tests/`        | Tests (mirrors the `src/` structure)                                                   |
+
+> [!NOTE]
+> The feature folder does not contain `vote.model.js` nor `vote.dal.js`
+because [Prisma](https://github.com/prisma/prisma), the ORM library we are using, 
+handles the model and Data Access Layer (DAL) for us.
+
 ## Database Schema
 
 This section describes how the database is structured.
-The *marsAI* platform uses a relational database to manage users, films, ratings, and partners.
+The *marsAI* platform uses a relational database to persist entities.
 
 ### Database Naming Conventions
 
-Here are the naming conventions for the name of our database **tables**:
+Here are the naming conventions for the **name** of our database **tables**:
 
 - all lowercase
 - plural

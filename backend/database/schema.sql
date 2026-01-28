@@ -1,5 +1,0 @@
--- Database Schema
---
--- This SQL file creates the database structure.
--- It does NOT create the database.
--- If needed, create the database beforehand.
