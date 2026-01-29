@@ -222,13 +222,25 @@ config:
     layout: elk
 ---
 erDiagram
+    users {
+      INT           id            PK
+      VARCHAR(80)   email         UK             
+      VARCHAR(255)  password_hash     "NOT NULL"
+      ENUM          role              "NOT NULL (admin, filmmaker, screener, jury)"
+      VARCHAR(60)    first_name        "NOT NULL"
+      VARCHAR(255)   last_name         "NOT NULL"
+      TEXT          bio
+      VARCHAR(255)   photo
+      TIMSTAMP      created_at
+      TIMSTAMP      updated_at
+    }
     films {
       INT            id            PK
       VACHAR(255)    name          UK
       VARCHAR(255)   video_url     UK
       VARCHAR(255)   poster_url
       TEXT           description
-      ENUM           status            "NOT NULL"
+      ENUM           status            "NOT NULL (see: https://github.com/ebouchut/mars-ai-project/issues/22)"
     }
     nominations {
       INT             id           PK
@@ -246,40 +258,18 @@ erDiagram
       DECIMAL(10)     amount           "DECIMAL(10,2)"
       ENUM            amount_currency
     }
-    filmmakers {
-        INT           id            PK
-        VARCHAR(80)   email         UK
-        VARCHAR(255)  password_hash     "NOT NULL"
-        VARCHAR(60)   first_name        "NOT NULL"
-        VARCHAR(255)  last_name         "NOT NULL"
-        TEXT          bio
-        VARCHAR(100)  school
-        VARCHAR(255)  photo
-        TIMESTAMP     created_at
-        TIMESTAMP     updated_at
-    }
-    selectors {
-        INT           id            PK
-        VARCHAR(80)   email         UK
-        VARCHAR(255)  password_hash     "NOT NULL"
-        VARCHAR(60)   first_name        "NOT NULL"
-        VARCHAR(255)  last_name         "NOT NULL"
-        TEXT          bio
-        VARCHAR(255)  photo
-        TIMESTAMP     created_at       "NOT NULL"
-        TIMESTAMP     updated_at       "NOT NULL"
-    }
     screenings {
         INT           id            PK
         
-        INT           selector_id   FK
+        INT           user_id   FK
         INT           film_id       FK
         
         ENUM          status        "selected, rejected, pending_consensus"
     }
-    filmmaker_social_networks {
+    user_social_networks {
         INT           id                 PK
-        INT           filmmaker_id       FK, UK "Composite unique key part 1/3"
+
+        INT           user_id            FK, UK "Composite unique key part 1/3"
         INT           social_network_id  FK, UK "Composite unique key part 2/3"
 
         VARCHAR(255)  profile_url        UK     "Composite unique key part 3/3"       
@@ -291,30 +281,20 @@ erDiagram
     }
     works {
         INT           id            PK
-        INT           filmmaker_id  FK
+        INT           user_id       FK "(filmmaker)"
         DATE          date
         VARCHAR(100)  name          UK "compound Unique Key (name + url)"
         VARCHAR(255)  url           UK "compound Unique Key (name + url)"
         TEXT          description
     }
-    jury {
-        INT           id            PK
-        VARCHAR(100)  first_name         "NOT NULL"
-        VARCHAR(255)  last_name          "NOT NULL"
-        VARCHAR(100)  email          UK
-        VARCHAR(255)  password_hash      "NOT NULL"
-        TEXT          bio
-        TIMESTAMP     created_at         "NOT NULL"
-        TIMESTAMP     updated_at         "NOT NULL"
-    }
     votes {
         INT           id            PK
 
-        INT           jury_id       FK "Unique constraint part 1/3"
+        INT           user_id       FK "Unique constraint part 1/3 (jury)"
         INT           film_id       FK "Unique constraint part 2/3"
         INT           award_id      FK "Unique constraint part 2/3"
 
-        INT           score            "NOT NULL"
+        INT           score            "NOT NULL (BETWEEN 1 AND 10)"
         TEXT          comment          "NOT NULL"
         TIMESTAMP     created_at       "NOT NULL"
         TIMESTAMP     updated_at       "NOT NULL"
@@ -325,7 +305,7 @@ erDiagram
         VARCHAR(255)  description
         VARCHAR(255)  url              "NOT NULL"
         VARCHAR(255)  logo             "NOT NULL"
-        INT           order            "display order"
+        INT           display_order    "DEFAULT 0"
         TIMESTAMP     created_at       "NOT NULL"
         TIMESTAMP     updated_at       "NOT NULL"
     }
@@ -341,8 +321,10 @@ erDiagram
     }
     newsletters {
         INT           id                 PK
-        VARCHAR(100)  name               UK
-        TIMESTAMP     last_published_at     
+        VARCHAR(150)  name               UK
+        TIMESTAMP     last_published_at
+        TIMESTAMP     created_at            "NOT NULL"
+        TIMESTAMP     updated_at            "NOT NULL"
     }
     newsletter_subscriptions {
         INT           id                 PK
@@ -378,25 +360,25 @@ erDiagram
         TIMESTAMP     updated_at       "NOT NULL"
     }
 
-    filmmakers                 o|..o{ filmmaker_social_networks : "has a profile on"
-    filmmaker_social_networks  o|..o{ social_networks            : "used by"
+    users                 o|..o{ user_social_networks : "(filmmaker) has a profile on"
+    user_social_networks  o|..o{ social_networks      : "used by"
 
-    filmmakers o|..o{ works           : "creates"
+    users      o|..o{ works           : "(jury) portfolio"
 
-    jury       |{..o{ votes           : "cast a vote"
-    votes      o{..|| films           : "scores"
-    votes      o{..|| awards          : "for"
+    users      ||--o{ votes           : "(jury) cast a vote"
+    votes      o{--|| films           : "scores"
+    votes      o{--|| awards          : "for"
 
-    selectors  o|..o{ screenings      : "screens a film"
-    screenings o{..o| films           : "screened by"
+    users      ||--o{ screenings      : "screens a film"
+    screenings o{--|| films           : "screened by"
 
-    films       o{..}o nominations    : "is nominated"
-    nominations o{..}o awards         : "for"
+    films       ||--}o nominations    : "is nominated"
+    nominations o{--|| awards         : "for"
 
-    partners    o|..}o awards         : "sponsors"
+    partners    o|--}o awards         : "sponsors"
 
-    films                 o{..}o film_production_tools   : "built with"
-    film_production_tools o{..}o production_tools : "used in"
+    films                 ||--}o film_production_tools   : "built with"
+    film_production_tools o{--|o production_tools : "used in"
 
     newsletters o|..o{ newsletter_subscriptions : "registers"
 ```
