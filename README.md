@@ -402,7 +402,8 @@ erDiagram
 ```
 
 > [!NOTE]
-> This diagram uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) for the cardinality of relationships, where:
+> This diagram uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) 
+> for the **cardinality of relationships**, where:
 >
 > - `o|` denotes `0..1` (zero or one)
 > - `||` denotes Exactly one
@@ -453,6 +454,7 @@ erDiagram
 > [issue #1](https://github.com/ebouchut/mars-ai-project/issues/1) introduced this change.
 
 We use a **monorepo**, meaning it contains both the **frontend and** the **backend**.
+
 The **branches**:
 
 - Main branch: **`dev`**  
