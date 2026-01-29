@@ -16,7 +16,6 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "joi": "^18.0.2",
-    "mysql2": "^3.16.1",
     "prisma": "^7.3.0"
   },
   "devDependencies": {
