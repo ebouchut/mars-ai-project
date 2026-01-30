@@ -132,10 +132,10 @@ backend/
 │   ├── features/
 │   │   │
 │   │   +── vote/                   Contains code related to the voting feature
-│   │       ├── vote.routes.js      Define routes to map URLs to controllers
-│   │       ├── vote.controller.js  Handle HTTP request/response
-│   │       ├── vote.validation.js  Validate input with Joi schemas
-│   │       └── vote.service.js     Handle the Business logic operations
+│   │       ├── vote.routes.ts      Define routes to map URLs to controllers
+│   │       ├── vote.controller.ts  Handle HTTP request/response
+│   │       ├── vote.validation.ts  Validate input with Joi schemas
+│   │       └── vote.service.ts     Handle the Business logic operations
 │   │
 │   ├── common/
 │   │   ├── middlewares/
@@ -153,23 +153,23 @@ backend/
 │   │
 │   ├── integrations/
 │   │   ├── youtube/
-│   │   │   └── youtube.service.js
+│   │   │   └── youtube.service.ts
 │   │   │
 │   │   └── email/
-│   │       ├── email.service.js
+│   │       ├── email.service.ts
 │   │       └── templates/
 │   │
 │   ├── config/
-│   │   ├── prisma.js
-│   │   ├── environment.js
-│   │   └── constants.js
+│   │   ├── prisma.ts
+│   │   ├── environment.ts
+│   │   └── constants.ts
 │   │
 │   ├── loaders/
-│   │   ├── express.js
-│   │   ├── routes.js
-│   │   └── i18n.js
+│   │   ├── express.ts
+│   │   ├── routes.ts
+│   │   └── i18n.ts
 │   │
-│   └── app.js
+│   └── app.ts
 │
 ├── tests/
 ├── .env.example
