@@ -2,6 +2,8 @@
 -- This SQL file creates marsAI's database structure:
 -- tables, keys, indexes, constraints using DDL.
 
+USE marsAI;
+
 CREATE TABLE users (
 	id              INT            PRIMARY KEY AUTO_INCREMENT,
 
