@@ -121,15 +121,17 @@ The project uses a **feature-based folder structure**.
 
 ```
 backend/
-├── prisma/
+├── prisma/                         Contains database schema definition and migrations (with Prisma ORM syntax)
 │   ├── schema.prisma               Database schema
-│   ├── migrations/                 Database :migrations
+│   ├── migrations/                 Database migrations
+|   |   └── 20260130101437_add_is_active_to_users/
+|   |       └─- migration.sql
 │   └── seed.js                     
 │
 ├── src/
 │   ├── features/
 │   │   │
-│   │   +── vote/
+│   │   +── vote/                   Contains code related to the voting feature
 │   │       ├── vote.routes.js      Define routes to map URLs to controllers
 │   │       ├── vote.controller.js  Handle HTTP request/response
 │   │       ├── vote.validation.js  Validate input with Joi schemas
