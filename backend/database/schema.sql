@@ -1,6 +1,10 @@
 -- backend/prisma/schema.sql
--- This SQL file creates marsAI's database structure:
--- tables, keys, indexes, constraints using DDL.
+-- This file was used initially create the database structure
+-- (tables, keys, indexes, constraints).
+--
+-- It is now an old artifact.
+-- The source of truth is now the Prisma schema in
+--   backend/prisma/schema.prisma
 
 USE marsAI;
 
