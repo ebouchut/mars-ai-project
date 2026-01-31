@@ -1,3 +1,16 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Project stuff
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Prisma generated sources
+# See: https://www.prisma.io/docs/orm/prisma-schema/overview/generators#3-exclude-the-generated-directory-from-version-control
+/src/generated/prisma
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Non project stuff
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Logs
 logs
 *.log

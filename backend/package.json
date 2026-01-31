@@ -1,25 +1,32 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A film festival Web application",
+  "main": "dist/.main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon",
+    "start": "node dist/app.js",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"TODO\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "A-Team: https://github.com/ebouchut/mars-ai-project?tab=readme-ov-file#authors",
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "dependencies": {
+    "@prisma/adapter-mariadb": "^7.3.0",
+    "@prisma/client": "^7.3.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "joi": "^18.0.2",
-    "mysql2": "^3.16.1",
     "prisma": "^7.3.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.1.0",
+    "nodemon": "^3.1.11",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,0 +1,269 @@
+generator client {
+  // New Client code generator: https://www.prisma.io/docs/orm/prisma-schema/overview/generators#prisma-client
+  provider = "prisma-client"
+
+  // Where the Prisma Client code is generated
+  output   = "../src/generated/prisma"
+
+  // Prisma Client runs without the Rust query engine
+  // and connects directly through a database driver adapter
+  engineType = "client"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model admins {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique(map: "email") @db.VarChar(150)
+  password_hash String   @db.VarChar(255)
+  first_name    String   @db.VarChar(100)
+  last_name     String   @db.VarChar(150)
+  created_at    DateTime @db.Timestamp(0)
+  updated_at    DateTime @default(now()) @db.Timestamp(0)
+}
+
+model awards {
+  id              Int                    @id @default(autoincrement())
+  partner_id      Int?
+  name            String                 @unique(map: "name") @db.VarChar(100)
+  description     String?                @db.Text
+  amount          Decimal?               @db.Decimal(10, 2)
+  amount_currency awards_amount_currency
+  partners        partners?              @relation(fields: [partner_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_awards_partners")
+  nominations     nominations[]
+  votes           votes[]
+
+  @@index([partner_id], map: "fk_awards_partners")
+}
+
+model film_production_tools {
+  film_id            Int
+  production_tool_id Int
+  films              films            @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_film_production_tools_films")
+  production_tools   production_tools @relation(fields: [production_tool_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_film_production_tools_production_tools")
+
+  @@id([film_id, production_tool_id])
+  @@index([production_tool_id], map: "fk_film_production_tools_production_tools")
+}
+
+model films {
+  id                    Int                     @id @default(autoincrement())
+  name                  String                  @unique(map: "name") @db.VarChar(255)
+  video_url             String                  @db.VarChar(255)
+  poster_url            String?                 @db.VarChar(255)
+  description           String?                 @db.Text
+  status                films_status?
+  created_at            DateTime                @db.Timestamp(0)
+  updated_at            DateTime                @default(now()) @db.Timestamp(0)
+  film_production_tools film_production_tools[]
+  nominations           nominations[]
+  screenings            screenings[]
+  votes                 votes[]
+
+  @@unique([name, video_url], map: "uk_films_name_video_url")
+  @@index([status], map: "idx_films_status")
+}
+
+model jury_invitations {
+  id          Int       @id @default(autoincrement())
+  email       String    @unique(map: "email") @db.VarChar(150)
+  token       String    @db.VarChar(255)
+  expires_at  DateTime  @db.Timestamp(0)
+  accepted_at DateTime? @db.Timestamp(0)
+  created_at  DateTime  @db.Timestamp(0)
+  updated_at  DateTime  @default(now()) @db.Timestamp(0)
+
+  @@index([token], map: "idx_jury_invitations_token")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model newsletter_subscriptions {
+  id                Int                             @id @default(autoincrement())
+  newsletter_id     Int?
+  email             String?                         @unique(map: "email") @db.VarChar(150)
+  status            newsletter_subscriptions_status
+  subscribed_at     DateTime                        @db.Timestamp(0)
+  esp_subscriber_id Int?
+  esp_synced_at     DateTime?                       @db.Timestamp(0)
+  esp_updated_at    DateTime?                       @db.Timestamp(0)
+  created_at        DateTime                        @db.Timestamp(0)
+  updated_at        DateTime                        @default(now()) @db.Timestamp(0)
+  newsletters       newsletters?                    @relation(fields: [newsletter_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "newsletters_registers_newsletter_subscriptions")
+
+  @@index([status], map: "idx_newsletter_subscriptions_status")
+  @@index([newsletter_id], map: "newsletters_registers_newsletter_subscriptions")
+}
+
+model newsletters {
+  id                       Int                        @id @default(autoincrement())
+  name                     String                     @unique(map: "name") @db.VarChar(150)
+  last_published_at        DateTime?                  @db.Timestamp(0)
+  created_at               DateTime                   @db.Timestamp(0)
+  updated_at               DateTime                   @db.Timestamp(0)
+  newsletter_subscriptions newsletter_subscriptions[]
+}
+
+model nominations {
+  film_id  Int
+  award_id Int
+  status   nominations_status @default(pending)
+  awards   awards             @relation(fields: [award_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_nominations_awards")
+  films    films              @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_nominations_films")
+
+  @@id([film_id, award_id])
+  @@index([award_id], map: "fk_nominations_awards")
+}
+
+model partners {
+  id            Int      @id @default(autoincrement())
+  name          String?  @unique(map: "name") @db.VarChar(100)
+  description   String?  @db.VarChar(255)
+  url           String   @db.VarChar(255)
+  logo          String   @db.VarChar(255)
+  display_order Int?     @default(0)
+  created_at    DateTime @db.Timestamp(0)
+  updated_at    DateTime @default(now()) @db.Timestamp(0)
+  awards        awards[]
+}
+
+model production_tools {
+  id                    Int                     @id @default(autoincrement())
+  name                  String                  @unique(map: "name") @db.VarChar(100)
+  description           String?                 @db.Text
+  url                   String?                 @db.VarChar(255)
+  film_production_tools film_production_tools[]
+}
+
+model screenings {
+  user_id Int
+  film_id Int
+  status  screenings_status
+  comment String?           @db.Text
+  films   films             @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_screenings_films")
+  users   users             @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_screenings_users")
+
+  @@id([user_id, film_id])
+  @@index([film_id], map: "fk_screenings_films")
+}
+
+model social_networks {
+  id                   Int                    @id @default(autoincrement())
+  name                 String                 @db.VarChar(100)
+  url                  String                 @db.VarChar(255)
+  user_social_networks user_social_networks[]
+
+  @@unique([name, url], map: "uk_social_networks_name_url")
+}
+
+model user_social_networks {
+  user_id           Int
+  social_network_id Int
+  profile_url       String          @db.VarChar(255)
+  social_networks   social_networks @relation(fields: [social_network_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_social_networks_social_networks")
+  users             users           @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_social_networks_users")
+
+  @@id([user_id, social_network_id])
+  @@unique([user_id, social_network_id, profile_url], map: "uk_user_social_networks")
+  @@index([social_network_id], map: "fk_user_social_networks_social_networks")
+}
+
+model users {
+  id                   Int                    @id @default(autoincrement())
+  email                String                 @unique(map: "email") @db.VarChar(150)
+  password_hash        String                 @db.VarChar(255)
+  role                 users_role
+  first_name           String                 @db.VarChar(60)
+  last_name            String                 @db.VarChar(255)
+  bio                  String?                @db.Text
+  photo                String?                @db.VarChar(255)
+  created_at           DateTime?              @db.Timestamp(0)
+  updated_at           DateTime               @default(now()) @db.Timestamp(0)
+  screenings           screenings[]
+  user_social_networks user_social_networks[]
+  votes                votes[]
+  works                works[]
+}
+
+model votes {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  film_id    Int
+  award_id   Int
+  score      Int
+  comment    String   @db.Text
+  created_at DateTime @db.Timestamp(0)
+  updated_at DateTime @default(now()) @db.Timestamp(0)
+  awards     awards   @relation(fields: [award_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_awards")
+  films      films    @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_films")
+  users      users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_users")
+
+  @@unique([user_id, film_id, award_id], map: "uk_votes_user_id_film_id_award_id")
+  @@index([award_id], map: "fk_votes_awards")
+  @@index([film_id], map: "fk_votes_films")
+}
+
+model works {
+  id          Int       @id @default(autoincrement())
+  user_id     Int
+  date        DateTime? @db.Date
+  name        String    @unique(map: "name") @db.VarChar(100)
+  url         String    @unique(map: "url") @db.VarChar(255)
+  description String?   @db.Text
+  users       users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_works_users")
+
+  @@unique([name, url], map: "uk_works_name_url")
+  @@index([user_id], map: "fk_works_users")
+}
+
+  enum nominations_status {
+  pending
+  nominated
+  winner
+  runner_up
+}
+
+enum screenings_status {
+  selected
+  rejected
+  pending_consensus
+}
+
+enum newsletter_subscriptions_status {
+  pending
+  subscribed
+  unsubscribed
+  error
+}
+
+enum users_role {
+  admin
+  filmmaker
+  screener
+  jury
+}
+
+enum awards_amount_currency {
+  USD
+  EUR
+}
+
+enum films_status {
+  submitted
+  bookended
+  draft_published
+  copyright_cleared
+  copyright_flagged
+  screenable
+  screened
+  selected
+  pending_consensus
+  rejected
+  duration_exceeded
+  categorized
+  voting
+  scored
+  winner
+  runner_up
+}
