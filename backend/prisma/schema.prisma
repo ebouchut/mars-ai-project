@@ -1,9 +1,14 @@
+generator client {
+  provider = "prisma-client"
 
-datasource db {
-    provider = "mysql"
-    url      = `mysql://${env("DATABASE_USER")}:${env("DATABASE_PASSWORD")}@${env("DATABASE_HOST")}:${env("DATABASE_PORT")}/${env("DATABASE_NAME")}`
+  // Where the Prisma Client code is generated
+  output   = "../src/generated/prisma"
+
+  // Prisma Client runs without the Rust query engine
+  // and connects directly through a database driver adapter
+  engineType = "client"
 }
 
-generator client {
-    provider = "prisma-client-js"
+datasource db {
+  provider = "mysql"
 }
