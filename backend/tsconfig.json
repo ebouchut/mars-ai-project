@@ -2,26 +2,41 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // ~~~~~ File Layout
+
+    // Directory containing the source .ts files
     "rootDir": "./src",
+    // Directory where compiled .js files are emitted
     "outDir":  "./dist",
 
     // ~~~~~ Environment Settings
     // Combined with `"type": "module"` in a local package.json,
     // this enforces including file extensions on relative path imports.
     // See: https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    // For nodejs:
-    "lib":   ["esnext"],
+
+    // Module system matching Node.js ESM resolution
+    "module": "NodeNext",
+    // Emit modern JS without downleveling syntax
+    "target": "ESNext", // Prisma suggests "ES2023"
+
+    // Use type definitions for the latest standard JavaScript features only
+    // (no browser DOM APIs)
+    "lib":   ["ESNext"],
+
+    // Load the type declarations from the `@types/node` package
     "types": ["node"],
 
-    // Other Outputs
+    // ~~~~~ Other Outputs
+
+    // Generate .map files for debugger support
     "sourceMap":      true,
     // "declaration":    true,
     // "declarationMap": true,
 
-    // Stricter Typechecking Options
+    // ~~~~~ Stricter Typechecking Options
+
+    // Force explicit undefined checks on indexed access
     "noUncheckedIndexedAccess": true,
+    // Distinguish between optional and undefined properties
     "exactOptionalPropertyTypes": true,
 
     // Style Options
@@ -32,12 +47,19 @@
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
 
-    // Recommended Options
+    // ~~~~~ Recommended Options
+
+    // Enable all strict type-checking options
     "strict": true,
+    // Preserve import/export syntax exactly as written
     "verbatimModuleSyntax": true,
+    // Ensure each file can be transpiled independently
     "isolatedModules": true,
+    // Warn on side-effect imports that resolve to nothing
     "noUncheckedSideEffectImports": true,
+    // Treat every file as a module regardless of content
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    // Skip type checking of declaration files
+    "skipLibCheck": true
   }
 }
