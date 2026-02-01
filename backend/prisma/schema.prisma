@@ -54,7 +54,7 @@ model films {
   video_url             String                  @db.VarChar(255)
   poster_url            String?                 @db.VarChar(255)
   description           String?                 @db.Text
-  status                films_status?
+  status                films_status
   created_at            DateTime                @db.Timestamp(0)
   updated_at            DateTime                @default(now()) @db.Timestamp(0)
   film_production_tools film_production_tools[]
@@ -108,7 +108,7 @@ model newsletters {
 model nominations {
   film_id  Int
   award_id Int
-  status   nominations_status @default(pending)
+  status   nominations_status
   awards   awards             @relation(fields: [award_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_nominations_awards")
   films    films              @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_nominations_films")
 
@@ -217,17 +217,17 @@ model works {
   @@index([user_id], map: "fk_works_users")
 }
 
-  enum nominations_status {
-  pending
+enum nominations_status {
   nominated
   winner
   runner_up
+  pending_tiebreak_consensus
 }
 
 enum screenings_status {
   selected
   rejected
-  pending_consensus
+  pending_selection_consensus
 }
 
 enum newsletter_subscriptions_status {
@@ -257,13 +257,11 @@ enum films_status {
   copyright_flagged
   screenable
   screened
+  pending_selection_consensus
   selected
-  pending_consensus
-  rejected
   duration_exceeded
+  rejected
   categorized
-  voting
+  in_competation
   scored
-  winner
-  runner_up
 }
