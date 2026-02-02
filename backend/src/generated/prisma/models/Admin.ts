@@ -37,31 +37,31 @@ export type AdminSumAggregateOutputType = {
 export type AdminMinAggregateOutputType = {
   id: number | null
   email: string | null
-  password_hash: string | null
-  first_name: string | null
-  last_name: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  passwordHash: string | null
+  firstName: string | null
+  lastName: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type AdminMaxAggregateOutputType = {
   id: number | null
   email: string | null
-  password_hash: string | null
-  first_name: string | null
-  last_name: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  passwordHash: string | null
+  firstName: string | null
+  lastName: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type AdminCountAggregateOutputType = {
   id: number
   email: number
-  password_hash: number
-  first_name: number
-  last_name: number
-  created_at: number
-  updated_at: number
+  passwordHash: number
+  firstName: number
+  lastName: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -77,31 +77,31 @@ export type AdminSumAggregateInputType = {
 export type AdminMinAggregateInputType = {
   id?: true
   email?: true
-  password_hash?: true
-  first_name?: true
-  last_name?: true
-  created_at?: true
-  updated_at?: true
+  passwordHash?: true
+  firstName?: true
+  lastName?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type AdminMaxAggregateInputType = {
   id?: true
   email?: true
-  password_hash?: true
-  first_name?: true
-  last_name?: true
-  created_at?: true
-  updated_at?: true
+  passwordHash?: true
+  firstName?: true
+  lastName?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type AdminCountAggregateInputType = {
   id?: true
   email?: true
-  password_hash?: true
-  first_name?: true
-  last_name?: true
-  created_at?: true
-  updated_at?: true
+  passwordHash?: true
+  firstName?: true
+  lastName?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -194,11 +194,11 @@ export type AdminGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type AdminGroupByOutputType = {
   id: number
   email: string
-  password_hash: string
-  first_name: string
-  last_name: string
-  created_at: Date
-  updated_at: Date
+  passwordHash: string
+  firstName: string
+  lastName: string
+  createdAt: Date
+  updatedAt: Date
   _count: AdminCountAggregateOutputType | null
   _avg: AdminAvgAggregateOutputType | null
   _sum: AdminSumAggregateOutputType | null
@@ -227,21 +227,21 @@ export type AdminWhereInput = {
   NOT?: Prisma.AdminWhereInput | Prisma.AdminWhereInput[]
   id?: Prisma.IntFilter<"Admin"> | number
   email?: Prisma.StringFilter<"Admin"> | string
-  password_hash?: Prisma.StringFilter<"Admin"> | string
-  first_name?: Prisma.StringFilter<"Admin"> | string
-  last_name?: Prisma.StringFilter<"Admin"> | string
-  created_at?: Prisma.DateTimeFilter<"Admin"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"Admin"> | Date | string
+  passwordHash?: Prisma.StringFilter<"Admin"> | string
+  firstName?: Prisma.StringFilter<"Admin"> | string
+  lastName?: Prisma.StringFilter<"Admin"> | string
+  createdAt?: Prisma.DateTimeFilter<"Admin"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Admin"> | Date | string
 }
 
 export type AdminOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _relevance?: Prisma.AdminOrderByRelevanceInput
 }
 
@@ -251,21 +251,21 @@ export type AdminWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.AdminWhereInput | Prisma.AdminWhereInput[]
   OR?: Prisma.AdminWhereInput[]
   NOT?: Prisma.AdminWhereInput | Prisma.AdminWhereInput[]
-  password_hash?: Prisma.StringFilter<"Admin"> | string
-  first_name?: Prisma.StringFilter<"Admin"> | string
-  last_name?: Prisma.StringFilter<"Admin"> | string
-  created_at?: Prisma.DateTimeFilter<"Admin"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"Admin"> | Date | string
+  passwordHash?: Prisma.StringFilter<"Admin"> | string
+  firstName?: Prisma.StringFilter<"Admin"> | string
+  lastName?: Prisma.StringFilter<"Admin"> | string
+  createdAt?: Prisma.DateTimeFilter<"Admin"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Admin"> | Date | string
 }, "id" | "email">
 
 export type AdminOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.AdminCountOrderByAggregateInput
   _avg?: Prisma.AdminAvgOrderByAggregateInput
   _max?: Prisma.AdminMaxOrderByAggregateInput
@@ -279,78 +279,78 @@ export type AdminScalarWhereWithAggregatesInput = {
   NOT?: Prisma.AdminScalarWhereWithAggregatesInput | Prisma.AdminScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Admin"> | number
   email?: Prisma.StringWithAggregatesFilter<"Admin"> | string
-  password_hash?: Prisma.StringWithAggregatesFilter<"Admin"> | string
-  first_name?: Prisma.StringWithAggregatesFilter<"Admin"> | string
-  last_name?: Prisma.StringWithAggregatesFilter<"Admin"> | string
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"Admin"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Admin"> | Date | string
+  passwordHash?: Prisma.StringWithAggregatesFilter<"Admin"> | string
+  firstName?: Prisma.StringWithAggregatesFilter<"Admin"> | string
+  lastName?: Prisma.StringWithAggregatesFilter<"Admin"> | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Admin"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Admin"> | Date | string
 }
 
 export type AdminCreateInput = {
   email: string
-  password_hash: string
-  first_name: string
-  last_name: string
-  created_at: Date | string
-  updated_at?: Date | string
+  passwordHash: string
+  firstName: string
+  lastName: string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type AdminUncheckedCreateInput = {
   id?: number
   email: string
-  password_hash: string
-  first_name: string
-  last_name: string
-  created_at: Date | string
-  updated_at?: Date | string
+  passwordHash: string
+  firstName: string
+  lastName: string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type AdminUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AdminUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AdminCreateManyInput = {
   id?: number
   email: string
-  password_hash: string
-  first_name: string
-  last_name: string
-  created_at: Date | string
-  updated_at?: Date | string
+  passwordHash: string
+  firstName: string
+  lastName: string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type AdminUpdateManyMutationInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AdminUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AdminOrderByRelevanceInput = {
@@ -362,11 +362,11 @@ export type AdminOrderByRelevanceInput = {
 export type AdminCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AdminAvgOrderByAggregateInput = {
@@ -376,21 +376,21 @@ export type AdminAvgOrderByAggregateInput = {
 export type AdminMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AdminMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AdminSumOrderByAggregateInput = {
@@ -418,11 +418,11 @@ export type IntFieldUpdateOperationsInput = {
 export type AdminSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   email?: boolean
-  password_hash?: boolean
-  first_name?: boolean
-  last_name?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  passwordHash?: boolean
+  firstName?: boolean
+  lastName?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["admin"]>
 
 
@@ -430,14 +430,14 @@ export type AdminSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type AdminSelectScalar = {
   id?: boolean
   email?: boolean
-  password_hash?: boolean
-  first_name?: boolean
-  last_name?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  passwordHash?: boolean
+  firstName?: boolean
+  lastName?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type AdminOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password_hash" | "first_name" | "last_name" | "created_at" | "updated_at", ExtArgs["result"]["admin"]>
+export type AdminOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "passwordHash" | "firstName" | "lastName" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
 
 export type $AdminPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Admin"
@@ -445,11 +445,11 @@ export type $AdminPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     email: string
-    password_hash: string
-    first_name: string
-    last_name: string
-    created_at: Date
-    updated_at: Date
+    passwordHash: string
+    firstName: string
+    lastName: string
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["admin"]>
   composites: {}
 }
@@ -821,11 +821,11 @@ export interface Prisma__AdminClient<T, Null = never, ExtArgs extends runtime.Ty
 export interface AdminFieldRefs {
   readonly id: Prisma.FieldRef<"Admin", 'Int'>
   readonly email: Prisma.FieldRef<"Admin", 'String'>
-  readonly password_hash: Prisma.FieldRef<"Admin", 'String'>
-  readonly first_name: Prisma.FieldRef<"Admin", 'String'>
-  readonly last_name: Prisma.FieldRef<"Admin", 'String'>
-  readonly created_at: Prisma.FieldRef<"Admin", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"Admin", 'DateTime'>
+  readonly passwordHash: Prisma.FieldRef<"Admin", 'String'>
+  readonly firstName: Prisma.FieldRef<"Admin", 'String'>
+  readonly lastName: Prisma.FieldRef<"Admin", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Admin", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Admin", 'DateTime'>
 }
     
 

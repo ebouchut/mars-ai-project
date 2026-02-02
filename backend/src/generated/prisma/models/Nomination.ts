@@ -27,60 +27,60 @@ export type AggregateNomination = {
 }
 
 export type NominationAvgAggregateOutputType = {
-  film_id: number | null
-  award_id: number | null
+  filmId: number | null
+  awardId: number | null
 }
 
 export type NominationSumAggregateOutputType = {
-  film_id: number | null
-  award_id: number | null
+  filmId: number | null
+  awardId: number | null
 }
 
 export type NominationMinAggregateOutputType = {
-  film_id: number | null
-  award_id: number | null
+  filmId: number | null
+  awardId: number | null
   status: $Enums.NominationStatus | null
 }
 
 export type NominationMaxAggregateOutputType = {
-  film_id: number | null
-  award_id: number | null
+  filmId: number | null
+  awardId: number | null
   status: $Enums.NominationStatus | null
 }
 
 export type NominationCountAggregateOutputType = {
-  film_id: number
-  award_id: number
+  filmId: number
+  awardId: number
   status: number
   _all: number
 }
 
 
 export type NominationAvgAggregateInputType = {
-  film_id?: true
-  award_id?: true
+  filmId?: true
+  awardId?: true
 }
 
 export type NominationSumAggregateInputType = {
-  film_id?: true
-  award_id?: true
+  filmId?: true
+  awardId?: true
 }
 
 export type NominationMinAggregateInputType = {
-  film_id?: true
-  award_id?: true
+  filmId?: true
+  awardId?: true
   status?: true
 }
 
 export type NominationMaxAggregateInputType = {
-  film_id?: true
-  award_id?: true
+  filmId?: true
+  awardId?: true
   status?: true
 }
 
 export type NominationCountAggregateInputType = {
-  film_id?: true
-  award_id?: true
+  filmId?: true
+  awardId?: true
   status?: true
   _all?: true
 }
@@ -172,8 +172,8 @@ export type NominationGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 export type NominationGroupByOutputType = {
-  film_id: number
-  award_id: number
+  filmId: number
+  awardId: number
   status: $Enums.NominationStatus
   _count: NominationCountAggregateOutputType | null
   _avg: NominationAvgAggregateOutputType | null
@@ -201,36 +201,36 @@ export type NominationWhereInput = {
   AND?: Prisma.NominationWhereInput | Prisma.NominationWhereInput[]
   OR?: Prisma.NominationWhereInput[]
   NOT?: Prisma.NominationWhereInput | Prisma.NominationWhereInput[]
-  film_id?: Prisma.IntFilter<"Nomination"> | number
-  award_id?: Prisma.IntFilter<"Nomination"> | number
+  filmId?: Prisma.IntFilter<"Nomination"> | number
+  awardId?: Prisma.IntFilter<"Nomination"> | number
   status?: Prisma.EnumNominationStatusFilter<"Nomination"> | $Enums.NominationStatus
   award?: Prisma.XOR<Prisma.AwardScalarRelationFilter, Prisma.AwardWhereInput>
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
 }
 
 export type NominationOrderByWithRelationInput = {
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   award?: Prisma.AwardOrderByWithRelationInput
   film?: Prisma.FilmOrderByWithRelationInput
 }
 
 export type NominationWhereUniqueInput = Prisma.AtLeast<{
-  film_id_award_id?: Prisma.NominationFilm_idAward_idCompoundUniqueInput
+  filmId_awardId?: Prisma.NominationFilmIdAwardIdCompoundUniqueInput
   AND?: Prisma.NominationWhereInput | Prisma.NominationWhereInput[]
   OR?: Prisma.NominationWhereInput[]
   NOT?: Prisma.NominationWhereInput | Prisma.NominationWhereInput[]
-  film_id?: Prisma.IntFilter<"Nomination"> | number
-  award_id?: Prisma.IntFilter<"Nomination"> | number
+  filmId?: Prisma.IntFilter<"Nomination"> | number
+  awardId?: Prisma.IntFilter<"Nomination"> | number
   status?: Prisma.EnumNominationStatusFilter<"Nomination"> | $Enums.NominationStatus
   award?: Prisma.XOR<Prisma.AwardScalarRelationFilter, Prisma.AwardWhereInput>
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
-}, "film_id_award_id">
+}, "filmId_awardId">
 
 export type NominationOrderByWithAggregationInput = {
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   _count?: Prisma.NominationCountOrderByAggregateInput
   _avg?: Prisma.NominationAvgOrderByAggregateInput
@@ -243,8 +243,8 @@ export type NominationScalarWhereWithAggregatesInput = {
   AND?: Prisma.NominationScalarWhereWithAggregatesInput | Prisma.NominationScalarWhereWithAggregatesInput[]
   OR?: Prisma.NominationScalarWhereWithAggregatesInput[]
   NOT?: Prisma.NominationScalarWhereWithAggregatesInput | Prisma.NominationScalarWhereWithAggregatesInput[]
-  film_id?: Prisma.IntWithAggregatesFilter<"Nomination"> | number
-  award_id?: Prisma.IntWithAggregatesFilter<"Nomination"> | number
+  filmId?: Prisma.IntWithAggregatesFilter<"Nomination"> | number
+  awardId?: Prisma.IntWithAggregatesFilter<"Nomination"> | number
   status?: Prisma.EnumNominationStatusWithAggregatesFilter<"Nomination"> | $Enums.NominationStatus
 }
 
@@ -255,8 +255,8 @@ export type NominationCreateInput = {
 }
 
 export type NominationUncheckedCreateInput = {
-  film_id: number
-  award_id: number
+  filmId: number
+  awardId: number
   status: $Enums.NominationStatus
 }
 
@@ -267,14 +267,14 @@ export type NominationUpdateInput = {
 }
 
 export type NominationUncheckedUpdateInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumNominationStatusFieldUpdateOperationsInput | $Enums.NominationStatus
 }
 
 export type NominationCreateManyInput = {
-  film_id: number
-  award_id: number
+  filmId: number
+  awardId: number
   status: $Enums.NominationStatus
 }
 
@@ -283,8 +283,8 @@ export type NominationUpdateManyMutationInput = {
 }
 
 export type NominationUncheckedUpdateManyInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumNominationStatusFieldUpdateOperationsInput | $Enums.NominationStatus
 }
 
@@ -298,37 +298,37 @@ export type NominationOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type NominationFilm_idAward_idCompoundUniqueInput = {
-  film_id: number
-  award_id: number
+export type NominationFilmIdAwardIdCompoundUniqueInput = {
+  filmId: number
+  awardId: number
 }
 
 export type NominationCountOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type NominationAvgOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
 }
 
 export type NominationMaxOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type NominationMinOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type NominationSumOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
 }
 
 export type NominationCreateNestedManyWithoutAwardInput = {
@@ -425,7 +425,7 @@ export type NominationCreateWithoutAwardInput = {
 }
 
 export type NominationUncheckedCreateWithoutAwardInput = {
-  film_id: number
+  filmId: number
   status: $Enums.NominationStatus
 }
 
@@ -459,8 +459,8 @@ export type NominationScalarWhereInput = {
   AND?: Prisma.NominationScalarWhereInput | Prisma.NominationScalarWhereInput[]
   OR?: Prisma.NominationScalarWhereInput[]
   NOT?: Prisma.NominationScalarWhereInput | Prisma.NominationScalarWhereInput[]
-  film_id?: Prisma.IntFilter<"Nomination"> | number
-  award_id?: Prisma.IntFilter<"Nomination"> | number
+  filmId?: Prisma.IntFilter<"Nomination"> | number
+  awardId?: Prisma.IntFilter<"Nomination"> | number
   status?: Prisma.EnumNominationStatusFilter<"Nomination"> | $Enums.NominationStatus
 }
 
@@ -470,7 +470,7 @@ export type NominationCreateWithoutFilmInput = {
 }
 
 export type NominationUncheckedCreateWithoutFilmInput = {
-  award_id: number
+  awardId: number
   status: $Enums.NominationStatus
 }
 
@@ -501,7 +501,7 @@ export type NominationUpdateManyWithWhereWithoutFilmInput = {
 }
 
 export type NominationCreateManyAwardInput = {
-  film_id: number
+  filmId: number
   status: $Enums.NominationStatus
 }
 
@@ -511,17 +511,17 @@ export type NominationUpdateWithoutAwardInput = {
 }
 
 export type NominationUncheckedUpdateWithoutAwardInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumNominationStatusFieldUpdateOperationsInput | $Enums.NominationStatus
 }
 
 export type NominationUncheckedUpdateManyWithoutAwardInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumNominationStatusFieldUpdateOperationsInput | $Enums.NominationStatus
 }
 
 export type NominationCreateManyFilmInput = {
-  award_id: number
+  awardId: number
   status: $Enums.NominationStatus
 }
 
@@ -531,20 +531,20 @@ export type NominationUpdateWithoutFilmInput = {
 }
 
 export type NominationUncheckedUpdateWithoutFilmInput = {
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumNominationStatusFieldUpdateOperationsInput | $Enums.NominationStatus
 }
 
 export type NominationUncheckedUpdateManyWithoutFilmInput = {
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumNominationStatusFieldUpdateOperationsInput | $Enums.NominationStatus
 }
 
 
 
 export type NominationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  film_id?: boolean
-  award_id?: boolean
+  filmId?: boolean
+  awardId?: boolean
   status?: boolean
   award?: boolean | Prisma.AwardDefaultArgs<ExtArgs>
   film?: boolean | Prisma.FilmDefaultArgs<ExtArgs>
@@ -553,12 +553,12 @@ export type NominationSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 
 export type NominationSelectScalar = {
-  film_id?: boolean
-  award_id?: boolean
+  filmId?: boolean
+  awardId?: boolean
   status?: boolean
 }
 
-export type NominationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"film_id" | "award_id" | "status", ExtArgs["result"]["nomination"]>
+export type NominationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"filmId" | "awardId" | "status", ExtArgs["result"]["nomination"]>
 export type NominationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   award?: boolean | Prisma.AwardDefaultArgs<ExtArgs>
   film?: boolean | Prisma.FilmDefaultArgs<ExtArgs>
@@ -571,8 +571,8 @@ export type $NominationPayload<ExtArgs extends runtime.Types.Extensions.Internal
     film: Prisma.$FilmPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    film_id: number
-    award_id: number
+    filmId: number
+    awardId: number
     status: $Enums.NominationStatus
   }, ExtArgs["result"]["nomination"]>
   composites: {}
@@ -657,8 +657,8 @@ export interface NominationDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * // Get first 10 Nominations
    * const nominations = await prisma.nomination.findMany({ take: 10 })
    * 
-   * // Only select the `film_id`
-   * const nominationWithFilm_idOnly = await prisma.nomination.findMany({ select: { film_id: true } })
+   * // Only select the `filmId`
+   * const nominationWithFilmIdOnly = await prisma.nomination.findMany({ select: { filmId: true } })
    * 
    */
   findMany<T extends NominationFindManyArgs>(args?: Prisma.SelectSubset<T, NominationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NominationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -945,8 +945,8 @@ export interface Prisma__NominationClient<T, Null = never, ExtArgs extends runti
  * Fields of the Nomination model
  */
 export interface NominationFieldRefs {
-  readonly film_id: Prisma.FieldRef<"Nomination", 'Int'>
-  readonly award_id: Prisma.FieldRef<"Nomination", 'Int'>
+  readonly filmId: Prisma.FieldRef<"Nomination", 'Int'>
+  readonly awardId: Prisma.FieldRef<"Nomination", 'Int'>
   readonly status: Prisma.FieldRef<"Nomination", 'NominationStatus'>
 }
     

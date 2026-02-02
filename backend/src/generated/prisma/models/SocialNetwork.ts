@@ -200,14 +200,14 @@ export type SocialNetworkWhereInput = {
   id?: Prisma.IntFilter<"SocialNetwork"> | number
   name?: Prisma.StringFilter<"SocialNetwork"> | string
   url?: Prisma.StringFilter<"SocialNetwork"> | string
-  user_social_networks?: Prisma.UserSocialNetworkListRelationFilter
+  userSocialNetworks?: Prisma.UserSocialNetworkListRelationFilter
 }
 
 export type SocialNetworkOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   url?: Prisma.SortOrder
-  user_social_networks?: Prisma.UserSocialNetworkOrderByRelationAggregateInput
+  userSocialNetworks?: Prisma.UserSocialNetworkOrderByRelationAggregateInput
   _relevance?: Prisma.SocialNetworkOrderByRelevanceInput
 }
 
@@ -219,7 +219,7 @@ export type SocialNetworkWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SocialNetworkWhereInput | Prisma.SocialNetworkWhereInput[]
   name?: Prisma.StringFilter<"SocialNetwork"> | string
   url?: Prisma.StringFilter<"SocialNetwork"> | string
-  user_social_networks?: Prisma.UserSocialNetworkListRelationFilter
+  userSocialNetworks?: Prisma.UserSocialNetworkListRelationFilter
 }, "id" | "name_url">
 
 export type SocialNetworkOrderByWithAggregationInput = {
@@ -245,27 +245,27 @@ export type SocialNetworkScalarWhereWithAggregatesInput = {
 export type SocialNetworkCreateInput = {
   name: string
   url: string
-  user_social_networks?: Prisma.UserSocialNetworkCreateNestedManyWithoutSocial_networkInput
+  userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutSocialNetworkInput
 }
 
 export type SocialNetworkUncheckedCreateInput = {
   id?: number
   name: string
   url: string
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutSocial_networkInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutSocialNetworkInput
 }
 
 export type SocialNetworkUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
-  user_social_networks?: Prisma.UserSocialNetworkUpdateManyWithoutSocial_networkNestedInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutSocialNetworkNestedInput
 }
 
 export type SocialNetworkUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutSocial_networkNestedInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutSocialNetworkNestedInput
 }
 
 export type SocialNetworkCreateManyInput = {
@@ -327,53 +327,53 @@ export type SocialNetworkScalarRelationFilter = {
   isNot?: Prisma.SocialNetworkWhereInput
 }
 
-export type SocialNetworkCreateNestedOneWithoutUser_social_networksInput = {
-  create?: Prisma.XOR<Prisma.SocialNetworkCreateWithoutUser_social_networksInput, Prisma.SocialNetworkUncheckedCreateWithoutUser_social_networksInput>
-  connectOrCreate?: Prisma.SocialNetworkCreateOrConnectWithoutUser_social_networksInput
+export type SocialNetworkCreateNestedOneWithoutUserSocialNetworksInput = {
+  create?: Prisma.XOR<Prisma.SocialNetworkCreateWithoutUserSocialNetworksInput, Prisma.SocialNetworkUncheckedCreateWithoutUserSocialNetworksInput>
+  connectOrCreate?: Prisma.SocialNetworkCreateOrConnectWithoutUserSocialNetworksInput
   connect?: Prisma.SocialNetworkWhereUniqueInput
 }
 
-export type SocialNetworkUpdateOneRequiredWithoutUser_social_networksNestedInput = {
-  create?: Prisma.XOR<Prisma.SocialNetworkCreateWithoutUser_social_networksInput, Prisma.SocialNetworkUncheckedCreateWithoutUser_social_networksInput>
-  connectOrCreate?: Prisma.SocialNetworkCreateOrConnectWithoutUser_social_networksInput
-  upsert?: Prisma.SocialNetworkUpsertWithoutUser_social_networksInput
+export type SocialNetworkUpdateOneRequiredWithoutUserSocialNetworksNestedInput = {
+  create?: Prisma.XOR<Prisma.SocialNetworkCreateWithoutUserSocialNetworksInput, Prisma.SocialNetworkUncheckedCreateWithoutUserSocialNetworksInput>
+  connectOrCreate?: Prisma.SocialNetworkCreateOrConnectWithoutUserSocialNetworksInput
+  upsert?: Prisma.SocialNetworkUpsertWithoutUserSocialNetworksInput
   connect?: Prisma.SocialNetworkWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.SocialNetworkUpdateToOneWithWhereWithoutUser_social_networksInput, Prisma.SocialNetworkUpdateWithoutUser_social_networksInput>, Prisma.SocialNetworkUncheckedUpdateWithoutUser_social_networksInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SocialNetworkUpdateToOneWithWhereWithoutUserSocialNetworksInput, Prisma.SocialNetworkUpdateWithoutUserSocialNetworksInput>, Prisma.SocialNetworkUncheckedUpdateWithoutUserSocialNetworksInput>
 }
 
-export type SocialNetworkCreateWithoutUser_social_networksInput = {
+export type SocialNetworkCreateWithoutUserSocialNetworksInput = {
   name: string
   url: string
 }
 
-export type SocialNetworkUncheckedCreateWithoutUser_social_networksInput = {
+export type SocialNetworkUncheckedCreateWithoutUserSocialNetworksInput = {
   id?: number
   name: string
   url: string
 }
 
-export type SocialNetworkCreateOrConnectWithoutUser_social_networksInput = {
+export type SocialNetworkCreateOrConnectWithoutUserSocialNetworksInput = {
   where: Prisma.SocialNetworkWhereUniqueInput
-  create: Prisma.XOR<Prisma.SocialNetworkCreateWithoutUser_social_networksInput, Prisma.SocialNetworkUncheckedCreateWithoutUser_social_networksInput>
+  create: Prisma.XOR<Prisma.SocialNetworkCreateWithoutUserSocialNetworksInput, Prisma.SocialNetworkUncheckedCreateWithoutUserSocialNetworksInput>
 }
 
-export type SocialNetworkUpsertWithoutUser_social_networksInput = {
-  update: Prisma.XOR<Prisma.SocialNetworkUpdateWithoutUser_social_networksInput, Prisma.SocialNetworkUncheckedUpdateWithoutUser_social_networksInput>
-  create: Prisma.XOR<Prisma.SocialNetworkCreateWithoutUser_social_networksInput, Prisma.SocialNetworkUncheckedCreateWithoutUser_social_networksInput>
+export type SocialNetworkUpsertWithoutUserSocialNetworksInput = {
+  update: Prisma.XOR<Prisma.SocialNetworkUpdateWithoutUserSocialNetworksInput, Prisma.SocialNetworkUncheckedUpdateWithoutUserSocialNetworksInput>
+  create: Prisma.XOR<Prisma.SocialNetworkCreateWithoutUserSocialNetworksInput, Prisma.SocialNetworkUncheckedCreateWithoutUserSocialNetworksInput>
   where?: Prisma.SocialNetworkWhereInput
 }
 
-export type SocialNetworkUpdateToOneWithWhereWithoutUser_social_networksInput = {
+export type SocialNetworkUpdateToOneWithWhereWithoutUserSocialNetworksInput = {
   where?: Prisma.SocialNetworkWhereInput
-  data: Prisma.XOR<Prisma.SocialNetworkUpdateWithoutUser_social_networksInput, Prisma.SocialNetworkUncheckedUpdateWithoutUser_social_networksInput>
+  data: Prisma.XOR<Prisma.SocialNetworkUpdateWithoutUserSocialNetworksInput, Prisma.SocialNetworkUncheckedUpdateWithoutUserSocialNetworksInput>
 }
 
-export type SocialNetworkUpdateWithoutUser_social_networksInput = {
+export type SocialNetworkUpdateWithoutUserSocialNetworksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type SocialNetworkUncheckedUpdateWithoutUser_social_networksInput = {
+export type SocialNetworkUncheckedUpdateWithoutUserSocialNetworksInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -385,11 +385,11 @@ export type SocialNetworkUncheckedUpdateWithoutUser_social_networksInput = {
  */
 
 export type SocialNetworkCountOutputType = {
-  user_social_networks: number
+  userSocialNetworks: number
 }
 
 export type SocialNetworkCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user_social_networks?: boolean | SocialNetworkCountOutputTypeCountUser_social_networksArgs
+  userSocialNetworks?: boolean | SocialNetworkCountOutputTypeCountUserSocialNetworksArgs
 }
 
 /**
@@ -405,7 +405,7 @@ export type SocialNetworkCountOutputTypeDefaultArgs<ExtArgs extends runtime.Type
 /**
  * SocialNetworkCountOutputType without action
  */
-export type SocialNetworkCountOutputTypeCountUser_social_networksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SocialNetworkCountOutputTypeCountUserSocialNetworksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.UserSocialNetworkWhereInput
 }
 
@@ -414,7 +414,7 @@ export type SocialNetworkSelect<ExtArgs extends runtime.Types.Extensions.Interna
   id?: boolean
   name?: boolean
   url?: boolean
-  user_social_networks?: boolean | Prisma.SocialNetwork$user_social_networksArgs<ExtArgs>
+  userSocialNetworks?: boolean | Prisma.SocialNetwork$userSocialNetworksArgs<ExtArgs>
   _count?: boolean | Prisma.SocialNetworkCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["socialNetwork"]>
 
@@ -428,14 +428,14 @@ export type SocialNetworkSelectScalar = {
 
 export type SocialNetworkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "url", ExtArgs["result"]["socialNetwork"]>
 export type SocialNetworkInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user_social_networks?: boolean | Prisma.SocialNetwork$user_social_networksArgs<ExtArgs>
+  userSocialNetworks?: boolean | Prisma.SocialNetwork$userSocialNetworksArgs<ExtArgs>
   _count?: boolean | Prisma.SocialNetworkCountOutputTypeDefaultArgs<ExtArgs>
 }
 
 export type $SocialNetworkPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "SocialNetwork"
   objects: {
-    user_social_networks: Prisma.$UserSocialNetworkPayload<ExtArgs>[]
+    userSocialNetworks: Prisma.$UserSocialNetworkPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -781,7 +781,7 @@ readonly fields: SocialNetworkFieldRefs;
  */
 export interface Prisma__SocialNetworkClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user_social_networks<T extends Prisma.SocialNetwork$user_social_networksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SocialNetwork$user_social_networksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserSocialNetworkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  userSocialNetworks<T extends Prisma.SocialNetwork$userSocialNetworksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SocialNetwork$userSocialNetworksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserSocialNetworkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1157,9 +1157,9 @@ export type SocialNetworkDeleteManyArgs<ExtArgs extends runtime.Types.Extensions
 }
 
 /**
- * SocialNetwork.user_social_networks
+ * SocialNetwork.userSocialNetworks
  */
-export type SocialNetwork$user_social_networksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SocialNetwork$userSocialNetworksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the UserSocialNetwork
    */

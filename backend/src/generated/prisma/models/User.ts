@@ -37,40 +37,40 @@ export type UserSumAggregateOutputType = {
 export type UserMinAggregateOutputType = {
   id: number | null
   email: string | null
-  password_hash: string | null
+  passwordHash: string | null
   role: $Enums.UserRole | null
-  first_name: string | null
-  last_name: string | null
+  firstName: string | null
+  lastName: string | null
   bio: string | null
   photo: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserMaxAggregateOutputType = {
   id: number | null
   email: string | null
-  password_hash: string | null
+  passwordHash: string | null
   role: $Enums.UserRole | null
-  first_name: string | null
-  last_name: string | null
+  firstName: string | null
+  lastName: string | null
   bio: string | null
   photo: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserCountAggregateOutputType = {
   id: number
   email: number
-  password_hash: number
+  passwordHash: number
   role: number
-  first_name: number
-  last_name: number
+  firstName: number
+  lastName: number
   bio: number
   photo: number
-  created_at: number
-  updated_at: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -86,40 +86,40 @@ export type UserSumAggregateInputType = {
 export type UserMinAggregateInputType = {
   id?: true
   email?: true
-  password_hash?: true
+  passwordHash?: true
   role?: true
-  first_name?: true
-  last_name?: true
+  firstName?: true
+  lastName?: true
   bio?: true
   photo?: true
-  created_at?: true
-  updated_at?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type UserMaxAggregateInputType = {
   id?: true
   email?: true
-  password_hash?: true
+  passwordHash?: true
   role?: true
-  first_name?: true
-  last_name?: true
+  firstName?: true
+  lastName?: true
   bio?: true
   photo?: true
-  created_at?: true
-  updated_at?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type UserCountAggregateInputType = {
   id?: true
   email?: true
-  password_hash?: true
+  passwordHash?: true
   role?: true
-  first_name?: true
-  last_name?: true
+  firstName?: true
+  lastName?: true
   bio?: true
   photo?: true
-  created_at?: true
-  updated_at?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -212,14 +212,14 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type UserGroupByOutputType = {
   id: number
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio: string | null
   photo: string | null
-  created_at: Date | null
-  updated_at: Date
+  createdAt: Date | null
+  updatedAt: Date
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
   _sum: UserSumAggregateOutputType | null
@@ -248,16 +248,16 @@ export type UserWhereInput = {
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   id?: Prisma.IntFilter<"User"> | number
   email?: Prisma.StringFilter<"User"> | string
-  password_hash?: Prisma.StringFilter<"User"> | string
+  passwordHash?: Prisma.StringFilter<"User"> | string
   role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
-  first_name?: Prisma.StringFilter<"User"> | string
-  last_name?: Prisma.StringFilter<"User"> | string
+  firstName?: Prisma.StringFilter<"User"> | string
+  lastName?: Prisma.StringFilter<"User"> | string
   bio?: Prisma.StringNullableFilter<"User"> | string | null
   photo?: Prisma.StringNullableFilter<"User"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   screenings?: Prisma.ScreeningListRelationFilter
-  user_social_networks?: Prisma.UserSocialNetworkListRelationFilter
+  userSocialNetworks?: Prisma.UserSocialNetworkListRelationFilter
   votes?: Prisma.VoteListRelationFilter
   works?: Prisma.WorkListRelationFilter
 }
@@ -265,16 +265,16 @@ export type UserWhereInput = {
 export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   photo?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   screenings?: Prisma.ScreeningOrderByRelationAggregateInput
-  user_social_networks?: Prisma.UserSocialNetworkOrderByRelationAggregateInput
+  userSocialNetworks?: Prisma.UserSocialNetworkOrderByRelationAggregateInput
   votes?: Prisma.VoteOrderByRelationAggregateInput
   works?: Prisma.WorkOrderByRelationAggregateInput
   _relevance?: Prisma.UserOrderByRelevanceInput
@@ -286,16 +286,16 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
-  password_hash?: Prisma.StringFilter<"User"> | string
+  passwordHash?: Prisma.StringFilter<"User"> | string
   role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
-  first_name?: Prisma.StringFilter<"User"> | string
-  last_name?: Prisma.StringFilter<"User"> | string
+  firstName?: Prisma.StringFilter<"User"> | string
+  lastName?: Prisma.StringFilter<"User"> | string
   bio?: Prisma.StringNullableFilter<"User"> | string | null
   photo?: Prisma.StringNullableFilter<"User"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   screenings?: Prisma.ScreeningListRelationFilter
-  user_social_networks?: Prisma.UserSocialNetworkListRelationFilter
+  userSocialNetworks?: Prisma.UserSocialNetworkListRelationFilter
   votes?: Prisma.VoteListRelationFilter
   works?: Prisma.WorkListRelationFilter
 }, "id" | "email">
@@ -303,14 +303,14 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   photo?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -324,28 +324,28 @@ export type UserScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"User"> | number
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
-  password_hash?: Prisma.StringWithAggregatesFilter<"User"> | string
+  passwordHash?: Prisma.StringWithAggregatesFilter<"User"> | string
   role?: Prisma.EnumUserRoleWithAggregatesFilter<"User"> | $Enums.UserRole
-  first_name?: Prisma.StringWithAggregatesFilter<"User"> | string
-  last_name?: Prisma.StringWithAggregatesFilter<"User"> | string
+  firstName?: Prisma.StringWithAggregatesFilter<"User"> | string
+  lastName?: Prisma.StringWithAggregatesFilter<"User"> | string
   bio?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   photo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
 export type UserCreateInput = {
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
   screenings?: Prisma.ScreeningCreateNestedManyWithoutUserInput
-  user_social_networks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
+  userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteCreateNestedManyWithoutUserInput
   works?: Prisma.WorkCreateNestedManyWithoutUserInput
 }
@@ -353,32 +353,32 @@ export type UserCreateInput = {
 export type UserUncheckedCreateInput = {
   id?: number
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutUserInput
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutUserInput
   works?: Prisma.WorkUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   screenings?: Prisma.ScreeningUpdateManyWithoutUserNestedInput
-  user_social_networks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUpdateManyWithoutUserNestedInput
 }
@@ -386,16 +386,16 @@ export type UserUpdateInput = {
 export type UserUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutUserNestedInput
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -403,39 +403,39 @@ export type UserUncheckedUpdateInput = {
 export type UserCreateManyInput = {
   id?: number
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
 }
 
 export type UserUpdateManyMutationInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserScalarRelationFilter = {
@@ -452,14 +452,14 @@ export type UserOrderByRelevanceInput = {
 export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   photo?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserAvgOrderByAggregateInput = {
@@ -469,27 +469,27 @@ export type UserAvgOrderByAggregateInput = {
 export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   photo?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
+  passwordHash?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  first_name?: Prisma.SortOrder
-  last_name?: Prisma.SortOrder
+  firstName?: Prisma.SortOrder
+  lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   photo?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserSumOrderByAggregateInput = {
@@ -510,18 +510,18 @@ export type UserUpdateOneRequiredWithoutScreeningsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutScreeningsInput, Prisma.UserUpdateWithoutScreeningsInput>, Prisma.UserUncheckedUpdateWithoutScreeningsInput>
 }
 
-export type UserCreateNestedOneWithoutUser_social_networksInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutUser_social_networksInput, Prisma.UserUncheckedCreateWithoutUser_social_networksInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUser_social_networksInput
+export type UserCreateNestedOneWithoutUserSocialNetworksInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutUserSocialNetworksInput, Prisma.UserUncheckedCreateWithoutUserSocialNetworksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUserSocialNetworksInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneRequiredWithoutUser_social_networksNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutUser_social_networksInput, Prisma.UserUncheckedCreateWithoutUser_social_networksInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUser_social_networksInput
-  upsert?: Prisma.UserUpsertWithoutUser_social_networksInput
+export type UserUpdateOneRequiredWithoutUserSocialNetworksNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutUserSocialNetworksInput, Prisma.UserUncheckedCreateWithoutUserSocialNetworksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUserSocialNetworksInput
+  upsert?: Prisma.UserUpsertWithoutUserSocialNetworksInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutUser_social_networksInput, Prisma.UserUpdateWithoutUser_social_networksInput>, Prisma.UserUncheckedUpdateWithoutUser_social_networksInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutUserSocialNetworksInput, Prisma.UserUpdateWithoutUserSocialNetworksInput>, Prisma.UserUncheckedUpdateWithoutUserSocialNetworksInput>
 }
 
 export type EnumUserRoleFieldUpdateOperationsInput = {
@@ -558,15 +558,15 @@ export type UserUpdateOneRequiredWithoutWorksNestedInput = {
 
 export type UserCreateWithoutScreeningsInput = {
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
-  user_social_networks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
+  userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteCreateNestedManyWithoutUserInput
   works?: Prisma.WorkCreateNestedManyWithoutUserInput
 }
@@ -574,15 +574,15 @@ export type UserCreateWithoutScreeningsInput = {
 export type UserUncheckedCreateWithoutScreeningsInput = {
   id?: number
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutUserInput
   works?: Prisma.WorkUncheckedCreateNestedManyWithoutUserInput
 }
@@ -605,15 +605,15 @@ export type UserUpdateToOneWithWhereWithoutScreeningsInput = {
 
 export type UserUpdateWithoutScreeningsInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user_social_networks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUpdateManyWithoutUserNestedInput
 }
@@ -621,92 +621,92 @@ export type UserUpdateWithoutScreeningsInput = {
 export type UserUncheckedUpdateWithoutScreeningsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type UserCreateWithoutUser_social_networksInput = {
+export type UserCreateWithoutUserSocialNetworksInput = {
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
   screenings?: Prisma.ScreeningCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteCreateNestedManyWithoutUserInput
   works?: Prisma.WorkCreateNestedManyWithoutUserInput
 }
 
-export type UserUncheckedCreateWithoutUser_social_networksInput = {
+export type UserUncheckedCreateWithoutUserSocialNetworksInput = {
   id?: number
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutUserInput
   works?: Prisma.WorkUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type UserCreateOrConnectWithoutUser_social_networksInput = {
+export type UserCreateOrConnectWithoutUserSocialNetworksInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutUser_social_networksInput, Prisma.UserUncheckedCreateWithoutUser_social_networksInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutUserSocialNetworksInput, Prisma.UserUncheckedCreateWithoutUserSocialNetworksInput>
 }
 
-export type UserUpsertWithoutUser_social_networksInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutUser_social_networksInput, Prisma.UserUncheckedUpdateWithoutUser_social_networksInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutUser_social_networksInput, Prisma.UserUncheckedCreateWithoutUser_social_networksInput>
+export type UserUpsertWithoutUserSocialNetworksInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutUserSocialNetworksInput, Prisma.UserUncheckedUpdateWithoutUserSocialNetworksInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutUserSocialNetworksInput, Prisma.UserUncheckedCreateWithoutUserSocialNetworksInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutUser_social_networksInput = {
+export type UserUpdateToOneWithWhereWithoutUserSocialNetworksInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutUser_social_networksInput, Prisma.UserUncheckedUpdateWithoutUser_social_networksInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutUserSocialNetworksInput, Prisma.UserUncheckedUpdateWithoutUserSocialNetworksInput>
 }
 
-export type UserUpdateWithoutUser_social_networksInput = {
+export type UserUpdateWithoutUserSocialNetworksInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   screenings?: Prisma.ScreeningUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUpdateManyWithoutUserNestedInput
 }
 
-export type UserUncheckedUpdateWithoutUser_social_networksInput = {
+export type UserUncheckedUpdateWithoutUserSocialNetworksInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUncheckedUpdateManyWithoutUserNestedInput
@@ -714,32 +714,32 @@ export type UserUncheckedUpdateWithoutUser_social_networksInput = {
 
 export type UserCreateWithoutVotesInput = {
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
   screenings?: Prisma.ScreeningCreateNestedManyWithoutUserInput
-  user_social_networks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
+  userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
   works?: Prisma.WorkCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutVotesInput = {
   id?: number
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutUserInput
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
   works?: Prisma.WorkUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -761,63 +761,63 @@ export type UserUpdateToOneWithWhereWithoutVotesInput = {
 
 export type UserUpdateWithoutVotesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   screenings?: Prisma.ScreeningUpdateManyWithoutUserNestedInput
-  user_social_networks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutVotesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutUserNestedInput
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutWorksInput = {
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
   screenings?: Prisma.ScreeningCreateNestedManyWithoutUserInput
-  user_social_networks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
+  userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutWorksInput = {
   id?: number
   email: string
-  password_hash: string
+  passwordHash: string
   role: $Enums.UserRole
-  first_name: string
-  last_name: string
+  firstName: string
+  lastName: string
   bio?: string | null
   photo?: string | null
-  created_at?: Date | string | null
-  updated_at?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutUserInput
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -839,32 +839,32 @@ export type UserUpdateToOneWithWhereWithoutWorksInput = {
 
 export type UserUpdateWithoutWorksInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   screenings?: Prisma.ScreeningUpdateManyWithoutUserNestedInput
-  user_social_networks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorksInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  first_name?: Prisma.StringFieldUpdateOperationsInput | string
-  last_name?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutUserNestedInput
-  user_social_networks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
+  userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -875,14 +875,14 @@ export type UserUncheckedUpdateWithoutWorksInput = {
 
 export type UserCountOutputType = {
   screenings: number
-  user_social_networks: number
+  userSocialNetworks: number
   votes: number
   works: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   screenings?: boolean | UserCountOutputTypeCountScreeningsArgs
-  user_social_networks?: boolean | UserCountOutputTypeCountUser_social_networksArgs
+  userSocialNetworks?: boolean | UserCountOutputTypeCountUserSocialNetworksArgs
   votes?: boolean | UserCountOutputTypeCountVotesArgs
   works?: boolean | UserCountOutputTypeCountWorksArgs
 }
@@ -907,7 +907,7 @@ export type UserCountOutputTypeCountScreeningsArgs<ExtArgs extends runtime.Types
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountUser_social_networksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserCountOutputTypeCountUserSocialNetworksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.UserSocialNetworkWhereInput
 }
 
@@ -929,16 +929,16 @@ export type UserCountOutputTypeCountWorksArgs<ExtArgs extends runtime.Types.Exte
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   email?: boolean
-  password_hash?: boolean
+  passwordHash?: boolean
   role?: boolean
-  first_name?: boolean
-  last_name?: boolean
+  firstName?: boolean
+  lastName?: boolean
   bio?: boolean
   photo?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   screenings?: boolean | Prisma.User$screeningsArgs<ExtArgs>
-  user_social_networks?: boolean | Prisma.User$user_social_networksArgs<ExtArgs>
+  userSocialNetworks?: boolean | Prisma.User$userSocialNetworksArgs<ExtArgs>
   votes?: boolean | Prisma.User$votesArgs<ExtArgs>
   works?: boolean | Prisma.User$worksArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -949,20 +949,20 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 export type UserSelectScalar = {
   id?: boolean
   email?: boolean
-  password_hash?: boolean
+  passwordHash?: boolean
   role?: boolean
-  first_name?: boolean
-  last_name?: boolean
+  firstName?: boolean
+  lastName?: boolean
   bio?: boolean
   photo?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password_hash" | "role" | "first_name" | "last_name" | "bio" | "photo" | "created_at" | "updated_at", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "passwordHash" | "role" | "firstName" | "lastName" | "bio" | "photo" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   screenings?: boolean | Prisma.User$screeningsArgs<ExtArgs>
-  user_social_networks?: boolean | Prisma.User$user_social_networksArgs<ExtArgs>
+  userSocialNetworks?: boolean | Prisma.User$userSocialNetworksArgs<ExtArgs>
   votes?: boolean | Prisma.User$votesArgs<ExtArgs>
   works?: boolean | Prisma.User$worksArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -972,21 +972,21 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "User"
   objects: {
     screenings: Prisma.$ScreeningPayload<ExtArgs>[]
-    user_social_networks: Prisma.$UserSocialNetworkPayload<ExtArgs>[]
+    userSocialNetworks: Prisma.$UserSocialNetworkPayload<ExtArgs>[]
     votes: Prisma.$VotePayload<ExtArgs>[]
     works: Prisma.$WorkPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     email: string
-    password_hash: string
+    passwordHash: string
     role: $Enums.UserRole
-    first_name: string
-    last_name: string
+    firstName: string
+    lastName: string
     bio: string | null
     photo: string | null
-    created_at: Date | null
-    updated_at: Date
+    createdAt: Date | null
+    updatedAt: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -1328,7 +1328,7 @@ readonly fields: UserFieldRefs;
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   screenings<T extends Prisma.User$screeningsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$screeningsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ScreeningPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  user_social_networks<T extends Prisma.User$user_social_networksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$user_social_networksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserSocialNetworkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  userSocialNetworks<T extends Prisma.User$userSocialNetworksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$userSocialNetworksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserSocialNetworkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   votes<T extends Prisma.User$votesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$votesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   works<T extends Prisma.User$worksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$worksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1362,14 +1362,14 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
 export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'Int'>
   readonly email: Prisma.FieldRef<"User", 'String'>
-  readonly password_hash: Prisma.FieldRef<"User", 'String'>
+  readonly passwordHash: Prisma.FieldRef<"User", 'String'>
   readonly role: Prisma.FieldRef<"User", 'UserRole'>
-  readonly first_name: Prisma.FieldRef<"User", 'String'>
-  readonly last_name: Prisma.FieldRef<"User", 'String'>
+  readonly firstName: Prisma.FieldRef<"User", 'String'>
+  readonly lastName: Prisma.FieldRef<"User", 'String'>
   readonly bio: Prisma.FieldRef<"User", 'String'>
   readonly photo: Prisma.FieldRef<"User", 'String'>
-  readonly created_at: Prisma.FieldRef<"User", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"User", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
     
 
@@ -1737,9 +1737,9 @@ export type User$screeningsArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 /**
- * User.user_social_networks
+ * User.userSocialNetworks
  */
-export type User$user_social_networksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$userSocialNetworksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the UserSocialNetwork
    */

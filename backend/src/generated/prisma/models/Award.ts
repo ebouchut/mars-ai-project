@@ -28,82 +28,82 @@ export type AggregateAward = {
 
 export type AwardAvgAggregateOutputType = {
   id: number | null
-  partner_id: number | null
+  partnerId: number | null
   amount: runtime.Decimal | null
 }
 
 export type AwardSumAggregateOutputType = {
   id: number | null
-  partner_id: number | null
+  partnerId: number | null
   amount: runtime.Decimal | null
 }
 
 export type AwardMinAggregateOutputType = {
   id: number | null
-  partner_id: number | null
+  partnerId: number | null
   name: string | null
   description: string | null
   amount: runtime.Decimal | null
-  amount_currency: $Enums.AmountCurrency | null
+  amountCurrency: $Enums.AmountCurrency | null
 }
 
 export type AwardMaxAggregateOutputType = {
   id: number | null
-  partner_id: number | null
+  partnerId: number | null
   name: string | null
   description: string | null
   amount: runtime.Decimal | null
-  amount_currency: $Enums.AmountCurrency | null
+  amountCurrency: $Enums.AmountCurrency | null
 }
 
 export type AwardCountAggregateOutputType = {
   id: number
-  partner_id: number
+  partnerId: number
   name: number
   description: number
   amount: number
-  amount_currency: number
+  amountCurrency: number
   _all: number
 }
 
 
 export type AwardAvgAggregateInputType = {
   id?: true
-  partner_id?: true
+  partnerId?: true
   amount?: true
 }
 
 export type AwardSumAggregateInputType = {
   id?: true
-  partner_id?: true
+  partnerId?: true
   amount?: true
 }
 
 export type AwardMinAggregateInputType = {
   id?: true
-  partner_id?: true
+  partnerId?: true
   name?: true
   description?: true
   amount?: true
-  amount_currency?: true
+  amountCurrency?: true
 }
 
 export type AwardMaxAggregateInputType = {
   id?: true
-  partner_id?: true
+  partnerId?: true
   name?: true
   description?: true
   amount?: true
-  amount_currency?: true
+  amountCurrency?: true
 }
 
 export type AwardCountAggregateInputType = {
   id?: true
-  partner_id?: true
+  partnerId?: true
   name?: true
   description?: true
   amount?: true
-  amount_currency?: true
+  amountCurrency?: true
   _all?: true
 }
 
@@ -195,11 +195,11 @@ export type AwardGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type AwardGroupByOutputType = {
   id: number
-  partner_id: number | null
+  partnerId: number | null
   name: string
   description: string | null
   amount: runtime.Decimal | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   _count: AwardCountAggregateOutputType | null
   _avg: AwardAvgAggregateOutputType | null
   _sum: AwardSumAggregateOutputType | null
@@ -227,11 +227,11 @@ export type AwardWhereInput = {
   OR?: Prisma.AwardWhereInput[]
   NOT?: Prisma.AwardWhereInput | Prisma.AwardWhereInput[]
   id?: Prisma.IntFilter<"Award"> | number
-  partner_id?: Prisma.IntNullableFilter<"Award"> | number | null
+  partnerId?: Prisma.IntNullableFilter<"Award"> | number | null
   name?: Prisma.StringFilter<"Award"> | string
   description?: Prisma.StringNullableFilter<"Award"> | string | null
   amount?: Prisma.DecimalNullableFilter<"Award"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFilter<"Award"> | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFilter<"Award"> | $Enums.AmountCurrency
   partner?: Prisma.XOR<Prisma.PartnerNullableScalarRelationFilter, Prisma.PartnerWhereInput> | null
   nominations?: Prisma.NominationListRelationFilter
   votes?: Prisma.VoteListRelationFilter
@@ -239,11 +239,11 @@ export type AwardWhereInput = {
 
 export type AwardOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  partner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  partnerId?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   amount?: Prisma.SortOrderInput | Prisma.SortOrder
-  amount_currency?: Prisma.SortOrder
+  amountCurrency?: Prisma.SortOrder
   partner?: Prisma.PartnerOrderByWithRelationInput
   nominations?: Prisma.NominationOrderByRelationAggregateInput
   votes?: Prisma.VoteOrderByRelationAggregateInput
@@ -256,10 +256,10 @@ export type AwardWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.AwardWhereInput | Prisma.AwardWhereInput[]
   OR?: Prisma.AwardWhereInput[]
   NOT?: Prisma.AwardWhereInput | Prisma.AwardWhereInput[]
-  partner_id?: Prisma.IntNullableFilter<"Award"> | number | null
+  partnerId?: Prisma.IntNullableFilter<"Award"> | number | null
   description?: Prisma.StringNullableFilter<"Award"> | string | null
   amount?: Prisma.DecimalNullableFilter<"Award"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFilter<"Award"> | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFilter<"Award"> | $Enums.AmountCurrency
   partner?: Prisma.XOR<Prisma.PartnerNullableScalarRelationFilter, Prisma.PartnerWhereInput> | null
   nominations?: Prisma.NominationListRelationFilter
   votes?: Prisma.VoteListRelationFilter
@@ -267,11 +267,11 @@ export type AwardWhereUniqueInput = Prisma.AtLeast<{
 
 export type AwardOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  partner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  partnerId?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   amount?: Prisma.SortOrderInput | Prisma.SortOrder
-  amount_currency?: Prisma.SortOrder
+  amountCurrency?: Prisma.SortOrder
   _count?: Prisma.AwardCountOrderByAggregateInput
   _avg?: Prisma.AwardAvgOrderByAggregateInput
   _max?: Prisma.AwardMaxOrderByAggregateInput
@@ -284,18 +284,18 @@ export type AwardScalarWhereWithAggregatesInput = {
   OR?: Prisma.AwardScalarWhereWithAggregatesInput[]
   NOT?: Prisma.AwardScalarWhereWithAggregatesInput | Prisma.AwardScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Award"> | number
-  partner_id?: Prisma.IntNullableWithAggregatesFilter<"Award"> | number | null
+  partnerId?: Prisma.IntNullableWithAggregatesFilter<"Award"> | number | null
   name?: Prisma.StringWithAggregatesFilter<"Award"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"Award"> | string | null
   amount?: Prisma.DecimalNullableWithAggregatesFilter<"Award"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyWithAggregatesFilter<"Award"> | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyWithAggregatesFilter<"Award"> | $Enums.AmountCurrency
 }
 
 export type AwardCreateInput = {
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   partner?: Prisma.PartnerCreateNestedOneWithoutAwardsInput
   nominations?: Prisma.NominationCreateNestedManyWithoutAwardInput
   votes?: Prisma.VoteCreateNestedManyWithoutAwardInput
@@ -303,11 +303,11 @@ export type AwardCreateInput = {
 
 export type AwardUncheckedCreateInput = {
   id?: number
-  partner_id?: number | null
+  partnerId?: number | null
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   nominations?: Prisma.NominationUncheckedCreateNestedManyWithoutAwardInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutAwardInput
 }
@@ -316,7 +316,7 @@ export type AwardUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
   partner?: Prisma.PartnerUpdateOneWithoutAwardsNestedInput
   nominations?: Prisma.NominationUpdateManyWithoutAwardNestedInput
   votes?: Prisma.VoteUpdateManyWithoutAwardNestedInput
@@ -324,38 +324,38 @@ export type AwardUpdateInput = {
 
 export type AwardUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  partner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  partnerId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
   nominations?: Prisma.NominationUncheckedUpdateManyWithoutAwardNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutAwardNestedInput
 }
 
 export type AwardCreateManyInput = {
   id?: number
-  partner_id?: number | null
+  partnerId?: number | null
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
 }
 
 export type AwardUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
 }
 
 export type AwardUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  partner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  partnerId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
 }
 
 export type AwardOrderByRelevanceInput = {
@@ -366,40 +366,40 @@ export type AwardOrderByRelevanceInput = {
 
 export type AwardCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  partner_id?: Prisma.SortOrder
+  partnerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  amount_currency?: Prisma.SortOrder
+  amountCurrency?: Prisma.SortOrder
 }
 
 export type AwardAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  partner_id?: Prisma.SortOrder
+  partnerId?: Prisma.SortOrder
   amount?: Prisma.SortOrder
 }
 
 export type AwardMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  partner_id?: Prisma.SortOrder
+  partnerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  amount_currency?: Prisma.SortOrder
+  amountCurrency?: Prisma.SortOrder
 }
 
 export type AwardMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  partner_id?: Prisma.SortOrder
+  partnerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  amount_currency?: Prisma.SortOrder
+  amountCurrency?: Prisma.SortOrder
 }
 
 export type AwardSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  partner_id?: Prisma.SortOrder
+  partnerId?: Prisma.SortOrder
   amount?: Prisma.SortOrder
 }
 
@@ -516,18 +516,18 @@ export type AwardCreateWithoutNominationsInput = {
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   partner?: Prisma.PartnerCreateNestedOneWithoutAwardsInput
   votes?: Prisma.VoteCreateNestedManyWithoutAwardInput
 }
 
 export type AwardUncheckedCreateWithoutNominationsInput = {
   id?: number
-  partner_id?: number | null
+  partnerId?: number | null
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutAwardInput
 }
 
@@ -551,18 +551,18 @@ export type AwardUpdateWithoutNominationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
   partner?: Prisma.PartnerUpdateOneWithoutAwardsNestedInput
   votes?: Prisma.VoteUpdateManyWithoutAwardNestedInput
 }
 
 export type AwardUncheckedUpdateWithoutNominationsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  partner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  partnerId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
   votes?: Prisma.VoteUncheckedUpdateManyWithoutAwardNestedInput
 }
 
@@ -570,7 +570,7 @@ export type AwardCreateWithoutPartnerInput = {
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   nominations?: Prisma.NominationCreateNestedManyWithoutAwardInput
   votes?: Prisma.VoteCreateNestedManyWithoutAwardInput
 }
@@ -580,7 +580,7 @@ export type AwardUncheckedCreateWithoutPartnerInput = {
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   nominations?: Prisma.NominationUncheckedCreateNestedManyWithoutAwardInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutAwardInput
 }
@@ -616,29 +616,29 @@ export type AwardScalarWhereInput = {
   OR?: Prisma.AwardScalarWhereInput[]
   NOT?: Prisma.AwardScalarWhereInput | Prisma.AwardScalarWhereInput[]
   id?: Prisma.IntFilter<"Award"> | number
-  partner_id?: Prisma.IntNullableFilter<"Award"> | number | null
+  partnerId?: Prisma.IntNullableFilter<"Award"> | number | null
   name?: Prisma.StringFilter<"Award"> | string
   description?: Prisma.StringNullableFilter<"Award"> | string | null
   amount?: Prisma.DecimalNullableFilter<"Award"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFilter<"Award"> | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFilter<"Award"> | $Enums.AmountCurrency
 }
 
 export type AwardCreateWithoutVotesInput = {
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   partner?: Prisma.PartnerCreateNestedOneWithoutAwardsInput
   nominations?: Prisma.NominationCreateNestedManyWithoutAwardInput
 }
 
 export type AwardUncheckedCreateWithoutVotesInput = {
   id?: number
-  partner_id?: number | null
+  partnerId?: number | null
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
   nominations?: Prisma.NominationUncheckedCreateNestedManyWithoutAwardInput
 }
 
@@ -662,18 +662,18 @@ export type AwardUpdateWithoutVotesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
   partner?: Prisma.PartnerUpdateOneWithoutAwardsNestedInput
   nominations?: Prisma.NominationUpdateManyWithoutAwardNestedInput
 }
 
 export type AwardUncheckedUpdateWithoutVotesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  partner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  partnerId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
   nominations?: Prisma.NominationUncheckedUpdateManyWithoutAwardNestedInput
 }
 
@@ -682,14 +682,14 @@ export type AwardCreateManyPartnerInput = {
   name: string
   description?: string | null
   amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency: $Enums.AmountCurrency
+  amountCurrency: $Enums.AmountCurrency
 }
 
 export type AwardUpdateWithoutPartnerInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
   nominations?: Prisma.NominationUpdateManyWithoutAwardNestedInput
   votes?: Prisma.VoteUpdateManyWithoutAwardNestedInput
 }
@@ -699,7 +699,7 @@ export type AwardUncheckedUpdateWithoutPartnerInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
   nominations?: Prisma.NominationUncheckedUpdateManyWithoutAwardNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutAwardNestedInput
 }
@@ -709,7 +709,7 @@ export type AwardUncheckedUpdateManyWithoutPartnerInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  amount_currency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
+  amountCurrency?: Prisma.EnumAmountCurrencyFieldUpdateOperationsInput | $Enums.AmountCurrency
 }
 
 
@@ -754,11 +754,11 @@ export type AwardCountOutputTypeCountVotesArgs<ExtArgs extends runtime.Types.Ext
 
 export type AwardSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  partner_id?: boolean
+  partnerId?: boolean
   name?: boolean
   description?: boolean
   amount?: boolean
-  amount_currency?: boolean
+  amountCurrency?: boolean
   partner?: boolean | Prisma.Award$partnerArgs<ExtArgs>
   nominations?: boolean | Prisma.Award$nominationsArgs<ExtArgs>
   votes?: boolean | Prisma.Award$votesArgs<ExtArgs>
@@ -769,14 +769,14 @@ export type AwardSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 
 export type AwardSelectScalar = {
   id?: boolean
-  partner_id?: boolean
+  partnerId?: boolean
   name?: boolean
   description?: boolean
   amount?: boolean
-  amount_currency?: boolean
+  amountCurrency?: boolean
 }
 
-export type AwardOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "partner_id" | "name" | "description" | "amount" | "amount_currency", ExtArgs["result"]["award"]>
+export type AwardOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "partnerId" | "name" | "description" | "amount" | "amountCurrency", ExtArgs["result"]["award"]>
 export type AwardInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   partner?: boolean | Prisma.Award$partnerArgs<ExtArgs>
   nominations?: boolean | Prisma.Award$nominationsArgs<ExtArgs>
@@ -793,11 +793,11 @@ export type $AwardPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    partner_id: number | null
+    partnerId: number | null
     name: string
     description: string | null
     amount: runtime.Decimal | null
-    amount_currency: $Enums.AmountCurrency
+    amountCurrency: $Enums.AmountCurrency
   }, ExtArgs["result"]["award"]>
   composites: {}
 }
@@ -1171,11 +1171,11 @@ export interface Prisma__AwardClient<T, Null = never, ExtArgs extends runtime.Ty
  */
 export interface AwardFieldRefs {
   readonly id: Prisma.FieldRef<"Award", 'Int'>
-  readonly partner_id: Prisma.FieldRef<"Award", 'Int'>
+  readonly partnerId: Prisma.FieldRef<"Award", 'Int'>
   readonly name: Prisma.FieldRef<"Award", 'String'>
   readonly description: Prisma.FieldRef<"Award", 'String'>
   readonly amount: Prisma.FieldRef<"Award", 'Decimal'>
-  readonly amount_currency: Prisma.FieldRef<"Award", 'AmountCurrency'>
+  readonly amountCurrency: Prisma.FieldRef<"Award", 'AmountCurrency'>
 }
     
 

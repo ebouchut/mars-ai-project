@@ -38,30 +38,30 @@ export type JuryInvitationMinAggregateOutputType = {
   id: number | null
   email: string | null
   token: string | null
-  expires_at: Date | null
-  accepted_at: Date | null
-  created_at: Date | null
-  updated_at: Date | null
+  expiresAt: Date | null
+  acceptedAt: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type JuryInvitationMaxAggregateOutputType = {
   id: number | null
   email: string | null
   token: string | null
-  expires_at: Date | null
-  accepted_at: Date | null
-  created_at: Date | null
-  updated_at: Date | null
+  expiresAt: Date | null
+  acceptedAt: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type JuryInvitationCountAggregateOutputType = {
   id: number
   email: number
   token: number
-  expires_at: number
-  accepted_at: number
-  created_at: number
-  updated_at: number
+  expiresAt: number
+  acceptedAt: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -78,30 +78,30 @@ export type JuryInvitationMinAggregateInputType = {
   id?: true
   email?: true
   token?: true
-  expires_at?: true
-  accepted_at?: true
-  created_at?: true
-  updated_at?: true
+  expiresAt?: true
+  acceptedAt?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type JuryInvitationMaxAggregateInputType = {
   id?: true
   email?: true
   token?: true
-  expires_at?: true
-  accepted_at?: true
-  created_at?: true
-  updated_at?: true
+  expiresAt?: true
+  acceptedAt?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type JuryInvitationCountAggregateInputType = {
   id?: true
   email?: true
   token?: true
-  expires_at?: true
-  accepted_at?: true
-  created_at?: true
-  updated_at?: true
+  expiresAt?: true
+  acceptedAt?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -195,10 +195,10 @@ export type JuryInvitationGroupByOutputType = {
   id: number
   email: string
   token: string
-  expires_at: Date
-  accepted_at: Date | null
-  created_at: Date
-  updated_at: Date
+  expiresAt: Date
+  acceptedAt: Date | null
+  createdAt: Date
+  updatedAt: Date
   _count: JuryInvitationCountAggregateOutputType | null
   _avg: JuryInvitationAvgAggregateOutputType | null
   _sum: JuryInvitationSumAggregateOutputType | null
@@ -228,20 +228,20 @@ export type JuryInvitationWhereInput = {
   id?: Prisma.IntFilter<"JuryInvitation"> | number
   email?: Prisma.StringFilter<"JuryInvitation"> | string
   token?: Prisma.StringFilter<"JuryInvitation"> | string
-  expires_at?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
-  accepted_at?: Prisma.DateTimeNullableFilter<"JuryInvitation"> | Date | string | null
-  created_at?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
+  expiresAt?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
+  acceptedAt?: Prisma.DateTimeNullableFilter<"JuryInvitation"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
 }
 
 export type JuryInvitationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   token?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
-  accepted_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
+  acceptedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _relevance?: Prisma.JuryInvitationOrderByRelevanceInput
 }
 
@@ -252,20 +252,20 @@ export type JuryInvitationWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.JuryInvitationWhereInput[]
   NOT?: Prisma.JuryInvitationWhereInput | Prisma.JuryInvitationWhereInput[]
   token?: Prisma.StringFilter<"JuryInvitation"> | string
-  expires_at?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
-  accepted_at?: Prisma.DateTimeNullableFilter<"JuryInvitation"> | Date | string | null
-  created_at?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
+  expiresAt?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
+  acceptedAt?: Prisma.DateTimeNullableFilter<"JuryInvitation"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"JuryInvitation"> | Date | string
 }, "id" | "email">
 
 export type JuryInvitationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   token?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
-  accepted_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
+  acceptedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.JuryInvitationCountOrderByAggregateInput
   _avg?: Prisma.JuryInvitationAvgOrderByAggregateInput
   _max?: Prisma.JuryInvitationMaxOrderByAggregateInput
@@ -280,77 +280,77 @@ export type JuryInvitationScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"JuryInvitation"> | number
   email?: Prisma.StringWithAggregatesFilter<"JuryInvitation"> | string
   token?: Prisma.StringWithAggregatesFilter<"JuryInvitation"> | string
-  expires_at?: Prisma.DateTimeWithAggregatesFilter<"JuryInvitation"> | Date | string
-  accepted_at?: Prisma.DateTimeNullableWithAggregatesFilter<"JuryInvitation"> | Date | string | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"JuryInvitation"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"JuryInvitation"> | Date | string
+  expiresAt?: Prisma.DateTimeWithAggregatesFilter<"JuryInvitation"> | Date | string
+  acceptedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"JuryInvitation"> | Date | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"JuryInvitation"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"JuryInvitation"> | Date | string
 }
 
 export type JuryInvitationCreateInput = {
   email: string
   token: string
-  expires_at: Date | string
-  accepted_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
+  expiresAt: Date | string
+  acceptedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type JuryInvitationUncheckedCreateInput = {
   id?: number
   email: string
   token: string
-  expires_at: Date | string
-  accepted_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
+  expiresAt: Date | string
+  acceptedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type JuryInvitationUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type JuryInvitationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type JuryInvitationCreateManyInput = {
   id?: number
   email: string
   token: string
-  expires_at: Date | string
-  accepted_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
+  expiresAt: Date | string
+  acceptedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type JuryInvitationUpdateManyMutationInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type JuryInvitationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
-  expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type JuryInvitationOrderByRelevanceInput = {
@@ -363,10 +363,10 @@ export type JuryInvitationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   token?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
-  accepted_at?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
+  acceptedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type JuryInvitationAvgOrderByAggregateInput = {
@@ -377,20 +377,20 @@ export type JuryInvitationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   token?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
-  accepted_at?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
+  acceptedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type JuryInvitationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   token?: Prisma.SortOrder
-  expires_at?: Prisma.SortOrder
-  accepted_at?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
+  acceptedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type JuryInvitationSumOrderByAggregateInput = {
@@ -407,10 +407,10 @@ export type JuryInvitationSelect<ExtArgs extends runtime.Types.Extensions.Intern
   id?: boolean
   email?: boolean
   token?: boolean
-  expires_at?: boolean
-  accepted_at?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  expiresAt?: boolean
+  acceptedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["juryInvitation"]>
 
 
@@ -419,13 +419,13 @@ export type JuryInvitationSelectScalar = {
   id?: boolean
   email?: boolean
   token?: boolean
-  expires_at?: boolean
-  accepted_at?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  expiresAt?: boolean
+  acceptedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type JuryInvitationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "token" | "expires_at" | "accepted_at" | "created_at" | "updated_at", ExtArgs["result"]["juryInvitation"]>
+export type JuryInvitationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "token" | "expiresAt" | "acceptedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["juryInvitation"]>
 
 export type $JuryInvitationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "JuryInvitation"
@@ -434,10 +434,10 @@ export type $JuryInvitationPayload<ExtArgs extends runtime.Types.Extensions.Inte
     id: number
     email: string
     token: string
-    expires_at: Date
-    accepted_at: Date | null
-    created_at: Date
-    updated_at: Date
+    expiresAt: Date
+    acceptedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["juryInvitation"]>
   composites: {}
 }
@@ -810,10 +810,10 @@ export interface JuryInvitationFieldRefs {
   readonly id: Prisma.FieldRef<"JuryInvitation", 'Int'>
   readonly email: Prisma.FieldRef<"JuryInvitation", 'String'>
   readonly token: Prisma.FieldRef<"JuryInvitation", 'String'>
-  readonly expires_at: Prisma.FieldRef<"JuryInvitation", 'DateTime'>
-  readonly accepted_at: Prisma.FieldRef<"JuryInvitation", 'DateTime'>
-  readonly created_at: Prisma.FieldRef<"JuryInvitation", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"JuryInvitation", 'DateTime'>
+  readonly expiresAt: Prisma.FieldRef<"JuryInvitation", 'DateTime'>
+  readonly acceptedAt: Prisma.FieldRef<"JuryInvitation", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"JuryInvitation", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"JuryInvitation", 'DateTime'>
 }
     
 
