@@ -9,54 +9,54 @@
 * 🟢 You can import this file directly.
 */
 
-export const nominations_status = {
+export const NominationStatus = {
   nominated: 'nominated',
   winner: 'winner',
   runner_up: 'runner_up',
   pending_tiebreak_consensus: 'pending_tiebreak_consensus'
 } as const
 
-export type nominations_status = (typeof nominations_status)[keyof typeof nominations_status]
+export type NominationStatus = (typeof NominationStatus)[keyof typeof NominationStatus]
 
 
-export const screenings_status = {
+export const ScreeningStatus = {
   selected: 'selected',
   rejected: 'rejected',
   pending_selection_consensus: 'pending_selection_consensus'
 } as const
 
-export type screenings_status = (typeof screenings_status)[keyof typeof screenings_status]
+export type ScreeningStatus = (typeof ScreeningStatus)[keyof typeof ScreeningStatus]
 
 
-export const newsletter_subscriptions_status = {
+export const NewsletterSubscriptionStatus = {
   pending: 'pending',
   subscribed: 'subscribed',
   unsubscribed: 'unsubscribed',
   error: 'error'
 } as const
 
-export type newsletter_subscriptions_status = (typeof newsletter_subscriptions_status)[keyof typeof newsletter_subscriptions_status]
+export type NewsletterSubscriptionStatus = (typeof NewsletterSubscriptionStatus)[keyof typeof NewsletterSubscriptionStatus]
 
 
-export const users_role = {
+export const UserRole = {
   admin: 'admin',
   filmmaker: 'filmmaker',
   screener: 'screener',
   jury: 'jury'
 } as const
 
-export type users_role = (typeof users_role)[keyof typeof users_role]
+export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
 
-export const awards_amount_currency = {
+export const AmountCurrency = {
   USD: 'USD',
   EUR: 'EUR'
 } as const
 
-export type awards_amount_currency = (typeof awards_amount_currency)[keyof typeof awards_amount_currency]
+export type AmountCurrency = (typeof AmountCurrency)[keyof typeof AmountCurrency]
 
 
-export const films_status = {
+export const FilmStatus = {
   submitted: 'submitted',
   bookended: 'bookended',
   draft_published: 'draft_published',
@@ -73,4 +73,4 @@ export const films_status = {
   scored: 'scored'
 } as const
 
-export type films_status = (typeof films_status)[keyof typeof films_status]
+export type FilmStatus = (typeof FilmStatus)[keyof typeof FilmStatus]
