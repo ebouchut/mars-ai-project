@@ -27,55 +27,55 @@ export type AggregateFilmProductionTool = {
 }
 
 export type FilmProductionToolAvgAggregateOutputType = {
-  film_id: number | null
-  production_tool_id: number | null
+  filmId: number | null
+  productionToolId: number | null
 }
 
 export type FilmProductionToolSumAggregateOutputType = {
-  film_id: number | null
-  production_tool_id: number | null
+  filmId: number | null
+  productionToolId: number | null
 }
 
 export type FilmProductionToolMinAggregateOutputType = {
-  film_id: number | null
-  production_tool_id: number | null
+  filmId: number | null
+  productionToolId: number | null
 }
 
 export type FilmProductionToolMaxAggregateOutputType = {
-  film_id: number | null
-  production_tool_id: number | null
+  filmId: number | null
+  productionToolId: number | null
 }
 
 export type FilmProductionToolCountAggregateOutputType = {
-  film_id: number
-  production_tool_id: number
+  filmId: number
+  productionToolId: number
   _all: number
 }
 
 
 export type FilmProductionToolAvgAggregateInputType = {
-  film_id?: true
-  production_tool_id?: true
+  filmId?: true
+  productionToolId?: true
 }
 
 export type FilmProductionToolSumAggregateInputType = {
-  film_id?: true
-  production_tool_id?: true
+  filmId?: true
+  productionToolId?: true
 }
 
 export type FilmProductionToolMinAggregateInputType = {
-  film_id?: true
-  production_tool_id?: true
+  filmId?: true
+  productionToolId?: true
 }
 
 export type FilmProductionToolMaxAggregateInputType = {
-  film_id?: true
-  production_tool_id?: true
+  filmId?: true
+  productionToolId?: true
 }
 
 export type FilmProductionToolCountAggregateInputType = {
-  film_id?: true
-  production_tool_id?: true
+  filmId?: true
+  productionToolId?: true
   _all?: true
 }
 
@@ -166,8 +166,8 @@ export type FilmProductionToolGroupByArgs<ExtArgs extends runtime.Types.Extensio
 }
 
 export type FilmProductionToolGroupByOutputType = {
-  film_id: number
-  production_tool_id: number
+  filmId: number
+  productionToolId: number
   _count: FilmProductionToolCountAggregateOutputType | null
   _avg: FilmProductionToolAvgAggregateOutputType | null
   _sum: FilmProductionToolSumAggregateOutputType | null
@@ -194,33 +194,33 @@ export type FilmProductionToolWhereInput = {
   AND?: Prisma.FilmProductionToolWhereInput | Prisma.FilmProductionToolWhereInput[]
   OR?: Prisma.FilmProductionToolWhereInput[]
   NOT?: Prisma.FilmProductionToolWhereInput | Prisma.FilmProductionToolWhereInput[]
-  film_id?: Prisma.IntFilter<"FilmProductionTool"> | number
-  production_tool_id?: Prisma.IntFilter<"FilmProductionTool"> | number
+  filmId?: Prisma.IntFilter<"FilmProductionTool"> | number
+  productionToolId?: Prisma.IntFilter<"FilmProductionTool"> | number
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
-  production_tool?: Prisma.XOR<Prisma.ProductionToolScalarRelationFilter, Prisma.ProductionToolWhereInput>
+  productionTool?: Prisma.XOR<Prisma.ProductionToolScalarRelationFilter, Prisma.ProductionToolWhereInput>
 }
 
 export type FilmProductionToolOrderByWithRelationInput = {
-  film_id?: Prisma.SortOrder
-  production_tool_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  productionToolId?: Prisma.SortOrder
   film?: Prisma.FilmOrderByWithRelationInput
-  production_tool?: Prisma.ProductionToolOrderByWithRelationInput
+  productionTool?: Prisma.ProductionToolOrderByWithRelationInput
 }
 
 export type FilmProductionToolWhereUniqueInput = Prisma.AtLeast<{
-  film_id_production_tool_id?: Prisma.FilmProductionToolFilm_idProduction_tool_idCompoundUniqueInput
+  filmId_productionToolId?: Prisma.FilmProductionToolFilmIdProductionToolIdCompoundUniqueInput
   AND?: Prisma.FilmProductionToolWhereInput | Prisma.FilmProductionToolWhereInput[]
   OR?: Prisma.FilmProductionToolWhereInput[]
   NOT?: Prisma.FilmProductionToolWhereInput | Prisma.FilmProductionToolWhereInput[]
-  film_id?: Prisma.IntFilter<"FilmProductionTool"> | number
-  production_tool_id?: Prisma.IntFilter<"FilmProductionTool"> | number
+  filmId?: Prisma.IntFilter<"FilmProductionTool"> | number
+  productionToolId?: Prisma.IntFilter<"FilmProductionTool"> | number
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
-  production_tool?: Prisma.XOR<Prisma.ProductionToolScalarRelationFilter, Prisma.ProductionToolWhereInput>
-}, "film_id_production_tool_id">
+  productionTool?: Prisma.XOR<Prisma.ProductionToolScalarRelationFilter, Prisma.ProductionToolWhereInput>
+}, "filmId_productionToolId">
 
 export type FilmProductionToolOrderByWithAggregationInput = {
-  film_id?: Prisma.SortOrder
-  production_tool_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  productionToolId?: Prisma.SortOrder
   _count?: Prisma.FilmProductionToolCountOrderByAggregateInput
   _avg?: Prisma.FilmProductionToolAvgOrderByAggregateInput
   _max?: Prisma.FilmProductionToolMaxOrderByAggregateInput
@@ -232,33 +232,33 @@ export type FilmProductionToolScalarWhereWithAggregatesInput = {
   AND?: Prisma.FilmProductionToolScalarWhereWithAggregatesInput | Prisma.FilmProductionToolScalarWhereWithAggregatesInput[]
   OR?: Prisma.FilmProductionToolScalarWhereWithAggregatesInput[]
   NOT?: Prisma.FilmProductionToolScalarWhereWithAggregatesInput | Prisma.FilmProductionToolScalarWhereWithAggregatesInput[]
-  film_id?: Prisma.IntWithAggregatesFilter<"FilmProductionTool"> | number
-  production_tool_id?: Prisma.IntWithAggregatesFilter<"FilmProductionTool"> | number
+  filmId?: Prisma.IntWithAggregatesFilter<"FilmProductionTool"> | number
+  productionToolId?: Prisma.IntWithAggregatesFilter<"FilmProductionTool"> | number
 }
 
 export type FilmProductionToolCreateInput = {
-  film: Prisma.FilmCreateNestedOneWithoutFilm_production_toolsInput
-  production_tool: Prisma.ProductionToolCreateNestedOneWithoutFilm_production_toolsInput
+  film: Prisma.FilmCreateNestedOneWithoutFilmProductionToolsInput
+  productionTool: Prisma.ProductionToolCreateNestedOneWithoutFilmProductionToolsInput
 }
 
 export type FilmProductionToolUncheckedCreateInput = {
-  film_id: number
-  production_tool_id: number
+  filmId: number
+  productionToolId: number
 }
 
 export type FilmProductionToolUpdateInput = {
-  film?: Prisma.FilmUpdateOneRequiredWithoutFilm_production_toolsNestedInput
-  production_tool?: Prisma.ProductionToolUpdateOneRequiredWithoutFilm_production_toolsNestedInput
+  film?: Prisma.FilmUpdateOneRequiredWithoutFilmProductionToolsNestedInput
+  productionTool?: Prisma.ProductionToolUpdateOneRequiredWithoutFilmProductionToolsNestedInput
 }
 
 export type FilmProductionToolUncheckedUpdateInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
-  production_tool_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
+  productionToolId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type FilmProductionToolCreateManyInput = {
-  film_id: number
-  production_tool_id: number
+  filmId: number
+  productionToolId: number
 }
 
 export type FilmProductionToolUpdateManyMutationInput = {
@@ -266,38 +266,38 @@ export type FilmProductionToolUpdateManyMutationInput = {
 }
 
 export type FilmProductionToolUncheckedUpdateManyInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
-  production_tool_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
+  productionToolId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type FilmProductionToolFilm_idProduction_tool_idCompoundUniqueInput = {
-  film_id: number
-  production_tool_id: number
+export type FilmProductionToolFilmIdProductionToolIdCompoundUniqueInput = {
+  filmId: number
+  productionToolId: number
 }
 
 export type FilmProductionToolCountOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  production_tool_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  productionToolId?: Prisma.SortOrder
 }
 
 export type FilmProductionToolAvgOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  production_tool_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  productionToolId?: Prisma.SortOrder
 }
 
 export type FilmProductionToolMaxOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  production_tool_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  productionToolId?: Prisma.SortOrder
 }
 
 export type FilmProductionToolMinOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  production_tool_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  productionToolId?: Prisma.SortOrder
 }
 
 export type FilmProductionToolSumOrderByAggregateInput = {
-  film_id?: Prisma.SortOrder
-  production_tool_id?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  productionToolId?: Prisma.SortOrder
 }
 
 export type FilmProductionToolListRelationFilter = {
@@ -352,54 +352,54 @@ export type FilmProductionToolUncheckedUpdateManyWithoutFilmNestedInput = {
   deleteMany?: Prisma.FilmProductionToolScalarWhereInput | Prisma.FilmProductionToolScalarWhereInput[]
 }
 
-export type FilmProductionToolCreateNestedManyWithoutProduction_toolInput = {
-  create?: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProduction_toolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput> | Prisma.FilmProductionToolCreateWithoutProduction_toolInput[] | Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput[]
-  connectOrCreate?: Prisma.FilmProductionToolCreateOrConnectWithoutProduction_toolInput | Prisma.FilmProductionToolCreateOrConnectWithoutProduction_toolInput[]
-  createMany?: Prisma.FilmProductionToolCreateManyProduction_toolInputEnvelope
+export type FilmProductionToolCreateNestedManyWithoutProductionToolInput = {
+  create?: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProductionToolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput> | Prisma.FilmProductionToolCreateWithoutProductionToolInput[] | Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput[]
+  connectOrCreate?: Prisma.FilmProductionToolCreateOrConnectWithoutProductionToolInput | Prisma.FilmProductionToolCreateOrConnectWithoutProductionToolInput[]
+  createMany?: Prisma.FilmProductionToolCreateManyProductionToolInputEnvelope
   connect?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
 }
 
-export type FilmProductionToolUncheckedCreateNestedManyWithoutProduction_toolInput = {
-  create?: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProduction_toolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput> | Prisma.FilmProductionToolCreateWithoutProduction_toolInput[] | Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput[]
-  connectOrCreate?: Prisma.FilmProductionToolCreateOrConnectWithoutProduction_toolInput | Prisma.FilmProductionToolCreateOrConnectWithoutProduction_toolInput[]
-  createMany?: Prisma.FilmProductionToolCreateManyProduction_toolInputEnvelope
+export type FilmProductionToolUncheckedCreateNestedManyWithoutProductionToolInput = {
+  create?: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProductionToolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput> | Prisma.FilmProductionToolCreateWithoutProductionToolInput[] | Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput[]
+  connectOrCreate?: Prisma.FilmProductionToolCreateOrConnectWithoutProductionToolInput | Prisma.FilmProductionToolCreateOrConnectWithoutProductionToolInput[]
+  createMany?: Prisma.FilmProductionToolCreateManyProductionToolInputEnvelope
   connect?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
 }
 
-export type FilmProductionToolUpdateManyWithoutProduction_toolNestedInput = {
-  create?: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProduction_toolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput> | Prisma.FilmProductionToolCreateWithoutProduction_toolInput[] | Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput[]
-  connectOrCreate?: Prisma.FilmProductionToolCreateOrConnectWithoutProduction_toolInput | Prisma.FilmProductionToolCreateOrConnectWithoutProduction_toolInput[]
-  upsert?: Prisma.FilmProductionToolUpsertWithWhereUniqueWithoutProduction_toolInput | Prisma.FilmProductionToolUpsertWithWhereUniqueWithoutProduction_toolInput[]
-  createMany?: Prisma.FilmProductionToolCreateManyProduction_toolInputEnvelope
+export type FilmProductionToolUpdateManyWithoutProductionToolNestedInput = {
+  create?: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProductionToolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput> | Prisma.FilmProductionToolCreateWithoutProductionToolInput[] | Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput[]
+  connectOrCreate?: Prisma.FilmProductionToolCreateOrConnectWithoutProductionToolInput | Prisma.FilmProductionToolCreateOrConnectWithoutProductionToolInput[]
+  upsert?: Prisma.FilmProductionToolUpsertWithWhereUniqueWithoutProductionToolInput | Prisma.FilmProductionToolUpsertWithWhereUniqueWithoutProductionToolInput[]
+  createMany?: Prisma.FilmProductionToolCreateManyProductionToolInputEnvelope
   set?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
   disconnect?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
   delete?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
   connect?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
-  update?: Prisma.FilmProductionToolUpdateWithWhereUniqueWithoutProduction_toolInput | Prisma.FilmProductionToolUpdateWithWhereUniqueWithoutProduction_toolInput[]
-  updateMany?: Prisma.FilmProductionToolUpdateManyWithWhereWithoutProduction_toolInput | Prisma.FilmProductionToolUpdateManyWithWhereWithoutProduction_toolInput[]
+  update?: Prisma.FilmProductionToolUpdateWithWhereUniqueWithoutProductionToolInput | Prisma.FilmProductionToolUpdateWithWhereUniqueWithoutProductionToolInput[]
+  updateMany?: Prisma.FilmProductionToolUpdateManyWithWhereWithoutProductionToolInput | Prisma.FilmProductionToolUpdateManyWithWhereWithoutProductionToolInput[]
   deleteMany?: Prisma.FilmProductionToolScalarWhereInput | Prisma.FilmProductionToolScalarWhereInput[]
 }
 
-export type FilmProductionToolUncheckedUpdateManyWithoutProduction_toolNestedInput = {
-  create?: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProduction_toolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput> | Prisma.FilmProductionToolCreateWithoutProduction_toolInput[] | Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput[]
-  connectOrCreate?: Prisma.FilmProductionToolCreateOrConnectWithoutProduction_toolInput | Prisma.FilmProductionToolCreateOrConnectWithoutProduction_toolInput[]
-  upsert?: Prisma.FilmProductionToolUpsertWithWhereUniqueWithoutProduction_toolInput | Prisma.FilmProductionToolUpsertWithWhereUniqueWithoutProduction_toolInput[]
-  createMany?: Prisma.FilmProductionToolCreateManyProduction_toolInputEnvelope
+export type FilmProductionToolUncheckedUpdateManyWithoutProductionToolNestedInput = {
+  create?: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProductionToolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput> | Prisma.FilmProductionToolCreateWithoutProductionToolInput[] | Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput[]
+  connectOrCreate?: Prisma.FilmProductionToolCreateOrConnectWithoutProductionToolInput | Prisma.FilmProductionToolCreateOrConnectWithoutProductionToolInput[]
+  upsert?: Prisma.FilmProductionToolUpsertWithWhereUniqueWithoutProductionToolInput | Prisma.FilmProductionToolUpsertWithWhereUniqueWithoutProductionToolInput[]
+  createMany?: Prisma.FilmProductionToolCreateManyProductionToolInputEnvelope
   set?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
   disconnect?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
   delete?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
   connect?: Prisma.FilmProductionToolWhereUniqueInput | Prisma.FilmProductionToolWhereUniqueInput[]
-  update?: Prisma.FilmProductionToolUpdateWithWhereUniqueWithoutProduction_toolInput | Prisma.FilmProductionToolUpdateWithWhereUniqueWithoutProduction_toolInput[]
-  updateMany?: Prisma.FilmProductionToolUpdateManyWithWhereWithoutProduction_toolInput | Prisma.FilmProductionToolUpdateManyWithWhereWithoutProduction_toolInput[]
+  update?: Prisma.FilmProductionToolUpdateWithWhereUniqueWithoutProductionToolInput | Prisma.FilmProductionToolUpdateWithWhereUniqueWithoutProductionToolInput[]
+  updateMany?: Prisma.FilmProductionToolUpdateManyWithWhereWithoutProductionToolInput | Prisma.FilmProductionToolUpdateManyWithWhereWithoutProductionToolInput[]
   deleteMany?: Prisma.FilmProductionToolScalarWhereInput | Prisma.FilmProductionToolScalarWhereInput[]
 }
 
 export type FilmProductionToolCreateWithoutFilmInput = {
-  production_tool: Prisma.ProductionToolCreateNestedOneWithoutFilm_production_toolsInput
+  productionTool: Prisma.ProductionToolCreateNestedOneWithoutFilmProductionToolsInput
 }
 
 export type FilmProductionToolUncheckedCreateWithoutFilmInput = {
-  production_tool_id: number
+  productionToolId: number
 }
 
 export type FilmProductionToolCreateOrConnectWithoutFilmInput = {
@@ -432,107 +432,107 @@ export type FilmProductionToolScalarWhereInput = {
   AND?: Prisma.FilmProductionToolScalarWhereInput | Prisma.FilmProductionToolScalarWhereInput[]
   OR?: Prisma.FilmProductionToolScalarWhereInput[]
   NOT?: Prisma.FilmProductionToolScalarWhereInput | Prisma.FilmProductionToolScalarWhereInput[]
-  film_id?: Prisma.IntFilter<"FilmProductionTool"> | number
-  production_tool_id?: Prisma.IntFilter<"FilmProductionTool"> | number
+  filmId?: Prisma.IntFilter<"FilmProductionTool"> | number
+  productionToolId?: Prisma.IntFilter<"FilmProductionTool"> | number
 }
 
-export type FilmProductionToolCreateWithoutProduction_toolInput = {
-  film: Prisma.FilmCreateNestedOneWithoutFilm_production_toolsInput
+export type FilmProductionToolCreateWithoutProductionToolInput = {
+  film: Prisma.FilmCreateNestedOneWithoutFilmProductionToolsInput
 }
 
-export type FilmProductionToolUncheckedCreateWithoutProduction_toolInput = {
-  film_id: number
+export type FilmProductionToolUncheckedCreateWithoutProductionToolInput = {
+  filmId: number
 }
 
-export type FilmProductionToolCreateOrConnectWithoutProduction_toolInput = {
+export type FilmProductionToolCreateOrConnectWithoutProductionToolInput = {
   where: Prisma.FilmProductionToolWhereUniqueInput
-  create: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProduction_toolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput>
+  create: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProductionToolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput>
 }
 
-export type FilmProductionToolCreateManyProduction_toolInputEnvelope = {
-  data: Prisma.FilmProductionToolCreateManyProduction_toolInput | Prisma.FilmProductionToolCreateManyProduction_toolInput[]
+export type FilmProductionToolCreateManyProductionToolInputEnvelope = {
+  data: Prisma.FilmProductionToolCreateManyProductionToolInput | Prisma.FilmProductionToolCreateManyProductionToolInput[]
   skipDuplicates?: boolean
 }
 
-export type FilmProductionToolUpsertWithWhereUniqueWithoutProduction_toolInput = {
+export type FilmProductionToolUpsertWithWhereUniqueWithoutProductionToolInput = {
   where: Prisma.FilmProductionToolWhereUniqueInput
-  update: Prisma.XOR<Prisma.FilmProductionToolUpdateWithoutProduction_toolInput, Prisma.FilmProductionToolUncheckedUpdateWithoutProduction_toolInput>
-  create: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProduction_toolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProduction_toolInput>
+  update: Prisma.XOR<Prisma.FilmProductionToolUpdateWithoutProductionToolInput, Prisma.FilmProductionToolUncheckedUpdateWithoutProductionToolInput>
+  create: Prisma.XOR<Prisma.FilmProductionToolCreateWithoutProductionToolInput, Prisma.FilmProductionToolUncheckedCreateWithoutProductionToolInput>
 }
 
-export type FilmProductionToolUpdateWithWhereUniqueWithoutProduction_toolInput = {
+export type FilmProductionToolUpdateWithWhereUniqueWithoutProductionToolInput = {
   where: Prisma.FilmProductionToolWhereUniqueInput
-  data: Prisma.XOR<Prisma.FilmProductionToolUpdateWithoutProduction_toolInput, Prisma.FilmProductionToolUncheckedUpdateWithoutProduction_toolInput>
+  data: Prisma.XOR<Prisma.FilmProductionToolUpdateWithoutProductionToolInput, Prisma.FilmProductionToolUncheckedUpdateWithoutProductionToolInput>
 }
 
-export type FilmProductionToolUpdateManyWithWhereWithoutProduction_toolInput = {
+export type FilmProductionToolUpdateManyWithWhereWithoutProductionToolInput = {
   where: Prisma.FilmProductionToolScalarWhereInput
-  data: Prisma.XOR<Prisma.FilmProductionToolUpdateManyMutationInput, Prisma.FilmProductionToolUncheckedUpdateManyWithoutProduction_toolInput>
+  data: Prisma.XOR<Prisma.FilmProductionToolUpdateManyMutationInput, Prisma.FilmProductionToolUncheckedUpdateManyWithoutProductionToolInput>
 }
 
 export type FilmProductionToolCreateManyFilmInput = {
-  production_tool_id: number
+  productionToolId: number
 }
 
 export type FilmProductionToolUpdateWithoutFilmInput = {
-  production_tool?: Prisma.ProductionToolUpdateOneRequiredWithoutFilm_production_toolsNestedInput
+  productionTool?: Prisma.ProductionToolUpdateOneRequiredWithoutFilmProductionToolsNestedInput
 }
 
 export type FilmProductionToolUncheckedUpdateWithoutFilmInput = {
-  production_tool_id?: Prisma.IntFieldUpdateOperationsInput | number
+  productionToolId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type FilmProductionToolUncheckedUpdateManyWithoutFilmInput = {
-  production_tool_id?: Prisma.IntFieldUpdateOperationsInput | number
+  productionToolId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type FilmProductionToolCreateManyProduction_toolInput = {
-  film_id: number
+export type FilmProductionToolCreateManyProductionToolInput = {
+  filmId: number
 }
 
-export type FilmProductionToolUpdateWithoutProduction_toolInput = {
-  film?: Prisma.FilmUpdateOneRequiredWithoutFilm_production_toolsNestedInput
+export type FilmProductionToolUpdateWithoutProductionToolInput = {
+  film?: Prisma.FilmUpdateOneRequiredWithoutFilmProductionToolsNestedInput
 }
 
-export type FilmProductionToolUncheckedUpdateWithoutProduction_toolInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+export type FilmProductionToolUncheckedUpdateWithoutProductionToolInput = {
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type FilmProductionToolUncheckedUpdateManyWithoutProduction_toolInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+export type FilmProductionToolUncheckedUpdateManyWithoutProductionToolInput = {
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
 
 export type FilmProductionToolSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  film_id?: boolean
-  production_tool_id?: boolean
+  filmId?: boolean
+  productionToolId?: boolean
   film?: boolean | Prisma.FilmDefaultArgs<ExtArgs>
-  production_tool?: boolean | Prisma.ProductionToolDefaultArgs<ExtArgs>
+  productionTool?: boolean | Prisma.ProductionToolDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["filmProductionTool"]>
 
 
 
 export type FilmProductionToolSelectScalar = {
-  film_id?: boolean
-  production_tool_id?: boolean
+  filmId?: boolean
+  productionToolId?: boolean
 }
 
-export type FilmProductionToolOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"film_id" | "production_tool_id", ExtArgs["result"]["filmProductionTool"]>
+export type FilmProductionToolOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"filmId" | "productionToolId", ExtArgs["result"]["filmProductionTool"]>
 export type FilmProductionToolInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   film?: boolean | Prisma.FilmDefaultArgs<ExtArgs>
-  production_tool?: boolean | Prisma.ProductionToolDefaultArgs<ExtArgs>
+  productionTool?: boolean | Prisma.ProductionToolDefaultArgs<ExtArgs>
 }
 
 export type $FilmProductionToolPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "FilmProductionTool"
   objects: {
     film: Prisma.$FilmPayload<ExtArgs>
-    production_tool: Prisma.$ProductionToolPayload<ExtArgs>
+    productionTool: Prisma.$ProductionToolPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    film_id: number
-    production_tool_id: number
+    filmId: number
+    productionToolId: number
   }, ExtArgs["result"]["filmProductionTool"]>
   composites: {}
 }
@@ -616,8 +616,8 @@ export interface FilmProductionToolDelegate<ExtArgs extends runtime.Types.Extens
    * // Get first 10 FilmProductionTools
    * const filmProductionTools = await prisma.filmProductionTool.findMany({ take: 10 })
    * 
-   * // Only select the `film_id`
-   * const filmProductionToolWithFilm_idOnly = await prisma.filmProductionTool.findMany({ select: { film_id: true } })
+   * // Only select the `filmId`
+   * const filmProductionToolWithFilmIdOnly = await prisma.filmProductionTool.findMany({ select: { filmId: true } })
    * 
    */
   findMany<T extends FilmProductionToolFindManyArgs>(args?: Prisma.SelectSubset<T, FilmProductionToolFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FilmProductionToolPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -874,7 +874,7 @@ readonly fields: FilmProductionToolFieldRefs;
 export interface Prisma__FilmProductionToolClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   film<T extends Prisma.FilmDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.FilmDefaultArgs<ExtArgs>>): Prisma.Prisma__FilmClient<runtime.Types.Result.GetResult<Prisma.$FilmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  production_tool<T extends Prisma.ProductionToolDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductionToolDefaultArgs<ExtArgs>>): Prisma.Prisma__ProductionToolClient<runtime.Types.Result.GetResult<Prisma.$ProductionToolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  productionTool<T extends Prisma.ProductionToolDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductionToolDefaultArgs<ExtArgs>>): Prisma.Prisma__ProductionToolClient<runtime.Types.Result.GetResult<Prisma.$ProductionToolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -904,8 +904,8 @@ export interface Prisma__FilmProductionToolClient<T, Null = never, ExtArgs exten
  * Fields of the FilmProductionTool model
  */
 export interface FilmProductionToolFieldRefs {
-  readonly film_id: Prisma.FieldRef<"FilmProductionTool", 'Int'>
-  readonly production_tool_id: Prisma.FieldRef<"FilmProductionTool", 'Int'>
+  readonly filmId: Prisma.FieldRef<"FilmProductionTool", 'Int'>
+  readonly productionToolId: Prisma.FieldRef<"FilmProductionTool", 'Int'>
 }
     
 

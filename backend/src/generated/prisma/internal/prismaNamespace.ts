@@ -1517,11 +1517,11 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const AdminScalarFieldEnum = {
   id: 'id',
   email: 'email',
-  password_hash: 'password_hash',
-  first_name: 'first_name',
-  last_name: 'last_name',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  passwordHash: 'passwordHash',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
@@ -1529,19 +1529,19 @@ export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof Ad
 
 export const AwardScalarFieldEnum = {
   id: 'id',
-  partner_id: 'partner_id',
+  partnerId: 'partnerId',
   name: 'name',
   description: 'description',
   amount: 'amount',
-  amount_currency: 'amount_currency'
+  amountCurrency: 'amountCurrency'
 } as const
 
 export type AwardScalarFieldEnum = (typeof AwardScalarFieldEnum)[keyof typeof AwardScalarFieldEnum]
 
 
 export const FilmProductionToolScalarFieldEnum = {
-  film_id: 'film_id',
-  production_tool_id: 'production_tool_id'
+  filmId: 'filmId',
+  productionToolId: 'productionToolId'
 } as const
 
 export type FilmProductionToolScalarFieldEnum = (typeof FilmProductionToolScalarFieldEnum)[keyof typeof FilmProductionToolScalarFieldEnum]
@@ -1550,12 +1550,12 @@ export type FilmProductionToolScalarFieldEnum = (typeof FilmProductionToolScalar
 export const FilmScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  video_url: 'video_url',
-  poster_url: 'poster_url',
+  videoUrl: 'videoUrl',
+  posterUrl: 'posterUrl',
   description: 'description',
   status: 'status',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type FilmScalarFieldEnum = (typeof FilmScalarFieldEnum)[keyof typeof FilmScalarFieldEnum]
@@ -1565,10 +1565,10 @@ export const JuryInvitationScalarFieldEnum = {
   id: 'id',
   email: 'email',
   token: 'token',
-  expires_at: 'expires_at',
-  accepted_at: 'accepted_at',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  expiresAt: 'expiresAt',
+  acceptedAt: 'acceptedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type JuryInvitationScalarFieldEnum = (typeof JuryInvitationScalarFieldEnum)[keyof typeof JuryInvitationScalarFieldEnum]
@@ -1576,15 +1576,15 @@ export type JuryInvitationScalarFieldEnum = (typeof JuryInvitationScalarFieldEnu
 
 export const NewsletterSubscriptionScalarFieldEnum = {
   id: 'id',
-  newsletter_id: 'newsletter_id',
+  newsletterId: 'newsletterId',
   email: 'email',
   status: 'status',
-  subscribed_at: 'subscribed_at',
-  esp_subscriber_id: 'esp_subscriber_id',
-  esp_synced_at: 'esp_synced_at',
-  esp_updated_at: 'esp_updated_at',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  subscribedAt: 'subscribedAt',
+  espSubscriberId: 'espSubscriberId',
+  espSyncedAt: 'espSyncedAt',
+  espUpdatedAt: 'espUpdatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type NewsletterSubscriptionScalarFieldEnum = (typeof NewsletterSubscriptionScalarFieldEnum)[keyof typeof NewsletterSubscriptionScalarFieldEnum]
@@ -1593,17 +1593,17 @@ export type NewsletterSubscriptionScalarFieldEnum = (typeof NewsletterSubscripti
 export const NewsletterScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  last_published_at: 'last_published_at',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  lastPublishedAt: 'lastPublishedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type NewsletterScalarFieldEnum = (typeof NewsletterScalarFieldEnum)[keyof typeof NewsletterScalarFieldEnum]
 
 
 export const NominationScalarFieldEnum = {
-  film_id: 'film_id',
-  award_id: 'award_id',
+  filmId: 'filmId',
+  awardId: 'awardId',
   status: 'status'
 } as const
 
@@ -1616,9 +1616,9 @@ export const PartnerScalarFieldEnum = {
   description: 'description',
   url: 'url',
   logo: 'logo',
-  display_order: 'display_order',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  displayOrder: 'displayOrder',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type PartnerScalarFieldEnum = (typeof PartnerScalarFieldEnum)[keyof typeof PartnerScalarFieldEnum]
@@ -1635,8 +1635,8 @@ export type ProductionToolScalarFieldEnum = (typeof ProductionToolScalarFieldEnu
 
 
 export const ScreeningScalarFieldEnum = {
-  user_id: 'user_id',
-  film_id: 'film_id',
+  userId: 'userId',
+  filmId: 'filmId',
   status: 'status',
   comment: 'comment'
 } as const
@@ -1654,9 +1654,9 @@ export type SocialNetworkScalarFieldEnum = (typeof SocialNetworkScalarFieldEnum)
 
 
 export const UserSocialNetworkScalarFieldEnum = {
-  user_id: 'user_id',
-  social_network_id: 'social_network_id',
-  profile_url: 'profile_url'
+  userId: 'userId',
+  socialNetworkId: 'socialNetworkId',
+  profileUrl: 'profileUrl'
 } as const
 
 export type UserSocialNetworkScalarFieldEnum = (typeof UserSocialNetworkScalarFieldEnum)[keyof typeof UserSocialNetworkScalarFieldEnum]
@@ -1665,14 +1665,14 @@ export type UserSocialNetworkScalarFieldEnum = (typeof UserSocialNetworkScalarFi
 export const UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
-  password_hash: 'password_hash',
+  passwordHash: 'passwordHash',
   role: 'role',
-  first_name: 'first_name',
-  last_name: 'last_name',
+  firstName: 'firstName',
+  lastName: 'lastName',
   bio: 'bio',
   photo: 'photo',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -1680,13 +1680,13 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 export const VoteScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
-  film_id: 'film_id',
-  award_id: 'award_id',
+  userId: 'userId',
+  filmId: 'filmId',
+  awardId: 'awardId',
   score: 'score',
   comment: 'comment',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type VoteScalarFieldEnum = (typeof VoteScalarFieldEnum)[keyof typeof VoteScalarFieldEnum]
@@ -1694,7 +1694,7 @@ export type VoteScalarFieldEnum = (typeof VoteScalarFieldEnum)[keyof typeof Vote
 
 export const WorkScalarFieldEnum = {
   id: 'id',
-  user_id: 'user_id',
+  userId: 'userId',
   date: 'date',
   name: 'name',
   url: 'url',
@@ -1714,9 +1714,9 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 export const AdminOrderByRelevanceFieldEnum = {
   email: 'email',
-  password_hash: 'password_hash',
-  first_name: 'first_name',
-  last_name: 'last_name'
+  passwordHash: 'passwordHash',
+  firstName: 'firstName',
+  lastName: 'lastName'
 } as const
 
 export type AdminOrderByRelevanceFieldEnum = (typeof AdminOrderByRelevanceFieldEnum)[keyof typeof AdminOrderByRelevanceFieldEnum]
@@ -1740,8 +1740,8 @@ export type AwardOrderByRelevanceFieldEnum = (typeof AwardOrderByRelevanceFieldE
 
 export const FilmOrderByRelevanceFieldEnum = {
   name: 'name',
-  video_url: 'video_url',
-  poster_url: 'poster_url',
+  videoUrl: 'videoUrl',
+  posterUrl: 'posterUrl',
   description: 'description'
 } as const
 
@@ -1805,7 +1805,7 @@ export type SocialNetworkOrderByRelevanceFieldEnum = (typeof SocialNetworkOrderB
 
 
 export const UserSocialNetworkOrderByRelevanceFieldEnum = {
-  profile_url: 'profile_url'
+  profileUrl: 'profileUrl'
 } as const
 
 export type UserSocialNetworkOrderByRelevanceFieldEnum = (typeof UserSocialNetworkOrderByRelevanceFieldEnum)[keyof typeof UserSocialNetworkOrderByRelevanceFieldEnum]
@@ -1813,9 +1813,9 @@ export type UserSocialNetworkOrderByRelevanceFieldEnum = (typeof UserSocialNetwo
 
 export const UserOrderByRelevanceFieldEnum = {
   email: 'email',
-  password_hash: 'password_hash',
-  first_name: 'first_name',
-  last_name: 'last_name',
+  passwordHash: 'passwordHash',
+  firstName: 'firstName',
+  lastName: 'lastName',
   bio: 'bio',
   photo: 'photo'
 } as const

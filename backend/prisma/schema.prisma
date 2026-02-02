@@ -15,70 +15,70 @@ datasource db {
 }
 
 model Admin {
-  id            Int      @id @default(autoincrement())
-  email         String   @unique(map: "email") @db.VarChar(150)
-  password_hash String   @db.VarChar(255)
-  first_name    String   @db.VarChar(100)
-  last_name     String   @db.VarChar(150)
-  created_at    DateTime @db.Timestamp(0)
-  updated_at    DateTime @default(now()) @db.Timestamp(0)
+  id           Int      @id @default(autoincrement())
+  email        String   @unique(map: "email") @db.VarChar(150)
+  passwordHash String   @map("password_hash") @db.VarChar(255)
+  firstName    String   @map("first_name") @db.VarChar(100)
+  lastName     String   @map("last_name") @db.VarChar(150)
+  createdAt    DateTime @map("created_at") @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamp(0)
 
   @@map("admins")
 }
 
 model Award {
-  id              Int             @id @default(autoincrement())
-  partner_id      Int?
-  name            String          @unique(map: "name") @db.VarChar(100)
-  description     String?         @db.Text
-  amount          Decimal?        @db.Decimal(10, 2)
-  amount_currency AmountCurrency
-  partner         Partner?        @relation(fields: [partner_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_awards_partners")
+  id              Int            @id @default(autoincrement())
+  partnerId       Int?           @map("partner_id")
+  name            String         @unique(map: "name") @db.VarChar(100)
+  description     String?        @db.Text
+  amount          Decimal?       @db.Decimal(10, 2)
+  amountCurrency  AmountCurrency @map("amount_currency")
+  partner         Partner?       @relation(fields: [partnerId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_awards_partners")
   nominations     Nomination[]
   votes           Vote[]
 
-  @@index([partner_id], map: "fk_awards_partners")
+  @@index([partnerId], map: "fk_awards_partners")
   @@map("awards")
 }
 
 model FilmProductionTool {
-  film_id            Int
-  production_tool_id Int
-  film               Film           @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_film_production_tools_films")
-  production_tool    ProductionTool @relation(fields: [production_tool_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_film_production_tools_production_tools")
+  filmId           Int            @map("film_id")
+  productionToolId Int            @map("production_tool_id")
+  film             Film           @relation(fields: [filmId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_film_production_tools_films")
+  productionTool   ProductionTool @relation(fields: [productionToolId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_film_production_tools_production_tools")
 
-  @@id([film_id, production_tool_id])
-  @@index([production_tool_id], map: "fk_film_production_tools_production_tools")
+  @@id([filmId, productionToolId])
+  @@index([productionToolId], map: "fk_film_production_tools_production_tools")
   @@map("film_production_tools")
 }
 
 model Film {
-  id                   Int                  @id @default(autoincrement())
-  name                 String               @unique(map: "name") @db.VarChar(255)
-  video_url            String               @db.VarChar(255)
-  poster_url           String?              @db.VarChar(255)
-  description          String?              @db.Text
-  status               FilmStatus
-  created_at           DateTime             @db.Timestamp(0)
-  updated_at           DateTime             @default(now()) @db.Timestamp(0)
-  film_production_tools FilmProductionTool[]
-  nominations          Nomination[]
-  screenings           Screening[]
-  votes                Vote[]
+  id                  Int                  @id @default(autoincrement())
+  name                String               @unique(map: "name") @db.VarChar(255)
+  videoUrl            String               @map("video_url") @db.VarChar(255)
+  posterUrl           String?              @map("poster_url") @db.VarChar(255)
+  description         String?              @db.Text
+  status              FilmStatus
+  createdAt           DateTime             @map("created_at") @db.Timestamp(0)
+  updatedAt           DateTime             @default(now()) @map("updated_at") @db.Timestamp(0)
+  filmProductionTools FilmProductionTool[]
+  nominations         Nomination[]
+  screenings          Screening[]
+  votes               Vote[]
 
-  @@unique([name, video_url], map: "uk_films_name_video_url")
+  @@unique([name, videoUrl], map: "uk_films_name_video_url")
   @@index([status], map: "idx_films_status")
   @@map("films")
 }
 
 model JuryInvitation {
-  id          Int       @id @default(autoincrement())
-  email       String    @unique(map: "email") @db.VarChar(150)
-  token       String    @db.VarChar(255)
-  expires_at  DateTime  @db.Timestamp(0)
-  accepted_at DateTime? @db.Timestamp(0)
-  created_at  DateTime  @db.Timestamp(0)
-  updated_at  DateTime  @default(now()) @db.Timestamp(0)
+  id         Int       @id @default(autoincrement())
+  email      String    @unique(map: "email") @db.VarChar(150)
+  token      String    @db.VarChar(255)
+  expiresAt  DateTime  @map("expires_at") @db.Timestamp(0)
+  acceptedAt DateTime? @map("accepted_at") @db.Timestamp(0)
+  createdAt  DateTime  @map("created_at") @db.Timestamp(0)
+  updatedAt  DateTime  @default(now()) @map("updated_at") @db.Timestamp(0)
 
   @@index([token], map: "idx_jury_invitations_token")
   @@map("jury_invitations")
@@ -86,155 +86,155 @@ model JuryInvitation {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model NewsletterSubscription {
-  id                Int                          @id @default(autoincrement())
-  newsletter_id     Int?
-  email             String?                      @unique(map: "email") @db.VarChar(150)
-  status            NewsletterSubscriptionStatus
-  subscribed_at     DateTime                     @db.Timestamp(0)
-  esp_subscriber_id Int?
-  esp_synced_at     DateTime?                    @db.Timestamp(0)
-  esp_updated_at    DateTime?                    @db.Timestamp(0)
-  created_at        DateTime                     @db.Timestamp(0)
-  updated_at        DateTime                     @default(now()) @db.Timestamp(0)
-  newsletter        Newsletter?                  @relation(fields: [newsletter_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "newsletters_registers_newsletter_subscriptions")
+  id              Int                          @id @default(autoincrement())
+  newsletterId    Int?                         @map("newsletter_id")
+  email           String?                      @unique(map: "email") @db.VarChar(150)
+  status          NewsletterSubscriptionStatus
+  subscribedAt    DateTime                     @map("subscribed_at") @db.Timestamp(0)
+  espSubscriberId Int?                         @map("esp_subscriber_id")
+  espSyncedAt     DateTime?                    @map("esp_synced_at") @db.Timestamp(0)
+  espUpdatedAt    DateTime?                    @map("esp_updated_at") @db.Timestamp(0)
+  createdAt       DateTime                     @map("created_at") @db.Timestamp(0)
+  updatedAt       DateTime                     @default(now()) @map("updated_at") @db.Timestamp(0)
+  newsletter      Newsletter?                  @relation(fields: [newsletterId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "newsletters_registers_newsletter_subscriptions")
 
   @@index([status], map: "idx_newsletter_subscriptions_status")
-  @@index([newsletter_id], map: "newsletters_registers_newsletter_subscriptions")
+  @@index([newsletterId], map: "newsletters_registers_newsletter_subscriptions")
   @@map("newsletter_subscriptions")
 }
 
 model Newsletter {
-  id                       Int                        @id @default(autoincrement())
-  name                     String                     @unique(map: "name") @db.VarChar(150)
-  last_published_at        DateTime?                  @db.Timestamp(0)
-  created_at               DateTime                   @db.Timestamp(0)
-  updated_at               DateTime                   @db.Timestamp(0)
-  newsletter_subscriptions NewsletterSubscription[]
+  id                      Int                        @id @default(autoincrement())
+  name                    String                     @unique(map: "name") @db.VarChar(150)
+  lastPublishedAt         DateTime?                  @map("last_published_at") @db.Timestamp(0)
+  createdAt               DateTime                   @map("created_at") @db.Timestamp(0)
+  updatedAt               DateTime                   @map("updated_at") @db.Timestamp(0)
+  newsletterSubscriptions NewsletterSubscription[]
 
   @@map("newsletters")
 }
 
 model Nomination {
-  film_id  Int
-  award_id Int
-  status   NominationStatus
-  award    Award            @relation(fields: [award_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_nominations_awards")
-  film     Film             @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_nominations_films")
+  filmId  Int              @map("film_id")
+  awardId Int              @map("award_id")
+  status  NominationStatus
+  award   Award            @relation(fields: [awardId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_nominations_awards")
+  film    Film             @relation(fields: [filmId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_nominations_films")
 
-  @@id([film_id, award_id])
-  @@index([award_id], map: "fk_nominations_awards")
+  @@id([filmId, awardId])
+  @@index([awardId], map: "fk_nominations_awards")
   @@map("nominations")
 }
 
 model Partner {
-  id            Int      @id @default(autoincrement())
-  name          String?  @unique(map: "name") @db.VarChar(100)
-  description   String?  @db.VarChar(255)
-  url           String   @db.VarChar(255)
-  logo          String   @db.VarChar(255)
-  display_order Int?     @default(0)
-  created_at    DateTime @db.Timestamp(0)
-  updated_at    DateTime @default(now()) @db.Timestamp(0)
-  awards        Award[]
+  id           Int      @id @default(autoincrement())
+  name         String?  @unique(map: "name") @db.VarChar(100)
+  description  String?  @db.VarChar(255)
+  url          String   @db.VarChar(255)
+  logo         String   @db.VarChar(255)
+  displayOrder Int?     @default(0) @map("display_order")
+  createdAt    DateTime @map("created_at") @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamp(0)
+  awards       Award[]
 
   @@map("partners")
 }
 
 model ProductionTool {
-  id                    Int                  @id @default(autoincrement())
-  name                  String               @unique(map: "name") @db.VarChar(100)
-  description           String?              @db.Text
-  url                   String?              @db.VarChar(255)
-  film_production_tools FilmProductionTool[]
+  id                  Int                  @id @default(autoincrement())
+  name                String               @unique(map: "name") @db.VarChar(100)
+  description         String?              @db.Text
+  url                 String?              @db.VarChar(255)
+  filmProductionTools FilmProductionTool[]
 
   @@map("production_tools")
 }
 
 model Screening {
-  user_id Int
-  film_id Int
+  userId  Int             @map("user_id")
+  filmId  Int             @map("film_id")
   status  ScreeningStatus
   comment String?         @db.Text
-  film    Film            @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_screenings_films")
-  user    User            @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_screenings_users")
+  film    Film            @relation(fields: [filmId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_screenings_films")
+  user    User            @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_screenings_users")
 
-  @@id([user_id, film_id])
-  @@index([film_id], map: "fk_screenings_films")
+  @@id([userId, filmId])
+  @@index([filmId], map: "fk_screenings_films")
   @@map("screenings")
 }
 
 model SocialNetwork {
-  id                   Int                  @id @default(autoincrement())
-  name                 String               @db.VarChar(100)
-  url                  String               @db.VarChar(255)
-  user_social_networks UserSocialNetwork[]
+  id                 Int                 @id @default(autoincrement())
+  name               String              @db.VarChar(100)
+  url                String              @db.VarChar(255)
+  userSocialNetworks UserSocialNetwork[]
 
   @@unique([name, url], map: "uk_social_networks_name_url")
   @@map("social_networks")
 }
 
 model UserSocialNetwork {
-  user_id           Int
-  social_network_id Int
-  profile_url       String        @db.VarChar(255)
-  social_network    SocialNetwork @relation(fields: [social_network_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_social_networks_social_networks")
-  user              User          @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_social_networks_users")
+  userId          Int           @map("user_id")
+  socialNetworkId Int           @map("social_network_id")
+  profileUrl      String        @map("profile_url") @db.VarChar(255)
+  socialNetwork   SocialNetwork @relation(fields: [socialNetworkId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_social_networks_social_networks")
+  user            User          @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_social_networks_users")
 
-  @@id([user_id, social_network_id])
-  @@unique([user_id, social_network_id, profile_url], map: "uk_user_social_networks")
-  @@index([social_network_id], map: "fk_user_social_networks_social_networks")
+  @@id([userId, socialNetworkId])
+  @@unique([userId, socialNetworkId, profileUrl], map: "uk_user_social_networks")
+  @@index([socialNetworkId], map: "fk_user_social_networks_social_networks")
   @@map("user_social_networks")
 }
 
 model User {
-  id                   Int                 @id @default(autoincrement())
-  email                String              @unique(map: "email") @db.VarChar(150)
-  password_hash        String              @db.VarChar(255)
-  role                 UserRole
-  first_name           String              @db.VarChar(60)
-  last_name            String              @db.VarChar(255)
-  bio                  String?             @db.Text
-  photo                String?             @db.VarChar(255)
-  created_at           DateTime?           @db.Timestamp(0)
-  updated_at           DateTime            @default(now()) @db.Timestamp(0)
-  screenings           Screening[]
-  user_social_networks UserSocialNetwork[]
-  votes                Vote[]
-  works                Work[]
+  id                 Int                 @id @default(autoincrement())
+  email              String              @unique(map: "email") @db.VarChar(150)
+  passwordHash       String              @map("password_hash") @db.VarChar(255)
+  role               UserRole
+  firstName          String              @map("first_name") @db.VarChar(60)
+  lastName           String              @map("last_name") @db.VarChar(255)
+  bio                String?             @db.Text
+  photo              String?             @db.VarChar(255)
+  createdAt          DateTime?           @map("created_at") @db.Timestamp(0)
+  updatedAt          DateTime            @default(now()) @map("updated_at") @db.Timestamp(0)
+  screenings         Screening[]
+  userSocialNetworks UserSocialNetwork[]
+  votes              Vote[]
+  works              Work[]
 
   @@map("users")
 }
 
 model Vote {
-  id         Int      @id @default(autoincrement())
-  user_id    Int
-  film_id    Int
-  award_id   Int
-  score      Int
-  comment    String   @db.Text
-  created_at DateTime @db.Timestamp(0)
-  updated_at DateTime @default(now()) @db.Timestamp(0)
-  award      Award    @relation(fields: [award_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_awards")
-  film       Film     @relation(fields: [film_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_films")
-  user       User     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_users")
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  filmId    Int      @map("film_id")
+  awardId   Int      @map("award_id")
+  score     Int
+  comment   String   @db.Text
+  createdAt DateTime @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @map("updated_at") @db.Timestamp(0)
+  award     Award    @relation(fields: [awardId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_awards")
+  film      Film     @relation(fields: [filmId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_films")
+  user      User     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_votes_users")
 
-  @@unique([user_id, film_id, award_id], map: "uk_votes_user_id_film_id_award_id")
-  @@index([award_id], map: "fk_votes_awards")
-  @@index([film_id], map: "fk_votes_films")
+  @@unique([userId, filmId, awardId], map: "uk_votes_user_id_film_id_award_id")
+  @@index([awardId], map: "fk_votes_awards")
+  @@index([filmId], map: "fk_votes_films")
   @@map("votes")
 }
 
 model Work {
   id          Int       @id @default(autoincrement())
-  user_id     Int
+  userId      Int       @map("user_id")
   date        DateTime? @db.Date
   name        String    @unique(map: "name") @db.VarChar(100)
   url         String    @unique(map: "url") @db.VarChar(255)
   description String?   @db.Text
-  user        User      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_works_users")
+  user        User      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_works_users")
 
   @@unique([name, url], map: "uk_works_name_url")
-  @@index([user_id], map: "fk_works_users")
+  @@index([userId], map: "fk_works_users")
   @@map("works")
 }
 

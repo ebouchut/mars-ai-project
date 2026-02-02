@@ -28,102 +28,102 @@ export type AggregateVote = {
 
 export type VoteAvgAggregateOutputType = {
   id: number | null
-  user_id: number | null
-  film_id: number | null
-  award_id: number | null
+  userId: number | null
+  filmId: number | null
+  awardId: number | null
   score: number | null
 }
 
 export type VoteSumAggregateOutputType = {
   id: number | null
-  user_id: number | null
-  film_id: number | null
-  award_id: number | null
+  userId: number | null
+  filmId: number | null
+  awardId: number | null
   score: number | null
 }
 
 export type VoteMinAggregateOutputType = {
   id: number | null
-  user_id: number | null
-  film_id: number | null
-  award_id: number | null
+  userId: number | null
+  filmId: number | null
+  awardId: number | null
   score: number | null
   comment: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type VoteMaxAggregateOutputType = {
   id: number | null
-  user_id: number | null
-  film_id: number | null
-  award_id: number | null
+  userId: number | null
+  filmId: number | null
+  awardId: number | null
   score: number | null
   comment: string | null
-  created_at: Date | null
-  updated_at: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type VoteCountAggregateOutputType = {
   id: number
-  user_id: number
-  film_id: number
-  award_id: number
+  userId: number
+  filmId: number
+  awardId: number
   score: number
   comment: number
-  created_at: number
-  updated_at: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type VoteAvgAggregateInputType = {
   id?: true
-  user_id?: true
-  film_id?: true
-  award_id?: true
+  userId?: true
+  filmId?: true
+  awardId?: true
   score?: true
 }
 
 export type VoteSumAggregateInputType = {
   id?: true
-  user_id?: true
-  film_id?: true
-  award_id?: true
+  userId?: true
+  filmId?: true
+  awardId?: true
   score?: true
 }
 
 export type VoteMinAggregateInputType = {
   id?: true
-  user_id?: true
-  film_id?: true
-  award_id?: true
+  userId?: true
+  filmId?: true
+  awardId?: true
   score?: true
   comment?: true
-  created_at?: true
-  updated_at?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type VoteMaxAggregateInputType = {
   id?: true
-  user_id?: true
-  film_id?: true
-  award_id?: true
+  userId?: true
+  filmId?: true
+  awardId?: true
   score?: true
   comment?: true
-  created_at?: true
-  updated_at?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type VoteCountAggregateInputType = {
   id?: true
-  user_id?: true
-  film_id?: true
-  award_id?: true
+  userId?: true
+  filmId?: true
+  awardId?: true
   score?: true
   comment?: true
-  created_at?: true
-  updated_at?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -215,13 +215,13 @@ export type VoteGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type VoteGroupByOutputType = {
   id: number
-  user_id: number
-  film_id: number
-  award_id: number
+  userId: number
+  filmId: number
+  awardId: number
   score: number
   comment: string
-  created_at: Date
-  updated_at: Date
+  createdAt: Date
+  updatedAt: Date
   _count: VoteCountAggregateOutputType | null
   _avg: VoteAvgAggregateOutputType | null
   _sum: VoteSumAggregateOutputType | null
@@ -249,13 +249,13 @@ export type VoteWhereInput = {
   OR?: Prisma.VoteWhereInput[]
   NOT?: Prisma.VoteWhereInput | Prisma.VoteWhereInput[]
   id?: Prisma.IntFilter<"Vote"> | number
-  user_id?: Prisma.IntFilter<"Vote"> | number
-  film_id?: Prisma.IntFilter<"Vote"> | number
-  award_id?: Prisma.IntFilter<"Vote"> | number
+  userId?: Prisma.IntFilter<"Vote"> | number
+  filmId?: Prisma.IntFilter<"Vote"> | number
+  awardId?: Prisma.IntFilter<"Vote"> | number
   score?: Prisma.IntFilter<"Vote"> | number
   comment?: Prisma.StringFilter<"Vote"> | string
-  created_at?: Prisma.DateTimeFilter<"Vote"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
   award?: Prisma.XOR<Prisma.AwardScalarRelationFilter, Prisma.AwardWhereInput>
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -263,13 +263,13 @@ export type VoteWhereInput = {
 
 export type VoteOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
   comment?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   award?: Prisma.AwardOrderByWithRelationInput
   film?: Prisma.FilmOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
@@ -278,31 +278,31 @@ export type VoteOrderByWithRelationInput = {
 
 export type VoteWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  user_id_film_id_award_id?: Prisma.VoteUser_idFilm_idAward_idCompoundUniqueInput
+  userId_filmId_awardId?: Prisma.VoteUserIdFilmIdAwardIdCompoundUniqueInput
   AND?: Prisma.VoteWhereInput | Prisma.VoteWhereInput[]
   OR?: Prisma.VoteWhereInput[]
   NOT?: Prisma.VoteWhereInput | Prisma.VoteWhereInput[]
-  user_id?: Prisma.IntFilter<"Vote"> | number
-  film_id?: Prisma.IntFilter<"Vote"> | number
-  award_id?: Prisma.IntFilter<"Vote"> | number
+  userId?: Prisma.IntFilter<"Vote"> | number
+  filmId?: Prisma.IntFilter<"Vote"> | number
+  awardId?: Prisma.IntFilter<"Vote"> | number
   score?: Prisma.IntFilter<"Vote"> | number
   comment?: Prisma.StringFilter<"Vote"> | string
-  created_at?: Prisma.DateTimeFilter<"Vote"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
   award?: Prisma.XOR<Prisma.AwardScalarRelationFilter, Prisma.AwardWhereInput>
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id" | "user_id_film_id_award_id">
+}, "id" | "userId_filmId_awardId">
 
 export type VoteOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
   comment?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.VoteCountOrderByAggregateInput
   _avg?: Prisma.VoteAvgOrderByAggregateInput
   _max?: Prisma.VoteMaxOrderByAggregateInput
@@ -315,20 +315,20 @@ export type VoteScalarWhereWithAggregatesInput = {
   OR?: Prisma.VoteScalarWhereWithAggregatesInput[]
   NOT?: Prisma.VoteScalarWhereWithAggregatesInput | Prisma.VoteScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Vote"> | number
-  user_id?: Prisma.IntWithAggregatesFilter<"Vote"> | number
-  film_id?: Prisma.IntWithAggregatesFilter<"Vote"> | number
-  award_id?: Prisma.IntWithAggregatesFilter<"Vote"> | number
+  userId?: Prisma.IntWithAggregatesFilter<"Vote"> | number
+  filmId?: Prisma.IntWithAggregatesFilter<"Vote"> | number
+  awardId?: Prisma.IntWithAggregatesFilter<"Vote"> | number
   score?: Prisma.IntWithAggregatesFilter<"Vote"> | number
   comment?: Prisma.StringWithAggregatesFilter<"Vote"> | string
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"Vote"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Vote"> | Date | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Vote"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Vote"> | Date | string
 }
 
 export type VoteCreateInput = {
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
   award: Prisma.AwardCreateNestedOneWithoutVotesInput
   film: Prisma.FilmCreateNestedOneWithoutVotesInput
   user: Prisma.UserCreateNestedOneWithoutVotesInput
@@ -336,20 +336,20 @@ export type VoteCreateInput = {
 
 export type VoteUncheckedCreateInput = {
   id?: number
-  user_id: number
-  film_id: number
-  award_id: number
+  userId: number
+  filmId: number
+  awardId: number
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type VoteUpdateInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   award?: Prisma.AwardUpdateOneRequiredWithoutVotesNestedInput
   film?: Prisma.FilmUpdateOneRequiredWithoutVotesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutVotesNestedInput
@@ -357,42 +357,42 @@ export type VoteUpdateInput = {
 
 export type VoteUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VoteCreateManyInput = {
   id?: number
-  user_id: number
-  film_id: number
-  award_id: number
+  userId: number
+  filmId: number
+  awardId: number
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type VoteUpdateManyMutationInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VoteUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VoteListRelationFilter = {
@@ -411,58 +411,58 @@ export type VoteOrderByRelevanceInput = {
   search: string
 }
 
-export type VoteUser_idFilm_idAward_idCompoundUniqueInput = {
-  user_id: number
-  film_id: number
-  award_id: number
+export type VoteUserIdFilmIdAwardIdCompoundUniqueInput = {
+  userId: number
+  filmId: number
+  awardId: number
 }
 
 export type VoteCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
   comment?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type VoteAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
 }
 
 export type VoteMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
   comment?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type VoteMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
   comment?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type VoteSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
-  award_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
+  awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
 }
 
@@ -595,20 +595,20 @@ export type VoteUncheckedUpdateManyWithoutUserNestedInput = {
 export type VoteCreateWithoutAwardInput = {
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
   film: Prisma.FilmCreateNestedOneWithoutVotesInput
   user: Prisma.UserCreateNestedOneWithoutVotesInput
 }
 
 export type VoteUncheckedCreateWithoutAwardInput = {
   id?: number
-  user_id: number
-  film_id: number
+  userId: number
+  filmId: number
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type VoteCreateOrConnectWithoutAwardInput = {
@@ -642,32 +642,32 @@ export type VoteScalarWhereInput = {
   OR?: Prisma.VoteScalarWhereInput[]
   NOT?: Prisma.VoteScalarWhereInput | Prisma.VoteScalarWhereInput[]
   id?: Prisma.IntFilter<"Vote"> | number
-  user_id?: Prisma.IntFilter<"Vote"> | number
-  film_id?: Prisma.IntFilter<"Vote"> | number
-  award_id?: Prisma.IntFilter<"Vote"> | number
+  userId?: Prisma.IntFilter<"Vote"> | number
+  filmId?: Prisma.IntFilter<"Vote"> | number
+  awardId?: Prisma.IntFilter<"Vote"> | number
   score?: Prisma.IntFilter<"Vote"> | number
   comment?: Prisma.StringFilter<"Vote"> | string
-  created_at?: Prisma.DateTimeFilter<"Vote"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
 }
 
 export type VoteCreateWithoutFilmInput = {
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
   award: Prisma.AwardCreateNestedOneWithoutVotesInput
   user: Prisma.UserCreateNestedOneWithoutVotesInput
 }
 
 export type VoteUncheckedCreateWithoutFilmInput = {
   id?: number
-  user_id: number
-  award_id: number
+  userId: number
+  awardId: number
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type VoteCreateOrConnectWithoutFilmInput = {
@@ -699,20 +699,20 @@ export type VoteUpdateManyWithWhereWithoutFilmInput = {
 export type VoteCreateWithoutUserInput = {
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
   award: Prisma.AwardCreateNestedOneWithoutVotesInput
   film: Prisma.FilmCreateNestedOneWithoutVotesInput
 }
 
 export type VoteUncheckedCreateWithoutUserInput = {
   id?: number
-  film_id: number
-  award_id: number
+  filmId: number
+  awardId: number
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type VoteCreateOrConnectWithoutUserInput = {
@@ -743,132 +743,132 @@ export type VoteUpdateManyWithWhereWithoutUserInput = {
 
 export type VoteCreateManyAwardInput = {
   id?: number
-  user_id: number
-  film_id: number
+  userId: number
+  filmId: number
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type VoteUpdateWithoutAwardInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   film?: Prisma.FilmUpdateOneRequiredWithoutVotesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutVotesNestedInput
 }
 
 export type VoteUncheckedUpdateWithoutAwardInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VoteUncheckedUpdateManyWithoutAwardInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VoteCreateManyFilmInput = {
   id?: number
-  user_id: number
-  award_id: number
+  userId: number
+  awardId: number
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type VoteUpdateWithoutFilmInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   award?: Prisma.AwardUpdateOneRequiredWithoutVotesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutVotesNestedInput
 }
 
 export type VoteUncheckedUpdateWithoutFilmInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VoteUncheckedUpdateManyWithoutFilmInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VoteCreateManyUserInput = {
   id?: number
-  film_id: number
-  award_id: number
+  filmId: number
+  awardId: number
   score: number
   comment: string
-  created_at: Date | string
-  updated_at?: Date | string
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type VoteUpdateWithoutUserInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   award?: Prisma.AwardUpdateOneRequiredWithoutVotesNestedInput
   film?: Prisma.FilmUpdateOneRequiredWithoutVotesNestedInput
 }
 
 export type VoteUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VoteUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
-  award_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
+  awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
 
 export type VoteSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  user_id?: boolean
-  film_id?: boolean
-  award_id?: boolean
+  userId?: boolean
+  filmId?: boolean
+  awardId?: boolean
   score?: boolean
   comment?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   award?: boolean | Prisma.AwardDefaultArgs<ExtArgs>
   film?: boolean | Prisma.FilmDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -878,16 +878,16 @@ export type VoteSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 
 export type VoteSelectScalar = {
   id?: boolean
-  user_id?: boolean
-  film_id?: boolean
-  award_id?: boolean
+  userId?: boolean
+  filmId?: boolean
+  awardId?: boolean
   score?: boolean
   comment?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type VoteOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "film_id" | "award_id" | "score" | "comment" | "created_at" | "updated_at", ExtArgs["result"]["vote"]>
+export type VoteOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "filmId" | "awardId" | "score" | "comment" | "createdAt" | "updatedAt", ExtArgs["result"]["vote"]>
 export type VoteInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   award?: boolean | Prisma.AwardDefaultArgs<ExtArgs>
   film?: boolean | Prisma.FilmDefaultArgs<ExtArgs>
@@ -903,13 +903,13 @@ export type $VotePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    user_id: number
-    film_id: number
-    award_id: number
+    userId: number
+    filmId: number
+    awardId: number
     score: number
     comment: string
-    created_at: Date
-    updated_at: Date
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["vote"]>
   composites: {}
 }
@@ -1283,13 +1283,13 @@ export interface Prisma__VoteClient<T, Null = never, ExtArgs extends runtime.Typ
  */
 export interface VoteFieldRefs {
   readonly id: Prisma.FieldRef<"Vote", 'Int'>
-  readonly user_id: Prisma.FieldRef<"Vote", 'Int'>
-  readonly film_id: Prisma.FieldRef<"Vote", 'Int'>
-  readonly award_id: Prisma.FieldRef<"Vote", 'Int'>
+  readonly userId: Prisma.FieldRef<"Vote", 'Int'>
+  readonly filmId: Prisma.FieldRef<"Vote", 'Int'>
+  readonly awardId: Prisma.FieldRef<"Vote", 'Int'>
   readonly score: Prisma.FieldRef<"Vote", 'Int'>
   readonly comment: Prisma.FieldRef<"Vote", 'String'>
-  readonly created_at: Prisma.FieldRef<"Vote", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"Vote", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"Vote", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Vote", 'DateTime'>
 }
     
 

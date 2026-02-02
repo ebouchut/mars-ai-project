@@ -28,12 +28,12 @@ export type AggregatePartner = {
 
 export type PartnerAvgAggregateOutputType = {
   id: number | null
-  display_order: number | null
+  displayOrder: number | null
 }
 
 export type PartnerSumAggregateOutputType = {
   id: number | null
-  display_order: number | null
+  displayOrder: number | null
 }
 
 export type PartnerMinAggregateOutputType = {
@@ -42,9 +42,9 @@ export type PartnerMinAggregateOutputType = {
   description: string | null
   url: string | null
   logo: string | null
-  display_order: number | null
-  created_at: Date | null
-  updated_at: Date | null
+  displayOrder: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type PartnerMaxAggregateOutputType = {
@@ -53,9 +53,9 @@ export type PartnerMaxAggregateOutputType = {
   description: string | null
   url: string | null
   logo: string | null
-  display_order: number | null
-  created_at: Date | null
-  updated_at: Date | null
+  displayOrder: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type PartnerCountAggregateOutputType = {
@@ -64,21 +64,21 @@ export type PartnerCountAggregateOutputType = {
   description: number
   url: number
   logo: number
-  display_order: number
-  created_at: number
-  updated_at: number
+  displayOrder: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type PartnerAvgAggregateInputType = {
   id?: true
-  display_order?: true
+  displayOrder?: true
 }
 
 export type PartnerSumAggregateInputType = {
   id?: true
-  display_order?: true
+  displayOrder?: true
 }
 
 export type PartnerMinAggregateInputType = {
@@ -87,9 +87,9 @@ export type PartnerMinAggregateInputType = {
   description?: true
   url?: true
   logo?: true
-  display_order?: true
-  created_at?: true
-  updated_at?: true
+  displayOrder?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type PartnerMaxAggregateInputType = {
@@ -98,9 +98,9 @@ export type PartnerMaxAggregateInputType = {
   description?: true
   url?: true
   logo?: true
-  display_order?: true
-  created_at?: true
-  updated_at?: true
+  displayOrder?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type PartnerCountAggregateInputType = {
@@ -109,9 +109,9 @@ export type PartnerCountAggregateInputType = {
   description?: true
   url?: true
   logo?: true
-  display_order?: true
-  created_at?: true
-  updated_at?: true
+  displayOrder?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -207,9 +207,9 @@ export type PartnerGroupByOutputType = {
   description: string | null
   url: string
   logo: string
-  display_order: number | null
-  created_at: Date
-  updated_at: Date
+  displayOrder: number | null
+  createdAt: Date
+  updatedAt: Date
   _count: PartnerCountAggregateOutputType | null
   _avg: PartnerAvgAggregateOutputType | null
   _sum: PartnerSumAggregateOutputType | null
@@ -241,9 +241,9 @@ export type PartnerWhereInput = {
   description?: Prisma.StringNullableFilter<"Partner"> | string | null
   url?: Prisma.StringFilter<"Partner"> | string
   logo?: Prisma.StringFilter<"Partner"> | string
-  display_order?: Prisma.IntNullableFilter<"Partner"> | number | null
-  created_at?: Prisma.DateTimeFilter<"Partner"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"Partner"> | Date | string
+  displayOrder?: Prisma.IntNullableFilter<"Partner"> | number | null
+  createdAt?: Prisma.DateTimeFilter<"Partner"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Partner"> | Date | string
   awards?: Prisma.AwardListRelationFilter
 }
 
@@ -253,9 +253,9 @@ export type PartnerOrderByWithRelationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
-  display_order?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   awards?: Prisma.AwardOrderByRelationAggregateInput
   _relevance?: Prisma.PartnerOrderByRelevanceInput
 }
@@ -269,9 +269,9 @@ export type PartnerWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringNullableFilter<"Partner"> | string | null
   url?: Prisma.StringFilter<"Partner"> | string
   logo?: Prisma.StringFilter<"Partner"> | string
-  display_order?: Prisma.IntNullableFilter<"Partner"> | number | null
-  created_at?: Prisma.DateTimeFilter<"Partner"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"Partner"> | Date | string
+  displayOrder?: Prisma.IntNullableFilter<"Partner"> | number | null
+  createdAt?: Prisma.DateTimeFilter<"Partner"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Partner"> | Date | string
   awards?: Prisma.AwardListRelationFilter
 }, "id" | "name">
 
@@ -281,9 +281,9 @@ export type PartnerOrderByWithAggregationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
-  display_order?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.PartnerCountOrderByAggregateInput
   _avg?: Prisma.PartnerAvgOrderByAggregateInput
   _max?: Prisma.PartnerMaxOrderByAggregateInput
@@ -300,9 +300,9 @@ export type PartnerScalarWhereWithAggregatesInput = {
   description?: Prisma.StringNullableWithAggregatesFilter<"Partner"> | string | null
   url?: Prisma.StringWithAggregatesFilter<"Partner"> | string
   logo?: Prisma.StringWithAggregatesFilter<"Partner"> | string
-  display_order?: Prisma.IntNullableWithAggregatesFilter<"Partner"> | number | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"Partner"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Partner"> | Date | string
+  displayOrder?: Prisma.IntNullableWithAggregatesFilter<"Partner"> | number | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Partner"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Partner"> | Date | string
 }
 
 export type PartnerCreateInput = {
@@ -310,9 +310,9 @@ export type PartnerCreateInput = {
   description?: string | null
   url: string
   logo: string
-  display_order?: number | null
-  created_at: Date | string
-  updated_at?: Date | string
+  displayOrder?: number | null
+  createdAt: Date | string
+  updatedAt?: Date | string
   awards?: Prisma.AwardCreateNestedManyWithoutPartnerInput
 }
 
@@ -322,9 +322,9 @@ export type PartnerUncheckedCreateInput = {
   description?: string | null
   url: string
   logo: string
-  display_order?: number | null
-  created_at: Date | string
-  updated_at?: Date | string
+  displayOrder?: number | null
+  createdAt: Date | string
+  updatedAt?: Date | string
   awards?: Prisma.AwardUncheckedCreateNestedManyWithoutPartnerInput
 }
 
@@ -333,9 +333,9 @@ export type PartnerUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
-  display_order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   awards?: Prisma.AwardUpdateManyWithoutPartnerNestedInput
 }
 
@@ -345,9 +345,9 @@ export type PartnerUncheckedUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
-  display_order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   awards?: Prisma.AwardUncheckedUpdateManyWithoutPartnerNestedInput
 }
 
@@ -357,9 +357,9 @@ export type PartnerCreateManyInput = {
   description?: string | null
   url: string
   logo: string
-  display_order?: number | null
-  created_at: Date | string
-  updated_at?: Date | string
+  displayOrder?: number | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type PartnerUpdateManyMutationInput = {
@@ -367,9 +367,9 @@ export type PartnerUpdateManyMutationInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
-  display_order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartnerUncheckedUpdateManyInput = {
@@ -378,9 +378,9 @@ export type PartnerUncheckedUpdateManyInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
-  display_order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartnerNullableScalarRelationFilter = {
@@ -400,14 +400,14 @@ export type PartnerCountOrderByAggregateInput = {
   description?: Prisma.SortOrder
   url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
-  display_order?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type PartnerAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  display_order?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
 }
 
 export type PartnerMaxOrderByAggregateInput = {
@@ -416,9 +416,9 @@ export type PartnerMaxOrderByAggregateInput = {
   description?: Prisma.SortOrder
   url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
-  display_order?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type PartnerMinOrderByAggregateInput = {
@@ -427,14 +427,14 @@ export type PartnerMinOrderByAggregateInput = {
   description?: Prisma.SortOrder
   url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
-  display_order?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type PartnerSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  display_order?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
 }
 
 export type PartnerCreateNestedOneWithoutAwardsInput = {
@@ -458,9 +458,9 @@ export type PartnerCreateWithoutAwardsInput = {
   description?: string | null
   url: string
   logo: string
-  display_order?: number | null
-  created_at: Date | string
-  updated_at?: Date | string
+  displayOrder?: number | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type PartnerUncheckedCreateWithoutAwardsInput = {
@@ -469,9 +469,9 @@ export type PartnerUncheckedCreateWithoutAwardsInput = {
   description?: string | null
   url: string
   logo: string
-  display_order?: number | null
-  created_at: Date | string
-  updated_at?: Date | string
+  displayOrder?: number | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type PartnerCreateOrConnectWithoutAwardsInput = {
@@ -495,9 +495,9 @@ export type PartnerUpdateWithoutAwardsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
-  display_order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PartnerUncheckedUpdateWithoutAwardsInput = {
@@ -506,9 +506,9 @@ export type PartnerUncheckedUpdateWithoutAwardsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
-  display_order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -548,9 +548,9 @@ export type PartnerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   description?: boolean
   url?: boolean
   logo?: boolean
-  display_order?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  displayOrder?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   awards?: boolean | Prisma.Partner$awardsArgs<ExtArgs>
   _count?: boolean | Prisma.PartnerCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["partner"]>
@@ -563,12 +563,12 @@ export type PartnerSelectScalar = {
   description?: boolean
   url?: boolean
   logo?: boolean
-  display_order?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  displayOrder?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type PartnerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "url" | "logo" | "display_order" | "created_at" | "updated_at", ExtArgs["result"]["partner"]>
+export type PartnerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "url" | "logo" | "displayOrder" | "createdAt" | "updatedAt", ExtArgs["result"]["partner"]>
 export type PartnerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   awards?: boolean | Prisma.Partner$awardsArgs<ExtArgs>
   _count?: boolean | Prisma.PartnerCountOutputTypeDefaultArgs<ExtArgs>
@@ -585,9 +585,9 @@ export type $PartnerPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     description: string | null
     url: string
     logo: string
-    display_order: number | null
-    created_at: Date
-    updated_at: Date
+    displayOrder: number | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["partner"]>
   composites: {}
 }
@@ -963,9 +963,9 @@ export interface PartnerFieldRefs {
   readonly description: Prisma.FieldRef<"Partner", 'String'>
   readonly url: Prisma.FieldRef<"Partner", 'String'>
   readonly logo: Prisma.FieldRef<"Partner", 'String'>
-  readonly display_order: Prisma.FieldRef<"Partner", 'Int'>
-  readonly created_at: Prisma.FieldRef<"Partner", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"Partner", 'DateTime'>
+  readonly displayOrder: Prisma.FieldRef<"Partner", 'Int'>
+  readonly createdAt: Prisma.FieldRef<"Partner", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Partner", 'DateTime'>
 }
     
 

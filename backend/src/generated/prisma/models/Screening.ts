@@ -27,32 +27,32 @@ export type AggregateScreening = {
 }
 
 export type ScreeningAvgAggregateOutputType = {
-  user_id: number | null
-  film_id: number | null
+  userId: number | null
+  filmId: number | null
 }
 
 export type ScreeningSumAggregateOutputType = {
-  user_id: number | null
-  film_id: number | null
+  userId: number | null
+  filmId: number | null
 }
 
 export type ScreeningMinAggregateOutputType = {
-  user_id: number | null
-  film_id: number | null
+  userId: number | null
+  filmId: number | null
   status: $Enums.ScreeningStatus | null
   comment: string | null
 }
 
 export type ScreeningMaxAggregateOutputType = {
-  user_id: number | null
-  film_id: number | null
+  userId: number | null
+  filmId: number | null
   status: $Enums.ScreeningStatus | null
   comment: string | null
 }
 
 export type ScreeningCountAggregateOutputType = {
-  user_id: number
-  film_id: number
+  userId: number
+  filmId: number
   status: number
   comment: number
   _all: number
@@ -60,32 +60,32 @@ export type ScreeningCountAggregateOutputType = {
 
 
 export type ScreeningAvgAggregateInputType = {
-  user_id?: true
-  film_id?: true
+  userId?: true
+  filmId?: true
 }
 
 export type ScreeningSumAggregateInputType = {
-  user_id?: true
-  film_id?: true
+  userId?: true
+  filmId?: true
 }
 
 export type ScreeningMinAggregateInputType = {
-  user_id?: true
-  film_id?: true
+  userId?: true
+  filmId?: true
   status?: true
   comment?: true
 }
 
 export type ScreeningMaxAggregateInputType = {
-  user_id?: true
-  film_id?: true
+  userId?: true
+  filmId?: true
   status?: true
   comment?: true
 }
 
 export type ScreeningCountAggregateInputType = {
-  user_id?: true
-  film_id?: true
+  userId?: true
+  filmId?: true
   status?: true
   comment?: true
   _all?: true
@@ -178,8 +178,8 @@ export type ScreeningGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 export type ScreeningGroupByOutputType = {
-  user_id: number
-  film_id: number
+  userId: number
+  filmId: number
   status: $Enums.ScreeningStatus
   comment: string | null
   _count: ScreeningCountAggregateOutputType | null
@@ -208,8 +208,8 @@ export type ScreeningWhereInput = {
   AND?: Prisma.ScreeningWhereInput | Prisma.ScreeningWhereInput[]
   OR?: Prisma.ScreeningWhereInput[]
   NOT?: Prisma.ScreeningWhereInput | Prisma.ScreeningWhereInput[]
-  user_id?: Prisma.IntFilter<"Screening"> | number
-  film_id?: Prisma.IntFilter<"Screening"> | number
+  userId?: Prisma.IntFilter<"Screening"> | number
+  filmId?: Prisma.IntFilter<"Screening"> | number
   status?: Prisma.EnumScreeningStatusFilter<"Screening"> | $Enums.ScreeningStatus
   comment?: Prisma.StringNullableFilter<"Screening"> | string | null
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
@@ -217,8 +217,8 @@ export type ScreeningWhereInput = {
 }
 
 export type ScreeningOrderByWithRelationInput = {
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   comment?: Prisma.SortOrderInput | Prisma.SortOrder
   film?: Prisma.FilmOrderByWithRelationInput
@@ -227,21 +227,21 @@ export type ScreeningOrderByWithRelationInput = {
 }
 
 export type ScreeningWhereUniqueInput = Prisma.AtLeast<{
-  user_id_film_id?: Prisma.ScreeningUser_idFilm_idCompoundUniqueInput
+  userId_filmId?: Prisma.ScreeningUserIdFilmIdCompoundUniqueInput
   AND?: Prisma.ScreeningWhereInput | Prisma.ScreeningWhereInput[]
   OR?: Prisma.ScreeningWhereInput[]
   NOT?: Prisma.ScreeningWhereInput | Prisma.ScreeningWhereInput[]
-  user_id?: Prisma.IntFilter<"Screening"> | number
-  film_id?: Prisma.IntFilter<"Screening"> | number
+  userId?: Prisma.IntFilter<"Screening"> | number
+  filmId?: Prisma.IntFilter<"Screening"> | number
   status?: Prisma.EnumScreeningStatusFilter<"Screening"> | $Enums.ScreeningStatus
   comment?: Prisma.StringNullableFilter<"Screening"> | string | null
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "user_id_film_id">
+}, "userId_filmId">
 
 export type ScreeningOrderByWithAggregationInput = {
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   comment?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ScreeningCountOrderByAggregateInput
@@ -255,8 +255,8 @@ export type ScreeningScalarWhereWithAggregatesInput = {
   AND?: Prisma.ScreeningScalarWhereWithAggregatesInput | Prisma.ScreeningScalarWhereWithAggregatesInput[]
   OR?: Prisma.ScreeningScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ScreeningScalarWhereWithAggregatesInput | Prisma.ScreeningScalarWhereWithAggregatesInput[]
-  user_id?: Prisma.IntWithAggregatesFilter<"Screening"> | number
-  film_id?: Prisma.IntWithAggregatesFilter<"Screening"> | number
+  userId?: Prisma.IntWithAggregatesFilter<"Screening"> | number
+  filmId?: Prisma.IntWithAggregatesFilter<"Screening"> | number
   status?: Prisma.EnumScreeningStatusWithAggregatesFilter<"Screening"> | $Enums.ScreeningStatus
   comment?: Prisma.StringNullableWithAggregatesFilter<"Screening"> | string | null
 }
@@ -269,8 +269,8 @@ export type ScreeningCreateInput = {
 }
 
 export type ScreeningUncheckedCreateInput = {
-  user_id: number
-  film_id: number
+  userId: number
+  filmId: number
   status: $Enums.ScreeningStatus
   comment?: string | null
 }
@@ -283,15 +283,15 @@ export type ScreeningUpdateInput = {
 }
 
 export type ScreeningUncheckedUpdateInput = {
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumScreeningStatusFieldUpdateOperationsInput | $Enums.ScreeningStatus
   comment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ScreeningCreateManyInput = {
-  user_id: number
-  film_id: number
+  userId: number
+  filmId: number
   status: $Enums.ScreeningStatus
   comment?: string | null
 }
@@ -302,8 +302,8 @@ export type ScreeningUpdateManyMutationInput = {
 }
 
 export type ScreeningUncheckedUpdateManyInput = {
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumScreeningStatusFieldUpdateOperationsInput | $Enums.ScreeningStatus
   comment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
@@ -324,40 +324,40 @@ export type ScreeningOrderByRelevanceInput = {
   search: string
 }
 
-export type ScreeningUser_idFilm_idCompoundUniqueInput = {
-  user_id: number
-  film_id: number
+export type ScreeningUserIdFilmIdCompoundUniqueInput = {
+  userId: number
+  filmId: number
 }
 
 export type ScreeningCountOrderByAggregateInput = {
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   comment?: Prisma.SortOrder
 }
 
 export type ScreeningAvgOrderByAggregateInput = {
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
 }
 
 export type ScreeningMaxOrderByAggregateInput = {
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   comment?: Prisma.SortOrder
 }
 
 export type ScreeningMinOrderByAggregateInput = {
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   comment?: Prisma.SortOrder
 }
 
 export type ScreeningSumOrderByAggregateInput = {
-  user_id?: Prisma.SortOrder
-  film_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  filmId?: Prisma.SortOrder
 }
 
 export type ScreeningCreateNestedManyWithoutFilmInput = {
@@ -455,7 +455,7 @@ export type ScreeningCreateWithoutFilmInput = {
 }
 
 export type ScreeningUncheckedCreateWithoutFilmInput = {
-  user_id: number
+  userId: number
   status: $Enums.ScreeningStatus
   comment?: string | null
 }
@@ -490,8 +490,8 @@ export type ScreeningScalarWhereInput = {
   AND?: Prisma.ScreeningScalarWhereInput | Prisma.ScreeningScalarWhereInput[]
   OR?: Prisma.ScreeningScalarWhereInput[]
   NOT?: Prisma.ScreeningScalarWhereInput | Prisma.ScreeningScalarWhereInput[]
-  user_id?: Prisma.IntFilter<"Screening"> | number
-  film_id?: Prisma.IntFilter<"Screening"> | number
+  userId?: Prisma.IntFilter<"Screening"> | number
+  filmId?: Prisma.IntFilter<"Screening"> | number
   status?: Prisma.EnumScreeningStatusFilter<"Screening"> | $Enums.ScreeningStatus
   comment?: Prisma.StringNullableFilter<"Screening"> | string | null
 }
@@ -503,7 +503,7 @@ export type ScreeningCreateWithoutUserInput = {
 }
 
 export type ScreeningUncheckedCreateWithoutUserInput = {
-  film_id: number
+  filmId: number
   status: $Enums.ScreeningStatus
   comment?: string | null
 }
@@ -535,7 +535,7 @@ export type ScreeningUpdateManyWithWhereWithoutUserInput = {
 }
 
 export type ScreeningCreateManyFilmInput = {
-  user_id: number
+  userId: number
   status: $Enums.ScreeningStatus
   comment?: string | null
 }
@@ -547,19 +547,19 @@ export type ScreeningUpdateWithoutFilmInput = {
 }
 
 export type ScreeningUncheckedUpdateWithoutFilmInput = {
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumScreeningStatusFieldUpdateOperationsInput | $Enums.ScreeningStatus
   comment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ScreeningUncheckedUpdateManyWithoutFilmInput = {
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumScreeningStatusFieldUpdateOperationsInput | $Enums.ScreeningStatus
   comment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ScreeningCreateManyUserInput = {
-  film_id: number
+  filmId: number
   status: $Enums.ScreeningStatus
   comment?: string | null
 }
@@ -571,13 +571,13 @@ export type ScreeningUpdateWithoutUserInput = {
 }
 
 export type ScreeningUncheckedUpdateWithoutUserInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumScreeningStatusFieldUpdateOperationsInput | $Enums.ScreeningStatus
   comment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ScreeningUncheckedUpdateManyWithoutUserInput = {
-  film_id?: Prisma.IntFieldUpdateOperationsInput | number
+  filmId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumScreeningStatusFieldUpdateOperationsInput | $Enums.ScreeningStatus
   comment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
@@ -585,8 +585,8 @@ export type ScreeningUncheckedUpdateManyWithoutUserInput = {
 
 
 export type ScreeningSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  user_id?: boolean
-  film_id?: boolean
+  userId?: boolean
+  filmId?: boolean
   status?: boolean
   comment?: boolean
   film?: boolean | Prisma.FilmDefaultArgs<ExtArgs>
@@ -596,13 +596,13 @@ export type ScreeningSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 
 export type ScreeningSelectScalar = {
-  user_id?: boolean
-  film_id?: boolean
+  userId?: boolean
+  filmId?: boolean
   status?: boolean
   comment?: boolean
 }
 
-export type ScreeningOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "film_id" | "status" | "comment", ExtArgs["result"]["screening"]>
+export type ScreeningOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"userId" | "filmId" | "status" | "comment", ExtArgs["result"]["screening"]>
 export type ScreeningInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   film?: boolean | Prisma.FilmDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -615,8 +615,8 @@ export type $ScreeningPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    user_id: number
-    film_id: number
+    userId: number
+    filmId: number
     status: $Enums.ScreeningStatus
     comment: string | null
   }, ExtArgs["result"]["screening"]>
@@ -702,8 +702,8 @@ export interface ScreeningDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * // Get first 10 Screenings
    * const screenings = await prisma.screening.findMany({ take: 10 })
    * 
-   * // Only select the `user_id`
-   * const screeningWithUser_idOnly = await prisma.screening.findMany({ select: { user_id: true } })
+   * // Only select the `userId`
+   * const screeningWithUserIdOnly = await prisma.screening.findMany({ select: { userId: true } })
    * 
    */
   findMany<T extends ScreeningFindManyArgs>(args?: Prisma.SelectSubset<T, ScreeningFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ScreeningPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -990,8 +990,8 @@ export interface Prisma__ScreeningClient<T, Null = never, ExtArgs extends runtim
  * Fields of the Screening model
  */
 export interface ScreeningFieldRefs {
-  readonly user_id: Prisma.FieldRef<"Screening", 'Int'>
-  readonly film_id: Prisma.FieldRef<"Screening", 'Int'>
+  readonly userId: Prisma.FieldRef<"Screening", 'Int'>
+  readonly filmId: Prisma.FieldRef<"Screening", 'Int'>
   readonly status: Prisma.FieldRef<"Screening", 'ScreeningStatus'>
   readonly comment: Prisma.FieldRef<"Screening", 'String'>
 }

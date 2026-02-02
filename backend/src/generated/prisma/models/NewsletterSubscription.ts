@@ -28,106 +28,106 @@ export type AggregateNewsletterSubscription = {
 
 export type NewsletterSubscriptionAvgAggregateOutputType = {
   id: number | null
-  newsletter_id: number | null
-  esp_subscriber_id: number | null
+  newsletterId: number | null
+  espSubscriberId: number | null
 }
 
 export type NewsletterSubscriptionSumAggregateOutputType = {
   id: number | null
-  newsletter_id: number | null
-  esp_subscriber_id: number | null
+  newsletterId: number | null
+  espSubscriberId: number | null
 }
 
 export type NewsletterSubscriptionMinAggregateOutputType = {
   id: number | null
-  newsletter_id: number | null
+  newsletterId: number | null
   email: string | null
   status: $Enums.NewsletterSubscriptionStatus | null
-  subscribed_at: Date | null
-  esp_subscriber_id: number | null
-  esp_synced_at: Date | null
-  esp_updated_at: Date | null
-  created_at: Date | null
-  updated_at: Date | null
+  subscribedAt: Date | null
+  espSubscriberId: number | null
+  espSyncedAt: Date | null
+  espUpdatedAt: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type NewsletterSubscriptionMaxAggregateOutputType = {
   id: number | null
-  newsletter_id: number | null
+  newsletterId: number | null
   email: string | null
   status: $Enums.NewsletterSubscriptionStatus | null
-  subscribed_at: Date | null
-  esp_subscriber_id: number | null
-  esp_synced_at: Date | null
-  esp_updated_at: Date | null
-  created_at: Date | null
-  updated_at: Date | null
+  subscribedAt: Date | null
+  espSubscriberId: number | null
+  espSyncedAt: Date | null
+  espUpdatedAt: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type NewsletterSubscriptionCountAggregateOutputType = {
   id: number
-  newsletter_id: number
+  newsletterId: number
   email: number
   status: number
-  subscribed_at: number
-  esp_subscriber_id: number
-  esp_synced_at: number
-  esp_updated_at: number
-  created_at: number
-  updated_at: number
+  subscribedAt: number
+  espSubscriberId: number
+  espSyncedAt: number
+  espUpdatedAt: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type NewsletterSubscriptionAvgAggregateInputType = {
   id?: true
-  newsletter_id?: true
-  esp_subscriber_id?: true
+  newsletterId?: true
+  espSubscriberId?: true
 }
 
 export type NewsletterSubscriptionSumAggregateInputType = {
   id?: true
-  newsletter_id?: true
-  esp_subscriber_id?: true
+  newsletterId?: true
+  espSubscriberId?: true
 }
 
 export type NewsletterSubscriptionMinAggregateInputType = {
   id?: true
-  newsletter_id?: true
+  newsletterId?: true
   email?: true
   status?: true
-  subscribed_at?: true
-  esp_subscriber_id?: true
-  esp_synced_at?: true
-  esp_updated_at?: true
-  created_at?: true
-  updated_at?: true
+  subscribedAt?: true
+  espSubscriberId?: true
+  espSyncedAt?: true
+  espUpdatedAt?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type NewsletterSubscriptionMaxAggregateInputType = {
   id?: true
-  newsletter_id?: true
+  newsletterId?: true
   email?: true
   status?: true
-  subscribed_at?: true
-  esp_subscriber_id?: true
-  esp_synced_at?: true
-  esp_updated_at?: true
-  created_at?: true
-  updated_at?: true
+  subscribedAt?: true
+  espSubscriberId?: true
+  espSyncedAt?: true
+  espUpdatedAt?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type NewsletterSubscriptionCountAggregateInputType = {
   id?: true
-  newsletter_id?: true
+  newsletterId?: true
   email?: true
   status?: true
-  subscribed_at?: true
-  esp_subscriber_id?: true
-  esp_synced_at?: true
-  esp_updated_at?: true
-  created_at?: true
-  updated_at?: true
+  subscribedAt?: true
+  espSubscriberId?: true
+  espSyncedAt?: true
+  espUpdatedAt?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -219,15 +219,15 @@ export type NewsletterSubscriptionGroupByArgs<ExtArgs extends runtime.Types.Exte
 
 export type NewsletterSubscriptionGroupByOutputType = {
   id: number
-  newsletter_id: number | null
+  newsletterId: number | null
   email: string | null
   status: $Enums.NewsletterSubscriptionStatus
-  subscribed_at: Date
-  esp_subscriber_id: number | null
-  esp_synced_at: Date | null
-  esp_updated_at: Date | null
-  created_at: Date
-  updated_at: Date
+  subscribedAt: Date
+  espSubscriberId: number | null
+  espSyncedAt: Date | null
+  espUpdatedAt: Date | null
+  createdAt: Date
+  updatedAt: Date
   _count: NewsletterSubscriptionCountAggregateOutputType | null
   _avg: NewsletterSubscriptionAvgAggregateOutputType | null
   _sum: NewsletterSubscriptionSumAggregateOutputType | null
@@ -255,29 +255,29 @@ export type NewsletterSubscriptionWhereInput = {
   OR?: Prisma.NewsletterSubscriptionWhereInput[]
   NOT?: Prisma.NewsletterSubscriptionWhereInput | Prisma.NewsletterSubscriptionWhereInput[]
   id?: Prisma.IntFilter<"NewsletterSubscription"> | number
-  newsletter_id?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
+  newsletterId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
   email?: Prisma.StringNullableFilter<"NewsletterSubscription"> | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFilter<"NewsletterSubscription"> | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  esp_subscriber_id?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
-  esp_synced_at?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  esp_updated_at?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  created_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  subscribedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  espSubscriberId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
+  espSyncedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  espUpdatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
   newsletter?: Prisma.XOR<Prisma.NewsletterNullableScalarRelationFilter, Prisma.NewsletterWhereInput> | null
 }
 
 export type NewsletterSubscriptionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  newsletter_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  newsletterId?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  subscribed_at?: Prisma.SortOrder
-  esp_subscriber_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  esp_synced_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  esp_updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  subscribedAt?: Prisma.SortOrder
+  espSubscriberId?: Prisma.SortOrderInput | Prisma.SortOrder
+  espSyncedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  espUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   newsletter?: Prisma.NewsletterOrderByWithRelationInput
   _relevance?: Prisma.NewsletterSubscriptionOrderByRelevanceInput
 }
@@ -288,28 +288,28 @@ export type NewsletterSubscriptionWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.NewsletterSubscriptionWhereInput | Prisma.NewsletterSubscriptionWhereInput[]
   OR?: Prisma.NewsletterSubscriptionWhereInput[]
   NOT?: Prisma.NewsletterSubscriptionWhereInput | Prisma.NewsletterSubscriptionWhereInput[]
-  newsletter_id?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
+  newsletterId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFilter<"NewsletterSubscription"> | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  esp_subscriber_id?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
-  esp_synced_at?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  esp_updated_at?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  created_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  subscribedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  espSubscriberId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
+  espSyncedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  espUpdatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
   newsletter?: Prisma.XOR<Prisma.NewsletterNullableScalarRelationFilter, Prisma.NewsletterWhereInput> | null
 }, "id" | "email">
 
 export type NewsletterSubscriptionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  newsletter_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  newsletterId?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  subscribed_at?: Prisma.SortOrder
-  esp_subscriber_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  esp_synced_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  esp_updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  subscribedAt?: Prisma.SortOrder
+  espSubscriberId?: Prisma.SortOrderInput | Prisma.SortOrder
+  espSyncedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  espUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.NewsletterSubscriptionCountOrderByAggregateInput
   _avg?: Prisma.NewsletterSubscriptionAvgOrderByAggregateInput
   _max?: Prisma.NewsletterSubscriptionMaxOrderByAggregateInput
@@ -322,102 +322,102 @@ export type NewsletterSubscriptionScalarWhereWithAggregatesInput = {
   OR?: Prisma.NewsletterSubscriptionScalarWhereWithAggregatesInput[]
   NOT?: Prisma.NewsletterSubscriptionScalarWhereWithAggregatesInput | Prisma.NewsletterSubscriptionScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"NewsletterSubscription"> | number
-  newsletter_id?: Prisma.IntNullableWithAggregatesFilter<"NewsletterSubscription"> | number | null
+  newsletterId?: Prisma.IntNullableWithAggregatesFilter<"NewsletterSubscription"> | number | null
   email?: Prisma.StringNullableWithAggregatesFilter<"NewsletterSubscription"> | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusWithAggregatesFilter<"NewsletterSubscription"> | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeWithAggregatesFilter<"NewsletterSubscription"> | Date | string
-  esp_subscriber_id?: Prisma.IntNullableWithAggregatesFilter<"NewsletterSubscription"> | number | null
-  esp_synced_at?: Prisma.DateTimeNullableWithAggregatesFilter<"NewsletterSubscription"> | Date | string | null
-  esp_updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"NewsletterSubscription"> | Date | string | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"NewsletterSubscription"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"NewsletterSubscription"> | Date | string
+  subscribedAt?: Prisma.DateTimeWithAggregatesFilter<"NewsletterSubscription"> | Date | string
+  espSubscriberId?: Prisma.IntNullableWithAggregatesFilter<"NewsletterSubscription"> | number | null
+  espSyncedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"NewsletterSubscription"> | Date | string | null
+  espUpdatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"NewsletterSubscription"> | Date | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"NewsletterSubscription"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"NewsletterSubscription"> | Date | string
 }
 
 export type NewsletterSubscriptionCreateInput = {
   email?: string | null
   status: $Enums.NewsletterSubscriptionStatus
-  subscribed_at: Date | string
-  esp_subscriber_id?: number | null
-  esp_synced_at?: Date | string | null
-  esp_updated_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
-  newsletter?: Prisma.NewsletterCreateNestedOneWithoutNewsletter_subscriptionsInput
+  subscribedAt: Date | string
+  espSubscriberId?: number | null
+  espSyncedAt?: Date | string | null
+  espUpdatedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
+  newsletter?: Prisma.NewsletterCreateNestedOneWithoutNewsletterSubscriptionsInput
 }
 
 export type NewsletterSubscriptionUncheckedCreateInput = {
   id?: number
-  newsletter_id?: number | null
+  newsletterId?: number | null
   email?: string | null
   status: $Enums.NewsletterSubscriptionStatus
-  subscribed_at: Date | string
-  esp_subscriber_id?: number | null
-  esp_synced_at?: Date | string | null
-  esp_updated_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
+  subscribedAt: Date | string
+  espSubscriberId?: number | null
+  espSyncedAt?: Date | string | null
+  espUpdatedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type NewsletterSubscriptionUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFieldUpdateOperationsInput | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  esp_subscriber_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  esp_synced_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  esp_updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  newsletter?: Prisma.NewsletterUpdateOneWithoutNewsletter_subscriptionsNestedInput
+  subscribedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  newsletter?: Prisma.NewsletterUpdateOneWithoutNewsletterSubscriptionsNestedInput
 }
 
 export type NewsletterSubscriptionUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  newsletter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  newsletterId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFieldUpdateOperationsInput | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  esp_subscriber_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  esp_synced_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  esp_updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  subscribedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type NewsletterSubscriptionCreateManyInput = {
   id?: number
-  newsletter_id?: number | null
+  newsletterId?: number | null
   email?: string | null
   status: $Enums.NewsletterSubscriptionStatus
-  subscribed_at: Date | string
-  esp_subscriber_id?: number | null
-  esp_synced_at?: Date | string | null
-  esp_updated_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
+  subscribedAt: Date | string
+  espSubscriberId?: number | null
+  espSyncedAt?: Date | string | null
+  espUpdatedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type NewsletterSubscriptionUpdateManyMutationInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFieldUpdateOperationsInput | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  esp_subscriber_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  esp_synced_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  esp_updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  subscribedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type NewsletterSubscriptionUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  newsletter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  newsletterId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFieldUpdateOperationsInput | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  esp_subscriber_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  esp_synced_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  esp_updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  subscribedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type NewsletterSubscriptionOrderByRelevanceInput = {
@@ -428,53 +428,53 @@ export type NewsletterSubscriptionOrderByRelevanceInput = {
 
 export type NewsletterSubscriptionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  newsletter_id?: Prisma.SortOrder
+  newsletterId?: Prisma.SortOrder
   email?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  subscribed_at?: Prisma.SortOrder
-  esp_subscriber_id?: Prisma.SortOrder
-  esp_synced_at?: Prisma.SortOrder
-  esp_updated_at?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  subscribedAt?: Prisma.SortOrder
+  espSubscriberId?: Prisma.SortOrder
+  espSyncedAt?: Prisma.SortOrder
+  espUpdatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type NewsletterSubscriptionAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  newsletter_id?: Prisma.SortOrder
-  esp_subscriber_id?: Prisma.SortOrder
+  newsletterId?: Prisma.SortOrder
+  espSubscriberId?: Prisma.SortOrder
 }
 
 export type NewsletterSubscriptionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  newsletter_id?: Prisma.SortOrder
+  newsletterId?: Prisma.SortOrder
   email?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  subscribed_at?: Prisma.SortOrder
-  esp_subscriber_id?: Prisma.SortOrder
-  esp_synced_at?: Prisma.SortOrder
-  esp_updated_at?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  subscribedAt?: Prisma.SortOrder
+  espSubscriberId?: Prisma.SortOrder
+  espSyncedAt?: Prisma.SortOrder
+  espUpdatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type NewsletterSubscriptionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  newsletter_id?: Prisma.SortOrder
+  newsletterId?: Prisma.SortOrder
   email?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  subscribed_at?: Prisma.SortOrder
-  esp_subscriber_id?: Prisma.SortOrder
-  esp_synced_at?: Prisma.SortOrder
-  esp_updated_at?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
+  subscribedAt?: Prisma.SortOrder
+  espSubscriberId?: Prisma.SortOrder
+  espSyncedAt?: Prisma.SortOrder
+  espUpdatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type NewsletterSubscriptionSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  newsletter_id?: Prisma.SortOrder
-  esp_subscriber_id?: Prisma.SortOrder
+  newsletterId?: Prisma.SortOrder
+  espSubscriberId?: Prisma.SortOrder
 }
 
 export type NewsletterSubscriptionListRelationFilter = {
@@ -536,24 +536,24 @@ export type NewsletterSubscriptionUncheckedUpdateManyWithoutNewsletterNestedInpu
 export type NewsletterSubscriptionCreateWithoutNewsletterInput = {
   email?: string | null
   status: $Enums.NewsletterSubscriptionStatus
-  subscribed_at: Date | string
-  esp_subscriber_id?: number | null
-  esp_synced_at?: Date | string | null
-  esp_updated_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
+  subscribedAt: Date | string
+  espSubscriberId?: number | null
+  espSyncedAt?: Date | string | null
+  espUpdatedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type NewsletterSubscriptionUncheckedCreateWithoutNewsletterInput = {
   id?: number
   email?: string | null
   status: $Enums.NewsletterSubscriptionStatus
-  subscribed_at: Date | string
-  esp_subscriber_id?: number | null
-  esp_synced_at?: Date | string | null
-  esp_updated_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
+  subscribedAt: Date | string
+  espSubscriberId?: number | null
+  espSyncedAt?: Date | string | null
+  espUpdatedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type NewsletterSubscriptionCreateOrConnectWithoutNewsletterInput = {
@@ -587,77 +587,77 @@ export type NewsletterSubscriptionScalarWhereInput = {
   OR?: Prisma.NewsletterSubscriptionScalarWhereInput[]
   NOT?: Prisma.NewsletterSubscriptionScalarWhereInput | Prisma.NewsletterSubscriptionScalarWhereInput[]
   id?: Prisma.IntFilter<"NewsletterSubscription"> | number
-  newsletter_id?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
+  newsletterId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
   email?: Prisma.StringNullableFilter<"NewsletterSubscription"> | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFilter<"NewsletterSubscription"> | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  esp_subscriber_id?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
-  esp_synced_at?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  esp_updated_at?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  created_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  subscribedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  espSubscriberId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
+  espSyncedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  espUpdatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
 }
 
 export type NewsletterSubscriptionCreateManyNewsletterInput = {
   id?: number
   email?: string | null
   status: $Enums.NewsletterSubscriptionStatus
-  subscribed_at: Date | string
-  esp_subscriber_id?: number | null
-  esp_synced_at?: Date | string | null
-  esp_updated_at?: Date | string | null
-  created_at: Date | string
-  updated_at?: Date | string
+  subscribedAt: Date | string
+  espSubscriberId?: number | null
+  espSyncedAt?: Date | string | null
+  espUpdatedAt?: Date | string | null
+  createdAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type NewsletterSubscriptionUpdateWithoutNewsletterInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFieldUpdateOperationsInput | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  esp_subscriber_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  esp_synced_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  esp_updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  subscribedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type NewsletterSubscriptionUncheckedUpdateWithoutNewsletterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFieldUpdateOperationsInput | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  esp_subscriber_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  esp_synced_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  esp_updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  subscribedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type NewsletterSubscriptionUncheckedUpdateManyWithoutNewsletterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumNewsletterSubscriptionStatusFieldUpdateOperationsInput | $Enums.NewsletterSubscriptionStatus
-  subscribed_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  esp_subscriber_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  esp_synced_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  esp_updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  subscribedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
 
 export type NewsletterSubscriptionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  newsletter_id?: boolean
+  newsletterId?: boolean
   email?: boolean
   status?: boolean
-  subscribed_at?: boolean
-  esp_subscriber_id?: boolean
-  esp_synced_at?: boolean
-  esp_updated_at?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  subscribedAt?: boolean
+  espSubscriberId?: boolean
+  espSyncedAt?: boolean
+  espUpdatedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   newsletter?: boolean | Prisma.NewsletterSubscription$newsletterArgs<ExtArgs>
 }, ExtArgs["result"]["newsletterSubscription"]>
 
@@ -665,18 +665,18 @@ export type NewsletterSubscriptionSelect<ExtArgs extends runtime.Types.Extension
 
 export type NewsletterSubscriptionSelectScalar = {
   id?: boolean
-  newsletter_id?: boolean
+  newsletterId?: boolean
   email?: boolean
   status?: boolean
-  subscribed_at?: boolean
-  esp_subscriber_id?: boolean
-  esp_synced_at?: boolean
-  esp_updated_at?: boolean
-  created_at?: boolean
-  updated_at?: boolean
+  subscribedAt?: boolean
+  espSubscriberId?: boolean
+  espSyncedAt?: boolean
+  espUpdatedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type NewsletterSubscriptionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "newsletter_id" | "email" | "status" | "subscribed_at" | "esp_subscriber_id" | "esp_synced_at" | "esp_updated_at" | "created_at" | "updated_at", ExtArgs["result"]["newsletterSubscription"]>
+export type NewsletterSubscriptionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "newsletterId" | "email" | "status" | "subscribedAt" | "espSubscriberId" | "espSyncedAt" | "espUpdatedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["newsletterSubscription"]>
 export type NewsletterSubscriptionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   newsletter?: boolean | Prisma.NewsletterSubscription$newsletterArgs<ExtArgs>
 }
@@ -688,15 +688,15 @@ export type $NewsletterSubscriptionPayload<ExtArgs extends runtime.Types.Extensi
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    newsletter_id: number | null
+    newsletterId: number | null
     email: string | null
     status: $Enums.NewsletterSubscriptionStatus
-    subscribed_at: Date
-    esp_subscriber_id: number | null
-    esp_synced_at: Date | null
-    esp_updated_at: Date | null
-    created_at: Date
-    updated_at: Date
+    subscribedAt: Date
+    espSubscriberId: number | null
+    espSyncedAt: Date | null
+    espUpdatedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["newsletterSubscription"]>
   composites: {}
 }
@@ -1068,15 +1068,15 @@ export interface Prisma__NewsletterSubscriptionClient<T, Null = never, ExtArgs e
  */
 export interface NewsletterSubscriptionFieldRefs {
   readonly id: Prisma.FieldRef<"NewsletterSubscription", 'Int'>
-  readonly newsletter_id: Prisma.FieldRef<"NewsletterSubscription", 'Int'>
+  readonly newsletterId: Prisma.FieldRef<"NewsletterSubscription", 'Int'>
   readonly email: Prisma.FieldRef<"NewsletterSubscription", 'String'>
   readonly status: Prisma.FieldRef<"NewsletterSubscription", 'NewsletterSubscriptionStatus'>
-  readonly subscribed_at: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
-  readonly esp_subscriber_id: Prisma.FieldRef<"NewsletterSubscription", 'Int'>
-  readonly esp_synced_at: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
-  readonly esp_updated_at: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
-  readonly created_at: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
+  readonly subscribedAt: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
+  readonly espSubscriberId: Prisma.FieldRef<"NewsletterSubscription", 'Int'>
+  readonly espSyncedAt: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
+  readonly espUpdatedAt: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"NewsletterSubscription", 'DateTime'>
 }
     
 

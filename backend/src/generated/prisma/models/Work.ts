@@ -28,17 +28,17 @@ export type AggregateWork = {
 
 export type WorkAvgAggregateOutputType = {
   id: number | null
-  user_id: number | null
+  userId: number | null
 }
 
 export type WorkSumAggregateOutputType = {
   id: number | null
-  user_id: number | null
+  userId: number | null
 }
 
 export type WorkMinAggregateOutputType = {
   id: number | null
-  user_id: number | null
+  userId: number | null
   date: Date | null
   name: string | null
   url: string | null
@@ -47,7 +47,7 @@ export type WorkMinAggregateOutputType = {
 
 export type WorkMaxAggregateOutputType = {
   id: number | null
-  user_id: number | null
+  userId: number | null
   date: Date | null
   name: string | null
   url: string | null
@@ -56,7 +56,7 @@ export type WorkMaxAggregateOutputType = {
 
 export type WorkCountAggregateOutputType = {
   id: number
-  user_id: number
+  userId: number
   date: number
   name: number
   url: number
@@ -67,17 +67,17 @@ export type WorkCountAggregateOutputType = {
 
 export type WorkAvgAggregateInputType = {
   id?: true
-  user_id?: true
+  userId?: true
 }
 
 export type WorkSumAggregateInputType = {
   id?: true
-  user_id?: true
+  userId?: true
 }
 
 export type WorkMinAggregateInputType = {
   id?: true
-  user_id?: true
+  userId?: true
   date?: true
   name?: true
   url?: true
@@ -86,7 +86,7 @@ export type WorkMinAggregateInputType = {
 
 export type WorkMaxAggregateInputType = {
   id?: true
-  user_id?: true
+  userId?: true
   date?: true
   name?: true
   url?: true
@@ -95,7 +95,7 @@ export type WorkMaxAggregateInputType = {
 
 export type WorkCountAggregateInputType = {
   id?: true
-  user_id?: true
+  userId?: true
   date?: true
   name?: true
   url?: true
@@ -191,7 +191,7 @@ export type WorkGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type WorkGroupByOutputType = {
   id: number
-  user_id: number
+  userId: number
   date: Date | null
   name: string
   url: string
@@ -223,7 +223,7 @@ export type WorkWhereInput = {
   OR?: Prisma.WorkWhereInput[]
   NOT?: Prisma.WorkWhereInput | Prisma.WorkWhereInput[]
   id?: Prisma.IntFilter<"Work"> | number
-  user_id?: Prisma.IntFilter<"Work"> | number
+  userId?: Prisma.IntFilter<"Work"> | number
   date?: Prisma.DateTimeNullableFilter<"Work"> | Date | string | null
   name?: Prisma.StringFilter<"Work"> | string
   url?: Prisma.StringFilter<"Work"> | string
@@ -233,7 +233,7 @@ export type WorkWhereInput = {
 
 export type WorkOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   date?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -250,7 +250,7 @@ export type WorkWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.WorkWhereInput | Prisma.WorkWhereInput[]
   OR?: Prisma.WorkWhereInput[]
   NOT?: Prisma.WorkWhereInput | Prisma.WorkWhereInput[]
-  user_id?: Prisma.IntFilter<"Work"> | number
+  userId?: Prisma.IntFilter<"Work"> | number
   date?: Prisma.DateTimeNullableFilter<"Work"> | Date | string | null
   description?: Prisma.StringNullableFilter<"Work"> | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -258,7 +258,7 @@ export type WorkWhereUniqueInput = Prisma.AtLeast<{
 
 export type WorkOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   date?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -275,7 +275,7 @@ export type WorkScalarWhereWithAggregatesInput = {
   OR?: Prisma.WorkScalarWhereWithAggregatesInput[]
   NOT?: Prisma.WorkScalarWhereWithAggregatesInput | Prisma.WorkScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Work"> | number
-  user_id?: Prisma.IntWithAggregatesFilter<"Work"> | number
+  userId?: Prisma.IntWithAggregatesFilter<"Work"> | number
   date?: Prisma.DateTimeNullableWithAggregatesFilter<"Work"> | Date | string | null
   name?: Prisma.StringWithAggregatesFilter<"Work"> | string
   url?: Prisma.StringWithAggregatesFilter<"Work"> | string
@@ -292,7 +292,7 @@ export type WorkCreateInput = {
 
 export type WorkUncheckedCreateInput = {
   id?: number
-  user_id: number
+  userId: number
   date?: Date | string | null
   name: string
   url: string
@@ -309,7 +309,7 @@ export type WorkUpdateInput = {
 
 export type WorkUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
   date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -318,7 +318,7 @@ export type WorkUncheckedUpdateInput = {
 
 export type WorkCreateManyInput = {
   id?: number
-  user_id: number
+  userId: number
   date?: Date | string | null
   name: string
   url: string
@@ -334,7 +334,7 @@ export type WorkUpdateManyMutationInput = {
 
 export type WorkUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
   date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -364,7 +364,7 @@ export type WorkNameUrlCompoundUniqueInput = {
 
 export type WorkCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   date?: Prisma.SortOrder
   name?: Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -373,12 +373,12 @@ export type WorkCountOrderByAggregateInput = {
 
 export type WorkAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type WorkMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   date?: Prisma.SortOrder
   name?: Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -387,7 +387,7 @@ export type WorkMaxOrderByAggregateInput = {
 
 export type WorkMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   date?: Prisma.SortOrder
   name?: Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -396,7 +396,7 @@ export type WorkMinOrderByAggregateInput = {
 
 export type WorkSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type WorkCreateNestedManyWithoutUserInput = {
@@ -487,7 +487,7 @@ export type WorkScalarWhereInput = {
   OR?: Prisma.WorkScalarWhereInput[]
   NOT?: Prisma.WorkScalarWhereInput | Prisma.WorkScalarWhereInput[]
   id?: Prisma.IntFilter<"Work"> | number
-  user_id?: Prisma.IntFilter<"Work"> | number
+  userId?: Prisma.IntFilter<"Work"> | number
   date?: Prisma.DateTimeNullableFilter<"Work"> | Date | string | null
   name?: Prisma.StringFilter<"Work"> | string
   url?: Prisma.StringFilter<"Work"> | string
@@ -529,7 +529,7 @@ export type WorkUncheckedUpdateManyWithoutUserInput = {
 
 export type WorkSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  user_id?: boolean
+  userId?: boolean
   date?: boolean
   name?: boolean
   url?: boolean
@@ -541,14 +541,14 @@ export type WorkSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 
 export type WorkSelectScalar = {
   id?: boolean
-  user_id?: boolean
+  userId?: boolean
   date?: boolean
   name?: boolean
   url?: boolean
   description?: boolean
 }
 
-export type WorkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "date" | "name" | "url" | "description", ExtArgs["result"]["work"]>
+export type WorkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "date" | "name" | "url" | "description", ExtArgs["result"]["work"]>
 export type WorkInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -560,7 +560,7 @@ export type $WorkPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    user_id: number
+    userId: number
     date: Date | null
     name: string
     url: string
@@ -936,7 +936,7 @@ export interface Prisma__WorkClient<T, Null = never, ExtArgs extends runtime.Typ
  */
 export interface WorkFieldRefs {
   readonly id: Prisma.FieldRef<"Work", 'Int'>
-  readonly user_id: Prisma.FieldRef<"Work", 'Int'>
+  readonly userId: Prisma.FieldRef<"Work", 'Int'>
   readonly date: Prisma.FieldRef<"Work", 'DateTime'>
   readonly name: Prisma.FieldRef<"Work", 'String'>
   readonly url: Prisma.FieldRef<"Work", 'String'>
