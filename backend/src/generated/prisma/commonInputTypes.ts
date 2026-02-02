@@ -208,21 +208,21 @@ export type Enumawards_amount_currencyWithAggregatesFilter<$PrismaModel = never>
   _max?: Prisma.NestedEnumawards_amount_currencyFilter<$PrismaModel>
 }
 
-export type Enumfilms_statusNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.films_status | Prisma.Enumfilms_statusFieldRefInput<$PrismaModel> | null
-  in?: $Enums.films_status[] | null
-  notIn?: $Enums.films_status[] | null
-  not?: Prisma.NestedEnumfilms_statusNullableFilter<$PrismaModel> | $Enums.films_status | null
+export type Enumfilms_statusFilter<$PrismaModel = never> = {
+  equals?: $Enums.films_status | Prisma.Enumfilms_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.films_status[]
+  notIn?: $Enums.films_status[]
+  not?: Prisma.NestedEnumfilms_statusFilter<$PrismaModel> | $Enums.films_status
 }
 
-export type Enumfilms_statusNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.films_status | Prisma.Enumfilms_statusFieldRefInput<$PrismaModel> | null
-  in?: $Enums.films_status[] | null
-  notIn?: $Enums.films_status[] | null
-  not?: Prisma.NestedEnumfilms_statusNullableWithAggregatesFilter<$PrismaModel> | $Enums.films_status | null
-  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumfilms_statusNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumfilms_statusNullableFilter<$PrismaModel>
+export type Enumfilms_statusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.films_status | Prisma.Enumfilms_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.films_status[]
+  notIn?: $Enums.films_status[]
+  not?: Prisma.NestedEnumfilms_statusWithAggregatesFilter<$PrismaModel> | $Enums.films_status
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumfilms_statusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumfilms_statusFilter<$PrismaModel>
 }
 
 export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -529,21 +529,21 @@ export type NestedEnumawards_amount_currencyWithAggregatesFilter<$PrismaModel = 
   _max?: Prisma.NestedEnumawards_amount_currencyFilter<$PrismaModel>
 }
 
-export type NestedEnumfilms_statusNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.films_status | Prisma.Enumfilms_statusFieldRefInput<$PrismaModel> | null
-  in?: $Enums.films_status[] | null
-  notIn?: $Enums.films_status[] | null
-  not?: Prisma.NestedEnumfilms_statusNullableFilter<$PrismaModel> | $Enums.films_status | null
+export type NestedEnumfilms_statusFilter<$PrismaModel = never> = {
+  equals?: $Enums.films_status | Prisma.Enumfilms_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.films_status[]
+  notIn?: $Enums.films_status[]
+  not?: Prisma.NestedEnumfilms_statusFilter<$PrismaModel> | $Enums.films_status
 }
 
-export type NestedEnumfilms_statusNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.films_status | Prisma.Enumfilms_statusFieldRefInput<$PrismaModel> | null
-  in?: $Enums.films_status[] | null
-  notIn?: $Enums.films_status[] | null
-  not?: Prisma.NestedEnumfilms_statusNullableWithAggregatesFilter<$PrismaModel> | $Enums.films_status | null
-  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumfilms_statusNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumfilms_statusNullableFilter<$PrismaModel>
+export type NestedEnumfilms_statusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.films_status | Prisma.Enumfilms_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.films_status[]
+  notIn?: $Enums.films_status[]
+  not?: Prisma.NestedEnumfilms_statusWithAggregatesFilter<$PrismaModel> | $Enums.films_status
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumfilms_statusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumfilms_statusFilter<$PrismaModel>
 }
 
 export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
