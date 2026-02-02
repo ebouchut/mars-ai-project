@@ -30,7 +30,7 @@ export * from "./enums.js"
  * ```
  * const prisma = new PrismaClient()
  * // Fetch zero or more Admins
- * const admins = await prisma.admins.findMany()
+ * const admins = await prisma.admin.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -40,82 +40,82 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
- * Model admins
+ * Model Admin
  * 
  */
-export type admins = Prisma.adminsModel
+export type Admin = Prisma.AdminModel
 /**
- * Model awards
+ * Model Award
  * 
  */
-export type awards = Prisma.awardsModel
+export type Award = Prisma.AwardModel
 /**
- * Model film_production_tools
+ * Model FilmProductionTool
  * 
  */
-export type film_production_tools = Prisma.film_production_toolsModel
+export type FilmProductionTool = Prisma.FilmProductionToolModel
 /**
- * Model films
+ * Model Film
  * 
  */
-export type films = Prisma.filmsModel
+export type Film = Prisma.FilmModel
 /**
- * Model jury_invitations
+ * Model JuryInvitation
  * 
  */
-export type jury_invitations = Prisma.jury_invitationsModel
+export type JuryInvitation = Prisma.JuryInvitationModel
 /**
- * Model newsletter_subscriptions
+ * Model NewsletterSubscription
  * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
  */
-export type newsletter_subscriptions = Prisma.newsletter_subscriptionsModel
+export type NewsletterSubscription = Prisma.NewsletterSubscriptionModel
 /**
- * Model newsletters
+ * Model Newsletter
  * 
  */
-export type newsletters = Prisma.newslettersModel
+export type Newsletter = Prisma.NewsletterModel
 /**
- * Model nominations
+ * Model Nomination
  * 
  */
-export type nominations = Prisma.nominationsModel
+export type Nomination = Prisma.NominationModel
 /**
- * Model partners
+ * Model Partner
  * 
  */
-export type partners = Prisma.partnersModel
+export type Partner = Prisma.PartnerModel
 /**
- * Model production_tools
+ * Model ProductionTool
  * 
  */
-export type production_tools = Prisma.production_toolsModel
+export type ProductionTool = Prisma.ProductionToolModel
 /**
- * Model screenings
+ * Model Screening
  * 
  */
-export type screenings = Prisma.screeningsModel
+export type Screening = Prisma.ScreeningModel
 /**
- * Model social_networks
+ * Model SocialNetwork
  * 
  */
-export type social_networks = Prisma.social_networksModel
+export type SocialNetwork = Prisma.SocialNetworkModel
 /**
- * Model user_social_networks
+ * Model UserSocialNetwork
  * 
  */
-export type user_social_networks = Prisma.user_social_networksModel
+export type UserSocialNetwork = Prisma.UserSocialNetworkModel
 /**
- * Model users
+ * Model User
  * 
  */
-export type users = Prisma.usersModel
+export type User = Prisma.UserModel
 /**
- * Model votes
+ * Model Vote
  * 
  */
-export type votes = Prisma.votesModel
+export type Vote = Prisma.VoteModel
 /**
- * Model works
+ * Model Work
  * 
  */
-export type works = Prisma.worksModel
+export type Work = Prisma.WorkModel

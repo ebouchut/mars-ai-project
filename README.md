@@ -54,6 +54,12 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 ## Tech Stack
 
+- Dev Tooling:
+  - [`npm`](https://en.wikipedia.org/wiki/Npm) version 11.7+
+  - [fnm](https://github.com/Schniz/fnm) _Fast Node Manager_ permet d'installer et changer de version de Node.
+      - [Instalation](https://github.com/Schniz/fnm?tab=readme-ov-file#installation) 
+      - [Configuration](https://github.com/Schniz/fnm?tab=readme-ov-file#completions)
+  - [`git`](https://en.wikipedia.org/wiki/Git) (ideally the latest version)
 - Database:  
     - [MySQL](https://en.wikipedia.org/wiki/MySQL) version 8.4+
 - Backend:  
@@ -68,9 +74,6 @@ The entire interface is available in *French* and *English* via i18n (internatio
         - [Tailwind CSS](https://en.wikipedia.org/wiki/Tailwind_CSS)
 - Architecture:  
     - MVC Pattern
-- Dev Tooling:
-    - [`npm`](https://en.wikipedia.org/wiki/Npm) version 11.7+
-    - [`git`](https://en.wikipedia.org/wiki/Git) (ideally the latest version)
 
 ### Additional Requirements
 

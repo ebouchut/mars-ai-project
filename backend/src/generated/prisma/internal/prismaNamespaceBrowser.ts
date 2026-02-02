@@ -51,22 +51,22 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  admins: 'admins',
-  awards: 'awards',
-  film_production_tools: 'film_production_tools',
-  films: 'films',
-  jury_invitations: 'jury_invitations',
-  newsletter_subscriptions: 'newsletter_subscriptions',
-  newsletters: 'newsletters',
-  nominations: 'nominations',
-  partners: 'partners',
-  production_tools: 'production_tools',
-  screenings: 'screenings',
-  social_networks: 'social_networks',
-  user_social_networks: 'user_social_networks',
-  users: 'users',
-  votes: 'votes',
-  works: 'works'
+  Admin: 'Admin',
+  Award: 'Award',
+  FilmProductionTool: 'FilmProductionTool',
+  Film: 'Film',
+  JuryInvitation: 'JuryInvitation',
+  NewsletterSubscription: 'NewsletterSubscription',
+  Newsletter: 'Newsletter',
+  Nomination: 'Nomination',
+  Partner: 'Partner',
+  ProductionTool: 'ProductionTool',
+  Screening: 'Screening',
+  SocialNetwork: 'SocialNetwork',
+  UserSocialNetwork: 'UserSocialNetwork',
+  User: 'User',
+  Vote: 'Vote',
+  Work: 'Work'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -85,7 +85,7 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const AdminsScalarFieldEnum = {
+export const AdminScalarFieldEnum = {
   id: 'id',
   email: 'email',
   password_hash: 'password_hash',
@@ -95,10 +95,10 @@ export const AdminsScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type AdminsScalarFieldEnum = (typeof AdminsScalarFieldEnum)[keyof typeof AdminsScalarFieldEnum]
+export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
 
 
-export const AwardsScalarFieldEnum = {
+export const AwardScalarFieldEnum = {
   id: 'id',
   partner_id: 'partner_id',
   name: 'name',
@@ -107,18 +107,18 @@ export const AwardsScalarFieldEnum = {
   amount_currency: 'amount_currency'
 } as const
 
-export type AwardsScalarFieldEnum = (typeof AwardsScalarFieldEnum)[keyof typeof AwardsScalarFieldEnum]
+export type AwardScalarFieldEnum = (typeof AwardScalarFieldEnum)[keyof typeof AwardScalarFieldEnum]
 
 
-export const Film_production_toolsScalarFieldEnum = {
+export const FilmProductionToolScalarFieldEnum = {
   film_id: 'film_id',
   production_tool_id: 'production_tool_id'
 } as const
 
-export type Film_production_toolsScalarFieldEnum = (typeof Film_production_toolsScalarFieldEnum)[keyof typeof Film_production_toolsScalarFieldEnum]
+export type FilmProductionToolScalarFieldEnum = (typeof FilmProductionToolScalarFieldEnum)[keyof typeof FilmProductionToolScalarFieldEnum]
 
 
-export const FilmsScalarFieldEnum = {
+export const FilmScalarFieldEnum = {
   id: 'id',
   name: 'name',
   video_url: 'video_url',
@@ -129,10 +129,10 @@ export const FilmsScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type FilmsScalarFieldEnum = (typeof FilmsScalarFieldEnum)[keyof typeof FilmsScalarFieldEnum]
+export type FilmScalarFieldEnum = (typeof FilmScalarFieldEnum)[keyof typeof FilmScalarFieldEnum]
 
 
-export const Jury_invitationsScalarFieldEnum = {
+export const JuryInvitationScalarFieldEnum = {
   id: 'id',
   email: 'email',
   token: 'token',
@@ -142,10 +142,10 @@ export const Jury_invitationsScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type Jury_invitationsScalarFieldEnum = (typeof Jury_invitationsScalarFieldEnum)[keyof typeof Jury_invitationsScalarFieldEnum]
+export type JuryInvitationScalarFieldEnum = (typeof JuryInvitationScalarFieldEnum)[keyof typeof JuryInvitationScalarFieldEnum]
 
 
-export const Newsletter_subscriptionsScalarFieldEnum = {
+export const NewsletterSubscriptionScalarFieldEnum = {
   id: 'id',
   newsletter_id: 'newsletter_id',
   email: 'email',
@@ -158,10 +158,10 @@ export const Newsletter_subscriptionsScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type Newsletter_subscriptionsScalarFieldEnum = (typeof Newsletter_subscriptionsScalarFieldEnum)[keyof typeof Newsletter_subscriptionsScalarFieldEnum]
+export type NewsletterSubscriptionScalarFieldEnum = (typeof NewsletterSubscriptionScalarFieldEnum)[keyof typeof NewsletterSubscriptionScalarFieldEnum]
 
 
-export const NewslettersScalarFieldEnum = {
+export const NewsletterScalarFieldEnum = {
   id: 'id',
   name: 'name',
   last_published_at: 'last_published_at',
@@ -169,19 +169,19 @@ export const NewslettersScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type NewslettersScalarFieldEnum = (typeof NewslettersScalarFieldEnum)[keyof typeof NewslettersScalarFieldEnum]
+export type NewsletterScalarFieldEnum = (typeof NewsletterScalarFieldEnum)[keyof typeof NewsletterScalarFieldEnum]
 
 
-export const NominationsScalarFieldEnum = {
+export const NominationScalarFieldEnum = {
   film_id: 'film_id',
   award_id: 'award_id',
   status: 'status'
 } as const
 
-export type NominationsScalarFieldEnum = (typeof NominationsScalarFieldEnum)[keyof typeof NominationsScalarFieldEnum]
+export type NominationScalarFieldEnum = (typeof NominationScalarFieldEnum)[keyof typeof NominationScalarFieldEnum]
 
 
-export const PartnersScalarFieldEnum = {
+export const PartnerScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
@@ -192,48 +192,48 @@ export const PartnersScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type PartnersScalarFieldEnum = (typeof PartnersScalarFieldEnum)[keyof typeof PartnersScalarFieldEnum]
+export type PartnerScalarFieldEnum = (typeof PartnerScalarFieldEnum)[keyof typeof PartnerScalarFieldEnum]
 
 
-export const Production_toolsScalarFieldEnum = {
+export const ProductionToolScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
   url: 'url'
 } as const
 
-export type Production_toolsScalarFieldEnum = (typeof Production_toolsScalarFieldEnum)[keyof typeof Production_toolsScalarFieldEnum]
+export type ProductionToolScalarFieldEnum = (typeof ProductionToolScalarFieldEnum)[keyof typeof ProductionToolScalarFieldEnum]
 
 
-export const ScreeningsScalarFieldEnum = {
+export const ScreeningScalarFieldEnum = {
   user_id: 'user_id',
   film_id: 'film_id',
   status: 'status',
   comment: 'comment'
 } as const
 
-export type ScreeningsScalarFieldEnum = (typeof ScreeningsScalarFieldEnum)[keyof typeof ScreeningsScalarFieldEnum]
+export type ScreeningScalarFieldEnum = (typeof ScreeningScalarFieldEnum)[keyof typeof ScreeningScalarFieldEnum]
 
 
-export const Social_networksScalarFieldEnum = {
+export const SocialNetworkScalarFieldEnum = {
   id: 'id',
   name: 'name',
   url: 'url'
 } as const
 
-export type Social_networksScalarFieldEnum = (typeof Social_networksScalarFieldEnum)[keyof typeof Social_networksScalarFieldEnum]
+export type SocialNetworkScalarFieldEnum = (typeof SocialNetworkScalarFieldEnum)[keyof typeof SocialNetworkScalarFieldEnum]
 
 
-export const User_social_networksScalarFieldEnum = {
+export const UserSocialNetworkScalarFieldEnum = {
   user_id: 'user_id',
   social_network_id: 'social_network_id',
   profile_url: 'profile_url'
 } as const
 
-export type User_social_networksScalarFieldEnum = (typeof User_social_networksScalarFieldEnum)[keyof typeof User_social_networksScalarFieldEnum]
+export type UserSocialNetworkScalarFieldEnum = (typeof UserSocialNetworkScalarFieldEnum)[keyof typeof UserSocialNetworkScalarFieldEnum]
 
 
-export const UsersScalarFieldEnum = {
+export const UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
   password_hash: 'password_hash',
@@ -246,10 +246,10 @@ export const UsersScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const VotesScalarFieldEnum = {
+export const VoteScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
   film_id: 'film_id',
@@ -260,10 +260,10 @@ export const VotesScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type VotesScalarFieldEnum = (typeof VotesScalarFieldEnum)[keyof typeof VotesScalarFieldEnum]
+export type VoteScalarFieldEnum = (typeof VoteScalarFieldEnum)[keyof typeof VoteScalarFieldEnum]
 
 
-export const WorksScalarFieldEnum = {
+export const WorkScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
   date: 'date',
@@ -272,7 +272,7 @@ export const WorksScalarFieldEnum = {
   description: 'description'
 } as const
 
-export type WorksScalarFieldEnum = (typeof WorksScalarFieldEnum)[keyof typeof WorksScalarFieldEnum]
+export type WorkScalarFieldEnum = (typeof WorkScalarFieldEnum)[keyof typeof WorkScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -283,14 +283,14 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-export const adminsOrderByRelevanceFieldEnum = {
+export const AdminOrderByRelevanceFieldEnum = {
   email: 'email',
   password_hash: 'password_hash',
   first_name: 'first_name',
   last_name: 'last_name'
 } as const
 
-export type adminsOrderByRelevanceFieldEnum = (typeof adminsOrderByRelevanceFieldEnum)[keyof typeof adminsOrderByRelevanceFieldEnum]
+export type AdminOrderByRelevanceFieldEnum = (typeof AdminOrderByRelevanceFieldEnum)[keyof typeof AdminOrderByRelevanceFieldEnum]
 
 
 export const NullsOrder = {
@@ -301,88 +301,88 @@ export const NullsOrder = {
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-export const awardsOrderByRelevanceFieldEnum = {
+export const AwardOrderByRelevanceFieldEnum = {
   name: 'name',
   description: 'description'
 } as const
 
-export type awardsOrderByRelevanceFieldEnum = (typeof awardsOrderByRelevanceFieldEnum)[keyof typeof awardsOrderByRelevanceFieldEnum]
+export type AwardOrderByRelevanceFieldEnum = (typeof AwardOrderByRelevanceFieldEnum)[keyof typeof AwardOrderByRelevanceFieldEnum]
 
 
-export const filmsOrderByRelevanceFieldEnum = {
+export const FilmOrderByRelevanceFieldEnum = {
   name: 'name',
   video_url: 'video_url',
   poster_url: 'poster_url',
   description: 'description'
 } as const
 
-export type filmsOrderByRelevanceFieldEnum = (typeof filmsOrderByRelevanceFieldEnum)[keyof typeof filmsOrderByRelevanceFieldEnum]
+export type FilmOrderByRelevanceFieldEnum = (typeof FilmOrderByRelevanceFieldEnum)[keyof typeof FilmOrderByRelevanceFieldEnum]
 
 
-export const jury_invitationsOrderByRelevanceFieldEnum = {
+export const JuryInvitationOrderByRelevanceFieldEnum = {
   email: 'email',
   token: 'token'
 } as const
 
-export type jury_invitationsOrderByRelevanceFieldEnum = (typeof jury_invitationsOrderByRelevanceFieldEnum)[keyof typeof jury_invitationsOrderByRelevanceFieldEnum]
+export type JuryInvitationOrderByRelevanceFieldEnum = (typeof JuryInvitationOrderByRelevanceFieldEnum)[keyof typeof JuryInvitationOrderByRelevanceFieldEnum]
 
 
-export const newsletter_subscriptionsOrderByRelevanceFieldEnum = {
+export const NewsletterSubscriptionOrderByRelevanceFieldEnum = {
   email: 'email'
 } as const
 
-export type newsletter_subscriptionsOrderByRelevanceFieldEnum = (typeof newsletter_subscriptionsOrderByRelevanceFieldEnum)[keyof typeof newsletter_subscriptionsOrderByRelevanceFieldEnum]
+export type NewsletterSubscriptionOrderByRelevanceFieldEnum = (typeof NewsletterSubscriptionOrderByRelevanceFieldEnum)[keyof typeof NewsletterSubscriptionOrderByRelevanceFieldEnum]
 
 
-export const newslettersOrderByRelevanceFieldEnum = {
+export const NewsletterOrderByRelevanceFieldEnum = {
   name: 'name'
 } as const
 
-export type newslettersOrderByRelevanceFieldEnum = (typeof newslettersOrderByRelevanceFieldEnum)[keyof typeof newslettersOrderByRelevanceFieldEnum]
+export type NewsletterOrderByRelevanceFieldEnum = (typeof NewsletterOrderByRelevanceFieldEnum)[keyof typeof NewsletterOrderByRelevanceFieldEnum]
 
 
-export const partnersOrderByRelevanceFieldEnum = {
+export const PartnerOrderByRelevanceFieldEnum = {
   name: 'name',
   description: 'description',
   url: 'url',
   logo: 'logo'
 } as const
 
-export type partnersOrderByRelevanceFieldEnum = (typeof partnersOrderByRelevanceFieldEnum)[keyof typeof partnersOrderByRelevanceFieldEnum]
+export type PartnerOrderByRelevanceFieldEnum = (typeof PartnerOrderByRelevanceFieldEnum)[keyof typeof PartnerOrderByRelevanceFieldEnum]
 
 
-export const production_toolsOrderByRelevanceFieldEnum = {
+export const ProductionToolOrderByRelevanceFieldEnum = {
   name: 'name',
   description: 'description',
   url: 'url'
 } as const
 
-export type production_toolsOrderByRelevanceFieldEnum = (typeof production_toolsOrderByRelevanceFieldEnum)[keyof typeof production_toolsOrderByRelevanceFieldEnum]
+export type ProductionToolOrderByRelevanceFieldEnum = (typeof ProductionToolOrderByRelevanceFieldEnum)[keyof typeof ProductionToolOrderByRelevanceFieldEnum]
 
 
-export const screeningsOrderByRelevanceFieldEnum = {
+export const ScreeningOrderByRelevanceFieldEnum = {
   comment: 'comment'
 } as const
 
-export type screeningsOrderByRelevanceFieldEnum = (typeof screeningsOrderByRelevanceFieldEnum)[keyof typeof screeningsOrderByRelevanceFieldEnum]
+export type ScreeningOrderByRelevanceFieldEnum = (typeof ScreeningOrderByRelevanceFieldEnum)[keyof typeof ScreeningOrderByRelevanceFieldEnum]
 
 
-export const social_networksOrderByRelevanceFieldEnum = {
+export const SocialNetworkOrderByRelevanceFieldEnum = {
   name: 'name',
   url: 'url'
 } as const
 
-export type social_networksOrderByRelevanceFieldEnum = (typeof social_networksOrderByRelevanceFieldEnum)[keyof typeof social_networksOrderByRelevanceFieldEnum]
+export type SocialNetworkOrderByRelevanceFieldEnum = (typeof SocialNetworkOrderByRelevanceFieldEnum)[keyof typeof SocialNetworkOrderByRelevanceFieldEnum]
 
 
-export const user_social_networksOrderByRelevanceFieldEnum = {
+export const UserSocialNetworkOrderByRelevanceFieldEnum = {
   profile_url: 'profile_url'
 } as const
 
-export type user_social_networksOrderByRelevanceFieldEnum = (typeof user_social_networksOrderByRelevanceFieldEnum)[keyof typeof user_social_networksOrderByRelevanceFieldEnum]
+export type UserSocialNetworkOrderByRelevanceFieldEnum = (typeof UserSocialNetworkOrderByRelevanceFieldEnum)[keyof typeof UserSocialNetworkOrderByRelevanceFieldEnum]
 
 
-export const usersOrderByRelevanceFieldEnum = {
+export const UserOrderByRelevanceFieldEnum = {
   email: 'email',
   password_hash: 'password_hash',
   first_name: 'first_name',
@@ -391,21 +391,21 @@ export const usersOrderByRelevanceFieldEnum = {
   photo: 'photo'
 } as const
 
-export type usersOrderByRelevanceFieldEnum = (typeof usersOrderByRelevanceFieldEnum)[keyof typeof usersOrderByRelevanceFieldEnum]
+export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
 
 
-export const votesOrderByRelevanceFieldEnum = {
+export const VoteOrderByRelevanceFieldEnum = {
   comment: 'comment'
 } as const
 
-export type votesOrderByRelevanceFieldEnum = (typeof votesOrderByRelevanceFieldEnum)[keyof typeof votesOrderByRelevanceFieldEnum]
+export type VoteOrderByRelevanceFieldEnum = (typeof VoteOrderByRelevanceFieldEnum)[keyof typeof VoteOrderByRelevanceFieldEnum]
 
 
-export const worksOrderByRelevanceFieldEnum = {
+export const WorkOrderByRelevanceFieldEnum = {
   name: 'name',
   url: 'url',
   description: 'description'
 } as const
 
-export type worksOrderByRelevanceFieldEnum = (typeof worksOrderByRelevanceFieldEnum)[keyof typeof worksOrderByRelevanceFieldEnum]
+export type WorkOrderByRelevanceFieldEnum = (typeof WorkOrderByRelevanceFieldEnum)[keyof typeof WorkOrderByRelevanceFieldEnum]
 
