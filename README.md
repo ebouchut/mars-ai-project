@@ -103,17 +103,98 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 ## Configuration
 
+### Databases Setup
+
+Log in to MySQL as `root` and run the SQL script below to create the database user
+and give her access to these databases.
+
+But first-off, adjust the SQL script below to your likings: database name, database username and password below
+
+```sql
+-- Create the databases for the marsAI project and the database user
+-- Replace the database names, username and password with your current configuration in .env.
+
+CREATE DATABASE IF NOT EXISTS marsai                          DEFAULT CHARACTER SET utf8mb4;
+CREATE DATABASE IF NOT EXISTS prisma_migrate_shadow_db_marsai DEFAULT CHARACTER SET utf8mb4;
+
+CREATE USER IF NOT EXISTS marsai@localhost IDENTIFIED BY 'TODO_PASSWORD_HERE';
+
+GRANT ALL PRIVILEGES ON marsai.*                          TO marsai@localhost;
+-- See: https://www.prisma.io/docs/orm/prisma-migrate/understanding-prisma-migrate/shadow-database
+GRANT ALL PRIVILEGES ON prisma_migrate_shadow_db_marsai.* TO marsai@localhost;
+GRANT CREATE, DROP   ON *.*                               TO marsai@localhost;
+FLUSH PRIVILEGES;
+```
+
+Where:
+
+- `marsai` denotes the main database
+- `prisma_migrate_shadow_db_marsai`  is a shadow database used by Prisma (the ORM and migration tool)
+  to detect if a migration introduces unexpected changes such as schema drift and potential data loss.
+  This database contains the N-1 version of the database (before the migration).
+
+[backend/database/create-database.sql](https://github.com/ebouchut/mars-ai-project/blob/dev/backend/database/create-database.sql)
+ always contains the most up-to-date version of this user and databases creation script.
+
 
 ### Environment Variables
 
-### Database Setup
+> [!NOTE]
+> The **environment variables** containing **sensitive information**
+> (such as **database username and password**, database name...)
+> should be declared in a file named **`.env`**.
+> When starting up, the application:
+>
+> 1. reads the `.env` file,
+> 1. exports the variables declared in this file as environment variables
+> 1. access variables like so:
+>     ```js
+>     import 'dotenv/config'
+>
+>     // ...
+>     env('DATABASE_URL')  // => Return the value of the DATABASE_URL
+>     ```
 
+> [!IMPORTANT]
+> The `.env` file MUST NOT be under version control.
+> Never ever git commit this file.
+
+**Create and populate the `.env` file.**.
+
+1. Copy the [`.env.example`](https://github.com/ebouchut/mars-ai-project/blob/dev/backend/.env.example) as `.env`
+1. Edit and adjust the variables in `.env`
+
+```shell
+cd backend
+cp .env.example .env
+
+# Edit backend/.env and update the variables according to your development environment:
+#   - DATABASE_HOST=TODO_HOST_HERE
+#   - DATABASE_PORT=TODO_PORT_HERE
+#   - DATABASE_USER=TODO_USERNAME_HERE
+#   - DATABASE_PASSWORD=TODO_PASSWORD_HERE
+#   - DATABASE_NAME=TODO_BATABASE_NAME_HERE
+#
+#   - DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
+#   - SHADOW_DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
+````
 
 ## Usage
 
 ### Running the Application
 
 #### Development Mode
+
+- Run the backend:
+  ```shell
+  cd backend
+  npm run dev
+  ```
+- Run the frontend:
+  ```shell
+  cd frontend
+  npm run dev
+  ```
 
 #### Production Mode
 
