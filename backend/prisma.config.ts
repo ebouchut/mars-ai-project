@@ -8,6 +8,7 @@ export default {
     schema: 'prisma/schema.prisma',
     migrations: {
         path: 'prisma/migrations',
+        seed: 'database/seed.ts'
     },
     datasource: {
         url: env('DATABASE_URL'),
