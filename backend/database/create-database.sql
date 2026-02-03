@@ -1,5 +1,6 @@
 -- Create the databases for the marsAI project and the database user
--- Replace the database names and username with your current configuration in .env.
+-- Replace the database names, username and password according to your current configuration
+-- This should be in sync with .env.
 
 CREATE DATABASE IF NOT EXISTS marsai                          DEFAULT CHARACTER SET utf8mb4;
 CREATE DATABASE IF NOT EXISTS prisma_migrate_shadow_db_marsai DEFAULT CHARACTER SET utf8mb4;
