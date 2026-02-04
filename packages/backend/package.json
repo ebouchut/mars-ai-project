@@ -24,12 +24,11 @@
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "dependencies": {
+    "@marsai/database": "*",
     "@prisma/adapter-mariadb": "^7.3.0",
-    "@prisma/client": "^7.3.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "joi": "^18.0.2",
-    "prisma": "^7.3.0"
+    "joi": "^18.0.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

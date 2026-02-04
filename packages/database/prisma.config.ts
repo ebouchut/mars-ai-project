@@ -7,8 +7,7 @@ import {env} from "prisma/config";
 export default {
     schema: 'prisma/schema.prisma',
     migrations: {
-        path: 'prisma/migrations',
-        seed: 'database/seed.ts'
+        path: 'prisma/migrations'
     },
     datasource: {
         url: env('DATABASE_URL'),

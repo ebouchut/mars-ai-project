@@ -1,6 +1,13 @@
 {
   "name": "@marsai/root",
   "private": true,
+  "workspaces": ["packages/database", "packages/backend", "packages/frontend"],
+  "scripts": {
+    "dev:backend": "npm run dev -w @marsai/backend",
+    "dev:frontend": "npm run dev -w @marsai/frontend",
+    "db:migrate": "npm run migrate -w @marsai/database",
+    "db:generate": "npm run generate -w @marsai/database"
+  },
   "description": "An AI film festival application",
   "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
   "bugs": {
@@ -15,8 +22,5 @@
   "type": "module",
   "directories": {
     "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
