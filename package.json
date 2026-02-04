@@ -1,0 +1,22 @@
+{
+  "name": "@marsai/root",
+  "private": true,
+  "description": "An AI film festival application",
+  "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
+  "bugs": {
+    "url": "https://github.com/ebouchut/mars-ai-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebouchut/mars-ai-project.git"
+  },
+  "license": "ISC",
+  "author": "A-Team: https://github.com/ebouchut/mars-ai-project?tab=readme-ov-file#authors",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

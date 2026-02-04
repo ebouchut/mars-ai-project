@@ -1,7 +1,16 @@
 {
   "name": "@marsai/backend",
   "version": "1.0.0",
+  "private": true,
   "description": "The backend of marsAI, a film festival Web application",
+  "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
+  "bugs": {
+    "url": "https://github.com/ebouchut/mars-ai-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebouchut/mars-ai-project.git"
+  },
   "main": "dist/.main.ts",
   "scripts": {
     "dev": "nodemon",
