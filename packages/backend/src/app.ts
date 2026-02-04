@@ -14,9 +14,6 @@ APP.get('/', (req, res) => {
     res.send('Hello Express World')
 });
 
-// GET / TODO
-APP.get();
-
 
 APP.listen(3000, () => {
     console.log('Express Server running on port 3000')
