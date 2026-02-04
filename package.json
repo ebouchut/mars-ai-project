@@ -1,0 +1,26 @@
+{
+  "name": "@marsai/root",
+  "private": true,
+  "workspaces": ["packages/database", "packages/backend", "packages/frontend"],
+  "scripts": {
+    "dev:backend": "npm run dev -w @marsai/backend",
+    "dev:frontend": "npm run dev -w @marsai/frontend",
+    "db:migrate": "npm run migrate -w @marsai/database",
+    "db:generate": "npm run generate -w @marsai/database"
+  },
+  "description": "An AI film festival application",
+  "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
+  "bugs": {
+    "url": "https://github.com/ebouchut/mars-ai-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebouchut/mars-ai-project.git"
+  },
+  "license": "ISC",
+  "author": "A-Team: https://github.com/ebouchut/mars-ai-project?tab=readme-ov-file#authors",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  }
+}

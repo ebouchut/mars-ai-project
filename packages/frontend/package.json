@@ -1,0 +1,27 @@
+{
+  "name": "@marsai/frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The frontend of marsAI, a film festival Web application",
+  "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
+  "bugs": {
+    "url": "https://github.com/ebouchut/mars-ai-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebouchut/mars-ai-project.git"
+  },
+  "main": "dist/main.ts",
+  "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "A-Team: https://github.com/ebouchut/mars-ai-project?tab=readme-ov-file#authors",
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "dependencies": {
+    "@marsai/database": "*"
+  }
+}

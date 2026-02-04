@@ -1,7 +1,16 @@
 {
-  "name": "backend",
+  "name": "@marsai/backend",
   "version": "1.0.0",
-  "description": "A film festival Web application",
+  "private": true,
+  "description": "The backend of marsAI, a film festival Web application",
+  "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
+  "bugs": {
+    "url": "https://github.com/ebouchut/mars-ai-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebouchut/mars-ai-project.git"
+  },
   "main": "dist/.main.ts",
   "scripts": {
     "dev": "nodemon",
@@ -15,12 +24,11 @@
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "dependencies": {
+    "@marsai/database": "*",
     "@prisma/adapter-mariadb": "^7.3.0",
-    "@prisma/client": "^7.3.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "joi": "^18.0.2",
-    "prisma": "^7.3.0"
+    "joi": "^18.0.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
