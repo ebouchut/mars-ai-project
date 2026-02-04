@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "@marsai/backend",
   "version": "1.0.0",
-  "description": "A film festival Web application",
+  "description": "The backend of marsAI, a film festival Web application",
   "main": "dist/.main.ts",
   "scripts": {
     "dev": "nodemon",
