@@ -90,25 +90,28 @@ The entire interface is available in *French* and *English* via i18n (internatio
   git clone https://github.com/ebouchut/mars-ai-project.git
   cd mars-ai-project
   ```
-- Install **backend** dependencies  
+- Install **all** dependencies (`database`, `backend`, `frontend`)  
   ```shell
-  cd backend
-  npm install
-  ```
-- Install **frontend** dependencies
-  ```shell
-  cd ../frontend
-  npm install
+  # cd mars-ai-project  
+  npm install         # From the project root folder
   ```
 
 ## Configuration
 
 ### Databases Setup
 
-Log in to MySQL as `root` and run the SQL script below to create the database user
+You will now run **once** a SQL script below to create the database user
 and give her access to these databases.
 
-But first-off, adjust the SQL script below to your likings: database name, database username and password below
+This SQL script is displayed below but you can find it the up-to-date version in 
+`packages/database/create-database.sql`.
+
+1. Make your own copy of [this script](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/create-database.sql) 
+   and set the variables according to your current database configuration  
+   (database name, database username and password...).
+1. log in to MySQL as `root`
+1. Run your copy of the SQL script 
+
 
 ```sql
 -- Create the databases for the marsAI project and the database user
@@ -129,12 +132,10 @@ FLUSH PRIVILEGES;
 Where:
 
 - `marsai` denotes the main database
-- `prisma_migrate_shadow_db_marsai`  is a shadow database used by Prisma (the ORM and migration tool)
+- `prisma_migrate_shadow_db_marsai`  Prisma (the ORM and migration tool) uses this shadow database 
   to detect if a migration introduces unexpected changes such as schema drift and potential data loss.
   This database contains the N-1 version of the database (before the migration).
 
-[backend/database/create-database.sql](https://github.com/ebouchut/mars-ai-project/blob/dev/backend/database/create-database.sql)
- always contains the most up-to-date version of this user and databases creation script.
 
 
 ### Environment Variables
@@ -159,9 +160,9 @@ Where:
 > The `.env` file MUST NOT be under version control.
 > Never ever git commit this file.
 
-**Create and populate the `.env` file.**.
+**Create and populate the `.env` files.**.
 
-1. Copy the [`.env.example`](https://github.com/ebouchut/mars-ai-project/blob/dev/backend/.env.example) as `.env`
+1. Copy [`.env.example`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/backend/.env.example) as `.env`
 1. Edit and adjust the variables in `.env`
 
 ```shell
@@ -188,12 +189,12 @@ cp .env.example .env
 - Run the backend:
   ```shell
   cd backend
-  npm run dev
+  npm run dev:backend
   ```
 - Run the frontend:
   ```shell
   cd frontend
-  npm run dev
+  npm run dev:fontend
   ```
 
 #### Production Mode
@@ -201,66 +202,75 @@ cp .env.example .env
 
 ## Project Structure
 
-The project uses a **feature-based folder structure**.
+The project uses a **feature-based folder structure**
+where there is one folder per feature, for example: `packages/backend/src/features/vote` (singular).
+This folder contains all the related files,
+such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.service.ts`.
+
 
 ```
-backend/
-├── prisma/                         Contains database schema definition and migrations (with Prisma ORM syntax)
-│   ├── schema.prisma               Database schema
-│   ├── migrations/                 Database migrations
-|   |   └── 20260130101437_add_is_active_to_users/
-|   |       └─- migration.sql
-│   └── seed.js                     
-│
-├── src/
-│   ├── features/
-│   │   │
-│   │   +── vote/                   Contains code related to the voting feature
-│   │       ├── vote.routes.ts      Define routes to map URLs to controllers
-│   │       ├── vote.controller.ts  Handle HTTP request/response
-│   │       ├── vote.validation.ts  Validate input with Joi schemas
-│   │       └── vote.service.ts     Handle the Business logic operations
-│   │
-│   ├── common/
-│   │   ├── middlewares/
-│   │   │   ├── auth.middleware.js
-│   │   │   ├── error.middleware.js
-│   │   │   ├── role.middleware.js
-│   │   │   ├── upload.middleware.js
-│   │   │   └── validate.middleware.js
-│   │   │
-│   │   └── utils/
-│   │       ├── api-error.js
-│   │       ├── async-handler.js
-│   │       ├── hash.js
-│   │       └── token.js
-│   │
-│   ├── integrations/
-│   │   ├── youtube/
-│   │   │   └── youtube.service.ts
-│   │   │
-│   │   └── email/
-│   │       ├── email.service.ts
-│   │       └── templates/
-│   │
-│   ├── config/
-│   │   ├── prisma.ts
-│   │   ├── environment.ts
-│   │   └── constants.ts
-│   │
-│   ├── loaders/
-│   │   ├── express.ts
-│   │   ├── routes.ts
-│   │   └── i18n.ts
-│   │
-│   └── app.ts
-│
-├── tests/
-├── .env.example
-├── .gitignore
 ├── package.json
-└── README.md
-```
+├── package-lock.json
+├── packages
+│    ├── database/
+│    │    ├── .env.example
+│    │    ├── prisma/                         Contains database schema definition and migrations (with Prisma ORM syntax)
+│    │    │   ├── schema.prisma               Database schema
+│    │    │   └── migrations/                 Database migrations
+│    │    |       └── 20260130101437_add_is_active_to_users/
+│    │    |           └─- migration.sql
+│    │    └── src                     
+│    │        └── generated/
+│    │            └── prisma/
+│    ├── backend/
+│    │    ├── .env.example
+│    │    ├── src/
+│    │    │   ├── features/
+│    │    │   │   │
+│    │    │   │   +── vote/                   Contains code related to the voting feature
+│    │    │   │       ├── vote.routes.ts      Define routes to map URLs to controllers
+│    │    │   │       ├── vote.controller.ts  Handle HTTP request/response
+│    │    │   │       ├── vote.validation.ts  Validate input with Joi schemas
+│    │    │   │       └── vote.service.ts     Handle the Business logic operations
+│    │    │   │
+│    │    │   ├── common/
+│    │    │   │   ├── middlewares/
+│    │    │   │   │   ├── auth.middleware.js
+│    │    │   │   │   ├── error.middleware.js
+│    │    │   │   │   ├── role.middleware.js
+│    │    │   │   │   ├── upload.middleware.js
+│    │    │   │   │   └── validate.middleware.js
+│    │    │   │   │
+│    │    │   │   └── utils/
+│    │    │   │       ├── api-error.js
+│    │    │   │       ├── async-handler.js
+│    │    │   │       ├── hash.js
+│    │    │   │       └── token.js
+│    │    │   │
+│    │    │   ├── integrations/
+│    │    │   │   ├── youtube/
+│    │    │   │   │   └── youtube.service.ts
+│    │    │   │   └── email/
+│    │    │   │       ├── email.service.ts
+│    │    │   │       └── templates/
+│    │    │   │
+│    │    │   ├── config/
+│    │    │   │   ├── prisma.ts
+│    │    │   │   ├── environment.ts
+│    │    │   │   └── constants.ts
+│    │    │   │
+│    │    │   ├── loaders/
+│    │    │   │   ├── express.ts
+│    │    │   │   ├── routes.ts
+│    │    │   │   └── i18n.ts
+│    │    │   │
+│    │    │   └── app.ts
+│    │    │
+│    │    └── tests/
+│    │
+     └── frontend/
+         ├── .env.example
+  ```
 
 The table below explains what are the folders:  
 
