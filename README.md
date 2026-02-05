@@ -224,9 +224,11 @@ The *backend* uses everything: the models and the ORM client code to interact wi
 ```
 ├── package.json
 ├── package-lock.json
+├── node_modules/
 ├── packages
 │    ├── database/
 │    │    ├── .env.example
+│    │    ├── package.json
 │    │    ├── prisma/                         Contains database schema definition and migrations (with Prisma ORM syntax)
 │    │    │   ├── schema.prisma               Database schema
 │    │    │   └── migrations/                 Database migrations
@@ -237,6 +239,7 @@ The *backend* uses everything: the models and the ORM client code to interact wi
 │    │            └── prisma/
 │    ├── backend/
 │    │    ├── .env.example
+│    │    ├── package.json
 │    │    ├── src/
 │    │    │   ├── features/
 │    │    │   │   │
@@ -282,6 +285,7 @@ The *backend* uses everything: the models and the ORM client code to interact wi
 │    │    └── tests/
 │    │
      └── frontend/
+         ├── package.json
          ├── .env.example
   ```
 
