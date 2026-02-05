@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { PrismaMariaDb } from "@prisma/adapter-mariadb"
-import { PrismaClient } from "./generated/prisma/client.js"
+import { PrismaClient, UserRole } from "../src/generated/prisma/client.js"
 
 const adapter = new PrismaMariaDb(process.env.DATABASE_URL!);
 
@@ -10,22 +10,17 @@ const prisma = new PrismaClient({
 
 const admins = [
     {
-        email: "alice@marsai.io",
+        email: "admin@marsai.example.com",
         passwordHash: "TODO_HASH_HERE",
-        firstName: "Alice",
-        lastName: "Dupont",
-    },
-    {
-        email: "bob@marsai.io",
-        passwordHash: "TODO_HASH_HERE",
-        firstName: "Bob",
-        lastName: "Martin",
-    },
+        role: UserRole.admin,
+        firstName: "Admin1",
+        lastName: "Admin",
+    }
 ];
 
 async function main() {
     for (const admin of admins) {
-        await prisma.admin.create({ data: admin });
+        await prisma.user.create({ data: admin });
     }
     console.log(`Seeded ${admins.length} admins`);
 }
