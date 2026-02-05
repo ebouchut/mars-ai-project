@@ -5,9 +5,10 @@ import type {PrismaConfig} from "prisma";
 import {env} from "prisma/config";
 
 export default {
-    schema: 'prisma/schema.prisma',
+    schema: 'prisma/schema.prisma',  // Database schema (entities and relationships): source of truth
     migrations: {
-        path: 'prisma/migrations'
+        path: 'prisma/migrations',  // Where Prisma stores the generated migrations files (SQL scripts)
+        seed: "tsx prisma/seed.ts"  // Populate the database after the migrations
     },
     datasource: {
         url: env('DATABASE_URL'),

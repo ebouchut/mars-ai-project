@@ -220,8 +220,8 @@ export type VoteGroupByOutputType = {
   awardId: number
   score: number
   comment: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: Date | null
+  updatedAt: Date | null
   _count: VoteCountAggregateOutputType | null
   _avg: VoteAvgAggregateOutputType | null
   _sum: VoteSumAggregateOutputType | null
@@ -254,8 +254,8 @@ export type VoteWhereInput = {
   awardId?: Prisma.IntFilter<"Vote"> | number
   score?: Prisma.IntFilter<"Vote"> | number
   comment?: Prisma.StringFilter<"Vote"> | string
-  createdAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Vote"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Vote"> | Date | string | null
   award?: Prisma.XOR<Prisma.AwardScalarRelationFilter, Prisma.AwardWhereInput>
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -268,8 +268,8 @@ export type VoteOrderByWithRelationInput = {
   awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
   comment?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   award?: Prisma.AwardOrderByWithRelationInput
   film?: Prisma.FilmOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
@@ -287,8 +287,8 @@ export type VoteWhereUniqueInput = Prisma.AtLeast<{
   awardId?: Prisma.IntFilter<"Vote"> | number
   score?: Prisma.IntFilter<"Vote"> | number
   comment?: Prisma.StringFilter<"Vote"> | string
-  createdAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Vote"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Vote"> | Date | string | null
   award?: Prisma.XOR<Prisma.AwardScalarRelationFilter, Prisma.AwardWhereInput>
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -301,8 +301,8 @@ export type VoteOrderByWithAggregationInput = {
   awardId?: Prisma.SortOrder
   score?: Prisma.SortOrder
   comment?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.VoteCountOrderByAggregateInput
   _avg?: Prisma.VoteAvgOrderByAggregateInput
   _max?: Prisma.VoteMaxOrderByAggregateInput
@@ -320,15 +320,15 @@ export type VoteScalarWhereWithAggregatesInput = {
   awardId?: Prisma.IntWithAggregatesFilter<"Vote"> | number
   score?: Prisma.IntWithAggregatesFilter<"Vote"> | number
   comment?: Prisma.StringWithAggregatesFilter<"Vote"> | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Vote"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Vote"> | Date | string
+  createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Vote"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Vote"> | Date | string | null
 }
 
 export type VoteCreateInput = {
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   award: Prisma.AwardCreateNestedOneWithoutVotesInput
   film: Prisma.FilmCreateNestedOneWithoutVotesInput
   user: Prisma.UserCreateNestedOneWithoutVotesInput
@@ -341,15 +341,15 @@ export type VoteUncheckedCreateInput = {
   awardId: number
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type VoteUpdateInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   award?: Prisma.AwardUpdateOneRequiredWithoutVotesNestedInput
   film?: Prisma.FilmUpdateOneRequiredWithoutVotesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutVotesNestedInput
@@ -362,8 +362,8 @@ export type VoteUncheckedUpdateInput = {
   awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VoteCreateManyInput = {
@@ -373,15 +373,15 @@ export type VoteCreateManyInput = {
   awardId: number
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type VoteUpdateManyMutationInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VoteUncheckedUpdateManyInput = {
@@ -391,8 +391,8 @@ export type VoteUncheckedUpdateManyInput = {
   awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VoteListRelationFilter = {
@@ -595,8 +595,8 @@ export type VoteUncheckedUpdateManyWithoutUserNestedInput = {
 export type VoteCreateWithoutAwardInput = {
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   film: Prisma.FilmCreateNestedOneWithoutVotesInput
   user: Prisma.UserCreateNestedOneWithoutVotesInput
 }
@@ -607,8 +607,8 @@ export type VoteUncheckedCreateWithoutAwardInput = {
   filmId: number
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type VoteCreateOrConnectWithoutAwardInput = {
@@ -647,15 +647,15 @@ export type VoteScalarWhereInput = {
   awardId?: Prisma.IntFilter<"Vote"> | number
   score?: Prisma.IntFilter<"Vote"> | number
   comment?: Prisma.StringFilter<"Vote"> | string
-  createdAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Vote"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Vote"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Vote"> | Date | string | null
 }
 
 export type VoteCreateWithoutFilmInput = {
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   award: Prisma.AwardCreateNestedOneWithoutVotesInput
   user: Prisma.UserCreateNestedOneWithoutVotesInput
 }
@@ -666,8 +666,8 @@ export type VoteUncheckedCreateWithoutFilmInput = {
   awardId: number
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type VoteCreateOrConnectWithoutFilmInput = {
@@ -699,8 +699,8 @@ export type VoteUpdateManyWithWhereWithoutFilmInput = {
 export type VoteCreateWithoutUserInput = {
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   award: Prisma.AwardCreateNestedOneWithoutVotesInput
   film: Prisma.FilmCreateNestedOneWithoutVotesInput
 }
@@ -711,8 +711,8 @@ export type VoteUncheckedCreateWithoutUserInput = {
   awardId: number
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type VoteCreateOrConnectWithoutUserInput = {
@@ -747,15 +747,15 @@ export type VoteCreateManyAwardInput = {
   filmId: number
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type VoteUpdateWithoutAwardInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   film?: Prisma.FilmUpdateOneRequiredWithoutVotesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutVotesNestedInput
 }
@@ -766,8 +766,8 @@ export type VoteUncheckedUpdateWithoutAwardInput = {
   filmId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VoteUncheckedUpdateManyWithoutAwardInput = {
@@ -776,8 +776,8 @@ export type VoteUncheckedUpdateManyWithoutAwardInput = {
   filmId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VoteCreateManyFilmInput = {
@@ -786,15 +786,15 @@ export type VoteCreateManyFilmInput = {
   awardId: number
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type VoteUpdateWithoutFilmInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   award?: Prisma.AwardUpdateOneRequiredWithoutVotesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutVotesNestedInput
 }
@@ -805,8 +805,8 @@ export type VoteUncheckedUpdateWithoutFilmInput = {
   awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VoteUncheckedUpdateManyWithoutFilmInput = {
@@ -815,8 +815,8 @@ export type VoteUncheckedUpdateManyWithoutFilmInput = {
   awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VoteCreateManyUserInput = {
@@ -825,15 +825,15 @@ export type VoteCreateManyUserInput = {
   awardId: number
   score: number
   comment: string
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type VoteUpdateWithoutUserInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   award?: Prisma.AwardUpdateOneRequiredWithoutVotesNestedInput
   film?: Prisma.FilmUpdateOneRequiredWithoutVotesNestedInput
 }
@@ -844,8 +844,8 @@ export type VoteUncheckedUpdateWithoutUserInput = {
   awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VoteUncheckedUpdateManyWithoutUserInput = {
@@ -854,8 +854,8 @@ export type VoteUncheckedUpdateManyWithoutUserInput = {
   awardId?: Prisma.IntFieldUpdateOperationsInput | number
   score?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -908,8 +908,8 @@ export type $VotePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     awardId: number
     score: number
     comment: string
-    createdAt: Date
-    updatedAt: Date
+    createdAt: Date | null
+    updatedAt: Date | null
   }, ExtArgs["result"]["vote"]>
   composites: {}
 }
