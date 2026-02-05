@@ -51,7 +51,6 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Admin: 'Admin',
   Award: 'Award',
   FilmProductionTool: 'FilmProductionTool',
   Film: 'Film',
@@ -83,19 +82,6 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
-
-
-export const AdminScalarFieldEnum = {
-  id: 'id',
-  email: 'email',
-  passwordHash: 'passwordHash',
-  firstName: 'firstName',
-  lastName: 'lastName',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
 
 
 export const AwardScalarFieldEnum = {
@@ -281,16 +267,6 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
-
-
-export const AdminOrderByRelevanceFieldEnum = {
-  email: 'email',
-  passwordHash: 'passwordHash',
-  firstName: 'firstName',
-  lastName: 'lastName'
-} as const
-
-export type AdminOrderByRelevanceFieldEnum = (typeof AdminOrderByRelevanceFieldEnum)[keyof typeof AdminOrderByRelevanceFieldEnum]
 
 
 export const NullsOrder = {

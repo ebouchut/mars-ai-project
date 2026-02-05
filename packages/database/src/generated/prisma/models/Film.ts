@@ -476,6 +476,10 @@ export type EnumFilmStatusFieldUpdateOperationsInput = {
   set?: $Enums.FilmStatus
 }
 
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
+}
+
 export type FilmCreateNestedOneWithoutNominationsInput = {
   create?: Prisma.XOR<Prisma.FilmCreateWithoutNominationsInput, Prisma.FilmUncheckedCreateWithoutNominationsInput>
   connectOrCreate?: Prisma.FilmCreateOrConnectWithoutNominationsInput
