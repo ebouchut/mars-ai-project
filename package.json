@@ -6,7 +6,8 @@
     "dev:backend": "npm run dev -w @marsai/backend",
     "dev:frontend": "npm run dev -w @marsai/frontend",
     "db:migrate": "npm run migrate -w @marsai/database",
-    "db:generate": "npm run generate -w @marsai/database"
+    "db:generate": "npm run generate -w @marsai/database",
+    "db:seed": "npm run db:seed -w @marsai/database"
   },
   "description": "An AI film festival application",
   "homepage": "https://github.com/ebouchut/mars-ai-project#readme",

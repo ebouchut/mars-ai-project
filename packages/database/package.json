@@ -11,7 +11,8 @@
     "generate": "prisma generate",
     "migrate": "prisma migrate dev",
     "db:pull": "prisma db pull",
-    "db:push": "prisma db push"
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed"
   },
   "dependencies": {
     "@prisma/adapter-mariadb": "^7.3.0",

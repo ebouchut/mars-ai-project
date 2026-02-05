@@ -99,46 +99,6 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 ## Configuration
 
-### Databases Setup
-
-You will now run **once** a SQL script below to create two databases and a database user.
-Then you will give her access to these databases.
-
-This SQL script is displayed below (for convenience) but you can find its up-to-date version in 
-`packages/database/create-database.sql`.
-
-1. Make your own copy of [the database creation script](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/create-database.sql) 
-1. Edit the copy to set the variables according to your current database configuration  
-   (database name, database username and password...).
-1. log in to MySQL as `root`
-1. Run your copy of the SQL script 
-
-
-```sql
--- Create the databases for the marsAI project and the database user
--- Replace the database names, username and password with your current configuration in .env.
-
-CREATE DATABASE IF NOT EXISTS marsai                          DEFAULT CHARACTER SET utf8mb4;
-CREATE DATABASE IF NOT EXISTS prisma_migrate_shadow_db_marsai DEFAULT CHARACTER SET utf8mb4;
-
-CREATE USER IF NOT EXISTS marsai@localhost IDENTIFIED BY 'TODO_PASSWORD_HERE';
-
-GRANT ALL PRIVILEGES ON marsai.*                          TO marsai@localhost;
--- See: https://www.prisma.io/docs/orm/prisma-migrate/understanding-prisma-migrate/shadow-database
-GRANT ALL PRIVILEGES ON prisma_migrate_shadow_db_marsai.* TO marsai@localhost;
-GRANT CREATE, DROP   ON *.*                               TO marsai@localhost;
-FLUSH PRIVILEGES;
-```
-
-Where:
-
-- `marsai` denotes the main database
-- `prisma_migrate_shadow_db_marsai`  Prisma (the ORM and migration tool) uses this shadow database 
-  to detect if a migration introduces unexpected changes such as schema drift and potential data loss.
-  This database contains the N-1 version of the database (before the migration).
-
-
-
 ### Environment Variables
 
 > [!NOTE]
@@ -180,6 +140,48 @@ cp .env.example .env
 #   - DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
 #   - SHADOW_DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
 ````
+
+### Database Setup
+
+#### Creating the Databases
+
+You will now run **once** a SQL script below to create two databases and a database user.
+Then you will give her access to these databases.
+
+
+1. Make your own copy of the database creation script [packages/database/create-database.sql](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/create-database.sql)
+   ```sql
+   -- Create the databases for the marsAI project and the database user
+   -- Replace the database names, username and password with your current configuration in .env.
+   
+   CREATE DATABASE IF NOT EXISTS marsai                          DEFAULT CHARACTER SET utf8mb4;
+   CREATE DATABASE IF NOT EXISTS prisma_migrate_shadow_db_marsai DEFAULT CHARACTER SET utf8mb4;
+   
+   CREATE USER IF NOT EXISTS marsai@localhost IDENTIFIED BY 'TODO_PASSWORD_HERE';
+   
+   GRANT ALL PRIVILEGES ON marsai.*                          TO marsai@localhost;
+   -- See: https://www.prisma.io/docs/orm/prisma-migrate/understanding-prisma-migrate/shadow-database
+   GRANT ALL PRIVILEGES ON prisma_migrate_shadow_db_marsai.* TO marsai@localhost;
+   GRANT CREATE, DROP   ON *.*                               TO marsai@localhost;
+   FLUSH PRIVILEGES;
+   ```
+   Where:
+   - `marsai` denotes the main database
+   - `prisma_migrate_shadow_db_marsai`  Prisma (the ORM and migration tool) 
+     uses this shadow database to detect if a migration introduces unexpected changes such as schema drift and potential data loss.
+     This database contains the N-1 version of the database (before the migration).
+1. Edit the copy to adjust all the variables according to your current database configuration  
+   (database name, database username and password...).
+1. log in to MySQL as `root`
+1. Run your copy of the SQL script 
+1. Create the database **structure** (tables...) and add the **seeds**:
+   ```shell
+   cd marsai-project
+
+   npm run db:migrate
+   npm run db:seed
+   ```
+
 
 ## Usage
 
