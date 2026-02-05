@@ -101,14 +101,14 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 ### Databases Setup
 
-You will now run **once** a SQL script below to create the database user
-and give her access to these databases.
+You will now run **once** a SQL script below to create two databases and a database user.
+Then you will give her access to these databases.
 
-This SQL script is displayed below but you can find it the up-to-date version in 
+This SQL script is displayed below (for convenience) but you can find its up-to-date version in 
 `packages/database/create-database.sql`.
 
-1. Make your own copy of [this script](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/create-database.sql) 
-   and set the variables according to your current database configuration  
+1. Make your own copy of [the database creation script](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/create-database.sql) 
+1. Edit the copy to set the variables according to your current database configuration  
    (database name, database username and password...).
 1. log in to MySQL as `root`
 1. Run your copy of the SQL script 
@@ -302,7 +302,7 @@ handles the model and Data Access Layer (DAL) for us.
 ## Database Schema
 
 This section describes how the database is structured.
-The *marsAI* platform uses a relational database to persist entities.
+The *marsAI* platform uses a MySQL relational database to persist entities.
 
 ### Database Naming Conventions
 

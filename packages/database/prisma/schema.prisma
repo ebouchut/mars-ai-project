@@ -14,17 +14,7 @@ datasource db {
   provider = "mysql"
 }
 
-model Admin {
-  id           Int      @id @default(autoincrement())
-  email        String   @unique(map: "email") @db.VarChar(150)
-  passwordHash String   @map("password_hash") @db.VarChar(255)
-  firstName    String   @map("first_name") @db.VarChar(100)
-  lastName     String   @map("last_name") @db.VarChar(150)
-  createdAt    DateTime @map("created_at") @db.Timestamp(0)
-  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamp(0)
-
-  @@map("admins")
-}
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 model Award {
   id              Int            @id @default(autoincrement())

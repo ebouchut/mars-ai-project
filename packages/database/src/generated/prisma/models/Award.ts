@@ -418,6 +418,10 @@ export type AwardOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type StringFieldUpdateOperationsInput = {
+  set?: string
+}
+
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
@@ -432,6 +436,14 @@ export type NullableDecimalFieldUpdateOperationsInput = {
 
 export type EnumAmountCurrencyFieldUpdateOperationsInput = {
   set?: $Enums.AmountCurrency
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type NullableIntFieldUpdateOperationsInput = {
