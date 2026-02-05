@@ -183,8 +183,8 @@ export type NewsletterGroupByOutputType = {
   id: number
   name: string
   lastPublishedAt: Date | null
-  createdAt: Date
-  updatedAt: Date
+  createdAt: Date | null
+  updatedAt: Date | null
   _count: NewsletterCountAggregateOutputType | null
   _avg: NewsletterAvgAggregateOutputType | null
   _sum: NewsletterSumAggregateOutputType | null
@@ -214,8 +214,8 @@ export type NewsletterWhereInput = {
   id?: Prisma.IntFilter<"Newsletter"> | number
   name?: Prisma.StringFilter<"Newsletter"> | string
   lastPublishedAt?: Prisma.DateTimeNullableFilter<"Newsletter"> | Date | string | null
-  createdAt?: Prisma.DateTimeFilter<"Newsletter"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Newsletter"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Newsletter"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Newsletter"> | Date | string | null
   newsletterSubscriptions?: Prisma.NewsletterSubscriptionListRelationFilter
 }
 
@@ -223,8 +223,8 @@ export type NewsletterOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   lastPublishedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   newsletterSubscriptions?: Prisma.NewsletterSubscriptionOrderByRelationAggregateInput
   _relevance?: Prisma.NewsletterOrderByRelevanceInput
 }
@@ -236,8 +236,8 @@ export type NewsletterWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.NewsletterWhereInput[]
   NOT?: Prisma.NewsletterWhereInput | Prisma.NewsletterWhereInput[]
   lastPublishedAt?: Prisma.DateTimeNullableFilter<"Newsletter"> | Date | string | null
-  createdAt?: Prisma.DateTimeFilter<"Newsletter"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Newsletter"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Newsletter"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Newsletter"> | Date | string | null
   newsletterSubscriptions?: Prisma.NewsletterSubscriptionListRelationFilter
 }, "id" | "name">
 
@@ -245,8 +245,8 @@ export type NewsletterOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   lastPublishedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.NewsletterCountOrderByAggregateInput
   _avg?: Prisma.NewsletterAvgOrderByAggregateInput
   _max?: Prisma.NewsletterMaxOrderByAggregateInput
@@ -261,15 +261,15 @@ export type NewsletterScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Newsletter"> | number
   name?: Prisma.StringWithAggregatesFilter<"Newsletter"> | string
   lastPublishedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Newsletter"> | Date | string | null
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Newsletter"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Newsletter"> | Date | string
+  createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Newsletter"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Newsletter"> | Date | string | null
 }
 
 export type NewsletterCreateInput = {
   name: string
   lastPublishedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   newsletterSubscriptions?: Prisma.NewsletterSubscriptionCreateNestedManyWithoutNewsletterInput
 }
 
@@ -277,16 +277,16 @@ export type NewsletterUncheckedCreateInput = {
   id?: number
   name: string
   lastPublishedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   newsletterSubscriptions?: Prisma.NewsletterSubscriptionUncheckedCreateNestedManyWithoutNewsletterInput
 }
 
 export type NewsletterUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   lastPublishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   newsletterSubscriptions?: Prisma.NewsletterSubscriptionUpdateManyWithoutNewsletterNestedInput
 }
 
@@ -294,8 +294,8 @@ export type NewsletterUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   lastPublishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   newsletterSubscriptions?: Prisma.NewsletterSubscriptionUncheckedUpdateManyWithoutNewsletterNestedInput
 }
 
@@ -303,23 +303,23 @@ export type NewsletterCreateManyInput = {
   id?: number
   name: string
   lastPublishedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type NewsletterUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   lastPublishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type NewsletterUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   lastPublishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type NewsletterNullableScalarRelationFilter = {
@@ -384,16 +384,16 @@ export type NewsletterUpdateOneWithoutNewsletterSubscriptionsNestedInput = {
 export type NewsletterCreateWithoutNewsletterSubscriptionsInput = {
   name: string
   lastPublishedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type NewsletterUncheckedCreateWithoutNewsletterSubscriptionsInput = {
   id?: number
   name: string
   lastPublishedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type NewsletterCreateOrConnectWithoutNewsletterSubscriptionsInput = {
@@ -415,16 +415,16 @@ export type NewsletterUpdateToOneWithWhereWithoutNewsletterSubscriptionsInput = 
 export type NewsletterUpdateWithoutNewsletterSubscriptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   lastPublishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type NewsletterUncheckedUpdateWithoutNewsletterSubscriptionsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   lastPublishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -493,8 +493,8 @@ export type $NewsletterPayload<ExtArgs extends runtime.Types.Extensions.Internal
     id: number
     name: string
     lastPublishedAt: Date | null
-    createdAt: Date
-    updatedAt: Date
+    createdAt: Date | null
+    updatedAt: Date | null
   }, ExtArgs["result"]["newsletter"]>
   composites: {}
 }

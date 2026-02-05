@@ -204,8 +204,8 @@ export type FilmGroupByOutputType = {
   posterUrl: string | null
   description: string | null
   status: $Enums.FilmStatus
-  createdAt: Date
-  updatedAt: Date
+  createdAt: Date | null
+  updatedAt: Date | null
   _count: FilmCountAggregateOutputType | null
   _avg: FilmAvgAggregateOutputType | null
   _sum: FilmSumAggregateOutputType | null
@@ -238,8 +238,8 @@ export type FilmWhereInput = {
   posterUrl?: Prisma.StringNullableFilter<"Film"> | string | null
   description?: Prisma.StringNullableFilter<"Film"> | string | null
   status?: Prisma.EnumFilmStatusFilter<"Film"> | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFilter<"Film"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Film"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Film"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Film"> | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolListRelationFilter
   nominations?: Prisma.NominationListRelationFilter
   screenings?: Prisma.ScreeningListRelationFilter
@@ -253,8 +253,8 @@ export type FilmOrderByWithRelationInput = {
   posterUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   filmProductionTools?: Prisma.FilmProductionToolOrderByRelationAggregateInput
   nominations?: Prisma.NominationOrderByRelationAggregateInput
   screenings?: Prisma.ScreeningOrderByRelationAggregateInput
@@ -273,8 +273,8 @@ export type FilmWhereUniqueInput = Prisma.AtLeast<{
   posterUrl?: Prisma.StringNullableFilter<"Film"> | string | null
   description?: Prisma.StringNullableFilter<"Film"> | string | null
   status?: Prisma.EnumFilmStatusFilter<"Film"> | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFilter<"Film"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Film"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Film"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Film"> | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolListRelationFilter
   nominations?: Prisma.NominationListRelationFilter
   screenings?: Prisma.ScreeningListRelationFilter
@@ -288,8 +288,8 @@ export type FilmOrderByWithAggregationInput = {
   posterUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.FilmCountOrderByAggregateInput
   _avg?: Prisma.FilmAvgOrderByAggregateInput
   _max?: Prisma.FilmMaxOrderByAggregateInput
@@ -307,8 +307,8 @@ export type FilmScalarWhereWithAggregatesInput = {
   posterUrl?: Prisma.StringNullableWithAggregatesFilter<"Film"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Film"> | string | null
   status?: Prisma.EnumFilmStatusWithAggregatesFilter<"Film"> | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Film"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Film"> | Date | string
+  createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Film"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Film"> | Date | string | null
 }
 
 export type FilmCreateInput = {
@@ -317,8 +317,8 @@ export type FilmCreateInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolCreateNestedManyWithoutFilmInput
   nominations?: Prisma.NominationCreateNestedManyWithoutFilmInput
   screenings?: Prisma.ScreeningCreateNestedManyWithoutFilmInput
@@ -332,8 +332,8 @@ export type FilmUncheckedCreateInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUncheckedCreateNestedManyWithoutFilmInput
   nominations?: Prisma.NominationUncheckedCreateNestedManyWithoutFilmInput
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutFilmInput
@@ -346,8 +346,8 @@ export type FilmUpdateInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUpdateManyWithoutFilmNestedInput
   nominations?: Prisma.NominationUpdateManyWithoutFilmNestedInput
   screenings?: Prisma.ScreeningUpdateManyWithoutFilmNestedInput
@@ -361,8 +361,8 @@ export type FilmUncheckedUpdateInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUncheckedUpdateManyWithoutFilmNestedInput
   nominations?: Prisma.NominationUncheckedUpdateManyWithoutFilmNestedInput
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutFilmNestedInput
@@ -376,8 +376,8 @@ export type FilmCreateManyInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type FilmUpdateManyMutationInput = {
@@ -386,8 +386,8 @@ export type FilmUpdateManyMutationInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type FilmUncheckedUpdateManyInput = {
@@ -397,8 +397,8 @@ export type FilmUncheckedUpdateManyInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type FilmScalarRelationFilter = {
@@ -476,8 +476,8 @@ export type EnumFilmStatusFieldUpdateOperationsInput = {
   set?: $Enums.FilmStatus
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
 }
 
 export type FilmCreateNestedOneWithoutNominationsInput = {
@@ -528,8 +528,8 @@ export type FilmCreateWithoutFilmProductionToolsInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   nominations?: Prisma.NominationCreateNestedManyWithoutFilmInput
   screenings?: Prisma.ScreeningCreateNestedManyWithoutFilmInput
   votes?: Prisma.VoteCreateNestedManyWithoutFilmInput
@@ -542,8 +542,8 @@ export type FilmUncheckedCreateWithoutFilmProductionToolsInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   nominations?: Prisma.NominationUncheckedCreateNestedManyWithoutFilmInput
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutFilmInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutFilmInput
@@ -571,8 +571,8 @@ export type FilmUpdateWithoutFilmProductionToolsInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   nominations?: Prisma.NominationUpdateManyWithoutFilmNestedInput
   screenings?: Prisma.ScreeningUpdateManyWithoutFilmNestedInput
   votes?: Prisma.VoteUpdateManyWithoutFilmNestedInput
@@ -585,8 +585,8 @@ export type FilmUncheckedUpdateWithoutFilmProductionToolsInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   nominations?: Prisma.NominationUncheckedUpdateManyWithoutFilmNestedInput
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutFilmNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutFilmNestedInput
@@ -598,8 +598,8 @@ export type FilmCreateWithoutNominationsInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolCreateNestedManyWithoutFilmInput
   screenings?: Prisma.ScreeningCreateNestedManyWithoutFilmInput
   votes?: Prisma.VoteCreateNestedManyWithoutFilmInput
@@ -612,8 +612,8 @@ export type FilmUncheckedCreateWithoutNominationsInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUncheckedCreateNestedManyWithoutFilmInput
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutFilmInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutFilmInput
@@ -641,8 +641,8 @@ export type FilmUpdateWithoutNominationsInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUpdateManyWithoutFilmNestedInput
   screenings?: Prisma.ScreeningUpdateManyWithoutFilmNestedInput
   votes?: Prisma.VoteUpdateManyWithoutFilmNestedInput
@@ -655,8 +655,8 @@ export type FilmUncheckedUpdateWithoutNominationsInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUncheckedUpdateManyWithoutFilmNestedInput
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutFilmNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutFilmNestedInput
@@ -668,8 +668,8 @@ export type FilmCreateWithoutScreeningsInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolCreateNestedManyWithoutFilmInput
   nominations?: Prisma.NominationCreateNestedManyWithoutFilmInput
   votes?: Prisma.VoteCreateNestedManyWithoutFilmInput
@@ -682,8 +682,8 @@ export type FilmUncheckedCreateWithoutScreeningsInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUncheckedCreateNestedManyWithoutFilmInput
   nominations?: Prisma.NominationUncheckedCreateNestedManyWithoutFilmInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutFilmInput
@@ -711,8 +711,8 @@ export type FilmUpdateWithoutScreeningsInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUpdateManyWithoutFilmNestedInput
   nominations?: Prisma.NominationUpdateManyWithoutFilmNestedInput
   votes?: Prisma.VoteUpdateManyWithoutFilmNestedInput
@@ -725,8 +725,8 @@ export type FilmUncheckedUpdateWithoutScreeningsInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUncheckedUpdateManyWithoutFilmNestedInput
   nominations?: Prisma.NominationUncheckedUpdateManyWithoutFilmNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutFilmNestedInput
@@ -738,8 +738,8 @@ export type FilmCreateWithoutVotesInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolCreateNestedManyWithoutFilmInput
   nominations?: Prisma.NominationCreateNestedManyWithoutFilmInput
   screenings?: Prisma.ScreeningCreateNestedManyWithoutFilmInput
@@ -752,8 +752,8 @@ export type FilmUncheckedCreateWithoutVotesInput = {
   posterUrl?: string | null
   description?: string | null
   status: $Enums.FilmStatus
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUncheckedCreateNestedManyWithoutFilmInput
   nominations?: Prisma.NominationUncheckedCreateNestedManyWithoutFilmInput
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutFilmInput
@@ -781,8 +781,8 @@ export type FilmUpdateWithoutVotesInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUpdateManyWithoutFilmNestedInput
   nominations?: Prisma.NominationUpdateManyWithoutFilmNestedInput
   screenings?: Prisma.ScreeningUpdateManyWithoutFilmNestedInput
@@ -795,8 +795,8 @@ export type FilmUncheckedUpdateWithoutVotesInput = {
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumFilmStatusFieldUpdateOperationsInput | $Enums.FilmStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filmProductionTools?: Prisma.FilmProductionToolUncheckedUpdateManyWithoutFilmNestedInput
   nominations?: Prisma.NominationUncheckedUpdateManyWithoutFilmNestedInput
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutFilmNestedInput
@@ -913,8 +913,8 @@ export type $FilmPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     posterUrl: string | null
     description: string | null
     status: $Enums.FilmStatus
-    createdAt: Date
-    updatedAt: Date
+    createdAt: Date | null
+    updatedAt: Date | null
   }, ExtArgs["result"]["film"]>
   composites: {}
 }

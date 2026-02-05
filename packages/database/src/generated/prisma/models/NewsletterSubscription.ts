@@ -226,8 +226,8 @@ export type NewsletterSubscriptionGroupByOutputType = {
   espSubscriberId: number | null
   espSyncedAt: Date | null
   espUpdatedAt: Date | null
-  createdAt: Date
-  updatedAt: Date
+  createdAt: Date | null
+  updatedAt: Date | null
   _count: NewsletterSubscriptionCountAggregateOutputType | null
   _avg: NewsletterSubscriptionAvgAggregateOutputType | null
   _sum: NewsletterSubscriptionSumAggregateOutputType | null
@@ -262,8 +262,8 @@ export type NewsletterSubscriptionWhereInput = {
   espSubscriberId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
   espSyncedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
   espUpdatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  createdAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
   newsletter?: Prisma.XOR<Prisma.NewsletterNullableScalarRelationFilter, Prisma.NewsletterWhereInput> | null
 }
 
@@ -276,8 +276,8 @@ export type NewsletterSubscriptionOrderByWithRelationInput = {
   espSubscriberId?: Prisma.SortOrderInput | Prisma.SortOrder
   espSyncedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   espUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   newsletter?: Prisma.NewsletterOrderByWithRelationInput
   _relevance?: Prisma.NewsletterSubscriptionOrderByRelevanceInput
 }
@@ -294,8 +294,8 @@ export type NewsletterSubscriptionWhereUniqueInput = Prisma.AtLeast<{
   espSubscriberId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
   espSyncedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
   espUpdatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  createdAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
   newsletter?: Prisma.XOR<Prisma.NewsletterNullableScalarRelationFilter, Prisma.NewsletterWhereInput> | null
 }, "id" | "email">
 
@@ -308,8 +308,8 @@ export type NewsletterSubscriptionOrderByWithAggregationInput = {
   espSubscriberId?: Prisma.SortOrderInput | Prisma.SortOrder
   espSyncedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   espUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.NewsletterSubscriptionCountOrderByAggregateInput
   _avg?: Prisma.NewsletterSubscriptionAvgOrderByAggregateInput
   _max?: Prisma.NewsletterSubscriptionMaxOrderByAggregateInput
@@ -329,8 +329,8 @@ export type NewsletterSubscriptionScalarWhereWithAggregatesInput = {
   espSubscriberId?: Prisma.IntNullableWithAggregatesFilter<"NewsletterSubscription"> | number | null
   espSyncedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"NewsletterSubscription"> | Date | string | null
   espUpdatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"NewsletterSubscription"> | Date | string | null
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"NewsletterSubscription"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"NewsletterSubscription"> | Date | string
+  createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"NewsletterSubscription"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"NewsletterSubscription"> | Date | string | null
 }
 
 export type NewsletterSubscriptionCreateInput = {
@@ -340,8 +340,8 @@ export type NewsletterSubscriptionCreateInput = {
   espSubscriberId?: number | null
   espSyncedAt?: Date | string | null
   espUpdatedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   newsletter?: Prisma.NewsletterCreateNestedOneWithoutNewsletterSubscriptionsInput
 }
 
@@ -354,8 +354,8 @@ export type NewsletterSubscriptionUncheckedCreateInput = {
   espSubscriberId?: number | null
   espSyncedAt?: Date | string | null
   espUpdatedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type NewsletterSubscriptionUpdateInput = {
@@ -365,8 +365,8 @@ export type NewsletterSubscriptionUpdateInput = {
   espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   newsletter?: Prisma.NewsletterUpdateOneWithoutNewsletterSubscriptionsNestedInput
 }
 
@@ -379,8 +379,8 @@ export type NewsletterSubscriptionUncheckedUpdateInput = {
   espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type NewsletterSubscriptionCreateManyInput = {
@@ -392,8 +392,8 @@ export type NewsletterSubscriptionCreateManyInput = {
   espSubscriberId?: number | null
   espSyncedAt?: Date | string | null
   espUpdatedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type NewsletterSubscriptionUpdateManyMutationInput = {
@@ -403,8 +403,8 @@ export type NewsletterSubscriptionUpdateManyMutationInput = {
   espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type NewsletterSubscriptionUncheckedUpdateManyInput = {
@@ -416,8 +416,8 @@ export type NewsletterSubscriptionUncheckedUpdateManyInput = {
   espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type NewsletterSubscriptionOrderByRelevanceInput = {
@@ -540,8 +540,8 @@ export type NewsletterSubscriptionCreateWithoutNewsletterInput = {
   espSubscriberId?: number | null
   espSyncedAt?: Date | string | null
   espUpdatedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type NewsletterSubscriptionUncheckedCreateWithoutNewsletterInput = {
@@ -552,8 +552,8 @@ export type NewsletterSubscriptionUncheckedCreateWithoutNewsletterInput = {
   espSubscriberId?: number | null
   espSyncedAt?: Date | string | null
   espUpdatedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type NewsletterSubscriptionCreateOrConnectWithoutNewsletterInput = {
@@ -594,8 +594,8 @@ export type NewsletterSubscriptionScalarWhereInput = {
   espSubscriberId?: Prisma.IntNullableFilter<"NewsletterSubscription"> | number | null
   espSyncedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
   espUpdatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
-  createdAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"NewsletterSubscription"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"NewsletterSubscription"> | Date | string | null
 }
 
 export type NewsletterSubscriptionCreateManyNewsletterInput = {
@@ -606,8 +606,8 @@ export type NewsletterSubscriptionCreateManyNewsletterInput = {
   espSubscriberId?: number | null
   espSyncedAt?: Date | string | null
   espUpdatedAt?: Date | string | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type NewsletterSubscriptionUpdateWithoutNewsletterInput = {
@@ -617,8 +617,8 @@ export type NewsletterSubscriptionUpdateWithoutNewsletterInput = {
   espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type NewsletterSubscriptionUncheckedUpdateWithoutNewsletterInput = {
@@ -629,8 +629,8 @@ export type NewsletterSubscriptionUncheckedUpdateWithoutNewsletterInput = {
   espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type NewsletterSubscriptionUncheckedUpdateManyWithoutNewsletterInput = {
@@ -641,8 +641,8 @@ export type NewsletterSubscriptionUncheckedUpdateManyWithoutNewsletterInput = {
   espSubscriberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   espSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   espUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -695,8 +695,8 @@ export type $NewsletterSubscriptionPayload<ExtArgs extends runtime.Types.Extensi
     espSubscriberId: number | null
     espSyncedAt: Date | null
     espUpdatedAt: Date | null
-    createdAt: Date
-    updatedAt: Date
+    createdAt: Date | null
+    updatedAt: Date | null
   }, ExtArgs["result"]["newsletterSubscription"]>
   composites: {}
 }

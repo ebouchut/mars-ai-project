@@ -208,8 +208,8 @@ export type PartnerGroupByOutputType = {
   url: string
   logo: string
   displayOrder: number | null
-  createdAt: Date
-  updatedAt: Date
+  createdAt: Date | null
+  updatedAt: Date | null
   _count: PartnerCountAggregateOutputType | null
   _avg: PartnerAvgAggregateOutputType | null
   _sum: PartnerSumAggregateOutputType | null
@@ -242,8 +242,8 @@ export type PartnerWhereInput = {
   url?: Prisma.StringFilter<"Partner"> | string
   logo?: Prisma.StringFilter<"Partner"> | string
   displayOrder?: Prisma.IntNullableFilter<"Partner"> | number | null
-  createdAt?: Prisma.DateTimeFilter<"Partner"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Partner"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Partner"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Partner"> | Date | string | null
   awards?: Prisma.AwardListRelationFilter
 }
 
@@ -254,8 +254,8 @@ export type PartnerOrderByWithRelationInput = {
   url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   displayOrder?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   awards?: Prisma.AwardOrderByRelationAggregateInput
   _relevance?: Prisma.PartnerOrderByRelevanceInput
 }
@@ -270,8 +270,8 @@ export type PartnerWhereUniqueInput = Prisma.AtLeast<{
   url?: Prisma.StringFilter<"Partner"> | string
   logo?: Prisma.StringFilter<"Partner"> | string
   displayOrder?: Prisma.IntNullableFilter<"Partner"> | number | null
-  createdAt?: Prisma.DateTimeFilter<"Partner"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Partner"> | Date | string
+  createdAt?: Prisma.DateTimeNullableFilter<"Partner"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableFilter<"Partner"> | Date | string | null
   awards?: Prisma.AwardListRelationFilter
 }, "id" | "name">
 
@@ -282,8 +282,8 @@ export type PartnerOrderByWithAggregationInput = {
   url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   displayOrder?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.PartnerCountOrderByAggregateInput
   _avg?: Prisma.PartnerAvgOrderByAggregateInput
   _max?: Prisma.PartnerMaxOrderByAggregateInput
@@ -301,8 +301,8 @@ export type PartnerScalarWhereWithAggregatesInput = {
   url?: Prisma.StringWithAggregatesFilter<"Partner"> | string
   logo?: Prisma.StringWithAggregatesFilter<"Partner"> | string
   displayOrder?: Prisma.IntNullableWithAggregatesFilter<"Partner"> | number | null
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Partner"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Partner"> | Date | string
+  createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Partner"> | Date | string | null
+  updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Partner"> | Date | string | null
 }
 
 export type PartnerCreateInput = {
@@ -311,8 +311,8 @@ export type PartnerCreateInput = {
   url: string
   logo: string
   displayOrder?: number | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   awards?: Prisma.AwardCreateNestedManyWithoutPartnerInput
 }
 
@@ -323,8 +323,8 @@ export type PartnerUncheckedCreateInput = {
   url: string
   logo: string
   displayOrder?: number | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
   awards?: Prisma.AwardUncheckedCreateNestedManyWithoutPartnerInput
 }
 
@@ -334,8 +334,8 @@ export type PartnerUpdateInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
   displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   awards?: Prisma.AwardUpdateManyWithoutPartnerNestedInput
 }
 
@@ -346,8 +346,8 @@ export type PartnerUncheckedUpdateInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
   displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   awards?: Prisma.AwardUncheckedUpdateManyWithoutPartnerNestedInput
 }
 
@@ -358,8 +358,8 @@ export type PartnerCreateManyInput = {
   url: string
   logo: string
   displayOrder?: number | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type PartnerUpdateManyMutationInput = {
@@ -368,8 +368,8 @@ export type PartnerUpdateManyMutationInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
   displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type PartnerUncheckedUpdateManyInput = {
@@ -379,8 +379,8 @@ export type PartnerUncheckedUpdateManyInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
   displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type PartnerNullableScalarRelationFilter = {
@@ -459,8 +459,8 @@ export type PartnerCreateWithoutAwardsInput = {
   url: string
   logo: string
   displayOrder?: number | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type PartnerUncheckedCreateWithoutAwardsInput = {
@@ -470,8 +470,8 @@ export type PartnerUncheckedCreateWithoutAwardsInput = {
   url: string
   logo: string
   displayOrder?: number | null
-  createdAt: Date | string
-  updatedAt?: Date | string
+  createdAt?: Date | string | null
+  updatedAt?: Date | string | null
 }
 
 export type PartnerCreateOrConnectWithoutAwardsInput = {
@@ -496,8 +496,8 @@ export type PartnerUpdateWithoutAwardsInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
   displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type PartnerUncheckedUpdateWithoutAwardsInput = {
@@ -507,8 +507,8 @@ export type PartnerUncheckedUpdateWithoutAwardsInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   logo?: Prisma.StringFieldUpdateOperationsInput | string
   displayOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -586,8 +586,8 @@ export type $PartnerPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     url: string
     logo: string
     displayOrder: number | null
-    createdAt: Date
-    updatedAt: Date
+    createdAt: Date | null
+    updatedAt: Date | null
   }, ExtArgs["result"]["partner"]>
   composites: {}
 }
