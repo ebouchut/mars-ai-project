@@ -10,6 +10,7 @@
   "scripts": {
     "generate": "prisma generate",
     "migrate": "prisma migrate dev",
+    "studio": "prisma studio",
     "db:pull": "prisma db pull",
     "db:push": "prisma db push",
     "db:seed": "prisma db seed"
@@ -18,11 +19,12 @@
     "@prisma/adapter-mariadb": "^7.3.0",
     "@prisma/client": "^7.3.0",
     "dotenv": "^16.6.1",
-    "prisma": "^7.3.0",
-    "prisma-erd-generator": "^2.4.2"
+    "prisma": "^7.3.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.10",
+    "prisma-erd-generator": "^2.4.2",
+    "prisma-markdown": "^4.0.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
