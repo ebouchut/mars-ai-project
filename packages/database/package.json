@@ -10,6 +10,7 @@
   "scripts": {
     "generate": "prisma generate",
     "migrate": "prisma migrate dev",
+    "studio": "prisma studio",
     "db:pull": "prisma db pull",
     "db:push": "prisma db push",
     "db:seed": "prisma db seed"
