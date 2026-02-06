@@ -10,6 +10,13 @@ generator client {
   engineType = "client"
 }
 
+// Generate an ERD diagram (w/ Mermaid syntax)
+// each time the schema
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../../../docs/ERD.md"
+}
+
 datasource db {
   provider = "mysql"
 }
