@@ -1,181 +1,229 @@
 ```mermaid
----
-title: marsAI Project - Entity Relationship Diagram (ERD)
-config:
-    layout: elk
----
 erDiagram
-    users {
-        INT           id            PK
-        VARCHAR(80)   email         UK             
-        VARCHAR(255)  password_hash     "NOT NULL"
-        ENUM          role              "NOT NULL (admin, filmmaker, screener, jury)"
-        VARCHAR(60)    first_name        "NOT NULL"
-        VARCHAR(255)   last_name         "NOT NULL"
-        TEXT          bio
-        VARCHAR(255)   photo
-        TIMESTAMP      created_at
-        TIMESTAMP      updated_at
-    }
 
-    films {
-        INT            id            PK
-        VACHAR(255)    name          UK
-        VARCHAR(255)   video_url     UK
-        VARCHAR(255)   poster_url
-        TEXT           description
-        ENUM           status            "NOT NULL (see: https://github.com/ebouchut/mars-ai-project/issues/22)"
-    }
+        nominations_status {
+            nominated nominated
+winner winner
+runner_up runner_up
+pending_tiebreak_consensus pending_tiebreak_consensus
+        }
+    
 
-    nominations {
-        INT             id           PK
-        INT             film_id      FK "Composite UK part 1/2"
-        INT             award_id     FK "Composite UK part 2/2"
+
+        screenings_status {
+            selected selected
+rejected rejected
+pending_selection_consensus pending_selection_consensus
+        }
     
-        ENUM            status          "pending, nominated, winner, runner_up"
+
+
+        newsletter_subscriptions_status {
+            pending pending
+subscribed subscribed
+unsubscribed unsubscribed
+error error
+        }
+    
+
+
+        users_role {
+            admin admin
+filmmaker filmmaker
+screener screener
+jury jury
+        }
+    
+
+
+        awards_amount_currency {
+            USD USD
+EUR EUR
+        }
+    
+
+
+        films_status {
+            submitted submitted
+bookended bookended
+draft_published draft_published
+copyright_cleared copyright_cleared
+copyright_flagged copyright_flagged
+screenable screenable
+screened screened
+pending_selection_consensus pending_selection_consensus
+selected selected
+duration_exceeded duration_exceeded
+rejected rejected
+categorized categorized
+in_competation in_competation
+scored scored
+        }
+    
+  "awards" {
+    Int id "🗝️"
+    Int partner_id "❓"
+    String name 
+    String description "❓"
+    Decimal amount "❓"
+    AmountCurrency amount_currency 
     }
-    
-    awards {
-        INT             id           PK
-        INT             partner_id   FK
-        VARCHAR(30)     name         UK
-        TEXT            description
-        DECIMAL(10)     amount           "DECIMAL(10,2)"
-        ENUM            amount_currency
+  
+
+  "film_production_tools" {
+    Int film_id 
+    Int production_tool_id 
     }
-    
-    screenings {
-      INT           id            PK
-      
-      INT           user_id   FK
-      INT           film_id       FK
-      
-      ENUM          status        "selected, rejected, pending_consensus"
+  
+
+  "films" {
+    Int id "🗝️"
+    String name 
+    String video_url 
+    String poster_url "❓"
+    String description "❓"
+    FilmStatus status 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
     }
-    
-    user_social_networks {
-      INT           id                 PK
-    
-      INT           user_id            FK, UK "Composite unique key part 1/3"
-      INT           social_network_id  FK, UK "Composite unique key part 2/3"
-    
-      VARCHAR(255)  profile_url        UK     "Composite unique key part 3/3"       
+  
+
+  "jury_invitations" {
+    Int id "🗝️"
+    String email 
+    String token 
+    DateTime expires_at 
+    DateTime accepted_at "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
     }
-    
-    social_networks {
-      INT           id            PK
-      VARCHAR(100)  name
-      VARCHAR(255)  url           UK
+  
+
+  "newsletter_subscriptions" {
+    Int id "🗝️"
+    Int newsletter_id "❓"
+    String email "❓"
+    NewsletterSubscriptionStatus status 
+    DateTime subscribed_at 
+    Int esp_subscriber_id "❓"
+    DateTime esp_synced_at "❓"
+    DateTime esp_updated_at "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
     }
-    
-    works {
-      INT           id            PK
-      INT           user_id       FK "(filmmaker)"
-      DATE          date
-      VARCHAR(100)  name          UK "compound Unique Key (name + url)"
-      VARCHAR(255)  url           UK "compound Unique Key (name + url)"
-      TEXT          description
+  
+
+  "newsletters" {
+    Int id "🗝️"
+    String name 
+    DateTime last_published_at "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
     }
-    
-    votes {
-      INT           id            PK
-    
-      INT           user_id       FK "Unique constraint part 1/3 (jury)"
-      INT           film_id       FK "Unique constraint part 2/3"
-      INT           award_id      FK "Unique constraint part 2/3"
-    
-      INT           score            "NOT NULL (BETWEEN 1 AND 10)"
-      TEXT          comment          "NOT NULL"
-      TIMESTAMP     created_at       "NOT NULL"
-      TIMESTAMP     updated_at       "NOT NULL"
+  
+
+  "nominations" {
+    Int film_id 
+    Int award_id 
+    NominationStatus status 
     }
-    
-    partners {
-      INT           id            PK
-      VARCHAR(100)  name          UK
-      VARCHAR(255)  description
-      VARCHAR(255)  url              "NOT NULL"
-      VARCHAR(255)  logo             "NOT NULL"
-      INT           display_order    "DEFAULT 0"
-      TIMESTAMP     created_at       "NOT NULL"
-      TIMESTAMP     updated_at       "NOT NULL"
+  
+
+  "partners" {
+    Int id "🗝️"
+    String name "❓"
+    String description "❓"
+    String url 
+    String logo 
+    Int display_order "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
     }
-    
-    film_production_tools {
-      INT           film_id             PK,FK
-      INT           production_tool_id  PK,FK
+  
+
+  "production_tools" {
+    Int id "🗝️"
+    String name 
+    String description "❓"
+    String url "❓"
     }
-    
-    production_tools {
-      INT           id            PK
-      VARCHAR(100)  name          UK
-      TEXT          description
-      VARCHAR(255)  url
+  
+
+  "screenings" {
+    Int user_id 
+    Int film_id 
+    ScreeningStatus status 
+    String comment "❓"
     }
-    
-    newsletters {
-      INT           id                 PK
-      VARCHAR(150)  name               UK
-      TIMESTAMP     last_published_at
-      TIMESTAMP     created_at            "NOT NULL"
-      TIMESTAMP     updated_at            "NOT NULL"
+  
+
+  "social_networks" {
+    Int id "🗝️"
+    String name 
+    String url 
     }
-    
-    newsletter_subscriptions {
-      INT           id                 PK
-      INT           newsletter_id      FK
-      VARCHAR(255)  email              UK
-      ENUM          status                 "NOT NULL, (pending, subscribed, unsubscribed, error)"
-      TIMESTAMP     subscribed_at          "NOT NULL (local subscription date)"
-      
-      INT           esp_subscriber_id      "Subscriber id  on the Email Service Provider (ESP)"
-      TIMESTAMP     esp_synced_at          "When email was last synced/registered to Email Service Provider (ESP)"
-      TIMESTAMP     esp_updated_at         "ESP’s **own** last update"
-    
-      TIMESTAMP     created_at
-      TIMESTAMP     updated_at
+  
+
+  "user_social_networks" {
+    Int user_id 
+    Int social_network_id 
+    String profile_url 
     }
-    
-    jury_invitations {
-        INT           id             PK
-        VARCHAR(100)  email          UK
-        VARCHAR(255)  token          "NOT NULL"
-    
-        TIMESTAMP     created_at     "NOT NULL, DEFAULT NOW()"
-        TIMESTAMP     expires_at     "NOT NULL, DEFAULT NOW() + 7 days"
-        TIMESTAMP     accepted_at    "NULL"
+  
+
+  "users" {
+    Int id "🗝️"
+    String email 
+    String password_hash 
+    UserRole role 
+    String first_name 
+    String last_name 
+    String bio "❓"
+    String photo "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
     }
-    
-    admins {
-      INT           id            PK
-      VARCHAR(255)  email         UK
-      VARCHAR(100)  first_name        "NOT NULL"
-      VARCHAR(255)  last_name         "NOT NULL"
-      VARCHAR(255) password_hash      "NOT NULL"
-    
-      TIMESTAMP     created_at       "NOT NULL"
-      TIMESTAMP     updated_at       "NOT NULL"
+  
+
+  "votes" {
+    Int id "🗝️"
+    Int user_id 
+    Int film_id 
+    Int award_id 
+    Int score 
+    String comment 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
     }
-    
-    users                 o|..o{ user_social_networks : "(filmmaker) has a profile on"
-    user_social_networks  o|..o{ social_networks      : "used by"
-    
-    users      o|..o{ works           : "(jury) portfolio"
-    
-    users      ||--o{ votes           : "(jury) cast a vote"
-    votes      o{--|| films           : "scores"
-    votes      o{--|| awards          : "for"
-    
-    users      ||--o{ screenings      : "screens a film"
-    screenings o{--|| films           : "screened by"
-    
-    films       ||--}o nominations    : "is nominated"
-    nominations o{--|| awards         : "for"
-    
-    partners    o|--}o awards         : "sponsors"
-    
-    films                 ||--}o film_production_tools   : "built with"
-    film_production_tools o{--|o production_tools : "used in"
-    
-    newsletters o|..o{ newsletter_subscriptions : "registers"
+  
+
+  "works" {
+    Int id "🗝️"
+    Int user_id 
+    DateTime date "❓"
+    String name 
+    String url 
+    String description "❓"
+    }
+  
+    "awards" |o--|| "AmountCurrency" : "enum:amount_currency"
+    "awards" }o--|o partners : "partner"
+    "film_production_tools" }o--|| films : "film"
+    "film_production_tools" }o--|| production_tools : "productionTool"
+    "films" |o--|| "FilmStatus" : "enum:status"
+    "newsletter_subscriptions" |o--|| "NewsletterSubscriptionStatus" : "enum:status"
+    "newsletter_subscriptions" }o--|o newsletters : "newsletter"
+    "nominations" |o--|| "NominationStatus" : "enum:status"
+    "nominations" }o--|| awards : "award"
+    "nominations" }o--|| films : "film"
+    "screenings" |o--|| "ScreeningStatus" : "enum:status"
+    "screenings" }o--|| films : "film"
+    "screenings" }o--|| users : "user"
+    "user_social_networks" }o--|| social_networks : "socialNetwork"
+    "user_social_networks" }o--|| users : "user"
+    "users" |o--|| "UserRole" : "enum:role"
+    "votes" }o--|| awards : "award"
+    "votes" }o--|| films : "film"
+    "votes" }o--|| users : "user"
+    "works" }o--|| users : "user"
 ```

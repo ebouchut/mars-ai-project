@@ -11,7 +11,7 @@ const prisma = new PrismaClient({
 const admins = [
     {
         email: "admin@marsai.example.com",
-        passwordHash: "TODO_HASH_HERE",
+        passwordHash: "TODO:TODO",
         role: UserRole.admin,
         firstName: "Admin1",
         lastName: "Admin",
