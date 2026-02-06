@@ -10,11 +10,20 @@ generator client {
   engineType = "client"
 }
 
-// Generate an ERD diagram (w/ Mermaid syntax)
-// each time the schema
+// Generate an ERD diagram (SVG image)
 generator erd {
   provider = "prisma-erd-generator"
+  output   = "../../../docs/ERD.svg"
+  title    = "Mars AI Project - ERD Diagram"
+  includeRelationFromFields = true
+  disableEmoji = true
+}
+
+// Generate a commented ERD diagram (w/ Mermaid syntax)
+generator markdown {
+  provider = "prisma-markdown"
   output   = "../../../docs/ERD.md"
+  title    = "Mars AI Project - Detailed ERD Diagram"
 }
 
 datasource db {

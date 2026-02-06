@@ -212,12 +212,12 @@ such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.
 
 It is composed of 3 npm scoped packages:
 
-- `@marsai/database`: Database schema and generated JavaScript code
+- **`@marsai/database`**: Database schema and generated JavaScript code
   (database ORM client, and types mainly model JS objects) (in `packages/database`)
-- `@marsai/backend`:  Node/Express app (in `packages/backend`)
-- `@marsai/frontend`: React app (in `packages/frontend`)
-
-Both `@marsai/backend` and `@marsai/frontend` depend on `@marsai/database`, but do not use the same thing.   
+- **`@marsai/backend`**:  Node/Express app (in `packages/backend`)
+- **`@marsai/frontend`**: React app (in `packages/frontend`)
+ 
+`@marsai/backend` and `@marsai/frontend` depend on `@marsai/database`, but do not use the same thing.   
 The *frontend* only uses the types (models such as `Film`, `User`...).   
 The *backend* uses everything: the models and the ORM client code to interact with the database using JS objects.  
 
@@ -324,7 +324,10 @@ Do not use an underscore as the first character.
 
 ### Database ERD Diagram
 
-The Entity Relationships Diagram (ERD) is [available here](docs/ERD.md) (docs/ERD.md). 
+The Entity Relationships Diagram (ERD) is available as:
+
+- an [SVG image](docs/ERD.md)
+- a [page with a commented ERD diagram](docs/ERD.md)
 
 > [!NOTE]
 > This diagram uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) 

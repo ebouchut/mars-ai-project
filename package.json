@@ -2,6 +2,9 @@
   "name": "@marsai/root",
   "private": true,
   "workspaces": ["packages/database", "packages/backend", "packages/frontend"],
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev:backend": "npm run dev -w @marsai/backend",
     "dev:frontend": "npm run dev -w @marsai/frontend",
