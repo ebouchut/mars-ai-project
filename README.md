@@ -243,7 +243,7 @@ The *backend* uses everything: the models and the ORM client code to interact wi
 │    │    ├── src/
 │    │    │   ├── features/
 │    │    │   │   │
-│    │    │   │   +── vote/                   Contains code related to the voting feature
+│    │    │   │   └─── vote/                   Contains code related to the voting feature
 │    │    │   │       ├── vote.routes.ts      Define routes to map URLs to controllers
 │    │    │   │       ├── vote.controller.ts  Handle HTTP request/response
 │    │    │   │       ├── vote.validation.ts  Validate input with Joi schemas
