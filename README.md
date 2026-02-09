@@ -176,7 +176,7 @@ Then you will give her access to these databases.
 1. Run your copy of the SQL script 
 1. Create the database **structure** (tables...) and add the **seeds**:
    ```shell
-   cd marsai-project
+   cd mars-ai-project
 
    npm run db:migrate
    npm run db:seed
@@ -445,7 +445,7 @@ To add `npm` packages (as runtime dependency):
 
 - Go the project root folder:  
   ```shell
-  cd marsai-project  # cd $(git rev-parse --show-toplevel)
+  cd mars-ai-project  # cd $(git rev-parse --show-toplevel)
   
   npm install react react-dom @types/react -w @marsai/frontend
   ```
