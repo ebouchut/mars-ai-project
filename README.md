@@ -439,18 +439,25 @@ gitGraph
     merge fix/htaccess
 ```
 
-### Installing a npm Package
+### Add npm Packages
 
-To add `npm` packages (as runtime dependency):
+To **add** `npm` packages to the npm **frontend** workspace (`@marsai/frontend`):
 
 - Go the project root folder:  
   ```shell
   cd mars-ai-project  # cd $(git rev-parse --show-toplevel)
   
-  npm install react react-dom @types/react -w @marsai/frontend
+  npm install react react-dom         -w @marsai/frontend
+  npm instal --save-dev @types/react  -w @marsai/frontend
   ```
 
-> [TYODO]
+Where:
+
+- The first `npm install` line, adds the `react` and `react-dom` **runtime** dependencies (also used in the production environment).
+- The second line `npm install` line, adds a **development** dependency ,that will not be used in the production environment.
+- `--save-dev` specify that the `@types/react` package is a development dependency that won't be used at runtime (production). 
+- `-w @marsai/frontend` specify where to add the npm packages: the _frontend_ npm workspace (in the `packages/frontend/` folder) 
+
 ## License
 
 This project is developed for educational purposes as part of the CDPI program at [La Plateforme_](https://laplateforme.io) in partnership with [Mobile Film Festival](https://www.mobilefilmfestival.com).
