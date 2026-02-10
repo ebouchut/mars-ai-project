@@ -8,6 +8,16 @@
     // Directory where compiled .js files are emitted
     "outDir":  "./dist",
 
+    // Base directory for resolving path aliases
+    "baseUrl": "./src",
+
+    // Path aliases: @/ maps to the src/ directory
+    // @/common/utils/hash.js ==> {baseUrl}}/common/utils/hash.js.
+    // @/common/utils/hash.js ==> ./src/common/utils/hash.js.
+    "paths": {
+      "@/*": ["./*"]
+    },
+
     // ~~~~~ Environment Settings
     // Combined with `"type": "module"` in a local package.json,
     // this enforces including file extensions on relative path imports.

@@ -1,7 +1,11 @@
 {
   "name": "@marsai/root",
   "private": true,
-  "workspaces": ["packages/database", "packages/backend", "packages/frontend"],
+  "workspaces": [
+    "packages/database",
+    "packages/backend",
+    "packages/frontend"
+  ],
   "engines": {
     "node": ">=24"
   },
