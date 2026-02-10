@@ -13,7 +13,7 @@
   },
   "main": "dist/main.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "type-check": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +23,9 @@
   "type": "module",
   "dependencies": {
     "@marsai/database": "*"
+  },
+  "devDependencies": {
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.9.3"
   }
 }

@@ -61,5 +61,6 @@
     "moduleDetection": "force",
     // Skip type checking of declaration files
     "skipLibCheck": true
-  }
+  },
+  "include": [ "src" ]
 }

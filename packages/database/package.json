@@ -13,7 +13,10 @@
     "studio": "prisma studio",
     "db:pull": "prisma db pull",
     "db:push": "prisma db push",
-    "db:seed": "prisma db seed"
+    "db:seed": "prisma db seed",
+    "build": "tsc && tsc-alias",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@prisma/adapter-mariadb": "^7.3.0",

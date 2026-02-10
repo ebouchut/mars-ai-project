@@ -15,7 +15,10 @@
     "db:migrate": "npm run migrate -w @marsai/database",
     "db:generate": "npm run generate -w @marsai/database",
     "db:studio": "npm run studio -w @marsai/database",
-    "db:seed": "npm run db:seed -w @marsai/database"
+    "db:seed": "npm run db:seed -w @marsai/database",
+    "build": "npm run build --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
   },
   "description": "An AI film festival application",
   "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
