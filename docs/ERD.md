@@ -106,6 +106,7 @@ erDiagram
   String(255) photo "nullable"
   DateTime created_at "nullable"
   DateTime updated_at "nullable"
+  DateTime deleted_at "nullable"
 }
 "votes" {
   Int id PK
@@ -280,6 +281,7 @@ Properties as follows:
 - `photo`:
 - `created_at`:
 - `updated_at`:
+- `deleted_at`:
 
 ### `votes`
 

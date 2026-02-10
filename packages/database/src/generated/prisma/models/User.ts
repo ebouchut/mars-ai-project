@@ -45,6 +45,7 @@ export type UserMinAggregateOutputType = {
   photo: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  deletedAt: Date | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -58,6 +59,7 @@ export type UserMaxAggregateOutputType = {
   photo: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  deletedAt: Date | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -71,6 +73,7 @@ export type UserCountAggregateOutputType = {
   photo: number
   createdAt: number
   updatedAt: number
+  deletedAt: number
   _all: number
 }
 
@@ -94,6 +97,7 @@ export type UserMinAggregateInputType = {
   photo?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -107,6 +111,7 @@ export type UserMaxAggregateInputType = {
   photo?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -120,6 +125,7 @@ export type UserCountAggregateInputType = {
   photo?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
   _all?: true
 }
 
@@ -220,6 +226,7 @@ export type UserGroupByOutputType = {
   photo: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  deletedAt: Date | null
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
   _sum: UserSumAggregateOutputType | null
@@ -256,6 +263,7 @@ export type UserWhereInput = {
   photo?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   updatedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   screenings?: Prisma.ScreeningListRelationFilter
   userSocialNetworks?: Prisma.UserSocialNetworkListRelationFilter
   votes?: Prisma.VoteListRelationFilter
@@ -273,6 +281,7 @@ export type UserOrderByWithRelationInput = {
   photo?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
   updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   screenings?: Prisma.ScreeningOrderByRelationAggregateInput
   userSocialNetworks?: Prisma.UserSocialNetworkOrderByRelationAggregateInput
   votes?: Prisma.VoteOrderByRelationAggregateInput
@@ -294,6 +303,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   photo?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   updatedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   screenings?: Prisma.ScreeningListRelationFilter
   userSocialNetworks?: Prisma.UserSocialNetworkListRelationFilter
   votes?: Prisma.VoteListRelationFilter
@@ -311,6 +321,7 @@ export type UserOrderByWithAggregationInput = {
   photo?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
   updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -332,6 +343,7 @@ export type UserScalarWhereWithAggregatesInput = {
   photo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
 }
 
 export type UserCreateInput = {
@@ -344,6 +356,7 @@ export type UserCreateInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   screenings?: Prisma.ScreeningCreateNestedManyWithoutUserInput
   userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteCreateNestedManyWithoutUserInput
@@ -361,6 +374,7 @@ export type UserUncheckedCreateInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutUserInput
   userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutUserInput
@@ -377,6 +391,7 @@ export type UserUpdateInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   screenings?: Prisma.ScreeningUpdateManyWithoutUserNestedInput
   userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUpdateManyWithoutUserNestedInput
@@ -394,6 +409,7 @@ export type UserUncheckedUpdateInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutUserNestedInput
   userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutUserNestedInput
@@ -411,6 +427,7 @@ export type UserCreateManyInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
 }
 
 export type UserUpdateManyMutationInput = {
@@ -423,6 +440,7 @@ export type UserUpdateManyMutationInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type UserUncheckedUpdateManyInput = {
@@ -436,6 +454,7 @@ export type UserUncheckedUpdateManyInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type UserScalarRelationFilter = {
@@ -460,6 +479,7 @@ export type UserCountOrderByAggregateInput = {
   photo?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type UserAvgOrderByAggregateInput = {
@@ -477,6 +497,7 @@ export type UserMaxOrderByAggregateInput = {
   photo?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
@@ -490,6 +511,7 @@ export type UserMinOrderByAggregateInput = {
   photo?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
 }
 
 export type UserSumOrderByAggregateInput = {
@@ -566,6 +588,7 @@ export type UserCreateWithoutScreeningsInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteCreateNestedManyWithoutUserInput
   works?: Prisma.WorkCreateNestedManyWithoutUserInput
@@ -582,6 +605,7 @@ export type UserUncheckedCreateWithoutScreeningsInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutUserInput
   works?: Prisma.WorkUncheckedCreateNestedManyWithoutUserInput
@@ -613,6 +637,7 @@ export type UserUpdateWithoutScreeningsInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUpdateManyWithoutUserNestedInput
@@ -629,6 +654,7 @@ export type UserUncheckedUpdateWithoutScreeningsInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUncheckedUpdateManyWithoutUserNestedInput
@@ -644,6 +670,7 @@ export type UserCreateWithoutUserSocialNetworksInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   screenings?: Prisma.ScreeningCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteCreateNestedManyWithoutUserInput
   works?: Prisma.WorkCreateNestedManyWithoutUserInput
@@ -660,6 +687,7 @@ export type UserUncheckedCreateWithoutUserSocialNetworksInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutUserInput
   works?: Prisma.WorkUncheckedCreateNestedManyWithoutUserInput
@@ -691,6 +719,7 @@ export type UserUpdateWithoutUserSocialNetworksInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   screenings?: Prisma.ScreeningUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUpdateManyWithoutUserNestedInput
@@ -707,6 +736,7 @@ export type UserUncheckedUpdateWithoutUserSocialNetworksInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUncheckedUpdateManyWithoutUserNestedInput
@@ -722,6 +752,7 @@ export type UserCreateWithoutVotesInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   screenings?: Prisma.ScreeningCreateNestedManyWithoutUserInput
   userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
   works?: Prisma.WorkCreateNestedManyWithoutUserInput
@@ -738,6 +769,7 @@ export type UserUncheckedCreateWithoutVotesInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutUserInput
   userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
   works?: Prisma.WorkUncheckedCreateNestedManyWithoutUserInput
@@ -769,6 +801,7 @@ export type UserUpdateWithoutVotesInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   screenings?: Prisma.ScreeningUpdateManyWithoutUserNestedInput
   userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUpdateManyWithoutUserNestedInput
@@ -785,6 +818,7 @@ export type UserUncheckedUpdateWithoutVotesInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutUserNestedInput
   userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
   works?: Prisma.WorkUncheckedUpdateManyWithoutUserNestedInput
@@ -800,6 +834,7 @@ export type UserCreateWithoutWorksInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   screenings?: Prisma.ScreeningCreateNestedManyWithoutUserInput
   userSocialNetworks?: Prisma.UserSocialNetworkCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteCreateNestedManyWithoutUserInput
@@ -816,6 +851,7 @@ export type UserUncheckedCreateWithoutWorksInput = {
   photo?: string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
+  deletedAt?: Date | string | null
   screenings?: Prisma.ScreeningUncheckedCreateNestedManyWithoutUserInput
   userSocialNetworks?: Prisma.UserSocialNetworkUncheckedCreateNestedManyWithoutUserInput
   votes?: Prisma.VoteUncheckedCreateNestedManyWithoutUserInput
@@ -847,6 +883,7 @@ export type UserUpdateWithoutWorksInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   screenings?: Prisma.ScreeningUpdateManyWithoutUserNestedInput
   userSocialNetworks?: Prisma.UserSocialNetworkUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUpdateManyWithoutUserNestedInput
@@ -863,6 +900,7 @@ export type UserUncheckedUpdateWithoutWorksInput = {
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   screenings?: Prisma.ScreeningUncheckedUpdateManyWithoutUserNestedInput
   userSocialNetworks?: Prisma.UserSocialNetworkUncheckedUpdateManyWithoutUserNestedInput
   votes?: Prisma.VoteUncheckedUpdateManyWithoutUserNestedInput
@@ -937,6 +975,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   photo?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  deletedAt?: boolean
   screenings?: boolean | Prisma.User$screeningsArgs<ExtArgs>
   userSocialNetworks?: boolean | Prisma.User$userSocialNetworksArgs<ExtArgs>
   votes?: boolean | Prisma.User$votesArgs<ExtArgs>
@@ -957,9 +996,10 @@ export type UserSelectScalar = {
   photo?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  deletedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "passwordHash" | "role" | "firstName" | "lastName" | "bio" | "photo" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "passwordHash" | "role" | "firstName" | "lastName" | "bio" | "photo" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   screenings?: boolean | Prisma.User$screeningsArgs<ExtArgs>
   userSocialNetworks?: boolean | Prisma.User$userSocialNetworksArgs<ExtArgs>
@@ -987,6 +1027,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     photo: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    deletedAt: Date | null
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -1370,6 +1411,7 @@ export interface UserFieldRefs {
   readonly photo: Prisma.FieldRef<"User", 'String'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly deletedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
     
 
