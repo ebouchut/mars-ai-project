@@ -57,8 +57,8 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 - Dev Tooling:
   - [`npm`](https://en.wikipedia.org/wiki/Npm) version 11.7+
-  - [fnm](https://github.com/Schniz/fnm) _Fast Node Manager_ permet d'installer et changer de version de Node.
-      - [Instalation](https://github.com/Schniz/fnm?tab=readme-ov-file#installation) 
+  - [fnm](https://github.com/Schniz/fnm) _Fast Node Manager_ allows installing and switching Node versions.
+      - [Installation](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)
       - [Configuration](https://github.com/Schniz/fnm?tab=readme-ov-file#completions)
   - [`git`](https://en.wikipedia.org/wiki/Git) (ideally the latest version)
 - Database:  
@@ -109,7 +109,7 @@ The entire interface is available in *French* and *English* via i18n (internatio
 >
 > 1. reads the `.env` file,
 > 1. exports the variables declared in this file as environment variables
-> 1. access variables like so:
+> 1. accesses variables like so:
 >     ```js
 >     import 'dotenv/config'
 >
@@ -121,7 +121,7 @@ The entire interface is available in *French* and *English* via i18n (internatio
 > The `.env` file MUST NOT be under version control.
 > Never ever git commit this file.
 
-**Create and populate the `.env` files.**.
+**Create and populate the `.env` files.**
 
 1. Copy [`.env.example`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/backend/.env.example) as `.env`
 1. Edit and adjust the variables in `.env`
@@ -135,18 +135,18 @@ cp .env.example .env
 #   - DATABASE_PORT=TODO_PORT_HERE
 #   - DATABASE_USER=TODO_USERNAME_HERE
 #   - DATABASE_PASSWORD=TODO_PASSWORD_HERE
-#   - DATABASE_NAME=TODO_BATABASE_NAME_HERE
+#   - DATABASE_NAME=TODO_DATABASE_NAME_HERE
 #
 #   - DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
 #   - SHADOW_DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
-````
+```
 
 ### Database Setup
 
 #### Creating the Databases
 
 You will now run **once** a SQL script below to create two databases and a database user.
-Then you will give her access to these databases.
+Then you will give it access to these databases.
 
 
 1. Make your own copy of the database creation script [packages/database/create-database.sql](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/create-database.sql)
@@ -197,7 +197,7 @@ Then you will give her access to these databases.
 - Run the frontend:
   ```shell
   cd frontend
-  npm run dev:fontend
+  npm run dev:frontend
   ```
 
 #### Production Mode
@@ -251,20 +251,14 @@ The *backend* uses everything: the models and the ORM client code to interact wi
 │    │    │   │
 │    │    │   ├── common/
 │    │    │   │   ├── middlewares/
-│    │    │   │   │   ├── auth.middleware.js
-│    │    │   │   │   ├── error.middleware.js
-│    │    │   │   │   ├── role.middleware.js
-│    │    │   │   │   ├── upload.middleware.js
-│    │    │   │   │   └── validate.middleware.js
+│    │    │   │   │   └── auth_middleware.ts
 │    │    │   │   │
 │    │    │   │   └── utils/
-│    │    │   │       ├── api-error.js
-│    │    │   │       ├── async-handler.js
-│    │    │   │       ├── hash.js
-│    │    │   │       └── token.js
+│    │    │   │       └── hash.ts
 │    │    │   │
 │    │    │   ├── integrations/
 │    │    │   │   ├── youtube/
+│    │    │   │   │   ├── youtube.client.ts
 │    │    │   │   │   └── youtube.service.ts
 │    │    │   │   └── email/
 │    │    │   │       ├── email.service.ts
@@ -311,7 +305,7 @@ handles the model and Data Access Layer (DAL) for us.
 This section describes how the database is structured.
 The *marsAI* platform uses a MySQL relational database to persist entities.
 
-We try to stick to stick to 
+We try to stick to
 [Prisma's naming conventions](https://www.prisma.io/docs/orm/reference/prisma-schema-reference#naming-conventions) 
 for entities, fields, enums...
 
@@ -454,7 +448,7 @@ To **add** `npm` packages to the npm **frontend** workspace (`@marsai/frontend`)
   cd mars-ai-project  # cd $(git rev-parse --show-toplevel)
   
   npm install react react-dom         -w @marsai/frontend
-  npm instal --save-dev @types/react  -w @marsai/frontend
+  npm install --save-dev @types/react  -w @marsai/frontend
   ```
 
 Where:
