@@ -326,7 +326,7 @@ Do not use an underscore as the first character.
 
 The Entity Relationships Diagram (ERD) is available as:
 
-- an [SVG image](docs/ERD.svg)
+- an [SVG image](https://raw.githubusercontent.com/ebouchut/mars-ai-project/dev/docs/ERD.svg)
 - a [page with a commented ERD diagram](docs/ERD.md)
 
 > [!NOTE]
