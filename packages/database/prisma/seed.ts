@@ -30,27 +30,17 @@ async function hashPassword(password: string): Promise<string> {
     return `${salt.toString("hex")}:${hash.toString("hex")}`;
 }
 
-const admins = [
-    {
-        email: "admin@marsai.example.com",
-        passwordHash: "TODO:TODO",
-        role: UserRole.admin,
-        firstName: "Admin1",
-        lastName: "Admin",
-    }
-];
-
 async function main() {
-    for (const admin of admins) {
-        const hashedPassword = await hashPassword(admin.passwordHash);
-        await prisma.user.create({
-            data: {
-                ...admin,
-                passwordHash: hashedPassword
-            }
-        });
-    }
-    console.log(`Seeded ${admins.length} admins`);
+    await prisma.user.create({
+        data: {
+            email: "admin@marsai.example.com",
+            passwordHash: await hashPassword("TODO:TODO"),
+            role: UserRole.admin,
+            firstName: "Admin1",
+            lastName: "Admin",
+        }
+    });
+    console.log("Seeded 1 admin");
 }
 
 main()
