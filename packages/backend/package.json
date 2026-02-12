@@ -17,7 +17,10 @@
     "start": "node dist/app.js",
     "build": "tsc && tsc-alias",
     "type-check": "tsc --noEmit",
-    "test": "echo \"TODO\" && exit 1"
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "A-Team: https://github.com/ebouchut/mars-ai-project?tab=readme-ov-file#authors",
@@ -33,9 +36,11 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^24.10.12",
+    "@vitest/coverage-v8": "^4.0.18",
     "nodemon": "^3.1.11",
     "tsc-alias": "^1.8.16",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   }
 }
