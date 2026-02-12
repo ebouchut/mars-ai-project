@@ -31,10 +31,15 @@ async function hashPassword(password: string): Promise<string> {
 }
 
 async function main() {
+    const adminPassword = process.env.ADMIN_USER_PASSWORD;
+    if (!adminPassword) {
+        throw new Error("ADMIN_USER_PASSWORD environment variable is required");
+    }
+
     await prisma.user.create({
         data: {
             email: "admin@marsai.example.com",
-            passwordHash: await hashPassword("TODO:TODO"),
+            passwordHash: await hashPassword(adminPassword),
             role: UserRole.admin,
             firstName: "Admin1",
             lastName: "Admin",
