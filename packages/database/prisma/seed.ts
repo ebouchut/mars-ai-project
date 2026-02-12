@@ -1,4 +1,6 @@
 import "dotenv/config";
+import { argon2, randomBytes } from "node:crypto";
+import { promisify } from "node:util";
 import { PrismaMariaDb } from "@prisma/adapter-mariadb"
 import { PrismaClient, UserRole } from "../src/generated/prisma/client.js"
 
@@ -8,21 +10,42 @@ const prisma = new PrismaClient({
     adapter,
 });
 
-const admins = [
-    {
-        email: "admin@marsai.example.com",
-        passwordHash: "TODO:TODO",
-        role: UserRole.admin,
-        firstName: "Admin1",
-        lastName: "Admin",
-    }
-];
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Hash password using Argon2id (OWASP recommended parameters)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const argon2Async = promisify(argon2);
+
+async function hashPassword(password: string): Promise<string> {
+    const salt = randomBytes(16); // 128-bit salt
+
+    const hash = await argon2Async("argon2id", {
+        message: password,
+        nonce: salt,
+        parallelism: 1,
+        memory: 47104, // 46 MiB
+        passes: 1,
+        tagLength: 32, // 256-bit hash
+    });
+
+    return `${salt.toString("hex")}:${hash.toString("hex")}`;
+}
 
 async function main() {
-    for (const admin of admins) {
-        await prisma.user.create({ data: admin });
+    const adminPassword = process.env.ADMIN_USER_PASSWORD;
+    if (!adminPassword) {
+        throw new Error("ADMIN_USER_PASSWORD environment variable is required");
     }
-    console.log(`Seeded ${admins.length} admins`);
+
+    await prisma.user.create({
+        data: {
+            email: "admin@marsai.example.com",
+            passwordHash: await hashPassword(adminPassword),
+            role: UserRole.admin,
+            firstName: "Admin1",
+            lastName: "Admin",
+        }
+    });
+    console.log("Seeded 1 admin");
 }
 
 main()
