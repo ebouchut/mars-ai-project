@@ -97,16 +97,13 @@ Before getting started, ensure the following software is installed with the requ
       ```
       Then update your [shell dotfiles](https://github.com/Schniz/fnm?tab=readme-ov-file#shell-setup) 
     - **Windows**:  
-      
-    - 
-- [Node.js}(https://nodejs.org/en/download): version 24+ LTS (important)  
-    - Select your configuration in the selection boxes below `Download Node.js ®`  
-
-
+- [Node.js}(https://nodejs.org/en/download): version 24+ LTS (important)    
+  Install _Node.js_ and `npm` with `fnm`, like so:  
+  ```shell
+  cd  mars-ai-project
+  fnm use
+  ```
 - MySQL: version 8.4+
-
-
-- Tailwind CSS (styling)
 
 ## Installation
 
