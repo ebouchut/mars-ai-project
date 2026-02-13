@@ -1,3 +1,7 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Seed (i.e., populate) the database with an admin user
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 import "dotenv/config";
 import { argon2, randomBytes } from "node:crypto";
 import { promisify } from "node:util";
