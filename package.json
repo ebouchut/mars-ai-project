@@ -18,7 +18,7 @@
     "db:seed": "npm run db:seed -w @marsai/database",
     "build": "npm run build --workspaces --if-present",
     "type-check": "npm run type-check --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "test": "npm run test:run --workspaces --if-present"
   },
   "description": "An AI film festival application",
   "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
