@@ -31,11 +31,15 @@
     "@prisma/adapter-mariadb": "^7.3.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "joi": "^18.0.2"
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.3",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.10.12",
+    "@types/uuid": "^10.0.0",
     "@vitest/coverage-v8": "^4.0.18",
     "nodemon": "^3.1.11",
     "tsc-alias": "^1.8.16",
