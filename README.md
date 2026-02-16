@@ -226,6 +226,8 @@ Then you will give it access to these databases.
   ```
 
 
+## Contributing
+
 ### Project Structure
 
 The project uses a **feature-based folder structure**
@@ -345,12 +347,121 @@ Here are the naming conventions for the **name** of our database **tables**:
 Do not use an underscore as the first character.
 
 
+#### Database ERD Diagram
+
+The **Entity Relationships Diagram** (ERD) is available as:
+
+- an [SVG image](https://raw.githubusercontent.com/ebouchut/mars-ai-project/dev/docs/ERD.svg)
+- a [page with a commented ERD diagram](docs/ERD.md)
+
+> [!NOTE]
+> This diagram uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) 
+> for the **cardinality of relationships**, where:
+>
+> - `o|` denotes `0..1` (zero or one)
+> - `||` denotes Exactly one
+> - `o{` denotes `0..n` (zero or more)
+
+> [!TIP]
+> If you want to create an Entity Relationship Diagram (ERD) like this one, 
+> then take a look at [Mermaid.js](https://mermaid.js.org/intro/).
+> With this syntax embedded in a Markdown file, GitHub issue, 
+> you can easily create many types of diagrams such as sequence/flow/class/state diagrams to only name a few.
+>
+> GitHub among many other [tools, IDEs and platforms support Mermaid diagrams](https://mermaid.js.org/ecosystem/integrations-community.html#community-integrations).
+>
+> To give Mermaid diagrams a whirl, you can use the [free online visual editor](https://mermaid.live/) to build your first diagram, 
+> share it with others and even export it to various formats.
+
+
+### Update the Database Schema
+
+> [!NOTE]
+> **What is Prisma?**  
+The project uses [Prisma](https://www.prisma.io/), which is an ORM (Object Relation Mapper) and database migration tool.
+The **database schema** [`packages/database/prisma/schema`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/prisma/schema.prisma)
+contains the description of the **database structure**: entities, enums, relationships, and cardinalities.
+It is the **source of truth**, which means you never modify the database directly,
+> Prisma does it for you using the schema.
+
+
+To add, remove, an entity or a field/property we need to update the database schema.
+It serves as a source of truth and and is used to generate and update the database.
+
+Here is the **workflow** to add/update/remove the database structure (table, table column, relationship, enum value).
+
+> [!IMPORTANT]
+> Run the `npm` commands **from the project root folder**.
+
+1. **Update** the **database schema** in [`packages/database/prisma/schema`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/prisma/schema.prisma).  
+   Say for instance, you add the `emailVerifiedAt` property to the `User` entity, like so:
+   ```prisma
+   emailVerifiedAt  DateTime?  @db.Timestamp(0) @map("email_verified_at")
+   ```
+1. Generate the SQL migration file and apply it to the database:
+   ```shell
+   # cd mars-ai-project
+   npm run db:migrate dev --name add-email-verified-at-to-users
+   
+   # same as 
+   # npm run prisma migrate dev --name add-email-verified-at-to-users -w @marsai/database
+   ```
+   This command:
+
+    - generates a SQL script named `migration.sql` in `packages/database/prisma/migrations/TIMESTAMP_add_email_verified_at_to_users/`.
+    - applies this migration to the database which adds the `email_verified_at` column to the `users` table.
+
+   Adjust the [kebab-case](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) name (after `--name `)
+   in this example to reflect the actual changes.
+2. Generate the [Prisma Client](https://www.prisma.io/docs/orm/prisma-client) code:
+   ```shell
+   # cd mars-ai-project
+   npm run db:generate
+    
+   ``` 
+
+> [!INFO]]
+> What is the Prisma client?
+>
+> The **Prisma client** code is composed of ORM type-safe classes:
+> - **models** (such as `User`, `Film`, `Vote`), **enums**, and **input/output shapes**.
+    >   You can find them in [`packages/database/src/generated/prisma/models/`](https://github.com/ebouchut/mars-ai-project/tree/dev/packages/database/src/generated/prisma/models).
+> - **Query API**
+    >     - **CRUD methods** for each model: `prisma.user.create()`, `prisma.film.findMany()`, `prisma.work.delete()`...
+>     - **Query builder**: `where`, `include`, `select`, `orderBy`...
+> - **Autocomplete** so that your IDE knows every field, relation, and filter available
+
+
+> [!INFO]]
+> **Why and when should I regenerate the Prisma client?**
+>
+> Each time you modify the database schema you need to regenerate the Prisma client code.
+> This ensures the database schema and the code to query and model entities remain in sync.
+
+
+The _backend_ uses `client.ts` containing the generated models and the ORM API to query the database.
+```ts
+import { PrismaClient, User, Vote, Film, Jury } from "../src/generated/prisma/client.js"
+```
+
+The _frontend_ uses `browser.ts` only containing the models because it does not interact with the database
+```ts
+import { User, Vote, Film, Jury } from "../src/generated/prisma/browser.js"
+```
+
+### Apply the Latest Database Migrations
+
+Once you heave picked up the latest changes from the upstream `dev` branch,
+you need to apply the latest database migrations as follows:
+
+```shell
+npm run db:migrate dev
+
+# equivalent to:
+# npm run prisma migrate dev -w @marsai/database
+```
+
 ### API Documentation
-
-### Deployment
-
-
-## Contributing
 
 
 ### Running Tests
@@ -464,10 +575,12 @@ gitGraph
     branch feat/add-home-page
     checkout feat/add-home-page
     commit
+    commit
     checkout dev
     merge feat/add-home-page
 
     branch feat/add-footer
+    commit
     commit
     checkout dev
     merge feat/add-footer
@@ -484,17 +597,25 @@ gitGraph
     merge fix/htaccess
 ```
 
-### Add npm Packages
+### Add Dependencies
 
-To **add** `npm` packages to the npm **frontend** workspace (`@marsai/frontend`):
+In the example below we **add** the following dependencies (`npm` packages in our case) 
+to the **frontend** (`@marsai/frontend`):
 
-- Go the project root folder:  
-  ```shell
-  cd mars-ai-project  # cd $(git rev-parse --show-toplevel)
+- Runtime dependencies
+    - `react`
+    - `react-dom`
+- Development dependency:
+    - `@types/react` 
+
+
+```shell
+# IMPORTANT: run npm from the project root folder:
+cd mars-ai-project   
   
-  npm install react react-dom         -w @marsai/frontend
-  npm install --save-dev @types/react  -w @marsai/frontend
-  ```
+npm install react react-dom         -w @marsai/frontend
+npm install --save-dev @types/react  -w @marsai/frontend
+```
 
 Where:
 
@@ -504,86 +625,6 @@ Where:
 - `-w @marsai/frontend` specify where to add the npm packages: the _frontend_ npm workspace (in the `packages/frontend/` folder) 
 
 
-### Update the Database Schema
-
-> [!NOTE]
-> **What is Prisma?**  
-The project uses [Prisma](https://www.prisma.io/), which is an ORM (Object Relation Mapper) and database migration tool.
-The **database schema** [`packages/database/prisma/schema`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/prisma/schema.prisma)
-contains the description of the **database structure**: entities, enums, relationships, and cardinalities.
-It is the **source of truth**, which means you never modify the database directly,
-> Prisma does it for you using the schema.
-
-
-To add, remove, an entity or a field/property we need to update the database schema.
-It serves as a source of truth and and is used to generate and update the database. 
-
-Here is the **workflow** to add/update/remove the database structure (table, table column, relationship, enum value).
-
-> [!IMPORTANT]
-> Run the `npm` commands **from the project root folder**.
-
-1. **Update** the **database schema** in [`packages/database/prisma/schema`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/prisma/schema.prisma).  
-   Say for instance, you add the `emailVerifiedAt` property to the `User` entity, like so:
-   ```prisma
-   emailVerifiedAt  DateTime?  @db.Timestamp(0) @map("email_verified_at")
-   ```
-1. Generate the SQL migration file and apply it to the database:
-   ```shell
-   # cd mars-ai-project
-   npm run db:migrate dev --name add-email-verified-at-to-users
-   
-   # same as 
-   # npm run prisma migrate dev --name add-email-verified-at-to-users -w @marsai/database
-   ```
-   This command:
-   
-   - generates a SQL script named `migration.sql` in `packages/database/prisma/migrations/TIMESTAMP_add_email_verified_at_to_users/`.
-   - applies this migration to the database which adds the `email_verified_at` column to the `users` table.
-   
-   Adjust the [kebab-case](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) name (after `--name `) 
-   in this example to reflect the actual changes. 
-2. Generate the [Prisma Client](https://www.prisma.io/docs/orm/prisma-client) code:
-   ```shell
-   # cd mars-ai-project
-   npm run db:generate
-    
-   ``` 
-
-> [!INFO]]
-> What is the Prisma client?  
-> 
-> The **Prisma client** code is composed of ORM type-safe classes:
-> - **models** (such as `User`, `Film`, `Vote`), **enums**, and **input/output shapes**.
->   You can find them in [`packages/database/src/generated/prisma/models/`](https://github.com/ebouchut/mars-ai-project/tree/dev/packages/database/src/generated/prisma/models).
-> - **Query API**
->     - **CRUD methods** for each model: `prisma.user.create()`, `prisma.film.findMany()`, `prisma.work.delete()`...
->     - **Query builder**: `where`, `include`, `select`, `orderBy`...
-> - **Autocomplete** so that your IDE knows every field, relation, and filter available
-
-
-> [!INFO]]
-> **Why and when should I regenerate the Prisma client?**
-> 
-> Each time you modify the database schema you need to regenerate the Prisma client code.
-> This ensures the database schema and the code to query and model entities remain in sync.
-
-
-The _backend_ uses `client.ts`: the generated models and the ORM API to query the database.
-```ts
-import { PrismaClient, User, Vote, Film, Jury } from "../src/generated/prisma/client.js"
-```
-
-The _frontend_ uses `browser.ts`: only the generated models because it does not interact 
-with the database 
-```ts
-import { User, Vote, Film, Jury } from "../src/generated/prisma/brwoser.js"
-```
-
-
-# equivalent to:
-# npm run prisma migrate dev -w @marsai/database
-```
 
 ## License
 
@@ -606,11 +647,9 @@ We are a team of five:
 
 ## Acknowledgments
 
-
-### Apply the Latest Database Migrations
-
-Once you heave picked up the latest changes from the upstream `dev` branch, 
-you need to apply the latest database migrations as follows:
-
-```shell
-npm run db:migrate dev
+Thank you to **our instructors** for their involvement and help:
+ 
+- [Alejandro Seijo](https://www.linkedin.com/in/alejandro-f-seijo-1541aa189/),
+- [Jean-César Bazin](https://www.linkedin.com/in/jean-c%C3%A9sar-bazin-a7bab9176/),
+- Aubry
+- [Esteban Bare](https://www.linkedin.com/in/esteban-bare-337927284/).
