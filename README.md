@@ -214,12 +214,12 @@ Then you will give it access to these databases.
 
 - Run the backend:
   ```shell
-  cd backend
+  # cd mars-ai-project
   npm run dev:backend
   ```
 - Run the frontend:
   ```shell
-  cd frontend
+  # cd mars-ai-project
   npm run dev:frontend
   ```
 
