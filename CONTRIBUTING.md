@@ -25,6 +25,21 @@ If you have any questions, feel free to
 
 We use a **monorepo**, that is a Git repository containing both the **frontend and** the **backend**.
 
+**Using a monorepo offers the following advantages:**
+
+- **Shared code and types:**  
+  The *frontend* and *backend* can share types, constants, and validation schemas from a single source of truth 
+  (e.g. `@marsai/database`), avoiding duplication and keeping them in sync.
+- **Atomic changes:**  
+  A single commit or PR can update the database schema, backend API, and frontend together, ensuring they stay compatible.
+- **Simplified dependency management:**  
+  One `npm install` at the root installs everything.  
+  Shared dependencies are hoisted and deduplicated automatically via *npm workspaces*.
+- **Easier code reviews:**  
+  Reviewers can see the full picture of a change (database + backend + frontend) in a single PR rather than coordinating across multiple repositories.
+- **Consistent tooling and configuration:**    
+  Linting rules, formatting, CI/CD pipelines, and Git hooks are configured once and apply to all packages.
+
 #### Directory Structure
 
 The project is composed of **3 `npm` packages. 
