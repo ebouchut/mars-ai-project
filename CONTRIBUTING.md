@@ -23,6 +23,8 @@ If you have any questions, feel free to
 
 #### Architecture Overview
 
+We use a **monorepo**, that is a Git repository containing both the **frontend and** the **backend**.
+
 #### Directory Structure
 
 The project is composed of **3 `npm` packages. 
@@ -139,6 +141,83 @@ handles the model and Data Access Layer (DAL) for us.
 ### Setting Up Your Development Environment
 
 ### Branching Strategy
+
+> [!NOTE]
+> This project uses a very lightweight **[Git Flow](https://danielkummer.github.io/git-flow-cheatsheet/)**
+> branching workflow to develop, integrate, release new features, and fix bugs.
+>
+> **Why did we make this change?**
+>
+> Usually, `main` is the default branch and serves both for the "integration" and deployment to production,
+> which makes these processes brittle.
+>
+> **What is this change about?**
+>
+> To facilitate the integration of several features, we created the `dev` branch.  
+> This is where we share the common code with the team.  
+> It also serves as an integration branch to ensure that all the merged-in features work properly.
+>
+> This new branching scheme makes `dev` the new default branch.
+>
+> [issue #1](https://github.com/ebouchut/mars-ai-project/issues/1) introduced this change.
+
+We use a **monorepo**, meaning it contains both the **frontend and** the **backend**.
+
+The **branches**:
+
+- Main branch: **`dev`**
+    - The repository uses this branch as the primary one for development and pull requests.
+    - It acts as an "integration" branch contains the common code and serves as a safety net.
+    - This branch contains the code shared with the team.
+    - This is the **default branch**, meaning it is the one we are on
+      after cloning this repository, where we merge our feature branches via PRs.
+    - It is also where we test that the merged features do not break the website.    
+      Once we are confident the code on `dev` can be deployed to production, we merge `dev` into `main`.
+    - We should not commit directly to `dev`, but create a PR (Pull Request) to bring in changes.
+    - We have configured `dev` to require two approvals before merging to `dev`.
+- **`main`** contains the production-ready code.
+    - This is where the team merges `dev` after ensuring that the new features on `dev`
+      are working properly together.
+    - This branch is used for deployment.
+
+We create **temporary branches** to develop a **feature** or **fix** a bug:
+
+- **`feat/my-feature-description-here`** denotes a feature branch.  
+  The naming convention may seem a bit convoluted, but refer to the kind of branch it is (`feat`: this is a feature), and what the branch will bring when merged to `dev` (`my-feature-description-here` should be a quick, hyper-consise, and high level description of the feature, using just a few all-lowercase words separated with an hyphen).  
+  For instance: `feat/add-footer`.
+- **`fix/concise-bug-description-here`** a bug fix branch  
+  We create a bug fix branch, such as `fix/broken-link-page-footer`, when the website breaks in production.
+
+
+```mermaid
+gitGraph
+    commit
+    branch dev
+    checkout dev
+    branch feat/add-home-page
+    checkout feat/add-home-page
+    commit
+    commit
+    checkout dev
+    merge feat/add-home-page
+
+    branch feat/add-footer
+    commit
+    commit
+    checkout dev
+    merge feat/add-footer
+
+    checkout main
+    merge dev
+    commit type: HIGHLIGHT tag: "bug found"
+    checkout main
+    branch fix/htaccess
+    commit
+    checkout main
+    merge fix/htaccess
+    checkout dev
+    merge fix/htaccess
+```
 
 ### Commit Message Convention
 
