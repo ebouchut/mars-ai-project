@@ -364,61 +364,7 @@ npm run db:migrate dev
 # npm run prisma migrate dev -w @marsai/database
 ```
 
-### API Documentation
 
-
-### Running Tests
-
-The project uses [Vitest](https://vitest.dev/) as its testing framework across all packages.
-
-**Resources:**
-- [Vitest Getting Started](https://vitest.dev/guide/)
-- [Vitest API Reference](https://vitest.dev/api/)
-- [Testing Best Practices](https://vitest.dev/guide/features.html)
-
-#### Run All Tests
-
-From the project root:
-```shell
-npm test
-```
-
-This runs tests across all three packages (`@marsai/database`, `@marsai/backend`, `@marsai/frontend`).
-
-#### Run Tests for a Specific Package
-
-```shell
-# Database tests
-npm test -w @marsai/database
-
-# Backend tests
-npm test -w @marsai/backend
-
-# Frontend tests
-npm test -w @marsai/frontend
-```
-
-#### Test Modes
-
-- **Watch mode** (default) — reruns tests on file changes:
-  ```shell
-  npm test -w @marsai/backend
-  ```
-
-- **Single run** — runs once and exits (useful for CI):
-  ```shell
-  npm run test:run -w @marsai/backend
-  ```
-
-- **With coverage** — generates coverage reports:
-  ```shell
-  npm run test:coverage -w @marsai/backend
-  ```
-
-- **With UI** — opens an interactive browser interface:
-  ```shell
-  npm run test:ui -w @marsai/backend
-  ```
 
 
 

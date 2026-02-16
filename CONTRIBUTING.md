@@ -18,10 +18,25 @@ If you have any questions, feel free to
 
 ### Prerequisites for Development
 
+Read the [Prerequisites section of the README](README.md#prerequisites).
 
 ### Understanding the Codebase
 
 #### Architecture Overview
+
+_marsAI_ is a client server application 
+using a MySQL database to persist information.
+
+Films submitted for the festival are initially stored on our platform,
+before being bookended (a step where we add an intro + outro), 
+and  uploaded to a private YouTube Channel for copyright checks.
+
+If the film is copyright cleared, one-minute max, and pass the screening process, 
+then it will make its way to the public YouTube channel.
+
+See #22 for details.
+
+##### MonoRepo
 
 We use a **monorepo**, that is a Git repository containing both the **frontend and** the **backend**.
 
@@ -240,7 +255,61 @@ gitGraph
 
 ### Writing Tests
 
+### Running Tests
+
+The project uses [Vitest](https://vitest.dev/) as its testing framework across all packages.
+
+**Resources:**
+- [Vitest Getting Started](https://vitest.dev/guide/)
+- [Vitest API Reference](https://vitest.dev/api/)
+- [Testing Best Practices](https://vitest.dev/guide/features.html)
+
+#### Run All Tests
+
+From the project root:
+```shell
+npm test
+```
+
+This runs tests across all three packages (`@marsai/database`, `@marsai/backend`, `@marsai/frontend`).
+
+#### Run Tests for a Specific Package
+
+```shell
+# Database tests
+npm test -w @marsai/database
+
+# Backend tests
+npm test -w @marsai/backend
+
+# Frontend tests
+npm test -w @marsai/frontend
+```
+
+#### Test Modes
+
+- **Watch mode** (default) — reruns tests on file changes:
+  ```shell
+  npm test -w @marsai/backend
+  ```
+
+- **Single run** — runs once and exits (useful for CI):
+  ```shell
+  npm run test:run -w @marsai/backend
+  ```
+
+- **With coverage** — generates coverage reports:
+  ```shell
+  npm run test:coverage -w @marsai/backend
+  ```
+
+- **With UI** — opens an interactive browser interface:
+  ```shell
+  npm run test:ui -w @marsai/backend
+  ```
+
 ### Running the CI Locally
+
 
 
 ## Submitting Changes
