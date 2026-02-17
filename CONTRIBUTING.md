@@ -57,11 +57,10 @@ We use a **monorepo**, that is a Git repository containing both the **frontend a
 
 #### Directory Structure
 
-The project is composed of **3 `npm` packages. 
-These are scoped below the `@marsai` `npm` workspace:
+The project is composed of 3 `npm` packages scoped below the `@marsai` `npm` workspace:
 
 - **`@marsai/database`**: Database schema and generated JavaScript code
-  (database ORM client, and types mainly model JS objects) (in `packages/database`)
+  (database ORM client (query API), and types (models, enums) JS objects) (in `packages/database`)
 - **`@marsai/backend`**:  Node/Express app (in `packages/backend`)
 - **`@marsai/frontend`**: React app (in `packages/frontend`)
 
@@ -205,7 +204,6 @@ The **Entity Relationships Diagram** (ERD) is available as:
 
 ### Reporting Bugs
 
-#### Bug Report Template
 
 ### Suggesting Enhancements
 
@@ -328,8 +326,8 @@ Here is the **workflow** to add/update/remove the database structure (table, tab
 1. Generate the SQL migration file and apply it to the database:
    ```shell
    # cd mars-ai-project
-   npm run db:migrate dev --name add-email-verified-at-to-users
-
+    npm run migrate  -w @marsai/database -- --name add-email-verified-at-to-users
+   
    # same as
    # npm run prisma migrate dev --name add-email-verified-at-to-users -w @marsai/database
    ```
@@ -364,13 +362,14 @@ Here is the **workflow** to add/update/remove the database structure (table, tab
 > This ensures the database schema and the code to query and model entities remain in sync.
 
 
-A _backend_ need to import both the ORM **client** and the models (types).
+The **backend** imports both the ORM **client** and the models (types):
 ```ts
 import { PrismaClient }           from "@marsai/database/client";
 import { User, Vote, Film, Jury } from "@marsai/database";
 ```
 
-The _frontend_ **only** need to import **the models** (types) because it does not interact with the database
+The **frontend** **only** imports **the models** (types).  
+It does not need the client because it does not interact with the database.
 ```ts
 import { User, Vote, Film, Jury } from "@marsai/database";
 ```
