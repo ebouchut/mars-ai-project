@@ -228,7 +228,15 @@ Then you will give it access to these databases.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on how to contribute to this project.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, including:
+
+- Architecture overview and directory structure
+- Database schema, naming conventions, and ERD
+- Git branching strategy and commit conventions
+- Updating the database schema (Prisma workflow)
+- Adding dependencies
+- Running tests
+- Submitting pull requests
 
 ## License
 
