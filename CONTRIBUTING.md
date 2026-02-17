@@ -16,6 +16,8 @@ If you have any questions, feel free to
 
 ### Code of Conduct
 
+Make sure you read and agree to our [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ### Prerequisites for Development
 
 Read the [Prerequisites section of the README](README.md#prerequisites).
@@ -273,12 +275,10 @@ gitGraph
     branch feat/add-home-page
     checkout feat/add-home-page
     commit
-    commit
     checkout dev
     merge feat/add-home-page
 
     branch feat/add-footer
-    commit
     commit
     checkout dev
     merge feat/add-footer
@@ -469,7 +469,6 @@ npm test -w @marsai/frontend
   ```
 
 ### Running the CI Locally
-
 
 
 ## Submitting Changes
