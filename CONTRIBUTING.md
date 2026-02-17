@@ -364,14 +364,15 @@ Here is the **workflow** to add/update/remove the database structure (table, tab
 > This ensures the database schema and the code to query and model entities remain in sync.
 
 
-The _backend_ uses `client.ts` containing the generated models and the ORM API to query the database.
+A _backend_ need to import both the ORM **client** and the models (types).
 ```ts
-import { PrismaClient, User, Vote, Film, Jury } from "../src/generated/prisma/client.js"
+import { PrismaClient }           from "@marsai/database/client";
+import { User, Vote, Film, Jury } from "@marsai/database";
 ```
 
-The _frontend_ uses `browser.ts` only containing the models because it does not interact with the database
+The _frontend_ **only** need to import **the models** (types) because it does not interact with the database
 ```ts
-import { User, Vote, Film, Jury } from "../src/generated/prisma/browser.js"
+import { User, Vote, Film, Jury } from "@marsai/database";
 ```
 
 ### Apply the Latest Database Migrations
