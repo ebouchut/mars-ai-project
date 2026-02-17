@@ -275,10 +275,12 @@ gitGraph
     branch feat/add-home-page
     checkout feat/add-home-page
     commit
+    commit
     checkout dev
     merge feat/add-home-page
 
     branch feat/add-footer
+    commit
     commit
     checkout dev
     merge feat/add-footer
@@ -469,6 +471,7 @@ npm test -w @marsai/frontend
   ```
 
 ### Running the CI Locally
+
 
 
 ## Submitting Changes
