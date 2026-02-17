@@ -201,6 +201,7 @@ model User {
   lastName           String              @map("last_name") @db.VarChar(255)
   bio                String?             @db.Text
   photo              String?             @db.VarChar(255)
+  emailVerifiedAt    DateTime?           @db.Timestamp(0) @map("email_verified_at")
   createdAt          DateTime?           @default(now()) @db.Timestamp(0) @map("created_at")
   updatedAt          DateTime?           @default(now()) @updatedAt @db.Timestamp(0) @map("updated_at")
   deletedAt          DateTime?           @map("deleted_at")

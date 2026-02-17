@@ -104,6 +104,7 @@ erDiagram
   String(255) last_name
   String bio "nullable"
   String(255) photo "nullable"
+  DateTime email_verified_at "nullable"
   DateTime created_at "nullable"
   DateTime updated_at "nullable"
   DateTime deleted_at "nullable"
@@ -279,6 +280,7 @@ Properties as follows:
 - `last_name`:
 - `bio`:
 - `photo`:
+- `email_verified_at`:
 - `created_at`:
 - `updated_at`:
 - `deleted_at`:

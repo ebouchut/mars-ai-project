@@ -43,6 +43,7 @@ export type UserMinAggregateOutputType = {
   lastName: string | null
   bio: string | null
   photo: string | null
+  emailVerifiedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
@@ -57,6 +58,7 @@ export type UserMaxAggregateOutputType = {
   lastName: string | null
   bio: string | null
   photo: string | null
+  emailVerifiedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
@@ -71,6 +73,7 @@ export type UserCountAggregateOutputType = {
   lastName: number
   bio: number
   photo: number
+  emailVerifiedAt: number
   createdAt: number
   updatedAt: number
   deletedAt: number
@@ -95,6 +98,7 @@ export type UserMinAggregateInputType = {
   lastName?: true
   bio?: true
   photo?: true
+  emailVerifiedAt?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -109,6 +113,7 @@ export type UserMaxAggregateInputType = {
   lastName?: true
   bio?: true
   photo?: true
+  emailVerifiedAt?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -123,6 +128,7 @@ export type UserCountAggregateInputType = {
   lastName?: true
   bio?: true
   photo?: true
+  emailVerifiedAt?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -224,6 +230,7 @@ export type UserGroupByOutputType = {
   lastName: string
   bio: string | null
   photo: string | null
+  emailVerifiedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
@@ -261,6 +268,7 @@ export type UserWhereInput = {
   lastName?: Prisma.StringFilter<"User"> | string
   bio?: Prisma.StringNullableFilter<"User"> | string | null
   photo?: Prisma.StringNullableFilter<"User"> | string | null
+  emailVerifiedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   updatedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
@@ -279,6 +287,7 @@ export type UserOrderByWithRelationInput = {
   lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   photo?: Prisma.SortOrderInput | Prisma.SortOrder
+  emailVerifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
   updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -301,6 +310,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   lastName?: Prisma.StringFilter<"User"> | string
   bio?: Prisma.StringNullableFilter<"User"> | string | null
   photo?: Prisma.StringNullableFilter<"User"> | string | null
+  emailVerifiedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   updatedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
@@ -319,6 +329,7 @@ export type UserOrderByWithAggregationInput = {
   lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   photo?: Prisma.SortOrderInput | Prisma.SortOrder
+  emailVerifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
   updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -341,6 +352,7 @@ export type UserScalarWhereWithAggregatesInput = {
   lastName?: Prisma.StringWithAggregatesFilter<"User"> | string
   bio?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   photo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  emailVerifiedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
@@ -354,6 +366,7 @@ export type UserCreateInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -372,6 +385,7 @@ export type UserUncheckedCreateInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -389,6 +403,7 @@ export type UserUpdateInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -407,6 +422,7 @@ export type UserUncheckedUpdateInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -425,6 +441,7 @@ export type UserCreateManyInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -438,6 +455,7 @@ export type UserUpdateManyMutationInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -452,6 +470,7 @@ export type UserUncheckedUpdateManyInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -477,6 +496,7 @@ export type UserCountOrderByAggregateInput = {
   lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   photo?: Prisma.SortOrder
+  emailVerifiedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -495,6 +515,7 @@ export type UserMaxOrderByAggregateInput = {
   lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   photo?: Prisma.SortOrder
+  emailVerifiedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -509,6 +530,7 @@ export type UserMinOrderByAggregateInput = {
   lastName?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   photo?: Prisma.SortOrder
+  emailVerifiedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -586,6 +608,7 @@ export type UserCreateWithoutScreeningsInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -603,6 +626,7 @@ export type UserUncheckedCreateWithoutScreeningsInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -635,6 +659,7 @@ export type UserUpdateWithoutScreeningsInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -652,6 +677,7 @@ export type UserUncheckedUpdateWithoutScreeningsInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -668,6 +694,7 @@ export type UserCreateWithoutUserSocialNetworksInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -685,6 +712,7 @@ export type UserUncheckedCreateWithoutUserSocialNetworksInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -717,6 +745,7 @@ export type UserUpdateWithoutUserSocialNetworksInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -734,6 +763,7 @@ export type UserUncheckedUpdateWithoutUserSocialNetworksInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -750,6 +780,7 @@ export type UserCreateWithoutVotesInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -767,6 +798,7 @@ export type UserUncheckedCreateWithoutVotesInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -799,6 +831,7 @@ export type UserUpdateWithoutVotesInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -816,6 +849,7 @@ export type UserUncheckedUpdateWithoutVotesInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -832,6 +866,7 @@ export type UserCreateWithoutWorksInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -849,6 +884,7 @@ export type UserUncheckedCreateWithoutWorksInput = {
   lastName: string
   bio?: string | null
   photo?: string | null
+  emailVerifiedAt?: Date | string | null
   createdAt?: Date | string | null
   updatedAt?: Date | string | null
   deletedAt?: Date | string | null
@@ -881,6 +917,7 @@ export type UserUpdateWithoutWorksInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -898,6 +935,7 @@ export type UserUncheckedUpdateWithoutWorksInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -973,6 +1011,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   lastName?: boolean
   bio?: boolean
   photo?: boolean
+  emailVerifiedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
@@ -994,12 +1033,13 @@ export type UserSelectScalar = {
   lastName?: boolean
   bio?: boolean
   photo?: boolean
+  emailVerifiedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "passwordHash" | "role" | "firstName" | "lastName" | "bio" | "photo" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "passwordHash" | "role" | "firstName" | "lastName" | "bio" | "photo" | "emailVerifiedAt" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   screenings?: boolean | Prisma.User$screeningsArgs<ExtArgs>
   userSocialNetworks?: boolean | Prisma.User$userSocialNetworksArgs<ExtArgs>
@@ -1025,6 +1065,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     lastName: string
     bio: string | null
     photo: string | null
+    emailVerifiedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -1409,6 +1450,7 @@ export interface UserFieldRefs {
   readonly lastName: Prisma.FieldRef<"User", 'String'>
   readonly bio: Prisma.FieldRef<"User", 'String'>
   readonly photo: Prisma.FieldRef<"User", 'String'>
+  readonly emailVerifiedAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly deletedAt: Prisma.FieldRef<"User", 'DateTime'>
