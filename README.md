@@ -1,7 +1,7 @@
 # marsAI - International AI Film Festival
 
 
-## Description
+## About the Project
 
 Mars Artificial Intelligence Festival (*marsAI*) is a film festival in Marseille (France) 
 for one-minute films made entirely by Artificial Intelligence.
@@ -9,7 +9,7 @@ for one-minute films made entirely by Artificial Intelligence.
 This project is a co-creation between [La Plateforme](https://laplateforme.io) (digital school in Marseille) and the [Mobile Film Festival](https://www.mobilefilmfestival.com).
 
 
-## Overview
+## Description
 
 *marsAI* celebrates human creativity at the intersection of filmmaking and artificial intelligence. 
 The festival theme for this inaugural edition is **Imaginez des futurs souhaitables** (Imagine Desirable Futures).
@@ -54,6 +54,8 @@ The entire interface is available in *French* and *English* via i18n (internatio
 
 
 ## Tech Stack
+
+marsAI is built with the following:
 
 - Dev Tooling:
   - [`npm`](https://en.wikipedia.org/wiki/Npm) version 11.7+
@@ -224,379 +226,17 @@ Then you will give it access to these databases.
   ```
 
 
-
-## Project Structure
-
-The project uses a **feature-based folder structure**
-where there is one folder per feature, for example: `packages/backend/src/features/vote` (singular).
-This folder contains all the related files,
-such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.service.ts`.
-
-It is composed of 3 npm scoped packages:
-
-- **`@marsai/database`**: Database schema and generated JavaScript code
-  (database ORM client, and types mainly model JS objects) (in `packages/database`)
-- **`@marsai/backend`**:  Node/Express app (in `packages/backend`)
-- **`@marsai/frontend`**: React app (in `packages/frontend`)
- 
-`@marsai/backend` and `@marsai/frontend` depend on `@marsai/database`, but do not use the same thing.   
-The *frontend* only uses the types (models such as `Film`, `User`...).   
-The *backend* uses everything: the models and the ORM client code to interact with the database using JS objects.  
-
-```
-├── package.json
-├── package-lock.json
-├── node_modules/
-├── packages
-│    ├── database/
-│    │    ├── .env.example
-│    │    ├── package.json
-│    │    ├── prisma/                         Contains database schema definition and migrations (with Prisma ORM syntax)
-│    │    │   ├── schema.prisma               Database schema
-│    │    │   └── migrations/                 Database migrations
-│    │    |       └── 20260130101437_add_is_active_to_users/
-│    │    |           └─- migration.sql
-│    │    └── src                     
-│    │        └── generated/
-│    │            └── prisma/
-│    ├── backend/
-│    │    ├── .env.example
-│    │    ├── package.json
-│    │    ├── src/
-│    │    │   ├── features/
-│    │    │   │   │
-│    │    │   │   └─── vote/                   Contains code related to the voting feature
-│    │    │   │       ├── vote.routes.ts      Define routes to map URLs to controllers
-│    │    │   │       ├── vote.controller.ts  Handle HTTP request/response
-│    │    │   │       ├── vote.validation.ts  Validate input with Joi schemas
-│    │    │   │       └── vote.service.ts     Handle the Business logic operations
-│    │    │   │
-│    │    │   ├── common/
-│    │    │   │   ├── middlewares/
-│    │    │   │   │   └── auth_middleware.ts
-│    │    │   │   │
-│    │    │   │   └── utils/
-│    │    │   │       └── hash.ts
-│    │    │   │
-│    │    │   ├── integrations/
-│    │    │   │   ├── youtube/
-│    │    │   │   │   ├── youtube.client.ts
-│    │    │   │   │   └── youtube.service.ts
-│    │    │   │   └── email/
-│    │    │   │       ├── email.service.ts
-│    │    │   │       └── templates/
-│    │    │   │
-│    │    │   ├── config/
-│    │    │   │   ├── prisma.ts
-│    │    │   │   ├── environment.ts
-│    │    │   │   └── constants.ts
-│    │    │   │
-│    │    │   ├── loaders/
-│    │    │   │   ├── express.ts
-│    │    │   │   ├── routes.ts
-│    │    │   │   └── i18n.ts
-│    │    │   │
-│    │    │   └── app.ts
-│    │    │
-│    │    └── tests/
-│    │
-     └── frontend/
-         ├── package.json
-         ├── .env.example
-  ```
-
-The table below explains what are the folders:  
-
-| Folder          | Purpose                                                                                |
-|-----------------|----------------------------------------------------------------------------------------|
-| `features/`     | Business domain modules, each self-contained (routes, controller, validation, service) |
-| `common/`       | Shared utilities, middlewares, and validators                                          |
-| `integrations/` | External service connections (YouTube API, Email Service Provider)                     |
-| `config/`       | Environment and application configuration                                              |
-| `loaders/`      | Application bootstrapping and initialization                                           |
-| `tests/`        | Tests (mirrors the `src/` structure)                                                   |
-
-> [!NOTE]
-> The feature folder does not contain `vote.model.js` nor `vote.dal.js`
-because [Prisma](https://github.com/prisma/prisma), the ORM library we are using, 
-handles the model and Data Access Layer (DAL) for us.
-
-
-## Database Schema
-
-This section describes how the database is structured.
-The *marsAI* platform uses a MySQL relational database to persist entities.
-
-We try to stick to
-[Prisma's naming conventions](https://www.prisma.io/docs/orm/reference/prisma-schema-reference#naming-conventions) 
-for entities, fields, enums...
-
-
-### Database Naming Conventions
-
-Here are the naming conventions for the **name** of our database **tables**:
-
-- All lowercase
-- Plural
-- Use underscore for multi words names: `social_networks`
-- Less than 64 characters (because of a MySQL constraint)
-
-Do not use an underscore as the first character.
-
-
-### Database ERD Diagram
-
-The **Entity Relationships Diagram** (ERD) is available as:
-
-- an [SVG image](https://raw.githubusercontent.com/ebouchut/mars-ai-project/dev/docs/ERD.svg)
-- a [page with a commented ERD diagram](docs/ERD.md)
-
-> [!NOTE]
-> This diagram uses [Crows's foot notation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax) 
-> for the **cardinality of relationships**, where:
->
-> - `o|` denotes `0..1` (zero or one)
-> - `||` denotes Exactly one
-> - `o{` denotes `0..n` (zero or more)
-
-> [!TIP]
-> If you want to create an Entity Relationship Diagram (ERD) like this one, 
-> then take a look at [Mermaid.js](https://mermaid.js.org/intro/).
-> With this syntax embedded in a Markdown file, GitHub issue, 
-> you can easily create many types of diagrams such as sequence/flow/class/state diagrams to only name a few.
->
-> GitHub among many other [tools, IDEs and platforms support Mermaid diagrams](https://mermaid.js.org/ecosystem/integrations-community.html#community-integrations).
->
-> To give Mermaid diagrams a whirl, you can use the [free online visual editor](https://mermaid.live/) to build your first diagram, 
-> share it with others and even export it to various formats.
-
-
-## API Documentation
-
-
-## Testing
-
-See [#running-tests](Running Tests) section.
-
-## Deployment
-
-
-
 ## Contributing
 
-### Running Tests
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, including:
 
-The project uses [Vitest](https://vitest.dev/) as its testing framework across all packages.
-
-**Resources:**
-- [Vitest Getting Started](https://vitest.dev/guide/)
-- [Vitest API Reference](https://vitest.dev/api/)
-- [Testing Best Practices](https://vitest.dev/guide/features.html)
-
-#### Run All Tests
-
-From the project root:
-```shell
-npm test
-```
-
-This runs tests across all three packages (`@marsai/database`, `@marsai/backend`, `@marsai/frontend`).
-
-#### Run Tests for a Specific Package
-
-```shell
-# Database tests
-npm test -w @marsai/database
-
-# Backend tests
-npm test -w @marsai/backend
-
-# Frontend tests
-npm test -w @marsai/frontend
-```
-
-#### Test Modes
-
-- **Watch mode** (default) — reruns tests on file changes:
-  ```shell
-  npm test -w @marsai/backend
-  ```
-
-- **Single run** — runs once and exits (useful for CI):
-  ```shell
-  npm run test:run -w @marsai/backend
-  ```
-
-- **With coverage** — generates coverage reports:
-  ```shell
-  npm run test:coverage -w @marsai/backend
-  ```
-
-- **With UI** — opens an interactive browser interface:
-  ```shell
-  npm run test:ui -w @marsai/backend
-  ```
-
-### Git Workflow
-
-> [!NOTE]
-> This project uses a very lightweight **[Git Flow](https://danielkummer.github.io/git-flow-cheatsheet/)**
-> branching workflow to develop, integrate, release new features, and fix bugs.
-> 
-> **Why did we make this change?**
-> 
-> Usually, `main` is the default branch and serves both for the "integration" and deployment to production,
-> which makes these processes brittle.
-> 
-> **What is this change about?**
-> 
-> To facilitate the integration of several features, we created the `dev` branch.  
-> This is where we share the common code with the team.  
-> It also serves as an integration branch to ensure that all the merged-in features work properly.
-> 
-> This new branching scheme makes `dev` the new default branch.
-> 
-> [issue #1](https://github.com/ebouchut/mars-ai-project/issues/1) introduced this change.
-
-We use a **monorepo**, meaning it contains both the **frontend and** the **backend**.
-
-The **branches**:
-
-- Main branch: **`dev`**  
-    - The repository uses this branch as the primary one for development and pull requests.  
-    - It acts as an "integration" branch contains the common code and serves as a safety net.
-    - This branch contains the code shared with the team.  
-    - This is the **default branch**, meaning it is the one we are on 
-      after cloning this repository, where we merge our feature branches via PRs. 
-    - It is also where we test that the merged features do not break the website.    
-      Once we are confident the code on `dev` can be deployed to production, we merge `dev` into `main`.  
-    - We should not commit directly to `dev`, but create a PR (Pull Request) to bring in changes. 
-    - We have configured `dev` to require two approvals before merging to `dev`.
-- **`main`** contains the production-ready code.  
-    - This is where the team merges `dev` after ensuring that the new features on `dev` 
-      are working properly together.
-    - This branch is used for deployment.  
-
-We create **temporary branches** to develop a **feature** or **fix** a bug:
-
-- **`feat/my-feature-description-here`** denotes a feature branch.  
-  The naming convention may seem a bit convoluted, but refer to the kind of branch it is (`feat`: this is a feature), and what the branch will bring when merged to `dev` (`my-feature-description-here` should be a quick, hyper-consise, and high level description of the feature, using just a few all-lowercase words separated with an hyphen).  
-  For instance: `feat/add-footer`.  
-- **`fix/concise-bug-description-here`** a bug fix branch  
-  We create a bug fix branch, such as `fix/broken-link-page-footer`, when the website breaks in production.
-
-
-```mermaid
-gitGraph
-    commit
-    branch dev
-    checkout dev
-    branch feat/add-home-page
-    checkout feat/add-home-page
-    commit
-    commit
-    checkout dev
-    merge feat/add-home-page
-
-    branch feat/add-footer
-    commit
-    commit
-    checkout dev
-    merge feat/add-footer
-
-    checkout main
-    merge dev
-    commit type: HIGHLIGHT tag: "bug found"
-    checkout main
-    branch fix/htaccess
-    commit
-    checkout main
-    merge fix/htaccess
-    checkout dev
-    merge fix/htaccess
-```
-
-### Add npm Packages
-
-To **add** `npm` packages to the npm **frontend** workspace (`@marsai/frontend`):
-
-- Go the project root folder:  
-  ```shell
-  cd mars-ai-project  # cd $(git rev-parse --show-toplevel)
-  
-  npm install react react-dom         -w @marsai/frontend
-  npm install --save-dev @types/react  -w @marsai/frontend
-  ```
-
-Where:
-
-- The first `npm install` line, adds the `react` and `react-dom` **runtime** dependencies (also used in the production environment).
-- The second line `npm install` line, adds a **development** dependency ,that will not be used in the production environment.
-- `--save-dev` specify that the `@types/react` package is a development dependency that won't be used at runtime (production). 
-- `-w @marsai/frontend` specify where to add the npm packages: the _frontend_ npm workspace (in the `packages/frontend/` folder) 
-
-### Understanding the Prisma ORM
-
-The [Prisma Client](https://www.prisma.io/docs/orm/prisma-client) is auto-generated TypeScript code 
-that provides a type-safe API to query the database.
-It needs to be regenerated each time the database schema changes to ensure they remain in sync.
-
-It's generated by running either of these commands from your modified database schema `packages/database/prisma/schema.prisma`:
-- the shorter variant:
-  ```shell
-  npm run db:generate
-  ```
-- or the exhaustive variant:
-  ```shell
-  npm run prisma generate -w @marsai/database
-  ```
-
-> [!NOTE]
-> Run these commands **from the project root folder**.
-
-[Prisma](https://www.prisma.io/docs) generates:
-
-- **CRUD methods** for each model: `prisma.user.create()`, `prisma.film.findMany()`, `prisma.work.delete()`...
-- TypeScript **types for all models**, enums, and input/output shapes
-- **Query builder**: type-safe `where`, `include`, `select`, `orderBy`...
-- **Autocomplete** so that your IDE knows every field, relation, and filter available
-
-
-### Updating the Database Schema
-
-To add, remove, an entity or a field/property we need to update the database schema.
-It serves as a source of truth and is used to generate and update the database. 
-
-Here is what the procedure to change the database structure looks like:
-- **Update the database schema**: (in `packages/database/prisma/schema.prisma`)  
-   (add/update/remove entities, fields, relationships)
-- Create and apply the database migration script (SQL) to your local database:  
-  ```shell
-  npm run migrate dev -w @marsai/database -- --name add-deletedat-to-user
-  ```
-  Adjust the [kebab-case](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) name (after `--name `) 
-  `add-deletedat-user` in this example to describe your changes. 
-- Update the ORM TypeScript code (that provides a type-safe API to query the database):  
-  ```shell
-  npm run db:generate
-  ```
-  This command does the following for you:
-    - update the model classes used by the backend and the frontend (in `packages/database/src/generated/models/`)
-    - update the "client" only used by the backend to query the database   (in `packages/database/src/generated/prisma`)
-This code needs to re-generated each time you update the database schema. 
-
-> [!NOTE]
-> Run the npm commands from the project root folder. 
-
-Once your teammates will pick up the latest changes from the `dev` branch, 
-they need to apply the new migrations like so:
-
-```shell
-npm run db:migrate dev
-
-# equivalent to:
-# npm run prisma migrate dev -w @marsai/database
-```
+- Architecture overview and directory structure
+- Database schema, naming conventions, and ERD
+- Git branching strategy and commit conventions
+- Updating the database schema (Prisma workflow)
+- Adding dependencies
+- Running tests
+- Submitting pull requests
 
 ## License
 
@@ -618,3 +258,10 @@ We are a team of five:
 - Eric BOUCHUT: [LinkedIn](https://linkedin.com/in/ebouchut) | [GitHub](https://github.com/ebouchut)
 
 ## Acknowledgments
+
+Thank you to **our instructors** for their involvement and help:
+ 
+- [Alejandro Seijo](https://www.linkedin.com/in/alejandro-f-seijo-1541aa189/),
+- [Jean-César Bazin](https://www.linkedin.com/in/jean-c%C3%A9sar-bazin-a7bab9176/),
+- Aubry
+- [Esteban Bare](https://www.linkedin.com/in/esteban-bare-337927284/).
