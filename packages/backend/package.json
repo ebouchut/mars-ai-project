@@ -33,8 +33,7 @@
     "express": "^5.2.1",
     "joi": "^18.0.2",
     "jsonwebtoken": "^9.0.3",
-    "nodemailer": "^8.0.1",
-    "uuid": "^11.1.0"
+    "nodemailer": "^8.0.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
