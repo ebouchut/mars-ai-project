@@ -301,25 +301,30 @@ gitGraph
 
 ### Code Style and Formatting
 
+
 ### Reset the Development Database
 
 This section explains how to reset the development database.
 It may prove useful when you need to start from a blank slate.
 
 > [!WARNING]
-> Think twice before launching this command because it will **remove all data from your database**.
+> Think twice before launching this command because it will **remove all the data in your database**.
 
 ```shell
-# You will lose all data in your database!
-npx -w @marsai/database prisma migrate reset
-npx -w @marsai/database prisma db      seed
+# Running this command will DELETE ALL the DATA in your database!
+npx db:reset
+
+# Shortcut for:
+# npx -w @marsai/database prisma migrate reset
+# npx -w @marsai/database prisma db      seed
 ```
 
-These commands:
+This command:
 
-1. drops the database structure (deletes all the tables...)
+1. drops the recreates the database schema that is the structure (tables...)
 1. applies all database migrations in order to recreate the database structure
 1. runs the [seed script](./packages/database/prisma/seed.ts) to populate the database
+
 
 ### Apply the Latest Database Migrations
 
