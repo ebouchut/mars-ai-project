@@ -12,9 +12,10 @@
   "scripts": {
     "dev:backend": "npm run dev -w @marsai/backend",
     "dev:frontend": "npm run dev -w @marsai/frontend",
-    "db:migrate": "npm run migrate -w @marsai/database",
+    "db:migrate": "npx -w @marsai/database prisma migrate dev",
     "db:generate": "npm run generate -w @marsai/database",
     "db:studio": "npm run studio -w @marsai/database",
+    "db:reset": "npx -w @marsai/database db:reset",
     "db:seed": "npm run db:seed -w @marsai/database",
     "build": "npm run build --workspaces --if-present",
     "type-check": "npm run type-check --workspaces --if-present",

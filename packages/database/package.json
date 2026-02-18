@@ -13,6 +13,7 @@
     "studio": "prisma studio",
     "db:pull": "prisma db pull",
     "db:push": "prisma db push",
+    "db:reset": "prisma migrate reset && prisma db seed",
     "db:seed": "prisma db seed",
     "build": "tsc && tsc-alias",
     "type-check": "tsc --noEmit",
