@@ -44,7 +44,6 @@ async function main() {
         data: {
             email: "admin@marsai.example.com",
             passwordHash: await hashPassword(adminPassword),
-            uuid: crypto.randomUUID(),
             role: UserRole.admin,
             firstName: "Admin1",
             lastName: "Admin",
