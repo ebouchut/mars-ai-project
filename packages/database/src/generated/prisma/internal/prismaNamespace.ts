@@ -1584,6 +1584,7 @@ export type UserSocialNetworkScalarFieldEnum = (typeof UserSocialNetworkScalarFi
 
 export const UserScalarFieldEnum = {
   id: 'id',
+  uuid: 'uuid',
   email: 'email',
   passwordHash: 'passwordHash',
   role: 'role',
@@ -1724,6 +1725,7 @@ export type UserSocialNetworkOrderByRelevanceFieldEnum = (typeof UserSocialNetwo
 
 
 export const UserOrderByRelevanceFieldEnum = {
+  uuid: 'uuid',
   email: 'email',
   passwordHash: 'passwordHash',
   firstName: 'firstName',

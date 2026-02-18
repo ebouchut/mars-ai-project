@@ -97,6 +97,7 @@ erDiagram
 }
 "users" {
   Int id PK
+  String(36) uuid UK
   String(150) email UK
   String(255) password_hash
   UserRole role
@@ -273,6 +274,7 @@ Properties as follows:
 Properties as follows:
 
 - `id`:
+- `uuid`:
 - `email`:
 - `password_hash`:
 - `role`:

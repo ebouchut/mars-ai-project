@@ -194,6 +194,7 @@ model UserSocialNetwork {
 
 model User {
   id                 Int                 @id @default(autoincrement())
+  uuid               String              @unique @default(uuid()) @db.Char(36)
   email              String              @unique(map: "email") @db.VarChar(150)
   passwordHash       String              @map("password_hash") @db.VarChar(255)
   role               UserRole
