@@ -61,8 +61,8 @@ We use a **monorepo**, that is a Git repository containing both the **frontend a
 
 The project is composed of 3 `npm` packages scoped below the `@marsai` `npm` workspace:
 
-- **`@marsai/database`**: Database schema and generated JavaScript code
-  (database ORM client (query API), and types (models, enums) JS objects) (in `packages/database`)
+- **`@marsai/database`**: Database schema, migrations, and generated JavaScript code
+  (ORM client (query API), and types (models, enums) JS objects) (in `packages/database`)
 - **`@marsai/backend`**:  Node/Express app (in `packages/backend`)
 - **`@marsai/frontend`**: React app (in `packages/frontend`)
 
@@ -301,7 +301,36 @@ gitGraph
 
 ### Code Style and Formatting
 
-### Updating the Database Schema
+### Reset the Development Database
+
+This section explains how to reset the development database.
+It may prove useful when you need to start from a blank slate.
+
+> [!WARNING]
+> Think twice before launching this command because it will **remove all data from your database**.
+
+```shell
+# You will lose all data in your database!
+npx -w @marsai/database prisma migrate reset
+npx -w @marsai/database prisma db      seed
+```
+
+These commands:
+
+1. drops the database structure (deletes all the tables...)
+1. applies all database migrations in order to recreate the database structure
+1. runs the [seed script](./packages/database/prisma/seed.ts) to populate the database
+
+### Apply the Latest Database Migrations
+
+Once you have picked up the latest changes from the upstream `dev` branch,
+you need to apply the latest database migrations as follows:
+
+```shell
+npx -w @marsai/database prisma migrate dev
+```
+
+### Update the Database Schema
 
 > [!NOTE]
 > **What is Prisma?**
@@ -317,33 +346,29 @@ It serves as a source of truth and and is used to generate and update the databa
 
 Here is the **workflow** to add/update/remove the database structure (table, table column, relationship, enum value).
 
-> [!IMPORTANT]
-> Run the `npm` commands **from the project root folder**.
+> [!TIP]
+> Run the `npx` commands **from the project root folder**.
 
 1. **Update** the **database schema** in [`packages/database/prisma/schema`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/database/prisma/schema.prisma).
    Say for instance, you add the `emailVerifiedAt` property to the `User` entity, like so:
    ```prisma
    emailVerifiedAt  DateTime?  @db.Timestamp(0) @map("email_verified_at")
    ```
-1. Generate the SQL migration file and apply it to the database:
+1. Generate the SQL migration file **and apply it to the development database**:
    ```shell
    # cd mars-ai-project
-    npm run migrate  -w @marsai/database -- --name add-email-verified-at-to-users
-   
-   # same as
-   # npm run prisma migrate dev --name add-email-verified-at-to-users -w @marsai/database
+    npx -w @marsai/database prisma migrate dev --name add_email_verified_at_to_users
    ```
    This command:
    
-    - generates a SQL script named `migration.sql` in `packages/database/prisma/migrations/TIMESTAMP_add_email_verified_at_to_users/`.
-    - applies this migration to the database which adds the `email_verified_at` column to the `users` table.
+    - generates a SQL migration script named `migration.sql` in `packages/database/prisma/migrations/TIMESTAMP_add_email_verified_at_to_users/`.
+    - runs this script to apply the migration to the database which adds the `email_verified_at` column to the `users` table.
    
-   Adjust the [kebab-case](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) name (after `--name `)
-   in this example to reflect the actual changes.
+   Adjust the name (after `--name `) to reflect the actual changes.
 2. Generate the [Prisma Client](https://www.prisma.io/docs/orm/prisma-client) code:
    ```shell
    # cd mars-ai-project
-   npm run db:generate
+   npx -w @marsai/database prisma generate
    ```
 
 > [!INFO]]
@@ -376,19 +401,8 @@ It does not need the client because it does not interact with the database.
 import { User, Vote, Film, Jury } from "@marsai/database";
 ```
 
-### Apply the Latest Database Migrations
 
-Once you heave picked up the latest changes from the upstream `dev` branch,
-you need to apply the latest database migrations as follows:
-
-```shell
-npm run db:migrate dev
-
-# equivalent to:
-# npm run prisma migrate dev -w @marsai/database
-```
-
-### Add Dependencies
+### Add Npm Dependencies
 
 In the example below we **add** the following dependencies (`npm` packages in our case)
 to the **frontend** (`@marsai/frontend`):
