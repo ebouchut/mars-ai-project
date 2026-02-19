@@ -47,6 +47,7 @@ async function main() {
             role: UserRole.admin,
             firstName: "Admin1",
             lastName: "Admin",
+            emailVerifiedAt: new Date()
         }
     });
     console.log("Seeded 1 admin");
