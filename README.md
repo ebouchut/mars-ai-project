@@ -139,14 +139,14 @@ Make sure you meet the [prerequisites](#Prerequisites) which are necessary for t
 >     import 'dotenv/config'
 >
 >     // ...
->     env('DATABASE_URL')  // => Return the value of the DATABASE_URL
+>     process.env.DATABASE_URL  // => Return the value of the DATABASE_URL
 >     ```
 
 > [!IMPORTANT]
 > The `.env` file MUST NOT be under version control.
 > Never ever git commit this file.
 
-**Create and populate the `.env` files.**
+**Create and populate the `.env` files in `packages/database` and `packages/backend`.**
 
 1. Copy [`.env.example`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/backend/.env.example) as `.env`
 1. Edit and adjust the variables in `.env`
@@ -155,7 +155,7 @@ Make sure you meet the [prerequisites](#Prerequisites) which are necessary for t
 cd backend
 cp .env.example .env
 
-# Edit backend/.env and update the variables according to your development environment:
+# Edit backend/.env and database.env and update the variables according to your development environment:
 #   - DATABASE_HOST=TODO_HOST_HERE
 #   - DATABASE_PORT=TODO_PORT_HERE
 #   - DATABASE_USER=TODO_USERNAME_HERE
@@ -164,6 +164,9 @@ cp .env.example .env
 #
 #   - DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
 #   - SHADOW_DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
+#   - JWT_SECRET=TODO_YOUR_SECRET_KEY_HERE
+#   - JWT_EXPIRES_IN=1h
+#   - JWT_ISSUER=marsai
 ```
 
 ### Database Setup
@@ -199,7 +202,7 @@ Then you will give it access to these databases.
    (database name, database username and password...).
 1. log in to MySQL as `root`
 1. Run your copy of the SQL script 
-1. Create the database **structure** (tables...) and add the **seeds**:
+1. Create the database **structure** (tables...) and add the **seeds**, like so:
    ```shell
    cd mars-ai-project
 
