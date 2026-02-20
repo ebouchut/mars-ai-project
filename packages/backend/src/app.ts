@@ -3,20 +3,18 @@
 //  Express Test App
 //~~~~~~~~~~~~~~~~~~~~~
 
-import express from 'express';
+import express, {type Express} from 'express';
 
-const APP = express();
+/*** The backend Express App **/
+const app: Express = express();
 
 // REST Endpoints and Routing
 
 // GET / (Home Page)
-APP.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello Express World')
 });
 
 
-APP.listen(3000, () => {
-    console.log('Express Server running on port 3000')
-});
-
+export default app;
 
