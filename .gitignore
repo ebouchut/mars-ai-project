@@ -10,7 +10,8 @@
 # Do not commit the (locally) generated documentation.
 # GitHub CI will generate it automatically when tagging a release.
 #
-/docs/code/  # Aggregated doc (database + backend + frontend)
+# Aggregated docs (database + backend + frontend)
+/docs/code/
 packages/database/docs/
 packages/backend/docs/
 packages/frontend/docs/
