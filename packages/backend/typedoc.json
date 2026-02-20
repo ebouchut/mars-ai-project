@@ -1,0 +1,8 @@
+{
+  "name": "@marsai/backend",
+  "entryPointStrategy": "expand",
+  "entryPoints": [
+    "src"
+  ],
+  "out": "docs"
+}

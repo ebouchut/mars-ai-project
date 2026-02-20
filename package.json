@@ -19,7 +19,11 @@
     "db:seed": "npm run db:seed -w @marsai/database",
     "build": "npm run build --workspaces --if-present",
     "type-check": "npm run type-check --workspaces --if-present",
-    "test": "npm run test:run --workspaces --if-present"
+    "test": "npm run test:run --workspaces --if-present",
+    "docs": "typedoc",
+    "docs:database": "npm run docs -w @marsai/database",
+    "docs:backend":  "npm run docs -w @marsai/backend",
+    "docs:frontend": "npm run docs -w @marsai/frontend"
   },
   "description": "An AI film festival application",
   "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
@@ -35,5 +39,8 @@
   "type": "module",
   "directories": {
     "doc": "docs"
+  },
+  "devDependencies": {
+    "typedoc": "^0.28.17"
   }
 }

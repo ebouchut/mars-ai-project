@@ -1,0 +1,9 @@
+{
+  "entryPointStrategy": "packages",
+  "entryPoints": [
+    "packages/database",
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "out": "docs/code"
+}

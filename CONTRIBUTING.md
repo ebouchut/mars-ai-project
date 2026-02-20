@@ -24,6 +24,11 @@ Read the [Prerequisites section of the README](README.md#prerequisites).
 
 ### Understanding the Codebase
 
+#### Code Documentation
+
+You will find the code reference documentation here: TODO.
+
+
 #### Architecture Overview
 
 _marsAI_ is a client server application 
@@ -489,6 +494,22 @@ npm test -w @marsai/frontend
   npm run test:ui -w @marsai/backend
   ```
 
+### Generating the Documentation
+
+You can **generate** the code **documentation locally**:
+
+```shell
+npm run docs
+```
+
+To read the docs open **`docs/code/index.html`** in your browser.
+
+> [!NOTE]
+> We do not commit the local documentation to the repository. 
+> It is gitignored.  
+> However, when tagging a new release on GitHub, the CI will generate it automatically on GitHub.  
+
+🔜
 ### Running the CI Locally
 
 

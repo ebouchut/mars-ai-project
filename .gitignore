@@ -1,12 +1,19 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Project stuff
+# marsAI Project
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Prisma generated sources
 # See: https://www.prisma.io/docs/orm/prisma-schema/overview/generators#3-exclude-the-generated-directory-from-version-control
 /src/generated/prisma
 
-
+# Docs
+# Do not commit the (locally) generated documentation.
+# GitHub CI will generate it automatically when tagging a release.
+#
+/docs/code/  # Aggregated doc (database + backend + frontend)
+packages/database/docs/
+packages/backend/docs/
+packages/frontend/docs/
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Non project stuff
