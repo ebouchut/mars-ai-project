@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "exports": {
-    ".":        "./src/generated/prisma/browser.ts",
-    "./client": "./src/generated/prisma/client.js"
-  },
   "scripts": {
     "generate": "prisma generate",
     "migrate": "prisma migrate dev",
@@ -20,7 +16,8 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "docs": "typedoc"
   },
   "dependencies": {
     "@prisma/adapter-mariadb": "^7.3.0",
@@ -36,5 +33,9 @@
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
+  },
+  "exports": {
+    ".":        "./src/generated/prisma/browser.ts",
+    "./client": "./src/generated/prisma/client.ts"
   }
 }

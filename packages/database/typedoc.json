@@ -1,0 +1,9 @@
+{
+  "name": "@marsai/database",
+  "entryPointStrategy": "resolve",
+  "entryPoints": [
+    "src/generated/prisma/client.ts",
+    "src/generated/prisma/browser.ts"
+  ],
+  "out": "docs"
+}

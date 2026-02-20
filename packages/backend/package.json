@@ -11,7 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/ebouchut/mars-ai-project.git"
   },
-  "main": "dist/.main.ts",
   "scripts": {
     "dev": "nodemon",
     "start": "node dist/app.js",
@@ -20,7 +19,8 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "docs": "typedoc"
   },
   "keywords": [],
   "author": "A-Team: https://github.com/ebouchut/mars-ai-project?tab=readme-ov-file#authors",
@@ -47,5 +47,11 @@
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   }
 }
