@@ -126,48 +126,51 @@ Make sure you meet the [prerequisites](#Prerequisites) which are necessary for t
 
 ### Environment Variables
 
-> [!NOTE]
-> The **environment variables** containing **sensitive information**
-> (such as **database username and password**, database name...)
-> should be declared in a file named **`.env`**.
-> When starting up, the application:
->
-> 1. reads the `.env` file,
-> 1. exports the variables declared in this file as environment variables
-> 1. accesses variables like so:
->     ```js
->     import 'dotenv/config'
->
->     // ...
->     process.env.DATABASE_URL  // => Return the value of the DATABASE_URL
->     ```
-
-> [!IMPORTANT]
-> The `.env` file MUST NOT be under version control.
-> Never ever git commit this file.
-
 **Create and populate the `.env` files in `packages/database` and `packages/backend`.**
 
 1. Copy [`.env.example`](https://github.com/ebouchut/mars-ai-project/blob/dev/packages/backend/.env.example) as `.env`
-1. Edit and adjust the variables in `.env`
+   ```shell
+   cp packages/backend/.env.example  packages/backend/.env
+   cp packages/database/.env.example packages/database/.env
+   ```
+1. Edit and adjust the variables in `.env` files
+   ```txt
+   # Edit both .env files and update the variables according to your development environment:
+   #   - DATABASE_HOST=TODO_HOST_HERE
+   #   - DATABASE_PORT=TODO_PORT_HERE
+   #   - DATABASE_USER=TODO_USERNAME_HERE
+   #   - DATABASE_PASSWORD=TODO_PASSWORD_HERE
+   #   - DATABASE_NAME=TODO_DATABASE_NAME_HERE
+   #
+   #   - DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
+   #   - SHADOW_DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
+   #
+   #   # Only in packages/backend/.env
+   #   - JWT_SECRET=TODO_YOUR_SECRET_KEY_HERE
+   #   - JWT_EXPIRES_IN=1h
+   #   - JWT_ISSUER=marsai
+   ```
 
-```shell
-cd backend
-cp .env.example .env
+> [!IMPORTANT]
+> The `.env` file MUST NOT be under version control.
+> **NEVER** ever git **commit** `.env` files.
+> It is already [gitignored](https://github.com/ebouchut/mars-ai-project/blob/eb9e413659b8ef4d215945be18bdcd356b685bc4/.gitignore#L81-L84).
+> 
+> The `.env`  file defines **environment variables** which contains **sensitive information**,
+> such as **database username and password**, database name...
 
-# Edit backend/.env and database.env and update the variables according to your development environment:
-#   - DATABASE_HOST=TODO_HOST_HERE
-#   - DATABASE_PORT=TODO_PORT_HERE
-#   - DATABASE_USER=TODO_USERNAME_HERE
-#   - DATABASE_PASSWORD=TODO_PASSWORD_HERE
-#   - DATABASE_NAME=TODO_DATABASE_NAME_HERE
-#
-#   - DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
-#   - SHADOW_DATABASE_URL=TODO_SEE_.env_FOR_DETAILS
-#   - JWT_SECRET=TODO_YOUR_SECRET_KEY_HERE
-#   - JWT_EXPIRES_IN=1h
-#   - JWT_ISSUER=marsai
-```
+
+> [!NOTE]
+> How to read variables defined in `.env`?
+> 
+> When starting up, the application reads the `.env` file and exports its variables 
+> as environment variables.    
+> You can then read variables defined `.env` like so:
+> ```js
+> import "dotenv/config"
+> // ...
+> process.process.env.DATABASE_URL  // => Return the value of DATABASE_URL
+> ```
 
 ### Database Setup
 
@@ -234,12 +237,15 @@ Then you will give it access to these databases.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, including:
 
 - Architecture overview and directory structure
-- Database schema, naming conventions, and ERD
+- Code documentation
+- Naming conventions
+- Database schema, ERD (Entity Relationships Diagram)
 - Git branching strategy and commit conventions
 - Updating the database schema (Prisma workflow)
 - Adding dependencies
 - Running tests
 - Submitting pull requests
+- ...
 
 ## License
 
