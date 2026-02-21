@@ -1,0 +1,38 @@
+name: Generate and publish the marsAI code documentation
+
+on:
+  push:
+    tags:
+      - 'v*'           # Triggered when releasing a new version
+  workflow_dispatch:   # allows manual trigger from GitHub UI for testing
+
+permissions:
+  contents: write
+
+jobs:
+  docs:
+    name: Build and publish docs
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'ebouchut'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'  # Use the version declared in .node-version
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate documentation
+        run: npm run docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/code
+          destination_dir: ${{ github.ref_name }}   # e.g. v1.2.0
