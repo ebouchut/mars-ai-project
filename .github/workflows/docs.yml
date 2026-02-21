@@ -1,4 +1,4 @@
-name: Generate and publish the marsAI code documentation
+name: Publish Documentation
 
 on:
   push:
