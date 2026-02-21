@@ -26,22 +26,24 @@ Read the [Prerequisites section of the README](README.md#prerequisites).
 
 #### Code Documentation
 
-You will find the code reference documentation here: TODO.
+The code reference documentation [can be found here](https://www.ericbouchut.com/mars-ai-project/dev/). 
 
 
 #### Architecture Overview
 
-_marsAI_ is a client server application 
+_marsAI_ is a client-server application 
 using a MySQL database to persist information.
 
-Films submitted for the festival are initially stored on our platform,
-before being bookended (a step where we add an intro + outro), 
-and  uploaded to a private YouTube Channel for copyright checks.
+Submitted films are stored on our platform,
+then bookended (adding intro and outro segments), 
+and uploaded to a private YouTube Channel for copyright review.
 
-If the film is copyright cleared, one-minute max, and pass the screening process, 
-then it will make its way to the public YouTube channel.
+Once cleared for copyright, confirmed as 1-minute maximum length, 
+and approved though the screening process, 
+films move to the public YouTube channel
+where jury members score them accrosstheir assigned categories.
 
-See #22 for details.
+See #22 and for details.
 
 ##### MonoRepo
 

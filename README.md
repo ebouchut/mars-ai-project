@@ -237,12 +237,15 @@ Then you will give it access to these databases.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, including:
 
 - Architecture overview and directory structure
-- Database schema, naming conventions, and ERD
+- Code documentation
+- Naming conventions
+- Database schema, ERD (Entity Relationships Diagram)
 - Git branching strategy and commit conventions
 - Updating the database schema (Prisma workflow)
 - Adding dependencies
 - Running tests
 - Submitting pull requests
+- ...
 
 ## License
 
