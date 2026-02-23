@@ -58,25 +58,32 @@ The entire interface is available in *French* and *English* via i18n (internatio
 marsAI is built with the following:
 
 - Dev Tooling:
-  - [`npm`](https://en.wikipedia.org/wiki/Npm) version 11.7+
   - [fnm](https://github.com/Schniz/fnm) _Fast Node Manager_ allows installing and switching Node versions.
       - [Installation](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)
       - [Configuration](https://github.com/Schniz/fnm?tab=readme-ov-file#completions)
-  - [`git`](https://en.wikipedia.org/wiki/Git) (ideally the latest version)
-- Database:  
-    - [MySQL](https://en.wikipedia.org/wiki/MySQL) version 8.4+
+  - [`npm`](https://en.wikipedia.org/wiki/Npm) version 11.7+ ‒ the default package manager for *Node.js*.
+  - [`git`](https://en.wikipedia.org/wiki/Git)  ‒ a distributed version control system that tracks changes in code
 - Backend:  
     - [Express](https://expressjs.com/)
     - [Node.js](https://en.wikipedia.org/wiki/Node.js) version 24+
-    - [Joi](https://joi.dev/) for input validation  
-      We use Joi to define a schema that describes valid JSON data 
-    - [Prisma](https://github.com/prisma/prisma) ORM
+        - [Prisma](https://www.prisma.io/) is both:
+            - an **ORM** (library) that translates JS method calls on entities/models into SQL queries on database tables, 
+            - a CLI tool to handle **database migrations** to apply, revert changes to the database.    
+              The database migration (SQL file) and ORM client code are generated based on changes made to the *database schema* 
+              that acts as a *source of truth*).
+        - [Joi](https://joi.dev/) for defining schemas that describe valid [JSON](https://en.wikipedia.org/wiki/JSON) input data
 - Frontend:  
     - [React.js](https://en.wikipedia.org/wiki/React_(software))
     - Styling:  
         - [Tailwind CSS](https://en.wikipedia.org/wiki/Tailwind_CSS)
+- Database:
+    - [MySQL](https://en.wikipedia.org/wiki/MySQL) version 8.4+
 - Testing:
     - [Vitest)(https://vitest.dev/) Testing framework 
+- Languages:
+    - [TypeScript](https://www.typescriptlang.org/)  
+      All woskspace packages in this project use *TypeScript* ‒ a strongly typed programming language that builds on [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
+    - [SQL](https://en.wikipedia.org/wiki/SQL) We use *Prisma*, an ORM that maps entities 
 - Architecture:  
     - MVC Pattern
 
