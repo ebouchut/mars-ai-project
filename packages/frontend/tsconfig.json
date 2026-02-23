@@ -9,6 +9,15 @@
     // Directory where compiled .js files are emitted
     "outDir":  "./dist",
 
+    // Base directory for resolving path aliases
+    "baseUrl": "./src",
+
+    // Path aliases: @/ maps to the src/ directory
+    // @/components/Button.js ==> ./src/components/Button.js
+    "paths": {
+      "@/*": ["./*"]
+    },
+
     // ~~~~~ Environment Settings
     // Combined with `"type": "module"` in a local package.json,
     // this enforces including file extensions on relative path imports.
