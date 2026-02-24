@@ -5,6 +5,7 @@
 import "dotenv/config";
 import { argon2, randomBytes } from "node:crypto";
 import { promisify } from "node:util";
+
 import { PrismaMariaDb } from "@prisma/adapter-mariadb"
 import { PrismaClient, UserRole } from "../src/generated/prisma/client.js"
 
@@ -16,6 +17,7 @@ const prisma = new PrismaClient({
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Hash password using Argon2id (OWASP recommended parameters)
+// TODO: hashPassword(string) is redundant code with @marsai/backend
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const argon2Async = promisify(argon2);
 
