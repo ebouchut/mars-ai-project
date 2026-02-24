@@ -3,18 +3,9 @@
 //  Express Test App
 //~~~~~~~~~~~~~~~~~~~~~
 
-import express, {type Express} from 'express';
+import { loadExpress } from '@/loaders/express.js';
 
-/*** The backend Express App **/
-const app: Express = express();
-
-// REST Endpoints and Routing
-
-// GET / (Home Page)
-app.get('/', (req, res) => {
-    res.send('Hello Express World')
-});
-
+const app = loadExpress();
 
 export default app;
 
