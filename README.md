@@ -63,23 +63,23 @@ marsAI is built with the following:
       - [Configuration](https://github.com/Schniz/fnm?tab=readme-ov-file#completions)
   - [`npm`](https://en.wikipedia.org/wiki/Npm) version 11.7+ ‒ the default package manager for *Node.js*.
   - [`git`](https://en.wikipedia.org/wiki/Git)  ‒ a distributed version control system that tracks changes in code
+- Database:[MySQL](https://en.wikipedia.org/wiki/MySQL) version 8.4+
 - Backend:  
-    - [Express](https://expressjs.com/)
     - [Node.js](https://en.wikipedia.org/wiki/Node.js) version 24+
-        - [Prisma](https://www.prisma.io/) is both:
-            - an **ORM** (library) that translates JS method calls on entities/models into SQL queries on database tables, 
-            - a CLI tool to handle **database migrations** to apply, revert changes to the database.    
-              The database migration (SQL file) and ORM client code are generated based on changes made to the *database schema* 
-              that acts as a *source of truth*).
-        - [Joi](https://joi.dev/) for defining schemas that describe valid [JSON](https://en.wikipedia.org/wiki/JSON) input data
+    - [Express](https://expressjs.com/) ‒ a minimal Node.js framework that handles HTTP routing, middleware chaining, 
+      and request/response processing, giving you the foundation to build a full application server 
+      with authentication, validation, error handling, and business logic layers on top.
+    - [Prisma](https://www.prisma.io/) is both:
+        - an **ORM** (library) that translates JavaScript method calls on entities/models into SQL queries on database tables, 
+        - a CLI tool to handle **database migrations** to generate, apply, revert changes to the database.    
+          The database migration (SQL file) and ORM client code are generated based on changes made to the *database schema* 
+          that acts as a *source of truth*).
+    - [Joi](https://joi.dev/) for defining schemas that describe valid [JSON](https://en.wikipedia.org/wiki/JSON) input data
 - Frontend:  
     - [React.js](https://en.wikipedia.org/wiki/React_(software))
-    - Styling:  
-        - [Tailwind CSS](https://en.wikipedia.org/wiki/Tailwind_CSS)
-- Database:
-    - [MySQL](https://en.wikipedia.org/wiki/MySQL) version 8.4+
-- Testing:
-    - [Vitest)(https://vitest.dev/) Testing framework 
+    - [Tailwind CSS](https://en.wikipedia.org/wiki/Tailwind_CSS) (Styling)
+- Testing: [Vitest)(https://vitest.dev/) Testing framework
+- I18N (Internationalization): [i18next](https://www.i18next.com/)
 - Languages:
     - [TypeScript](https://www.typescriptlang.org/)  
       All woskspace packages in this project use *TypeScript* ‒ a strongly typed programming language that builds on [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
