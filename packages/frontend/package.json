@@ -25,7 +25,9 @@
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "dependencies": {
-    "@marsai/database": "*"
+    "@marsai/database": "*",
+    "@marsai/i18n": "*",
+    "react-i18next": "^16.5.4"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^4.0.18",

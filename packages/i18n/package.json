@@ -1,0 +1,15 @@
+{
+  "name": "@marsai/i18n",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "i18n:extract":    "i18next-cli extract",
+    "i18n:extract:ci": "i18next-cli extract --ci",
+    "i18n:lint":       "i18next-cli lint",
+    "i18n:watch":      "i18next-cli extract --watch"
+  },
+  "devDependencies": {
+    "i18next-cli": "latest"
+  }
+}

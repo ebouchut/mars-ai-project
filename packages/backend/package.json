@@ -28,9 +28,11 @@
   "type": "module",
   "dependencies": {
     "@marsai/database": "*",
+    "@marsai/i18n": "*",
     "@prisma/adapter-mariadb": "^7.3.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "i18next": "^25.8.13",
     "joi": "^18.0.2",
     "jsonwebtoken": "^9.0.3",
     "nodemailer": "^8.0.1"

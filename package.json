@@ -4,7 +4,8 @@
   "workspaces": [
     "packages/database",
     "packages/backend",
-    "packages/frontend"
+    "packages/frontend",
+    "packages/i18n"
   ],
   "engines": {
     "node": ">=24"
@@ -23,7 +24,10 @@
     "docs": "typedoc",
     "docs:database": "npm run docs -w @marsai/database",
     "docs:backend":  "npm run docs -w @marsai/backend",
-    "docs:frontend": "npm run docs -w @marsai/frontend"
+    "docs:frontend": "npm run docs -w @marsai/frontend",
+    "i18n:extract": "npm run i18n:extract  -w @marsai/i18n",
+    "i18n:extract:ci": "npm run i18n:extract:ci  -w @marsai/i18n",
+    "i18n:lint": "npm run i18n:lint  -w @marsai/i18n"
   },
   "description": "An AI film festival application",
   "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
