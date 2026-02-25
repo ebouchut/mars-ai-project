@@ -14,6 +14,6 @@ export async function loginController(req: Request, res: Response): Promise<void
         const result = await login(email, password);
         res.json(result);
     } catch (error) {
-        res.status(401).json({ message: 'Invalid credentials' });
+        res.status(401).json({ message: req.t('auth:invalid_credentials') });
     }
 }

@@ -5,7 +5,6 @@
 
 import { loadExpress } from '@/loaders/express.js';
 
-const app = loadExpress();
+const app = await loadExpress();
 
 export default app;
-
