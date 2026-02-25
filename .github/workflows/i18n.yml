@@ -1,0 +1,26 @@
+# .github/workflows/i18n.yml
+name: I18N Check
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  i18n:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version  # reads your existing .node-version file
+          cache: npm                        # caches the npm cache between runs
+
+      - name: Install dependencies
+        run: npm ci                         # Clean Installation of packages (not Continuous Integration)
+
+      - name: Check translations
+        run: npm run i18n:extract:ci        # fails if any I18N key is missing or out of sync
