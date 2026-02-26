@@ -23,10 +23,28 @@ const PASSES = 1;
 // 32 bytes = 256-bit hash
 const TAG_LENGTH = 32;
 
-// -------------------------------------------------------
-// Hash a password
-// Returns a string "salt:hash" (both hex-encoded)
-// -------------------------------------------------------
+/**
+ * Hashes a password using the Argon2id algorithm with OWASP-recommended parameters.
+ *
+ * Argon2id is the hybrid variant of Argon2 (winner of the 2015 Password Hashing Competition).
+ * It combines:
+ * - **Argon2i** behaviour on the first pass (data-independent memory access),
+ *   which resists side-channel attacks
+ * - **Argon2d** behaviour on subsequent passes (data-dependent memory access),
+ *   which resists GPU and ASIC brute-force attacks
+ *
+ * Configuration (per OWASP recommendations):
+ * - **Salt:** 128-bit (16 bytes) random — prevents rainbow table attacks
+ * - **Memory:** 46 MiB — makes parallel GPU cracking prohibitively expensive
+ * - **Passes:** 1 — single iteration is sufficient at this memory cost
+ * - **Parallelism:** 1 — single thread, safe for servers handling concurrent requests
+ * - **Tag length:** 256-bit (32 bytes) — provides strong collision resistance
+ *
+ * @see {@link https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html | OWASP Password Storage Cheat Sheet}
+ *
+ * @param password - The plaintext password to hash.
+ * @returns A string in the format `"salt:hash"` (both hex-encoded).
+ */
 export async function hashPassword(password: string): Promise<string> {
     const salt = randomBytes(SALT_LENGTH);
 
@@ -42,10 +60,14 @@ export async function hashPassword(password: string): Promise<string> {
     return `${salt.toString("hex")}:${hash.toString("hex")}`;
 }
 
-// -------------------------------------------------------
-// Verify a password against a stored hash
-// Uses constant-time comparison to prevent timing attacks
-// -------------------------------------------------------
+/**
+ * Verifies a plaintext password against a stored `"salt:hash"` string.
+ * Uses constant-time comparison to prevent timing attacks.
+ *
+ * @param password - The plaintext password to verify.
+ * @param stored   - The stored `"salt:hash"` string produced by {@link hashPassword}.
+ * @returns `true` if the password matches, `false` otherwise.
+ */
 export async function verifyPassword(
     password: string,
     stored: string,
