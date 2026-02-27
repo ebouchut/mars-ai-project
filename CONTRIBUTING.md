@@ -383,7 +383,7 @@ Here is the **workflow** to add/update/remove the database structure (table, tab
    npx -w @marsai/database prisma generate
    ```
 
-> [!INFO]]
+> [!INFO]
 > What is the Prisma client?
 >
 > The **Prisma client** code is composed of ORM type-safe classes:
@@ -394,7 +394,7 @@ Here is the **workflow** to add/update/remove the database structure (table, tab
 >     - **Query builder**: `where`, `include`, `select`, `orderBy`...
 > - **Autocomplete** so that your IDE knows every field, relation, and filter available
 
-> [!INFO]]
+> [!INFO]
 > **Why and when should I regenerate the Prisma client?**
 >
 > Each time you modify the database schema you need to regenerate the Prisma client code.
