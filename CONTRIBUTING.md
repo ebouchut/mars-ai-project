@@ -91,34 +91,39 @@ such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.
 │    ├── database/
 │    │    ├── .env.example
 │    │    ├── package.json
-│    │    ├── prisma/                         Contains database schema definition and migrations (with Prisma ORM syntax)
-│    │    │   ├── schema.prisma               Database schema
-│    │    │   └── migrations/                 Database migrations
+│    │    ├── prisma/                         Contains database schema definition and migrations 
+│    │    │   ├── schema.prisma               Database schema (Prisma syntax)
+│    │    │   └── migrations/                 Database migrations (timestamped)
 │    │    |       └── 20260130101437_add_is_active_to_users/
 │    │    |           └─- migration.sql
 │    │    └── src                     
 │    │        └── generated/
 │    │            └── prisma/
+│    │                ├── models/            Generated TypeScript types for each Prisma model (e.g. User, Film, Vote)
+│    │                │   └── Film.ts        Generated type for the Film model
+│    │                │
+│    │                ├── browser.ts         Prisma Client bundle for browser environments (types only)
+│    │                └── client.ts          Prisma Client entry point for server-side (backend) use
 │    ├── backend/
 │    │    ├── .env.example
 │    │    ├── package.json
 │    │    ├── src/
 │    │    │   ├── features/
 │    │    │   │   │
-│    │    │   │   └─── vote/                   Contains code related to the voting feature
+│    │    │   │   └─── vote/                  Code related to the voting feature (backend)
 │    │    │   │       ├── vote.routes.ts      Define routes to map URLs to controllers
 │    │    │   │       ├── vote.controller.ts  Handle HTTP request/response
 │    │    │   │       ├── vote.validation.ts  Validate input with Joi schemas
 │    │    │   │       └── vote.service.ts     Handle the Business logic operations
 │    │    │   │
-│    │    │   ├── common/
+│    │    │   ├── common/                     Shared utilities, middlewares, and helpers used across features
 │    │    │   │   ├── middlewares/
-│    │    │   │   │   └── auth_middleware.ts
+│    │    │   │   │   └── auth.middleware.ts  Express middleware that validates JWT and protects routes
 │    │    │   │   │
-│    │    │   │   └── utils/
-│    │    │   │       └── hash.ts
+│    │    │   │   └── utils/                  General-purpose utility functions
+│    │    │   │       └── hash.ts             Password hashing and verification (Argon2id)
 │    │    │   │
-│    │    │   ├── integrations/
+│    │    │   ├── integrations/               Adapters for external services (YouTube API, email)
 │    │    │   │   ├── youtube/
 │    │    │   │   │   ├── youtube.client.ts
 │    │    │   │   │   └── youtube.service.ts
@@ -126,40 +131,121 @@ such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.
 │    │    │   │       ├── email.service.ts
 │    │    │   │       └── templates/
 │    │    │   │
-│    │    │   ├── config/
-│    │    │   │   ├── prisma.ts
-│    │    │   │   ├── environment.ts
-│    │    │   │   └── constants.ts
+│    │    │   ├── config/                     App-wide configuration (environment variables, Prisma client, constants)
+│    │    │   │   ├── prisma.ts               Singleton Prisma client instance
+│    │    │   │   ├── environment.ts          requireEnv() helper to read and validate required env variables
+│    │    │   │   └── constants.ts            Application-wide constants
 │    │    │   │
-│    │    │   ├── loaders/
-│    │    │   │   ├── express.ts
-│    │    │   │   ├── routes.ts
-│    │    │   │   └── i18n.ts
+│    │    │   ├── loaders/                    Application bootstrapping — initializes subsystems before the server starts
+│    │    │   │   ├── express.ts             Creates and configures the Express app (i18n, middleware, routes)
+│    │    │   │   ├── routes.ts              Mounts all feature routers on the Express instance
+│    │    │   │   └── i18n.ts                Initializes i18next with language detection and locale file loading
 │    │    │   │
-│    │    │   └── app.ts
+│    │    │   └── app.ts                     Entry point that builds and exports the configured Express app
 │    │    │
-│    │    └── tests/
+│    │    └── tests/                         Test files mirroring the src/ folder structure
+│    │        └── common/
+│    │            └── utils/
+│    │                └── hash.test.ts       Unit tests for the password hashing utility
 │    │
      └── frontend/
          ├── package.json
          ├── .env.example
+         ├── index.html                          Vite's HTML entry point
+         ├── vite.config.ts
+         ├── tailwind.config.ts
+         ├── tsconfig.json
+         ├── package.json
+         ├── public/                             Static assets served as-is by Vite
+         │   └── favicon.ico
+         └── src/
+             ├── main.tsx                        Vite entry point, mounts the React app
+             ├── index.css                       Tailwind directives
+             ├── App.tsx                         Root component, sets up routing
+             │
+             ├── components/                     Generic, domain-agnostic UI components (primitives)
+             │   ├── YouTubeEmbed.tsx            generic primitive (no-domain knowledge)
+             │   ├── Button.tsx
+             │   ├── Modal.tsx
+             │   └── Spinner.tsx
+             │
+             ├── shared/                         Domain-aware components used across features
+             │   ├── FilmCard.tsx                Domain-aware component that wraps YouTubeEmbed
+             │   └── UserAvatar.tsx
+             │
+             ├── pages/                          Thin routing shells only that assemble features
+             │   ├── HomePage.tsx
+             │   ├── FilmGalleryPage.tsx
+             │   ├── JuryDashboardPage.tsx
+             │   └── AdminDashboardPage.tsx
+             │
+             └── features/                       Feature-based modules (auth, film, vote...), each self-contained
+                 │
+                 ├── auth/                       Login, registration, JWT token management
+                 │   ├── components/             React components that belong exclusively to THIS feature 
+                 │   │   ├── LoginForm.tsx
+                 │   │   └── RegisterForm.tsx
+                 │   ├── hooks/                  Custom React hooks that manage state and behavior for this feature 
+                 │   │   └── useAuth.ts          Manage what happens when the user interacts with the UI (logic but no JSX). 
+                 │   ├── api/                    Communication with the backend REST endpoints (Data Access)
+                 │   │   └── authApi.ts
+                 │   └── types.ts                UI-only types: form values, token payload shape
+                 │
+                 ├── film/                       Public film gallery, film detail
+                 │   ├── components/
+                 .   │   ├── FilmGallery.tsx
+                 .   │   ├── FilmDetail.tsx
+                 .   │   └── FilmFilter.tsx
+                     ├── hooks/
+                     │   └── useFilmGallery.ts
+                     ├── api/
+                     │   └── filmsApi.ts
+                     └── types.ts                UI-only: filter state, pagination shape
   ```
 
 The table below explains what are the folders:
 
-| Folder          | Purpose                                                                                |
-|-----------------|----------------------------------------------------------------------------------------|
-| `features/`     | Business domain modules, each self-contained (routes, controller, validation, service) |
-| `common/`       | Shared utilities, middlewares, and validators                                          |
-| `integrations/` | External service connections (YouTube API, Email Service Provider)                     |
-| `config/`       | Environment and application configuration                                              |
-| `loaders/`      | Application bootstrapping and initialization                                           |
-| `tests/`        | Tests (mirrors the `src/` structure)                                                   |
+| Folder                                   | Purpose                                                                                    |
+|------------------------------------------|--------------------------------------------------------------------------------------------|
+| `backend/src/features/`                  | Business domain modules, each self-contained (routes, controller, validation, service)     |
+| `backend/src/common/`                    | Shared utilities, middlewares, and validators                                              |
+| `backend/src/integrations/`              | External service connections (YouTube API, Email Service Provider)                         |
+| `backend/src/config/`                    | Environment and application configuration                                                  |
+| `backend/src/loaders/`                   | Application bootstrapping and initialization                                               |
+| `backend/tests/`                         | Tests (mirrors the `src/` structure)                                                       |
+| `frontend/public/`                       | Static Assets served as-is by Vite                                                         |
+| `frontend/src/components/`               | Generic, domain-agnostic UI components (primitives)                                        |
+| `frontend/src/shared/`                   | Domain-aware components used across features                                               |
+| `frontend/src/pages/`                    | Thin routing shells only that assemble features                                            |
+| `frontend/src/features/film/types.ts`    | UI-only types for this feature (`film`)                                                    |
+| `frontend/src/features/film/components/` | React components that belong exclusively to this feature                                   |
+| `frontend/src/features/film/hooks/`      | Custom React hooks that manage state and behavior for this feature                         |
+| `frontend/src/features/film/api`         | Communication with backend REST endpoints related to this feature in order to fetch data   |
+
+
 
 > [!NOTE]
-> The feature folder does not contain `vote.model.js` nor `vote.dal.js`
+> The backend feature folder does not contain `vote.model.js` nor `vote.dal.js`
 because [Prisma](https://github.com/prisma/prisma), the ORM library we are using,
 handles the model and Data Access Layer (DAL) for us.
+
+#### File Naming Convention
+
+- Folder: [snake_case)(https://en.wikipedia.org/wiki/Snake_case)
+- Files
+    - Backend: 
+        - [snake_case)(https://en.wikipedia.org/wiki/Snake_case)
+        - multi-part-naming: `name.type.extension`, contains 3 segments, where:
+            - `name` may refer to a feature, middleware, service,
+            - `type` refers to the type: `routes`, `controller`, `validation` (JSON validation), 
+              `service` (handles business logic), `middleware` (TODO), `client` (adapter for an external service)
+            - `vote.routes.ts`:     Define the voting routes (REST URLs to the voting controller's methods)
+            - `vote.controller.ts`: Handle HTTP request/response
+            - `vote.validation.ts`: Validate input with Joi schemas
+            - `vote.service.ts`:    Handle the Business logic operations
+            - `auth.middleware.ts`: Express middleware that validates JWT and protects routes
+            - `youtube.client.ts`:  Adapter for YouTube API
+
 
 #### Database Schema
 
