@@ -235,7 +235,7 @@ handles the model and Data Access Layer (DAL) for us.
 - Files
     - Backend: 
         - [snake_case)(https://en.wikipedia.org/wiki/Snake_case)
-        - multi-part-naming: `name.type.extension`, contains 3 segments, where:
+        - multi-part-naming for feature related files: `name.type.extension`, contains 3 segments, where:
             - `name` may refer to a feature, middleware, service,
             - `type` refers to the type: `routes`, `controller`, `validation` (JSON validation), 
               `service` (handles business logic), `middleware` (TODO), `client` (adapter for an external service)
@@ -245,6 +245,32 @@ handles the model and Data Access Layer (DAL) for us.
             - `vote.service.ts`:    Handle the Business logic operations
             - `auth.middleware.ts`: Express middleware that validates JWT and protects routes
             - `youtube.client.ts`:  Adapter for YouTube API
+        - Frontend 
+          - [PascalCase](http://c2.com/cgi/wiki?PascalCase) for **React components**.    
+            The filename (`FilmCard.tsx`) and the JSX component name (`<FilmCard />`) are always identical. 
+          - [camelCase](https://wiki.c2.com/?CamelCase) for everything else.  
+            Any file that does not export a React component uses **camelCase**.
+
+> [!TIP]
+> BACKEND naming convention:
+> 
+> - [snake_case)(https://en.wikipedia.org/wiki/Snake_case)
+>     - multi-part-naming for feature related files: `vote.controller.ts`, `vote.service.ts` 
+
+> [!TIP]
+> FRONTEND naming convention:
+> 
+> If the file's default export is a **React component** — use **[PascalCase](http://c2.com/cgi/wiki?PascalCase)**.    
+> For everything else — use **[camelCase](https://wiki.c2.com/?CamelCase)**. 
+
+
+> [!NOTE]
+> **What are PascalCase and camelCase?**
+> 
+> - **[PascalCase](http://c2.com/cgi/wiki?PascalCase)** is a naming convention where the first letter of every word 
+>   is capitalized, with no spaces or underscores between words: `YouTubeEmbed`.
+> - **[camelCase](https://wiki.c2.com/?CamelCase)** is a naming convention where the first word starts with a lowercase
+>   letter and each subsequent word begins with an uppercase letter, with no spaces or underscores: `useJuryVote`.
 
 
 #### Database Schema
