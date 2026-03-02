@@ -235,16 +235,18 @@ handles the model and Data Access Layer (DAL) for us.
 - Files
     - **Backend** 
         - [snake_case](https://en.wikipedia.org/wiki/Snake_case)
-        - multi-part-naming for feature related files: `name.type.extension`, contains 3 segments, where:
+        - multi-part-naming for files in a feature folder: **`name.type.extension`**, contains 3 segments, where:
             - `name` may refer to a feature, middleware, service,
             - `type` refers to the type: `routes`, `controller`, `validation` (JSON validation), 
               `service` (handles business logic), `middleware` (TODO), `client` (adapter for an external service)
-            - `vote.routes.ts`:     Define the voting routes (REST URLs to the voting controller's methods)
-            - `vote.controller.ts`: Handle HTTP request/response
-            - `vote.validation.ts`: Validate input with Joi schemas
-            - `vote.service.ts`:    Handle the Business logic operations
-            - `auth.middleware.ts`: Express middleware that validates JWT and protects routes
-            - `youtube.client.ts`:  Adapter for YouTube API
+            - `extension` refers to the file extension such as `ts`  
+            Examples:
+              - `vote.routes.ts`:     Define the voting routes (REST URLs to the voting controller's methods)
+              - `vote.controller.ts`: Handle HTTP request/response
+              - `vote.validation.ts`: Validate input with Joi schemas
+              - `vote.service.ts`:    Handle the Business logic operations
+              - `auth.middleware.ts`: Express middleware that validates JWT and protects routes
+              - `youtube.client.ts`:  Adapter for YouTube API
         - **Frontend** 
           - **[PascalCase](http://c2.com/cgi/wiki?PascalCase)** for **React components**.    
             The filename (`FilmCard.tsx`) and the JSX component name (`<FilmCard />`) use *PascalCase*. 
@@ -431,18 +433,21 @@ It may prove useful when you need to start from a blank slate.
 
 ```shell
 # Running this command will DELETE ALL the DATA in your database!
-npx db:reset
+npm run db:reset
+npm run db:seed
 
 # Shortcut for:
 # npx -w @marsai/database prisma migrate reset
 # npx -w @marsai/database prisma db      seed
 ```
 
-This command:
+These commands:
 
-1. drops the recreates the database schema that is the structure (tables...)
-1. applies all database migrations in order to recreate the database structure
-1. runs the [seed script](./packages/database/prisma/seed.ts) to populate the database
+- `npm run db:reset`
+    - drops then recreates the database schema that is the structure (tables...),
+    - applies all database migrations to recreate the database changes in chronological order .
+- `npm run db:seed`
+  runs the [seed script](./packages/database/prisma/seed.ts) to populate the database.
 
 
 ### Apply the Latest Database Migrations
