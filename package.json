@@ -16,7 +16,7 @@
     "db:migrate": "npx -w @marsai/database prisma migrate dev",
     "db:generate": "npm run generate -w @marsai/database",
     "db:studio": "npm run studio -w @marsai/database",
-    "db:reset": "npx -w @marsai/database db:reset",
+    "db:reset": "npm -w @marsai/database run db:reset",
     "db:seed": "npm run db:seed -w @marsai/database",
     "build": "npm run build --workspaces --if-present",
     "type-check": "npm run type-check --workspaces --if-present",

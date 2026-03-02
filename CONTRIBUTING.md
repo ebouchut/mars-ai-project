@@ -114,7 +114,7 @@ such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.
 │    │    │   │       ├── vote.routes.ts      Define routes to map URLs to controllers
 │    │    │   │       ├── vote.controller.ts  Handle HTTP request/response
 │    │    │   │       ├── vote.validation.ts  Validate input with Joi schemas
-│    │    │   │       └── vote.service.ts     Handle the Business logic operations
+│    │    │   │       └── vote.service.ts     Handle the business logic operations
 │    │    │   │
 │    │    │   ├── common/                     Shared utilities, middlewares, and helpers used across features
 │    │    │   │   ├── middlewares/
@@ -235,18 +235,18 @@ handles the model and Data Access Layer (DAL) for us.
 - Files
     - **Backend** 
         - [snake_case](https://en.wikipedia.org/wiki/Snake_case)
-        - multi-part-naming for files in a feature folder: **`name.type.extension`**, contains 3 segments, where:
+        - Multi-part-naming for files in a feature folder: **`name.type.extension`**, contains 3 segments, where:
             - `name` may refer to a feature, middleware, service,
             - `type` refers to the type: `routes`, `controller`, `validation` (JSON validation), 
               `service` (handles business logic), `middleware` (TODO), `client` (adapter for an external service)
             - `extension` refers to the file extension such as `ts`  
-            Examples:
-              - `vote.routes.ts`:     Define the voting routes (REST URLs to the voting controller's methods)
-              - `vote.controller.ts`: Handle HTTP request/response
-              - `vote.validation.ts`: Validate input with Joi schemas
-              - `vote.service.ts`:    Handle the Business logic operations
-              - `auth.middleware.ts`: Express middleware that validates JWT and protects routes
-              - `youtube.client.ts`:  Adapter for YouTube API
+        - Examples:
+            - `backend/src/features/vote/vote.routes.ts`:     Define the voting routes (REST URLs to the voting controller's methods)
+            - `backend/src/features/vote/vote.controller.ts`: Handle HTTP request/response
+            - `backend/src/features/vote/vote.validation.ts`: Validate input with Joi schemas
+            - `backend/src/features/vote/vote.service.ts`:    Handle the Business logic operations
+            - `backend/src/common/middlewares/auth.middleware.ts`: Express middleware that validates JWT and protects routes
+            - `backend/src/integrations/youtube/youtube.client.ts`:  Adapter for YouTube API
     - **Frontend** 
       - **[PascalCase](http://c2.com/cgi/wiki?PascalCase)** for **React components**.    
         The filename (`FilmCard.tsx`) and the JSX component name (`<FilmCard />`) use *PascalCase*. 
