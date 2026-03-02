@@ -247,11 +247,11 @@ handles the model and Data Access Layer (DAL) for us.
               - `vote.service.ts`:    Handle the Business logic operations
               - `auth.middleware.ts`: Express middleware that validates JWT and protects routes
               - `youtube.client.ts`:  Adapter for YouTube API
-        - **Frontend** 
-          - **[PascalCase](http://c2.com/cgi/wiki?PascalCase)** for **React components**.    
-            The filename (`FilmCard.tsx`) and the JSX component name (`<FilmCard />`) use *PascalCase*. 
-          - [camelCase](https://wiki.c2.com/?CamelCase) for everything else.  
-            Any file that does not export a React component uses **camelCase**.
+    - **Frontend** 
+      - **[PascalCase](http://c2.com/cgi/wiki?PascalCase)** for **React components**.    
+        The filename (`FilmCard.tsx`) and the JSX component name (`<FilmCard />`) use *PascalCase*. 
+      - [camelCase](https://wiki.c2.com/?CamelCase) for everything else.  
+        Any file that does not export a React component uses **camelCase**.
 
 > [!TIP]
 > **BACKEND** naming convention:
@@ -434,20 +434,19 @@ It may prove useful when you need to start from a blank slate.
 ```shell
 # Running this command will DELETE ALL the DATA in your database!
 npm run db:reset
-npm run db:seed
 
 # Shortcut for:
-# npx -w @marsai/database prisma migrate reset
-# npx -w @marsai/database prisma db      seed
+#   npm -w @marsai/database  run db:reset
+# which runs:
+#   npx -w @marsai/database prisma migrate reset
+#   npx -w @marsai/database prisma db      seed
 ```
 
-These commands:
+The `npm run db:reset` command:
 
-- `npm run db:reset`
-    - drops then recreates the database schema that is the structure (tables...),
-    - applies all database migrations to recreate the database changes in chronological order .
-- `npm run db:seed`
-  runs the [seed script](./packages/database/prisma/seed.ts) to populate the database.
+1. drops then recreates the database schema that is the structure (tables...),
+1. applies all database migrations to recreate the database changes in chronological order,
+1. runs the [seed script](./packages/database/prisma/seed.ts) to populate the database.
 
 
 ### Apply the Latest Database Migrations
