@@ -231,10 +231,10 @@ handles the model and Data Access Layer (DAL) for us.
 
 #### File Naming Convention
 
-- Folder: [snake_case)(https://en.wikipedia.org/wiki/Snake_case)
+- Folder: [snake_case](https://en.wikipedia.org/wiki/Snake_case)
 - Files
-    - Backend: 
-        - [snake_case)(https://en.wikipedia.org/wiki/Snake_case)
+    - **Backend** 
+        - [snake_case](https://en.wikipedia.org/wiki/Snake_case)
         - multi-part-naming for feature related files: `name.type.extension`, contains 3 segments, where:
             - `name` may refer to a feature, middleware, service,
             - `type` refers to the type: `routes`, `controller`, `validation` (JSON validation), 
@@ -245,27 +245,27 @@ handles the model and Data Access Layer (DAL) for us.
             - `vote.service.ts`:    Handle the Business logic operations
             - `auth.middleware.ts`: Express middleware that validates JWT and protects routes
             - `youtube.client.ts`:  Adapter for YouTube API
-        - Frontend 
-          - [PascalCase](http://c2.com/cgi/wiki?PascalCase) for **React components**.    
-            The filename (`FilmCard.tsx`) and the JSX component name (`<FilmCard />`) are always identical. 
+        - **Frontend** 
+          - **[PascalCase](http://c2.com/cgi/wiki?PascalCase)** for **React components**.    
+            The filename (`FilmCard.tsx`) and the JSX component name (`<FilmCard />`) use *PascalCase*. 
           - [camelCase](https://wiki.c2.com/?CamelCase) for everything else.  
             Any file that does not export a React component uses **camelCase**.
 
 > [!TIP]
-> BACKEND naming convention:
+> **BACKEND** naming convention:
 > 
-> - [snake_case)(https://en.wikipedia.org/wiki/Snake_case)
+> - [snake_case](https://en.wikipedia.org/wiki/Snake_case)
 >     - multi-part-naming for feature related files: `vote.controller.ts`, `vote.service.ts` 
 
 > [!TIP]
-> FRONTEND naming convention:
+> **FRONTEND** naming convention:
 > 
 > If the file's default export is a **React component** — use **[PascalCase](http://c2.com/cgi/wiki?PascalCase)**.    
 > For everything else — use **[camelCase](https://wiki.c2.com/?CamelCase)**. 
 
 
 > [!NOTE]
-> **What are PascalCase and camelCase?**
+> **What are `PascalCase` and `camelCase`?**
 > 
 > - **[PascalCase](http://c2.com/cgi/wiki?PascalCase)** is a naming convention where the first letter of every word 
 >   is capitalized, with no spaces or underscores between words: `YouTubeEmbed`.
