@@ -27,7 +27,8 @@
     "docs:frontend": "npm run docs -w @marsai/frontend",
     "i18n:extract": "npm run i18n:extract  -w @marsai/i18n",
     "i18n:extract:ci": "npm run i18n:extract:ci  -w @marsai/i18n",
-    "i18n:lint": "npm run i18n:lint  -w @marsai/i18n"
+    "i18n:lint": "npm run i18n:lint  -w @marsai/i18n",
+    "preview:frontend": "npm run preview -w @marsai/frontend"
   },
   "description": "An AI film festival application",
   "homepage": "https://github.com/ebouchut/mars-ai-project#readme",
