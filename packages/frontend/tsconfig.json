@@ -19,21 +19,23 @@
     },
 
     // ~~~~~ Environment Settings
-    // Combined with `"type": "module"` in a local package.json,
-    // this enforces including file extensions on relative path imports.
-    // See: https://aka.ms/tsconfig/module
 
-    // Module system matching Node.js ESM resolution
-    "module": "NodeNext",
+    // Emit modern ESNext module syntax; let Vite handle bundling and resolution
+    "module": "ESNext",
+    // Vite-recommended resolution strategy: allows extensionless imports,
+    // models how a bundler resolves modules instead of Node.js resolution
+    "moduleResolution": "Bundler",
     // Emit modern JS without downleveling syntax
-    "target": "ESNext", // Prisma suggests "ES2023"
+    "target": "ESNext",
+    // Use React 17+ automatic JSX transform (no need to import React in every file)
+    "jsx": "react-jsx",
 
-    // Use type definitions for the latest standard JavaScript features only
-    // (no browser DOM APIs)
-    "lib":   ["ESNext"],
+    // Include browser DOM APIs (document, window, HTMLElement, fetch, etc.)
+    // alongside standard JS built-ins, required for React browser components
+    "lib":   ["ESNext", "DOM", "DOM.Iterable"],
 
-    // Load the type declarations from the `@types/node` package
-    "types": ["node"],
+    // No global @types packages needed: DOM types come from "lib" above
+    "types": [],
 
     // ~~~~~ Other Outputs
 
