@@ -12,6 +12,8 @@
     "url": "git+https://github.com/ebouchut/mars-ai-project.git"
   },
   "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
     "build": "tsc && tsc-alias",
     "type-check": "tsc --noEmit",
     "test": "vitest",
