@@ -1,0 +1,48 @@
+{
+  "_comment": [
+    "Postman environment for the marsAI backend API.",
+    "",
+    "HOW TO USE:",
+    "  1. Import this file into Postman via Environments → Import.",
+    "  2. Set 'baseUrl' to your local server (default: http://localhost:3000).",
+    "  3. After a successful POST /auth/login, copy the returned token",
+    "     into the 'authToken' variable so that authenticated requests",
+    "     are pre-filled with the Authorization header.",
+    "",
+    "IMPORTANT — never commit real credentials.",
+    "  The placeholder values below are intentionally empty or fake."
+  ],
+  "id": "marsai-environment",
+  "name": "marsAI – Local",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "default",
+      "enabled": true,
+      "_comment": "Base URL of the backend server (Express). Change port if needed."
+    },
+    {
+      "key": "authToken",
+      "value": "",
+      "type": "secret",
+      "enabled": true,
+      "_comment": "JWT returned by POST /auth/login. Paste it here after logging in."
+    },
+    {
+      "key": "loginEmail",
+      "value": "user@example.com",
+      "type": "default",
+      "enabled": true,
+      "_comment": "Email used for the login request body. Replace with a real test account."
+    },
+    {
+      "key": "loginPassword",
+      "value": "",
+      "type": "secret",
+      "enabled": true,
+      "_comment": "Password for the login request. Never commit a real value here."
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}
