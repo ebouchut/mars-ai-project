@@ -142,6 +142,10 @@ such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.
 │    │    │   │   └── i18n.ts                Initializes i18next with language detection and locale file loading
 │    │    │   │
 │    │    │   └── app.ts                     Entry point that builds and exports the configured Express app
+│    │    │ 
+│    │    ├── postman/                       Contains the Postman requests to test the REST endpoints
+│    │    │   ├── marsai.environment.json    Postman environment file with placeholders (adjust to your local config.) 
+│    │    │   └── marsai.collection.json     A single collection of Postman requests, with folders per feature  
 │    │    │
 │    │    └── tests/                         Test files mirroring the src/ folder structure
 │    │        └── common/

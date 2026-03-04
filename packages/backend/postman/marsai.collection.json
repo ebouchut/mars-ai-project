@@ -1,0 +1,73 @@
+{
+  "info": {
+    "_comment": [
+      "Postman Collection v2.1 for the marsAI backend REST endpoints.",
+      "",
+      "STRUCTURE:",
+      "  Requests are grouped into folders matching the backend feature modules",
+      "  under packages/backend/src/features/. Add new requests to the folder",
+      "  that matches the feature they belong to.",
+      "",
+      "HOW TO USE:",
+      "  1. Import this file into Postman via Collections → Import.",
+      "  2. Import marsai.environment.json and select it as the active environment.",
+      "  3. Run POST /auth/login first, then copy the token into the",
+      "     'authToken' environment variable for authenticated requests.",
+      "",
+      "CONVENTIONS:",
+      "  - All URLs use the {{baseUrl}} environment variable.",
+      "  - Authenticated requests set 'Authorization: Bearer {{authToken}}'.",
+      "  - Request bodies use JSON."
+    ],
+    "name": "marsAI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "_comment": "Auth folder — requests matching packages/backend/src/features/auth/",
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "_comment": [
+            "Authenticates a user and returns a JWT.",
+            "On success, copy the token value from the response into the",
+            "'authToken' environment variable to authenticate further requests.",
+            "",
+            "Route:      POST /auth/login",
+            "Validated:  email (string, email format, required)",
+            "            password (string, required)",
+            "Response:   { token: string }  on success",
+            "            { message: string } + 401  on invalid credentials"
+          ],
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/login",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": { "language": "json" }
+              },
+              "raw": "{\n  \"email\": \"{{loginEmail}}\",\n  \"password\": \"{{loginPassword}}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "_comment": "Vote folder — requests matching packages/backend/src/features/vote/",
+      "name": "Vote",
+      "item": [
+        {
+          "_comment": "Placeholder — add requests here as vote endpoints are implemented."
+        }
+      ]
+    }
+  ]
+}
