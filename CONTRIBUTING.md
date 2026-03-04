@@ -353,21 +353,21 @@ send requests to the backend API directly from [Postman](https://www.postman.com
 | `marsai.collection.json` | All API requests, grouped by feature |
 | `marsai.environment.json` | Variables with placeholder values (no real credentials) |
 
-#### 1. Import the collection
+#### Import the Postman collection
 
 1. Open Postman.
 2. Click **`Collections`** / **`Import`**.
 3. Select `packages/backend/postman/marsai.collection.json`.
 
-#### 2. Import the environment
+#### Import the Postman environment
 
 1. Click **`Environments`** / **`Import`**.
 2. Select `packages/backend/postman/marsai.environment.json`.
 3. Select **marsAI – Local** as the active environment (top-right dropdown).
 
-#### 3. Configure your local values
+#### Configure the Postman Collection
 
-Open the **marsAI – Local** environment and fill in the fields marked as placeholders:
+Open the **`marsAI – Local`** environment in Postman and fill in the fields marked as placeholders:
 
 | Variable | What to set |
 |---|---|
@@ -381,7 +381,7 @@ Open the **marsAI – Local** environment and fill in the fields marked as place
 > with empty secret fields (`authToken`, `loginPassword`). Fill them in
 > locally; Postman keeps them on your machine only.
 
-#### 4. Authenticate
+#### Authenticate with Postman
 
 Most endpoints require a JWT. To obtain one:
 
