@@ -343,6 +343,55 @@ The **Entity Relationships Diagram** (ERD) is available as:
 
 ### Setting Up Your Development Environment
 
+### Testing the API with Postman
+
+The repository ships two files under `packages/backend/postman/` that let you
+send requests to the backend API directly from [Postman](https://www.postman.com/):
+
+| File | Purpose |
+|---|---|
+| `marsai.collection.json` | All API requests, grouped by feature |
+| `marsai.environment.json` | Variables with placeholder values (no real credentials) |
+
+#### 1. Import the collection
+
+1. Open Postman.
+2. Click **`Collections`** / **`Import`**.
+3. Select `packages/backend/postman/marsai.collection.json`.
+
+#### 2. Import the environment
+
+1. Click **`Environments`** / **`Import`**.
+2. Select `packages/backend/postman/marsai.environment.json`.
+3. Select **marsAI – Local** as the active environment (top-right dropdown).
+
+#### 3. Configure your local values
+
+Open the **marsAI – Local** environment and fill in the fields marked as placeholders:
+
+| Variable | What to set |
+|---|---|
+| `baseUrl` | URL of your local backend server (default: `http://localhost:3000`) |
+| `loginEmail` | Email of a test account in your local database |
+| `loginPassword` | Password for that account |
+| `authToken` | Leave empty for now — see step 4 |
+
+> [!WARNING]
+> Never commit real credentials. The environment file intentionally ships
+> with empty secret fields (`authToken`, `loginPassword`). Fill them in
+> locally; Postman keeps them on your machine only.
+
+#### 4. Authenticate
+
+Most endpoints require a JWT. To obtain one:
+
+1. Run **`Auth`** / **`Login`** (`POST /auth/login`).
+2. Copy the `token` value from the response body.
+3. Paste it into the `authToken` environment variable.
+
+All subsequent requests that require authentication read `{{authToken}}` from
+the environment automatically.
+
 ### Branching Strategy
 
 > [!NOTE]
