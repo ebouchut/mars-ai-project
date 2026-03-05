@@ -369,12 +369,12 @@ send requests to the backend API directly from [Postman](https://www.postman.com
 
 Open the **`marsAI – Local`** environment in Postman and fill in the fields marked as placeholders:
 
-| Variable | What to set |
-|---|---|
+| Variable | What to set                                                         |
+|---|---------------------------------------------------------------------|
 | `baseUrl` | URL of your local backend server (default: `http://localhost:3000`) |
-| `loginEmail` | Email of a test account in your local database |
-| `loginPassword` | Password for that account |
-| `authToken` | Leave empty for now — see step 4 |
+| `loginEmail` | Email of a test account in your local database                      |
+| `loginPassword` | Password for that account                                           |
+| `authToken` | Leave empty for now — see next step                               |
 
 > [!WARNING]
 > Never commit real credentials. The environment file intentionally ships
@@ -552,8 +552,8 @@ Here is the **workflow** to add/update/remove the database structure (table, tab
    npx -w @marsai/database prisma generate
    ```
 
-> [!INFO]
-> What is the Prisma client?
+> [!NOTE]
+ > What is the Prisma client?
 >
 > The **Prisma client** code is composed of ORM type-safe classes:
 > - **models** (such as `User`, `Film`, `Vote`), **enums**, and **input/output shapes**.
@@ -563,7 +563,7 @@ Here is the **workflow** to add/update/remove the database structure (table, tab
 >     - **Query builder**: `where`, `include`, `select`, `orderBy`...
 > - **Autocomplete** so that your IDE knows every field, relation, and filter available
 
-> [!INFO]
+> [!NOTE]
 > **Why and when should I regenerate the Prisma client?**
 >
 > Each time you modify the database schema you need to regenerate the Prisma client code.
