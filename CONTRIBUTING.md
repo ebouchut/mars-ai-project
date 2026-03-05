@@ -41,9 +41,9 @@ and uploaded to a private YouTube Channel for copyright review.
 Once cleared for copyright, confirmed as 1-minute maximum length, 
 and approved though the screening process, 
 films move to the public YouTube channel
-where jury members score them accrosstheir assigned categories.
+where jury members score them accross their assigned categories.
 
-See #22 and for details.
+See [#22](https://github.com/ebouchut/mars-ai-project/issues/22) for a detailed film state diagram.
 
 ##### MonoRepo
 
