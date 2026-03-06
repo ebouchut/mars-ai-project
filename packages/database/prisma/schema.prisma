@@ -286,7 +286,7 @@ enum AmountCurrency {
   USD
   EUR
 
-  @@map("awards_amount_currency")
+  @@map("amount_currencies")
 }
 
 enum FilmStatus {
