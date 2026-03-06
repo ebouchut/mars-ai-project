@@ -1,0 +1,1 @@
+-- Prisma Migrate tracking: rename AmountCurrency enum mapping from 'awards_amount_currency' to 'amount_currencies'
