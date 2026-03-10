@@ -23,7 +23,7 @@
     "test": "npm run test:run --workspaces --if-present",
     "docs": "typedoc",
     "docs:database": "npm run docs -w @marsai/database",
-    "docs:backend":  "npm run docs -w @marsai/backend",
+    "docs:backend": "npm run docs -w @marsai/backend",
     "docs:frontend": "npm run docs -w @marsai/frontend",
     "i18n:extract": "npm run i18n:extract  -w @marsai/i18n",
     "i18n:extract:ci": "npm run i18n:extract:ci  -w @marsai/i18n",
