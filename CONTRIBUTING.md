@@ -97,6 +97,45 @@ sequenceDiagram
     FE-->>U: Redirect to dashboard (by role)
 ```
 
+##### Vote Sequence Diagram 
+
+```mermaid
+sequenceDiagram
+actor J as Jury Member
+participant FE as Frontend
+participant API as Backend API
+participant AuthMW as Auth Middleware
+participant DB as Database
+
+    J->>FE: Submit score (1-10) + comment for a film
+
+    FE->>API: POST /votes<br/>Authorization: Bearer token<br/>{ filmId, awardId, score, comment }
+
+    API->>AuthMW: requireAuth
+    AuthMW->>AuthMW: Extract Bearer token
+    alt Token missing or invalid
+        AuthMW-->>FE: 401 Unauthorized
+        FE-->>J: Redirect to login
+    end
+    AuthMW->>AuthMW: verifyJwt(token) returns uuid + role
+    AuthMW->>API: next() with req.user set
+
+    API->>API: Validate body (Joi) score 1-10 required
+    alt Validation fails
+        API-->>FE: 400 Bad Request
+    end
+
+    API->>DB: INSERT vote (userId, filmId, awardId, score, comment)
+    alt Vote already exists (unique constraint)
+        DB-->>API: Constraint violation
+        API-->>FE: 409 Conflict
+    end
+
+    DB-->>API: Vote created
+    API-->>FE: 201 Created with vote data
+    FE-->>J: Vote submitted
+```
+
 ##### Film State Diagram
 
 Submitted **films** are stored on our platform,
