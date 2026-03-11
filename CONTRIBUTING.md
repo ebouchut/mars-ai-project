@@ -31,10 +31,39 @@ The code reference documentation [can be found here](https://www.ericbouchut.com
 
 #### Architecture Overview
 
+_marsAI_ is a Web-based client-server application 
 _marsAI_ is a client-server application 
 using a MySQL database to persist information.
 
-Submitted films are stored on our platform,
+```mermaid
+C4Container
+    title marsAI — Container Diagram (C4 Level 2)
+
+    Person(user, "User", "Visitor, Filmmaker, Screener, Jury, Admin")
+
+    System_Boundary(marsai, "marsAI Platform") {
+        Container(frontend,  "Frontend",         "React 19, Vite, Tailwind CSS", "Serves the public gallery, filmmaker portal, screener,<br/> and jury dashboards, and admin panel.<br/>Bilingual via i18next.")
+        Container(backend,   "Backend API",      "Node.js 24, Express 5",        "Handles auth, film management, screening, voting, and admin operations.<br/>Feature-based MVC structure.")
+        Container(database,  "Database",         "MySQL 8.4",          "Stores all application data: users, films, votes,<br/>awards, nominations, screenings, partners.")
+        Container(prisma,    "Prisma ORM",       "Prisma Client (JS) and<br/>Entity Types (JS)",  "Type-safe database access layer.<br/>Schema-first: generates TypeScript types<br/>(entities and relationships) shared across backend and frontend.")
+    }
+
+    System_Ext(youtube, "YouTube API v3",    "Copyright Review and Video hosting")
+    System_Ext(email,   "Email Service",  "SMTP via Nodemailer")
+
+    Rel(user,      frontend,  "Uses",                   "HTTPS / Browser")
+    Rel(frontend,  backend,   "REST API calls",        "HTTPS / JSON")
+    Rel(frontend, prisma,     "Use entity types",   "Prisma generated Types")
+    Rel(backend,   prisma,    "Queries via",            "Prisma Client")
+    Rel(prisma,    database,  "Reads and writes",       "SQL")
+    Rel(backend,   youtube,   "Checks copyright,<br/>uploads video", "HTTPS")
+    Rel(backend,   email,     "Sends emails",            "SMTP")
+```
+
+
+##### Film State Diagram
+
+Submitted **films** are stored on our platform,
 then bookended (adding intro and outro segments), 
 and uploaded to a private YouTube Channel for copyright review.
 
