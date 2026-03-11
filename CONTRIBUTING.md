@@ -32,7 +32,6 @@ The code reference documentation [can be found here](https://www.ericbouchut.com
 #### Architecture Overview
 
 _marsAI_ is a Web-based client-server application 
-_marsAI_ is a client-server application 
 using a MySQL database to persist information.
 
 ```mermaid
@@ -60,6 +59,43 @@ C4Container
     Rel(backend,   email,     "Sends emails",            "SMTP")
 ```
 
+##### User Login Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    actor U as User (any role)
+    participant FE as Frontend
+    participant API as Backend API
+    participant DB as Database
+
+    U->>FE: Enter email + password, click Login
+
+    FE->>API: POST /auth/login<br/>{ email, password }
+
+    API->>API: Validate request body (Joi)
+    alt Validation fails
+        API-->>FE: 400 Bad Request<br/>{ message: [...errors] }
+        FE-->>U: Show validation errors
+    end
+
+    API->>DB: SELECT user WHERE email = ?
+    alt User not found
+        API-->>FE: 401 Unauthorized
+        FE-->>U: "Invalid credentials"
+    end
+
+    API->>API: verifyPassword(password, passwordHash)
+    alt Password mismatch
+        API-->>FE: 401 Unauthorized
+        FE-->>U: "Invalid credentials"
+    end
+
+    API->>API: generateJwt({ sub: uuid, role })
+    API-->>FE: 200 OK<br/>{ token: "eyJ..." }
+
+    FE->>FE: Store token (HTTP-only cookie)
+    FE-->>U: Redirect to dashboard (by role)
+```
 
 ##### Film State Diagram
 
