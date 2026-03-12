@@ -146,12 +146,66 @@ Once cleared for copyright, confirmed as 1-minute maximum length,
 and approved though the screening process, 
 films move to the public YouTube channel
 where jury members score them accross their assigned categories.
+Each category has a 1 winner and at most 49 runner ups.
 
-See [#22](https://github.com/ebouchut/mars-ai-project/issues/22) for a detailed film state diagram.
+
+```mermaid
+---
+title: Film State Diagram
+---
+stateDiagram-v2    
+    [*]               --> submitted
+    submitted         --> bookended
+    bookended         --> draft_published
+    draft_published   --> copyright_flagged
+    copyright_flagged --> rejected
+    draft_published   --> copyright_cleared
+    copyright_cleared --> screenable
+    screenable        --> screened
+    screened          --> selected
+    selected          --> categorized
+    selected          --> duration_exceeded
+    categorized       --> live_published
+    screened          --> rejected
+    screened          --> pending_selection_consensus
+    duration_exceeded --> rejected
+    pending_selection_consensus --> rejected
+    pending_selection_consensus --> selected
+    live_published    --> in_competition
+    in_competition    --> scored
+    scored            --> winner
+    scored            --> runner_up
+    scored            --> pending_tiebreak_consensus
+    pending_tiebreak_consensus  --> winner
+    pending_tiebreak_consensus  --> runner_up
+    rejected          --> [*]
+```
+
+Where:
+
+- `submitted`:         Film submitted and uploaded to the marsAI platform
+- `bookended`:         The film is sandwiched between an intro at the beginning and an outro at the end (end credits).
+- `draft_published`:   Published on the private YouTube channel, for copyright verification
+- `live_published`:    Published and visible to everyone on the public YouTube channel
+- `copyright_flagged`: Copyright infringement
+- `copyright_cleared`: No copyright infringement
+- `screenable`:        Viewable by members of the selection committee responsible for determining the official selection (grand prize).
+- `screened`:          Viewed by a member of the selection committee
+- `selected`:          Selected (part of the official selection of 50)
+- `rejected`:          Rejected (not in the official selection)
+- `pending_selection_consensus`: In a runoff, awaiting consensus with other selectors
+- `duration_exceeded`: Film too long, director informed that he must shorten it and resubmit it.
+- `categorized`:       Film nominated for the Grand Prize (official selection) and potentially for one or more other prizes
+- `in_competition`:    Film in competition, voting(s) in progress
+- `scored`:            Voting completed, film rated by **all** members of the jury
+-  `winner`:           Prize winner
+- `runner_up`:         Finalist (i.e., not winner)
+- `pending_tiebreak_consensus`: Awaiting deliberation to decide between it and the other films with which it is tied
+
 
 ##### MonoRepo
 
-We use a **monorepo**, that is a Git repository containing both the **frontend and** the **backend**.
+We use a **monorepo**, that is a Git repository containing mainly both the **frontend and** the **backend**.
 
 **Using a monorepo offers the following advantages:**
 
@@ -176,6 +230,7 @@ The project is composed of 3 `npm` packages scoped below the `@marsai` `npm` wor
   (ORM client (query API), and types (models, enums) JS objects) (in `packages/database`)
 - **`@marsai/backend`**:  Node/Express app (in `packages/backend`)
 - **`@marsai/frontend`**: React app (in `packages/frontend`)
+- **`@marsai/i18n`**: I18N strings (in `packages/i18n`)
 
 `@marsai/backend` and `@marsai/frontend` depend on `@marsai/database`.   
 The *frontend* only uses the types (models such as `Film`, `User`...) from `@marsai/database`.   
@@ -186,8 +241,7 @@ where there is one folder per feature, for example: `packages/backend/src/featur
 This folder contains all the related files,
 such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.service.ts`.
 
-
-```
+```txt
 ├── package.json
 ├── package-lock.json
 ├── node_modules/

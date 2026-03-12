@@ -243,7 +243,9 @@ Then you will give it access to these databases.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, including:
+.
+See the [CONTRIBUTING.md](CONTRIBUTING.md) file for how to help out.  
+It contains detailed guidelines, including:
 
 - Architecture overview and directory structure
 - Code documentation
@@ -258,11 +260,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, including:
 
 ## License
 
-This project is developed for educational purposes as part of the CDPI program at [La Plateforme_](https://laplateforme.io) in partnership with [Mobile Film Festival](https://www.mobilefilmfestival.com).
+This project is developed for educational purposes as part of the CDPI program at 
+[La Plateforme_](https://laplateforme.io) in partnership with [Mobile Film Festival](https://www.mobilefilmfestival.com).
 
-🇺🇸 This project is dual-licensed under AGPL v3 for open source use and a commercial license for proprietary use. Contact ebouchut@gmail.com for commercial licensing.
+> 🇺🇸(EN) This project is dual-licensed under AGPL v3 for open source use 
+> and a commercial license for proprietary use. 
+> Contact ebouchut@gmail.com for commercial licensing.
 
-🇫🇷 Ce projet est sous double licence AGPL v3 pour une utilisation open source et sous licence commerciale pour une utilisation propriétaire. Contactez ebouchut@gmail.com pour obtenir une licence commerciale.
+> 🇫🇷(FR) Ce projet est sous double licence AGPL v3 pour une utilisation open source 
+> et sous licence commerciale pour une utilisation propriétaire.
+> Contactez ebouchut@gmail.com pour obtenir une licence commerciale.
 
 
 ## Authors
