@@ -203,7 +203,7 @@ Where:
 - `pending_tiebreak_consensus`: Awaiting deliberation to decide between it and the other films with which it is tied
 
 
-##### MonoRepo
+#### MonoRepo
 
 We use a **monorepo**, that is a Git repository containing mainly both the **frontend and** the **backend**.
 
@@ -222,7 +222,7 @@ We use a **monorepo**, that is a Git repository containing mainly both the **fro
 - **Consistent tooling and configuration:**    
   Linting rules, formatting, CI/CD pipelines, and Git hooks are configured once and apply to all packages.
 
-#### Directory Structure
+#### Npm Packages
 
 The project is composed of 3 `npm` packages scoped below the `@marsai` `npm` workspace:
 
@@ -236,10 +236,8 @@ The project is composed of 3 `npm` packages scoped below the `@marsai` `npm` wor
 The *frontend* only uses the types (models such as `Film`, `User`...) from `@marsai/database`.   
 The *backend* uses everything from `@marsai/database`: the models and the ORM client code to interact with the database using JS objects.
 
-The project uses a **feature-based folder structure**
-where there is one folder per feature, for example: `packages/backend/src/features/vote` (singular).
-This folder contains all the related files,
-such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.service.ts`.
+
+#### Directory Structure
 
 ```txt
 ├── package.json
@@ -365,7 +363,7 @@ such as:`vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.
                      └── types.ts                UI-only: filter state, pagination shape
   ```
 
-The table below explains what are the folders:
+The table below explains what each folder entails.
 
 | Folder                                   | Purpose                                                                                    |
 |------------------------------------------|--------------------------------------------------------------------------------------------|
@@ -385,11 +383,19 @@ The table below explains what are the folders:
 | `frontend/src/features/film/api`         | Communication with backend REST endpoints related to this feature in order to fetch data   |
 
 
-
 > [!NOTE]
 > The backend feature folder does not contain `vote.model.js` nor `vote.dal.js`
 because [Prisma](https://github.com/prisma/prisma), the ORM library we are using,
 handles the model and Data Access Layer (DAL) for us.
+
+
+#### Feature-based Folder Structure
+
+The **backend** uses a **feature-based folder structure**.
+where there is one folder per feature, for example: `packages/backend/src/features/vote` (singular).
+This folder contains all the related files,
+such as `vote.routes.ts`, `vote.controller.ts`, `vote.validation.ts`, and `vote.service.ts`.
+
 
 #### File Naming Convention
 
