@@ -14,6 +14,12 @@ If you have any questions, feel free to
 
 ## Before You Start
 
+This page is quite long, so use the **hamburger menu**
+to **navigate** the **table of contents** more easily.  
+You can find it at the top right of the page (see below).
+
+<img width="606" alt="TUse the hamburger menu to navigate the table of contents" src="https://github.com/user-attachments/assets/daf5c663-8002-4243-a5fc-ad07e0a0d59d" />
+
 ### Code of Conduct
 
 Make sure you read and agree to our [Code of Conduct](CODE_OF_CONDUCT.md).
