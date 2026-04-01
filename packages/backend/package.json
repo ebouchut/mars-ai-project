@@ -37,7 +37,7 @@
     "i18next-http-middleware": "^3.9.2",
     "joi": "^18.0.2",
     "jsonwebtoken": "^9.0.3",
-    "nodemailer": "^8.0.1"
+    "nodemailer": "^8.0.4"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
